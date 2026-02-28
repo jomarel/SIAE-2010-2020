@@ -1,0 +1,14 @@
+# Carpetas de datos (no subir)
+data_raw/
+data_intermediate/
+outputs/
+
+# Archivos R temporales
+.Rhistory
+.RData
+.Rproj.user/
+*.rds
+
+# Sistema
+.DS_Store
+Thumbs.db
