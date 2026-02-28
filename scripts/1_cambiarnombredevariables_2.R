@@ -3,13 +3,16 @@ install.packages("tzdb")
 install.packages("bit64")
 install.packages("tidyverse")}
 
+# Cargar configuracion central
+config_path <- if (file.exists("00_config.R")) "00_config.R" else file.path("scripts", "00_config.R")
+source(config_path)
 
 # Instalar y cargar el paquete 'tidyverse'
 
 library(tidyverse)
 
 # Definir la ruta de la carpeta con los archivos
-folder <- "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/2015"
+folder <- file.path(RAW_DIR, "2015")
 
 
 #Al año 2015 hay que añadirle encabezados al archivo Formacion.txt:
@@ -17,7 +20,7 @@ folder <- "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/2015"
 encabezado <- c("año","NCODI","alergologia_total","analisis_total","anatomia_total","anestesiologia_total","angiologia_total","aparato_digestivo_total","bioquimica_total","cardiologia_total","Cirug_Cardiovascular_total","Cirug_General_total","Cirug_Maxilof_total","Cirug_Ortopedica_total","Cirug_Pediatrica_total","Cirug_Plastica_total","Cirug_Toracica_total","dermatologia_total","endocrinologia_total","farmacologia_total","geriatria_total","hematologia_total","inmunologia_total","med_Trabajo_total","med_Familiar_total","med_Fisica_total","med_Intensiva_total","med_Interna_total","med_Nuclear_total","med_Preventiva_total","microbiologia_total","nefrologia_total","neumologia_total","neurocirugia_total","neurofisiologia_total","neurologia_total","obstetricia_total","oftalmologia_total","onco_Medica_total","onco_Radioterapica_total","otorrino_total","pediatria_total","psiquiatria_total","radiodiagnostico_total","reumatologia_total","urologia_total","totalMir_total","alergologia_mujeres","analisis_mujeres","anatomia_mujeres","anestesiologia_mujeres","angiologia_mujeres","aparato_digestivo_mujeres","bioquimica_mujeres","cardiologia_mujeres","Cirug_Cardiovascular_mujeres","Cirug_General_mujeres","Cirug_Maxilof_mujeres","Cirug_Ortopedica_mujeres","Cirug_Pediatrica_mujeres","Cirug_Plastica_mujeres","Cirug_Toracica_mujeres","dermatologia_mujeres","endocrinologia_mujeres","farmacologia_mujeres","geriatria_mujeres","hematologia_mujeres","inmunologia_mujeres","med_Trabajo_mujeres","med_Familiar_mujeres","med_Fisica_mujeres","med_Intensiva_mujeres","med_Interna_mujeres","med_Nuclear_mujeres","med_Preventiva_mujeres","microbiologia_mujeres","nefrologia_mujeres","neumologia_mujeres","neurocirugia_mujeres","neurofisiologia_mujeres","neurologia_mujeres","obstetricia_mujeres","oftalmologia_mujeres","onco_Medica_mujeres","onco_Radioterapica_mujeres","otorrino_mujeres","pediatria_mujeres","psiquiatria_mujeres","radiodiagnostico_mujeres","reumatologia_mujeres","urologia_mujeres","totalMir_mujeres","Eir_Salud_total","Eir_MQ_total","Eir_Trabajo_total","Eir_Familiar_total","Eir_Geriatrica_total","Eir_matronas_total","Eir_Pediatrica_total","totalEir_total","Eir_Salud_mujeres","Eir_MQ_mujeres","Eir_Trabajo_mujeres","Eir_Familiar_mujeres","Eir_Geriatrica_mujeres","Eir_matronas_mujeres","Eir_Pediatrica_mujeres","totalEir_mujeres","Otros_Internos_total","Otro_Postgrado_total","Otros_IInternos_mujeres","Otro_Postgrado_mujeres")
 
 # Definir la ruta del archivo
-file <- "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/2015/07_Formacion.txt"
+file <- file.path(RAW_DIR, "2015", "07_Formacion.txt")
 
 # Leer el archivo
 df <- read_delim(file, delim = ";", locale=locale(decimal_mark = ","))
@@ -25,8 +28,8 @@ df <- read_delim(file, delim = ";", locale=locale(decimal_mark = ","))
 write.table(df, file, row.names = FALSE, col.names = encabezado, sep = ";")
 
 
-# Obtener una lista de todas las carpetas en "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020"
-folders <- list.dirs("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020")
+# Obtener una lista de todas las carpetas en la ruta de datos en bruto
+folders <- list.dirs(RAW_DIR)
 
 # Iterar sobre cada carpeta
 for (folder in folders) {
@@ -88,7 +91,7 @@ for (folder in folders) {
 
 
   # Definir la ruta del archivo
-file <- "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/2019/11_Actividadobstetrica.txt"
+file <- file.path(RAW_DIR, "2019", "11_Actividadobstetrica.txt")
 
 # Leer el archivo
 df <- read_delim(file, delim = ";")
