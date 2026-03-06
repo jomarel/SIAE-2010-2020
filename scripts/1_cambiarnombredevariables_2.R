@@ -1,15 +1,25 @@
-{install.packages("fs")
-install.packages("tzdb")
-install.packages("bit64")
-install.packages("tidyverse")}
-
-# Cargar configuracion central
-config_path <- if (file.exists("00_config.R")) "00_config.R" else file.path("scripts", "00_config.R")
+# Ruta al config siempre relativa a ESTE script
+config_path <- file.path(dirname(rstudioapi::getActiveDocumentContext()$path), "00_config.R")
 source(config_path)
+required_pkgs <- c("tidyverse", "fs", "tzdb", "bit64")
 
-# Instalar y cargar el paquete 'tidyverse'
+missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
+
+if (length(missing_pkgs) > 0) {
+  stop(
+    "Faltan paquetes: ",
+    paste(missing_pkgs, collapse = ", "),
+    "\nInstálalos manualmente con install.packages()."
+  )
+}
 
 library(tidyverse)
+library(fs)
+library(tzdb)
+library(bit64)
+
+
+
 
 # Definir la ruta de la carpeta con los archivos
 folder <- file.path(RAW_DIR, "2015")
@@ -41,7 +51,7 @@ for (folder in folders) {
   for (file in files) {
     
     df <- read_delim(file, delim = ";", locale=locale(decimal_mark = ","))
-    df %>% mutate_if(is.character, ~iconv(., from = "UTF-8", to = "UTF-8"))
+    df <- df %>% mutate_if(is.character, ~iconv(., from = "UTF-8", to = "UTF-8"))
     # Cambiar el nombre de la variable "Año" por "anyo"
     names(df)[names(df) == "Anyo"] <- "anyo"
     # Cambiar el nombre de la variable "year" por "anyo"

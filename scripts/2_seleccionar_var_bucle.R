@@ -1,345 +1,84 @@
-#install.packages("vctrs")
-# Primero, necesitamos cargar el paquete dplyr
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
+
 library(dplyr)
 library(tidyr)
 
-# Definimos un vector con los años que queremos procesar
-years <- c(2010:2020)
+years <- 2010:2020
 
-# Creamos un bucle para iterar sobre cada año
 for (year in years) {
-  # Definimos la ruta de la carpeta del año actual
-  folder <- paste0("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\", year, "\\")
   
-  # Resto del código tal y como está
-  files <- list.files(path = folder, pattern = "*.txt", full.names = TRUE)
+  folder <- file.path(RAW_DIR, as.character(year))
+  stopifnot(dir.exists(folder))
+  
+  files <- list.files(path = folder, pattern = "\\.txt$", full.names = TRUE)
+  
   df_list <- list()
-  for (i in 1:length(files)) {
-  df_list[[i]] <- read.csv(files[i], sep = ";",colClasses = c("NCODI" = "numeric"), dec=",")
-  }
-  df <- df_list[[1]] 
-  for (i in 2:length(df_list)) {
-    df <- full_join(df, df_list[[i]] %>% select(-anyo), by = "NCODI")
-  }
-  #NCODI <- as.integer(NCODI)
-  #attach(df)
-#  patron=c("ccaa","finali","depend","camas","quirofano","acelerador",  "angiografo","hemodialisis" ,"TAC","RNM","PET", "bombas","densiometros","gamma","litotriptor","mamografo","spect","incubadoras","paritorios","salasHemo","salas_rx","puestos_HDia" )
-
-#df_year = df %>% select(año, NCODI, contains(patron), total_cMedicos, 
-
-#OJO !!!! AÑO 2021 ALGUNAS VARIABLES HAY QUE CAMBIARLES EL NOMBRE   EN FILIACION.TXT  ccaa, dependencia...
   
-df_year = df %>% select(anyo,
-                        NCODI,
-                        ccaa_codigo,
-                        ccaa,
-                        cod_finalidad_agrupada,
-                        Finalidad_agrupada,
-                        cod_depend_agrupada,
-                        Depend_agrupada,
-                        camas_instalada,
-                        incubadoras_instalada,
-                        paritorios_instalada,
-                        quirofanos_instalada,
-                        salasHemo_instalada,
-                        camas_funcionamiento,
-                        incubadoras_funcionamiento,
-                        paritorios_funcionamiento,
-                        quirofanos_funcionamiento,
-                        salasHemo_funcionamiento,
-                        salas_rx_Hospital,
-                        salas_rx_CEP,
-                        puesto_HDia_medico,
-                        puesto_HDia_psiquiatrico,
-                        puesto_HDia_geriatrico,
-                        integradasPuestos_HDia_CMA,
-                        propiasPuestos_HDia_CMA,
-                        propiasQuirofanos_HDia_CMA,
-                        acelerador_hospital,
-                        acelerador_CEP,
-                        acelerador_concertado,
-                        angiografo_hospital,
-                        angiografo_CEP,
-                        angiografo_concertado,
-                        bombas_hospital,
-                        bombas_CEP,
-                        bombas_concertado,
-                        densiometros_hospital,
-                        densiometros_CEP,
-                        densiometros_concertado,
-                        hemodialisis_hospital,
-                        hemodialisis_CEP,
-                        hemodialisis_concertado,
-                        TAC_hospital,
-                        TAC_CEP,
-                        TAC_concertado,
-                        PET_hospital,
-                        PET_CEP,
-                        PET_concertado,
-                        RNM_hospital,
-                        RNM_CEP,
-                        RNM_concertado,
-                        gammacamara_hospital,
-                        gammacamara_CEP,
-                        gammacamara_concertado,
-                        litotriptor_hospital,
-                        litotriptor_CEP,
-                        litotriptor_concertado,
-                        mamografos_hospital,
-                        mamografos_CEP,
-                        mamografos_concertado,
-                        spect_hospital,
-                        spect_concertado,
-                        total_cMedicos,
-                        farmaceuticos_cTotal,
-                        oTituSuperior_cTotal,
-                        total_pMedicos,
-                        farmaceuticos_pTotal,
-                        oTituSuperior_pTotal,
-                        total_colabMedicos,
-                        farmaceuticos_colabTotal,
-                        oTituSuperior_colabTotal,
-                        due_cTotal,
-                        matronas_cTotal,
-                        oDueEspeciali_cTotal,
-                        fisioterapeutas_cTotal,
-                        terapeutas_cTotal,
-                        logopedas_cTotal,
-                        oSaniMedio_cTotal,
-                        gMedioSani_cTotal,
-                        gSuperiorSani_cTotal,
-                        tecSani_cTotal,
-                        restSani_cTotal2,
-                        due_pTotal,
-                        matronas_pTotal,
-                        oDueEspeciali_pTotal,
-                        fisioterapeutas_pTotal,
-                        terapeutas_pTotal,
-                        logopedas_pTotal,
-                        oSaniMedio_pTotal,
-                        gMedioSani_pTotal,
-                        gSuperiorSani_pTotal,
-                        tecSani_pTotal,
-                        restSani_pTotal2,
-                        administrativos_cTotal,
-                        oNoSani_cTotal,
-                        administrativos_pTotal,
-                        oNoSani_pTotal,
-                        administrativos_colabTotal,
-                        oNoSani_colabTotal,
-                        totalMir_total,
-                        totalEir_total,
-                        camas_total,
-                        estancias_total,
-                        altFinal_total,
-                        altCuracion_total,
-                        altTraslaHosp_total,
-                        altExitus_total,
-                        altOtracausa_total,
-                        altTraslaInter_total,
-                        ingreProgr,
-                        ingreUrge,
-                        total_ingresosHops,
-                        totalProg_hosp,
-                        totalUrge_hosp,
-                        totalProg_cma,
-                        totalUrge_cma,
-                        totalProg_resto,
-                        totalUrge_resto,
-                        total_programada,
-                        total_urgente,
-                        partoVaginal,
-                        cesareas,
-                        rNacVivos,
-                        vivos_menor2500,
-                        exitusMaternal,
-                        pacienteTot_med,
-                        sesionTot_med,
-                        pacienteTot_hospDom,
-                        visitaTot_hospDom,
-                        primTotal_hosp,
-                        total_hosp,
-                        primTotal_CEP,
-                        total_CEP,
-                        Urg_altas,
-                        Urg_ingresos,
-                        Urg_traslados,
-                        Urg_exitus,
-                        Urg_total,
-                        estancias_medicina,
-						altFinal_med,
-						altCuracion_med,
-						estancias_cirugia,
-						altFinal_cirugia,
-						altCuracion_cirugia,
-						estancias_trauma          ,    
-						altFinal_trauma           ,
-						altCuracion_trauma        ,
-						estancias_gine            ,
-						altFinal_gine             ,
-						altCuracion_gine          ,
-						estancias_pediatria       ,
-						altFinal_pediatria        ,
-						altCuracion_pediatria     ,
-						estancias_neonatologia    ,
-						altFinal_neonatologia     ,
-						altCuracion_neonatologia  ,
-						estancias_restoPedia      ,
-						altFinal_restoPedia       ,
-						altCuracion_restoPedia    ,
-						estancias_mIntensiva      ,
-						aFinales_mIntensiva       ,
-						altCuracion_mIntensiva    ,
-						estancias_uci,
-						altFinal_uci,
-						altCuracion_uci,
-						estancias_uCoronarios,
-						altFinal_uCoronarios,
-						altCuracion_uCoronarios,
-						estancias_uNeonatales,
-						altFinal_uNeonatales,
-						altCuracion_uNeonatales,
-						estancias_uQuemados,
-						altFinal_uQuemados,
-						altCuracion_uQuemados,
-						biopsias_hosp,
-                        biopsias_CEP,
-                        necropsias_hosp,
-                        angio_hosp,
-                        angio_CEP,
-                        densiometrias_hosp,
-                        densiometrias_CEP,
-                        gamma_hosp,
-                        gamma_CEP,
-                        mamo_hosp,
-                        mamo_CEP,
-                        pet_hosp,
-                        pet_CEP,
-                        resonancia_hosp,
-                        resonancia_CEP,
-                        rx_hosp,
-                        rx_CEP,
-                        spect_hosp,
-                        tac_hosp,
-                        tac_CEP,
-                        altas_particular,
-                        estancias_particular,
-                        sesionHdia_particular,
-                        consulta_particular,
-                        cma_particular,
-                        urge_particular,
-                        hospDom_particular,
-                        altas_AsegPriv,
-                        estancias_AsegPriv,
-                        sesionHdia_AsegPriv,
-                        consulta_AsegPriv,
-                        cma_AsegPriv,
-                        urge_AsegPriv,
-                        hospDom_AsegPriv,
-                        altas_sns,
-                        estancias_sns,
-                        sesionHdia_sns,
-                        consulta_sns,
-                        cma_sns,
-                        urge_sns,
-                        hospDom_sns,
-                        altas_MutuaFun,
-                        estancias_MutuaFun,
-                        sesionHdia_MutuaFun,
-                        consulta_MutuaFun,
-                        cma_MutuaFun,
-                        urge_MutuaFun,
-                        hospDom_MutuaFun,
-                        altas_otrEntiPublica,
-                        estancias_otrEntiPublica,
-                        sesionHdia_otrEntiPublica,
-                        consulta_otrEntiPublica,
-                        cma_otrEntiPublica,
-                        urge_otrEntiPublica,
-                        hospDom_otrEntiPublica,
-                        altas_MATEPSS,
-                        estancias_MATEPSS,
-                        sesionHdia_MATEPSS,
-                        consulta_MATEPSS,
-                        cma_MATEPSS,
-                        urge_MATEPSS,
-                        hospDom_MATEPSS,
-                        altas_convIntern,
-                        estancias_conveInter,
-                        sesionHdia_conveInter,
-                        consulta_conveInter,
-                        cma_conveInter,
-                        urge_conveInter,
-                        hospDom_conveInter,
-                        altas_AccTrafic,
-                        estancias_AccTrafic,
-                        sesionHdia_AccTrafic,
-                        consulta_AccTrafic,
-                        cma_AccTrafic,
-                        urge_AccTrafic,
-                        hospDom_AccTrafic,
-                        otroRegimen,
-                        altas_otroRegim,
-                        estancias_otroRegim,
-                        sesionHdia_otroRegim,
-                        consulta_otroRegim,
-                        cma_otroRegim,
-                        urge_otroRegim,
-                        hospDom_otroRegim,
-                        total_altas,
-                        total_estancias,
-                        total_sesionHdia,
-                        total_consulta,
-                        total_cma,
-                        total_urgencias,
-                        total_hospDom,
-                        G_totalCompra,
-                        G_variaExistencias,
-                        G_servExteriores,
-                        G_gastoPersonal,
-                        G_dotaAmortizacion,
-                        G_perdidaDeterioro,
-                        G_restoGasto,
-                        G_totGastos,
-                        I_totIngresosPS,
-                        I_particular,
-                        I_AsegPriv,
-                        I_AsistSanitaria,
-                        I_AccTrafic,
-                        I_MATEPSS,
-                        I_SNS,
-                        I_FdirectaSS,
-                        I_FdirectaAPriv_MATEPSS,
-                        I_OyEntiPublica,
-                        I_bonificaciones,
-                        I_Otros_Ips,
-                        I_Total_Subvencion,
-                        I_restoIngresos,
-                        I_totIngresos,
-                        inver_iIntangible,
-                        inver_IMaterial,
-                        inver_IMterrenos,
-                        inver_IMresto,
-                        inver_Otras,
-                        inver_Total,  
-                        puesto_HDia_medico,
-                        puesto_HDia_psiquiatrico,
-                        puesto_HDia_geriatrico,
-                        integradasPuestos_HDia_CMA,
-                        camas_medicina,
-                        totHemodina_Paciente,
-                        totPaciente_radioInterv,
-                        totLitofrag_Paciente,
-                        totLitofrag_Sesion,
-                        totHemodial_Paciente,
-                        totHemodial_Sesion,
-                        totAceleLineal_Paciente,
-                        totAceleLineal_Sesion,
-                        totBomCobal_Paciente,
-                        totBomCobal_Sesion, 
-											)
-
-  # Cambiamos el nombre del archivo de salida para que incluya el año actual
-  write.table(df_year, paste0("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_", year, ".csv"), sep = ",", row.names = FALSE, col.names = TRUE)
+  for (f in files) {
+    
+    tmp <- read.csv(
+      f,
+      sep = ";",
+      dec = ",",
+      stringsAsFactors = FALSE,
+      check.names = FALSE
+    )
+    
+    # Quita espacios en nombres (p. ej. "NCODI " -> "NCODI")
+    names(tmp) <- trimws(names(tmp))
+    
+    # Si NCODI no existe, intenta localizar variantes (caso/espacios)
+    if (!("NCODI" %in% names(tmp))) {
+      cand <- grep("^NCODI$", names(tmp), ignore.case = TRUE, value = TRUE)
+      if (length(cand) == 1) names(tmp)[names(tmp) == cand] <- "NCODI"
+    }
+    
+    # Si sigue sin NCODI, saltamos este fichero (si no, romperá el join)
+    if (!("NCODI" %in% names(tmp))) {
+      warning(sprintf("Archivo sin NCODI (se omite): %s", basename(f)))
+      if (!("NCODI" %in% names(tmp))) {
+        message("Columnas en ", basename(f), ": ", paste(names(tmp), collapse = ", "))
+        warning(sprintf("Archivo sin NCODI (se omite): %s", basename(f)))
+        next
+      }
+        next
+    }
+    
+    # Fuerza NCODI a character para evitar problemas de formatos/ceros
+    tmp$NCODI <- as.character(tmp$NCODI)
+    
+    # Asegura anyo
+    if (!("anyo" %in% names(tmp))) tmp$anyo <- year
+    
+    df_list[[length(df_list) + 1]] <- tmp
+  }
+  
+  stopifnot(length(df_list) > 0)
+  
+  df <- df_list[[1]]
+  if (!("anyo" %in% names(df))) df$anyo <- year
+  
+  if (length(df_list) > 1) {
+    for (i in 2:length(df_list)) {
+      df <- full_join(df, df_list[[i]] %>% select(-anyo), by = "NCODI")
+    }
+  }
+  
+  # Si por lo que sea anyo no existe aún:
+  if (!("anyo" %in% names(df))) df$anyo <- year
+  
+  df_year <- df %>% select(anyo, NCODI, everything())
+  
+  # OJO: aquí tu select gigante de variables irá después,
+  # pero primero conviene comprobar que existen.
+  # df_year <- df %>% select( ... tu lista ... )
+  
+  write.table(
+    df_year,
+    paste0("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_", year, ".csv"),
+    sep = ",",
+    row.names = FALSE,
+    col.names = TRUE
+  )
 }
-  

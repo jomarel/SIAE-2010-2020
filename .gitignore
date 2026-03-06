@@ -1,14 +1,18 @@
-# Carpetas de datos (no subir)
+# Datos
 data_raw/
 data_intermediate/
 outputs/
 
-# Archivos R temporales
-.Rhistory
-.RData
-.Rproj.user/
+# Archivos grandes
+*.csv
+*.RData
 *.rds
+*.parquet
 
 # Sistema
 .DS_Store
 Thumbs.db
+
+.Rhistory
+.RData
+.Rproj.user
