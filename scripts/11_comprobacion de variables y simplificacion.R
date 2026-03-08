@@ -1,6 +1,8 @@
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
 library(dplyr)
 # Cargar el archivo .RData
-load("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_completo_actualizado.RData")
+load(DF_COMPLETO_ACTUALIZADO_RDATA_PATH)
 #writeLines(names(df_completo_actualizado), "nombres_variables_302.txt")
 
 
@@ -57,13 +59,15 @@ df_depurado <- df_completo_actualizado %>%
          -spect_hosp,
          -tac_hosp, -tac_CEP)
 
-save(df_depurado,file="h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_depurado.RData")
+save(df_depurado,file=DF_DEPURADO_RDATA_PATH)
 
 # Mostrar solo las columnas NCODI, Depend_agrupada, anyo, I_AsegPriv, I_SNS, I_FdirectaSS, I_FdirectaAPriv_MATEPSS
 
 # # Mostrar solo las columnas que comienzan con "I" mayúscula junto con NCODI, Depend_agrupada, y anyo
 # View(df_completo_actualizado %>% select(NCODI, Depend_agrupada, anyo, starts_with("I", ignore.case = FALSE)))
 
-write.table(df_completo_actualizado, "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_depurado.txt", sep = ";", row.names = FALSE)
+write.table(df_completo_actualizado, DF_DEPURADO_TXT_PATH, sep = ";", row.names = FALSE)
+
+
 
 

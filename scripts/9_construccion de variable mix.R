@@ -1,3 +1,5 @@
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
 # Cargar las librerías necesarias
 library(dplyr)
 library(caret)
@@ -7,8 +9,8 @@ library(randomForest)
 install.packages("editData")
 library("editData")
 # Leer las bases de datos
-df_final <- read.table("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_final.txt", sep = ";", dec = ",", header = TRUE)
-pesos <- read.table("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\pesos.txt", sep = ";", dec = ",", header = TRUE)
+df_final <- read.table(DF_FINAL_TXT_PATH, sep = ";", dec = ",", header = TRUE)
+pesos <- read.table(PESOS_TXT_PATH, sep = ";", dec = ",", header = TRUE)
 
 # Realizar el merge para unir los pesos a la base 'df_final'
 df <- left_join(df_final, pesos, by = c("NCODI", "anyo"))
@@ -189,9 +191,11 @@ ggplot(df_evaluacion, aes(x = mean_values, y = residuals)) +
   theme_minimal()
 
 # Guardar el dataframe actualizado en un archivo RData
-save(df_completo, file = "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_completo.RData")
+save(df_completo, file = DF_COMPLETO_RDATA_PATH)
 
 
 # Guardar el dataframe con la variable 'mix'
-write.table(df_completo, "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_final_con_mix.txt", sep = ";", row.names = FALSE)
+write.table(df_completo, DF_FINAL_CON_MIX_TXT_PATH, sep = ";", row.names = FALSE)
+
+
 

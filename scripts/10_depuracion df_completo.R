@@ -1,3 +1,5 @@
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
 if (!require(devtools)) install.packages("devtools")
 devtools::install_github("boxuancui/DataExplorer")
 library(dplyr)
@@ -12,7 +14,7 @@ library(dplyr)
 # 2. Cargar los datos
 
 # Cargar el archivo actualizado
-load("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_completo.RData")
+load(DF_COMPLETO_RDATA_PATH)
 
 
 # 3. Corregir Depend_agrupada
@@ -56,10 +58,10 @@ dim(df_completo_actualizado)
 
 
 # Guardar el dataframe 'df_completo' actualizado en un archivo RData
-save(df_completo_actualizado, file = "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_completo_actualizado.RData")
+save(df_completo_actualizado, file = DF_COMPLETO_ACTUALIZADO_RDATA_PATH)
 
 # Cargar el archivo .RData
-load("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_completo_actualizado.RData")
+load(DF_COMPLETO_ACTUALIZADO_RDATA_PATH)
 
 
 # Read the file with tab-separated values
@@ -97,7 +99,9 @@ head(var_label(df_etiquetado))
 df_completo_actualizado <- df_etiquetado
 
 
-save(df_completo_actualizado,file="h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_completo_actualizado.RData")
+save(df_completo_actualizado,file=DF_COMPLETO_ACTUALIZADO_RDATA_PATH)
 
 # Guardar el dataframe con la variable 'mix'
-write.table(df_completo_actualizado, file="h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_completo_actualizado.txt", sep = "\t", row.names = FALSE)
+write.table(df_completo_actualizado, file=DF_COMPLETO_ACTUALIZADO_TXT_PATH, sep = "\t", row.names = FALSE)
+
+

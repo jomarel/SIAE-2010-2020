@@ -1,9 +1,11 @@
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
 # Instalar y cargar dplyr si no está instalado
 if (!require(dplyr)) install.packages("dplyr")
 library(dplyr)
 
 # Cargar el archivo RData
-load("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_depurado.RData")
+load(DF_DEPURADO_RDATA_PATH)
 
 # Convertir los datos a un dataframe si no lo es
 df <- as.data.frame(df_depurado)
@@ -140,7 +142,7 @@ cat("Número de filas:", nrow(df_seleccion), "\n")
 cat("Número de columnas:", ncol(df_seleccion), "\n")
 
 # Guardar el dataframe con las variables seleccionadas  en un archivo CSV
-write.csv(df_seleccion, "h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_seleccion.csv", row.names = FALSE)
+write.csv(df_seleccion, DF_SELECCION_CSV_PATH, row.names = FALSE)
 
 # # Mostrar una vista previa del nuevo dataframe
 # head(df_seleccion)
@@ -510,7 +512,7 @@ for (i in seq_along(variable_labels)) {
 
 
 
-save(df_seleccion,file="h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_seleccion.RData")
+save(df_seleccion,file=DF_SELECCION_RDATA_PATH)
 
 # Guardar el dataframe con las variables seleccionadas  en un archivo CSV
 write.csv(df_seleccion, "df_seleccion.csv", row.names = FALSE)
@@ -527,6 +529,8 @@ write.table(data.frame(Variable = names(labels), Etiqueta = labels),
  # cat("Archivo creado exitosamente en:", file_path, "\n")
 
 cat("Archivo creado exitosamente en:", normalizePath(file_path), "\n")
+
+
 
 
 

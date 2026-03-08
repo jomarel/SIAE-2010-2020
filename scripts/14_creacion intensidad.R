@@ -1,8 +1,10 @@
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
 # Set your working directory to the folder containing df_seleccion.RData
-setwd("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/")
+setwd(LEGACY_BASE_DIR)
 
 # Load the data
-load("df_seleccion.RData")
+load(DF_SELECCION_RDATA_PATH)
 dim(df_seleccion)
 library(dplyr)
 # Summary by region and year
@@ -50,6 +52,8 @@ df_seleccion <- df_seleccion %>%
 names(df_seleccion)
 summary(df_seleccion$intensidad_numerador)
 summary(df_seleccion$intensidad)
+
+
 
 
 

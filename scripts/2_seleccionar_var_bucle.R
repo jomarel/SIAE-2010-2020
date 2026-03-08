@@ -76,9 +76,10 @@ for (year in years) {
   
   write.table(
     df_year,
-    paste0("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_", year, ".csv"),
+    file.path(LEGACY_BASE_DIR, paste0("df_", year, ".csv")),
     sep = ",",
     row.names = FALSE,
     col.names = TRUE
   )
 }
+
