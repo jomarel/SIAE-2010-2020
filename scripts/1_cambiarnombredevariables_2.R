@@ -1,5 +1,5 @@
 # Ruta al config siempre relativa a ESTE script
-config_path <- file.path(dirname(rstudioapi::getActiveDocumentContext()$path), "00_config.R")
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
 source(config_path)
 required_pkgs <- c("tidyverse", "fs", "tzdb", "bit64")
 
@@ -113,3 +113,5 @@ df <- df %>% mutate(año = 2019) %>% select(-2)
 
 # Guardar el archivo con la columna añadida y manteniendo las comillas en los nombres de variables
 write_delim(df, file, delim = ";", quote = "all")
+
+
