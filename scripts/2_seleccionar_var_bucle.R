@@ -3,20 +3,29 @@ source(config_path)
 
 library(dplyr)
 library(tidyr)
+library(fs)
 
-years <- 2010:2020
+STD_RAW_DIR <- file.path(INT_DIR, "standardized_raw")
+
+year_dirs <- fs::dir_ls(STD_RAW_DIR, type = "directory", recurse = FALSE)
+years <- year_dirs %>%
+  fs::path_file() %>%
+  stringr::str_extract("^\\d{4}$") %>%
+  stats::na.omit() %>%
+  sort() %>%
+  as.integer()
+
+stopifnot(length(years) > 0)
 
 for (year in years) {
-  
-  folder <- file.path(RAW_DIR, as.character(year))
+  folder <- file.path(STD_RAW_DIR, as.character(year))
   stopifnot(dir.exists(folder))
-  
+
   files <- list.files(path = folder, pattern = "\\.txt$", full.names = TRUE)
-  
+
   df_list <- list()
-  
+
   for (f in files) {
-    
     tmp <- read.csv(
       f,
       sep = ";",
@@ -24,56 +33,51 @@ for (year in years) {
       stringsAsFactors = FALSE,
       check.names = FALSE
     )
-    
-    # Quita espacios en nombres (p. ej. "NCODI " -> "NCODI")
+
     names(tmp) <- trimws(names(tmp))
-    
-    # Si NCODI no existe, intenta localizar variantes (caso/espacios)
+
+    # Refuerzo de estandarizaciÛn del aÒo
+    names(tmp)[names(tmp) == "AÒo"] <- "anyo"
+    names(tmp)[names(tmp) == "aÒo"] <- "anyo"
+    names(tmp)[names(tmp) == "Anyo"] <- "anyo"
+    names(tmp)[names(tmp) == "A√±o"] <- "anyo"
+    names(tmp)[names(tmp) == "year"] <- "anyo"
+
     if (!("NCODI" %in% names(tmp))) {
       cand <- grep("^NCODI$", names(tmp), ignore.case = TRUE, value = TRUE)
       if (length(cand) == 1) names(tmp)[names(tmp) == cand] <- "NCODI"
     }
-    
-    # Si sigue sin NCODI, saltamos este fichero (si no, romper√° el join)
+
     if (!("NCODI" %in% names(tmp))) {
       warning(sprintf("Archivo sin NCODI (se omite): %s", basename(f)))
-      if (!("NCODI" %in% names(tmp))) {
-        message("Columnas en ", basename(f), ": ", paste(names(tmp), collapse = ", "))
-        warning(sprintf("Archivo sin NCODI (se omite): %s", basename(f)))
-        next
-      }
-        next
+      message("Columnas en ", basename(f), ": ", paste(names(tmp), collapse = ", "))
+      next
     }
-    
-    # Fuerza NCODI a character para evitar problemas de formatos/ceros
+
     tmp$NCODI <- as.character(tmp$NCODI)
-    
-    # Asegura anyo
+
     if (!("anyo" %in% names(tmp))) tmp$anyo <- year
-    
+
     df_list[[length(df_list) + 1]] <- tmp
   }
-  
+
   stopifnot(length(df_list) > 0)
-  
+
   df <- df_list[[1]]
   if (!("anyo" %in% names(df))) df$anyo <- year
-  
+
   if (length(df_list) > 1) {
     for (i in 2:length(df_list)) {
-      df <- full_join(df, df_list[[i]] %>% select(-anyo), by = "NCODI")
+      drop_cols <- intersect(c("anyo", "aÒo", "AÒo", "year"), names(df_list[[i]]))
+      rhs <- if (length(drop_cols) > 0) dplyr::select(df_list[[i]], -all_of(drop_cols)) else df_list[[i]]
+      df <- full_join(df, rhs, by = "NCODI")
     }
   }
-  
-  # Si por lo que sea anyo no existe a√∫n:
+
   if (!("anyo" %in% names(df))) df$anyo <- year
-  
+
   df_year <- df %>% select(anyo, NCODI, everything())
-  
-  # OJO: aqu√≠ tu select gigante de variables ir√° despu√©s,
-  # pero primero conviene comprobar que existen.
-  # df_year <- df %>% select( ... tu lista ... )
-  
+
   write.table(
     df_year,
     file.path(LEGACY_BASE_DIR, paste0("df_", year, ".csv")),
@@ -82,4 +86,3 @@ for (year in years) {
     col.names = TRUE
   )
 }
-
