@@ -1,5 +1,3 @@
-# Propuestas de mejora del pipeline SIAE (2010–2020)
-
 Este documento propone mejoras prácticas sobre el pipeline actual (scripts 1–14), priorizadas por impacto y esfuerzo.
 
 ## Diagnóstico rápido

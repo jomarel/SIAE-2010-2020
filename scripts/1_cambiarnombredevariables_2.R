@@ -26,14 +26,18 @@ extract_module_id <- function(path) {
 }
 
 clean_header_tokens <- function(x) {
-  x %>% stringr::str_replace_all('"', "") %>% trimws()
+  x %>%
+    stringr::str_replace_all('"', "") %>%
+    trimws()
 }
 
 infer_formacion_header <- function() {
   candidate_years <- c("2014", "2013", "2012", "2011", "2010")
+
   for (yy in candidate_years) {
     folder <- file.path(RAW_DIR, yy)
     if (!dir_exists(folder)) next
+
     files <- dir_ls(folder, regexp = "(?i)\\.(txt)$", recurse = FALSE)
     if (length(files) == 0) next
 
@@ -41,11 +45,14 @@ infer_formacion_header <- function() {
       module_id <- extract_module_id(f)
       if (is.na(module_id) || module_id != 7) next
 
-      line1 <- tryCatch(readLines(f, n = 1, warn = FALSE, encoding = "UTF-8"), error = function(e) "")
+      line1 <- tryCatch(
+        readLines(f, n = 1, warn = FALSE, encoding = "UTF-8"),
+        error = function(e) ""
+      )
       if (length(line1) == 0 || !nzchar(line1)) next
 
-      # Heurística: cabecera contiene letras y separador ';'
-      if (grepl(";", line1, fixed = TRUE) && grepl("[A-Za-zÁÉÍÓÚáéíóúÑñ_]", line1)) {
+      if (grepl(";", line1, fixed = TRUE) &&
+          grepl("[A-Za-zÁÉÍÓÚáéíóúÑñ_]", line1)) {
         header <- clean_header_tokens(strsplit(line1, ";", fixed = TRUE)[[1]])
         return(header)
       }
@@ -59,7 +66,10 @@ FORMACION_HEADER <- infer_formacion_header()
 
 read_txt_file <- function(path, year) {
   module_id <- extract_module_id(path)
-  line1 <- tryCatch(readLines(path, n = 1, warn = FALSE, encoding = "UTF-8"), error = function(e) "")
+  line1 <- tryCatch(
+    readLines(path, n = 1, warn = FALSE, encoding = "UTF-8"),
+    error = function(e) ""
+  )
 
   has_header <- (length(line1) > 0) &&
     nzchar(line1) &&
@@ -94,7 +104,10 @@ read_txt_file <- function(path, year) {
 }
 
 read_xml_file <- function(path) {
-  lines <- tryCatch(readLines(path, warn = FALSE, encoding = "UTF-8"), error = function(e) character(0))
+  lines <- tryCatch(
+    readLines(path, warn = FALSE, encoding = "UTF-8"),
+    error = function(e) character(0)
+  )
   if (length(lines) == 0) stop("No se pudo leer XML: ", path)
 
   # Detectar tag de registro (primera etiqueta bajo dataroot)
@@ -111,7 +124,10 @@ read_xml_file <- function(path) {
       }
     }
   }
-  if (is.na(record_tag)) stop("No se encontró nodo de registro en XML: ", path)
+
+  if (is.na(record_tag)) {
+    stop("No se encontró nodo de registro en XML: ", path)
+  }
 
   rows <- list()
   current <- list()
@@ -144,13 +160,16 @@ read_xml_file <- function(path) {
     }
   }
 
-  if (length(rows) == 0) stop("No se pudieron extraer registros del XML: ", path)
+  if (length(rows) == 0) {
+    stop("No se pudieron extraer registros del XML: ", path)
+  }
 
   dplyr::bind_rows(lapply(rows, tibble::as_tibble))
 }
 
 standardize_names <- function(df) {
   names(df) <- trimws(names(df))
+
   names(df)[names(df) == "Año"] <- "anyo"
   names(df)[names(df) == "año"] <- "anyo"
   names(df)[names(df) == "Anyo"] <- "anyo"
@@ -202,7 +221,11 @@ standardize_names <- function(df) {
 }
 
 year_dirs <- dir_ls(RAW_DIR, type = "directory", recurse = FALSE)
-years <- year_dirs %>% path_file() %>% stringr::str_extract("^\\d{4}$") %>% stats::na.omit() %>% sort()
+years <- year_dirs %>%
+  path_file() %>%
+  stringr::str_extract("^\\d{4}$") %>%
+  stats::na.omit() %>%
+  sort()
 
 for (yy in years) {
   year_num <- as.integer(yy)
@@ -222,7 +245,9 @@ for (yy in years) {
       read_xml_file(f)
     }
 
-    df <- df %>% mutate(across(where(is.character), ~ iconv(., from = "", to = "UTF-8")))
+    df <- df %>%
+      mutate(across(where(is.character), ~ iconv(., from = "", to = "UTF-8")))
+
     df <- standardize_names(df)
 
     # Si falta anyo (caso conocido: obstétrica XML 2018/2019), usar año de carpeta
