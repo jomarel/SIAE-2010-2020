@@ -92,6 +92,11 @@ Este README resume los scripts `1` a `14` en la carpeta `R con Chatbot`. Indica 
 - Interdependencias: ejecutar los scripts en orden 1→14 es lo esperado; varios pasos sobrescriben archivos origen (por ejemplo el paso 1 reescribe `.txt`) — hacer copias de seguridad si se va a re‑ejecutar.
 - Reproducibilidad: convertir el flujo a un driver central (`run_pipeline.R`) que documente entradas/outputs y guarde snapshots intermedios facilitará pruebas y depuración.
 
+
+## Propuestas de mejora
+
+- Ver `docs/propuestas_mejora_pipeline.md` para un plan priorizado de mejoras (reproducibilidad, rutas, orquestación, validaciones, pruebas y logging).
+
 ## ¿Siguiente paso?
 Si quieres, puedo:
 
