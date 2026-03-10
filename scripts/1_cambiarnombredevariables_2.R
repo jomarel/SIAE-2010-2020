@@ -221,7 +221,11 @@ read_xml_file <- function(path) {
   }
 
   if (is.na(record_tag)) {
+<<<<<<< HEAD
     stop("No se encontrÃ³ nodo de registro en XML: ", path)
+=======
+    stop("No se encontró nodo de registro en XML: ", path)
+>>>>>>> 60e315c (Resuelve conflicto en 1_cambiarnombredevariables_2)
   }
 
   rows <- list()
