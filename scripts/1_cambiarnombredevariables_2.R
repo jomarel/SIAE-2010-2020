@@ -7,7 +7,7 @@ if (length(missing_pkgs) > 0) {
   stop(
     "Faltan paquetes: ",
     paste(missing_pkgs, collapse = ", "),
-    "\nInstálalos manualmente con install.packages()."
+    "\nInstÃ¡lalos manualmente con install.packages()."
   )
 }
 
@@ -25,10 +25,42 @@ extract_module_id <- function(path) {
   ifelse(is.na(m[, 3]), NA_integer_, as.integer(m[, 3]))
 }
 
+safe_to_utf8 <- function(x, from = "") {
+  y <- tryCatch(
+    iconv(x, from = from, to = "UTF-8", sub = "byte"),
+    error = function(e) rep(NA_character_, length(x))
+  )
+  y[is.na(y)] <- ""
+  y
+}
+
 clean_header_tokens <- function(x) {
-  x %>%
-    stringr::str_replace_all('"', "") %>%
-    trimws()
+  x <- safe_to_utf8(x, from = "")
+  x <- gsub('"', "", x, fixed = TRUE, useBytes = TRUE)
+  trimws(x)
+}
+
+normalize_header_tokens <- function(x) {
+  x <- clean_header_tokens(x)
+  x <- iconv(x, from = "UTF-8", to = "ASCII//TRANSLIT", sub = "byte")
+  x[is.na(x)] <- ""
+  tolower(trimws(x))
+}
+
+is_header_line_txt <- function(line) {
+  if (length(line) == 0 || nchar(line[[1]], type = "bytes") == 0) return(FALSE)
+
+  line_safe <- safe_to_utf8(line[[1]], from = "")
+  if (is.na(line_safe) || nchar(line_safe, type = "bytes") == 0) return(FALSE)
+
+  fields <- strsplit(line_safe, ";", fixed = TRUE, useBytes = TRUE)[[1]]
+  if (length(fields) <= 1) return(FALSE)
+
+  fields_norm <- normalize_header_tokens(fields)
+  marker_hit <- any(fields_norm %in% c("ncodi", "anyo", "ano"))
+  var_like_count <- sum(grepl("^[a-z_][a-z0-9_]*$", fields_norm))
+
+  marker_hit || var_like_count >= 2
 }
 
 infer_formacion_header <- function() {
@@ -45,43 +77,106 @@ infer_formacion_header <- function() {
       module_id <- extract_module_id(f)
       if (is.na(module_id) || module_id != 7) next
 
-      line1 <- tryCatch(
-        readLines(f, n = 1, warn = FALSE, encoding = "UTF-8"),
-        error = function(e) ""
-      )
-      if (length(line1) == 0 || !nzchar(line1)) next
+      line1 <- read_lines_with_fallback(f, n = 1)
+      if (!is_header_line_txt(line1)) next
 
-      if (grepl(";", line1, fixed = TRUE) &&
-          grepl("[A-Za-zÁÉÍÓÚáéíóúÑñ_]", line1)) {
-        header <- clean_header_tokens(strsplit(line1, ";", fixed = TRUE)[[1]])
-        return(header)
-      }
+      header <- clean_header_tokens(strsplit(line1[[1]], ";", fixed = TRUE, useBytes = TRUE)[[1]])
+      return(header)
     }
   }
 
-  stop("No se pudo inferir de forma segura la cabecera para Formación (módulo 07).")
+  stop("No se pudo inferir de forma segura la cabecera para FormaciÃƒÂ³n (mÃƒÂ³dulo 07).")
 }
 
-FORMACION_HEADER <- infer_formacion_header()
+read_lines_with_fallback <- function(path, n = 1) {
+  encodings <- c("UTF-8", "latin1", "windows-1252")
+
+  for (enc in encodings) {
+    lines_raw <- tryCatch(
+      readLines(path, n = n, warn = FALSE, encoding = enc),
+      error = function(e) character(0)
+    )
+
+    if (length(lines_raw) == 0) next
+
+    lines <- safe_to_utf8(lines_raw, from = enc)
+    if (any(nchar(lines, type = "bytes") > 0)) {
+      return(lines)
+    }
+  }
+
+  character(0)
+}
+
+load_formacion_header_2015 <- function(path, year) {
+  prev_year <- as.integer(year) - 1L
+  prev_dir <- file.path(RAW_DIR, as.character(prev_year))
+  if (!dir_exists(prev_dir)) {
+    stop("No existe carpeta del anio previo para Formacion 2015: ", prev_dir)
+  }
+
+  prev_files <- dir_ls(prev_dir, regexp = "(?i)\\.(txt)$", recurse = FALSE)
+  module_ids <- extract_module_id(prev_files)
+  prev_files <- sort(prev_files[!is.na(module_ids) & module_ids == 7L])
+  if (length(prev_files) == 0) {
+    stop("No se encontro archivo modulo 07 en anio previo para Formacion 2015.")
+  }
+
+  source_file <- prev_files[[1]]
+  if (length(prev_files) > 1) {
+    formacion_hits <- prev_files[
+      stringr::str_detect(
+        stringr::str_to_lower(basename(prev_files)),
+        "formaci"
+      )
+    ]
+    if (length(formacion_hits) == 1) {
+      source_file <- formacion_hits[[1]]
+    } else {
+      stop("Hay varios candidatos modulo 07 en anio previo y no son univocos.")
+    }
+  }
+
+  prev_line <- read_lines_with_fallback(source_file, n = 1)
+  if (length(prev_line) == 0 || !nzchar(prev_line[[1]])) {
+    stop("No se pudo leer cabecera de Formacion en archivo previo: ", source_file)
+  }
+  header <- clean_header_tokens(strsplit(prev_line[[1]], ";", fixed = TRUE)[[1]])
+
+  current_line <- read_lines_with_fallback(path, n = 1)
+  if (length(current_line) == 0 || !nzchar(current_line[[1]])) {
+    stop("No se pudo leer primera fila de datos en Formacion 2015: ", path)
+  }
+  current_fields <- clean_header_tokens(strsplit(current_line[[1]], ";", fixed = TRUE)[[1]])
+
+  if (length(header) != 112L) {
+    stop("Cabecera de Formacion del anio previo no tiene 112 campos: ", length(header))
+  }
+  if (length(current_fields) != 112L) {
+    stop("Primera fila de Formacion 2015 no tiene 112 campos: ", length(current_fields))
+  }
+  if (length(header) != length(current_fields)) {
+    stop(
+      "No coincide numero de campos entre cabecera previa y Formacion 2015: ",
+      length(header), " vs ", length(current_fields)
+    )
+  }
+
+  list(header = header, source_file = source_file)
+}
 
 read_txt_file <- function(path, year) {
   module_id <- extract_module_id(path)
-  line1 <- tryCatch(
-    readLines(path, n = 1, warn = FALSE, encoding = "UTF-8"),
-    error = function(e) ""
-  )
+  line1 <- read_lines_with_fallback(path, n = 1)
 
-  has_header <- (length(line1) > 0) &&
-    nzchar(line1) &&
-    grepl("[A-Za-zÁÉÍÓÚáéíóúÑñ_]", line1) &&
-    grepl(";", line1, fixed = TRUE)
+  has_header <- is_header_line_txt(line1)
 
-  # Caso especial conocido: 2015 Formación sin cabecera
+  # Caso especial conocido: 2015 FormaciÃ³n sin cabecera
   if (!has_header && year == 2015 && !is.na(module_id) && module_id == 7) {
     df <- readr::read_delim(
       path,
       delim = ";",
-      col_names = FORMACION_HEADER,
+      col_names = load_formacion_header_2015(path, year)$header,
       locale = locale(decimal_mark = ","),
       show_col_types = FALSE,
       progress = FALSE
@@ -126,7 +221,7 @@ read_xml_file <- function(path) {
   }
 
   if (is.na(record_tag)) {
-    stop("No se encontró nodo de registro en XML: ", path)
+    stop("No se encontrÃ³ nodo de registro en XML: ", path)
   }
 
   rows <- list()
@@ -168,14 +263,12 @@ read_xml_file <- function(path) {
 }
 
 standardize_names <- function(df) {
-  names(df) <- trimws(names(df))
+  names(df) <- trimws(safe_to_utf8(names(df), from = ""))
 
-  names(df)[names(df) == "Año"] <- "anyo"
-  names(df)[names(df) == "año"] <- "anyo"
-  names(df)[names(df) == "Anyo"] <- "anyo"
-  names(df)[names(df) == "AÃ±o"] <- "anyo"
-  names(df)[names(df) == "aÃ±o"] <- "anyo"
-  names(df)[names(df) == "year"] <- "anyo"
+names_norm <- tolower(iconv(names(df), from = "UTF-8", to = "ASCII//TRANSLIT", sub = "byte"))
+names_norm[is.na(names_norm)] <- ""
+names(df)[names_norm %in% c("ano", "anyo")] <- "anyo"
+names(df)[tolower(names(df)) == "year"] <- "anyo"
 
   names(df)[names(df) == "camas_instaladas"] <- "camas_instalada"
   names(df)[names(df) == "camas instaladas"] <- "camas_instalada"
@@ -250,7 +343,7 @@ for (yy in years) {
 
     df <- standardize_names(df)
 
-    # Si falta anyo (caso conocido: obstétrica XML 2018/2019), usar año de carpeta
+    # Si falta anyo (caso conocido: obstÃ©trica XML 2018/2019), usar aÃ±o de carpeta
     if (!("anyo" %in% names(df))) {
       df$anyo <- year_num
     } else {
@@ -261,7 +354,7 @@ for (yy in years) {
       df$NCODI <- as.character(df$NCODI)
     }
 
-    out_name <- paste0(tools::file_path_sans_extension(basename(f)), ".txt")
+    out_name <- paste0(tools::file_path_sans_ext(safe_to_utf8(basename(f), from = "")), ".txt")
     out_path <- file.path(out_dir, out_name)
 
     write_delim(df, out_path, delim = ";", quote = "all")
