@@ -1,3 +1,4 @@
+<<<<<<< ours
 <<<<<<< HEAD
 =======
 <<<<<<< ours
@@ -164,6 +165,8 @@ Si quieres, en un siguiente paso te puedo proponer una versión inicial de `run_
 =======
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 # Propuestas de mejora del pipeline SIAE (2010–2020)
 
 Este documento resume una revisión técnica del pipeline actual (scripts `1` a `14`) y propone mejoras priorizadas para aumentar **reproducibilidad, mantenibilidad y calidad de datos**.
@@ -307,6 +310,9 @@ Observaciones detectadas al revisar la estructura del repositorio y los scripts 
 
 Como primer sprint, aplicar **P1 + P2**. Es la combinación con mejor relación impacto/esfuerzo y habilita el resto de mejoras con menor riesgo.
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
