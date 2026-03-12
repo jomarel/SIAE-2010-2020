@@ -101,6 +101,7 @@ read_lines_robust <- function(path) {
       readLines(path, warn = FALSE, encoding = enc),
       error = function(e) NULL
     )
+<<<<<<< ours
 
     if (!is.null(content) && length(content) > 0) {
       return(list(lines = content, encoding = enc))
@@ -110,6 +111,17 @@ read_lines_robust <- function(path) {
   stop(paste("No se pudo leer el archivo con codificaciones probadas:", path))
 }
 
+=======
+
+    if (!is.null(content) && length(content) > 0) {
+      return(list(lines = content, encoding = enc))
+    }
+  }
+
+  stop(paste("No se pudo leer el archivo con codificaciones probadas:", path))
+}
+
+>>>>>>> theirs
 count_fields <- function(line) {
   length(strsplit(line, ";", fixed = TRUE)[[1]])
 }
