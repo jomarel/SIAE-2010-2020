@@ -14,8 +14,8 @@ DOCS_DIR <- file.path(BASE_DIR, "docs")
 SCRIPTS_DIR <- file.path(BASE_DIR, "scripts")
 
 # Rutas de artefactos legacy del pipeline (se mantienen para no alterar comportamiento)
-LEGACY_BASE_DIR <- "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020"
-
+LEGACY_BASE_DIR <- file.path(BASE_DIR, "data_legacy_outputs")
+dir.create(LEGACY_BASE_DIR, recursive = TRUE, showWarnings = FALSE)
 PESOS_TXT_PATH <- file.path(LEGACY_BASE_DIR, "pesos.txt")
 DF_FINAL_RDATA_PATH <- file.path(LEGACY_BASE_DIR, "df_final.RData")
 DF_FINAL_TXT_PATH <- file.path(LEGACY_BASE_DIR, "df_final.txt")

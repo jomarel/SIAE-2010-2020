@@ -7,7 +7,7 @@ if (length(missing_pkgs) > 0) {
   stop(
     "Faltan paquetes: ",
     paste(missing_pkgs, collapse = ", "),
-    "\nInstÃ¡lalos manualmente con install.packages()."
+    "\nInstálalos manualmente con install.packages()."
   )
 }
 
@@ -47,6 +47,26 @@ normalize_header_tokens <- function(x) {
   tolower(trimws(x))
 }
 
+read_lines_with_fallback <- function(path, n = 1) {
+  encodings <- c("UTF-8", "latin1", "windows-1252")
+
+  for (enc in encodings) {
+    lines_raw <- tryCatch(
+      readLines(path, n = n, warn = FALSE, encoding = enc),
+      error = function(e) character(0)
+    )
+
+    if (length(lines_raw) == 0) next
+
+    lines <- safe_to_utf8(lines_raw, from = enc)
+    if (any(nchar(lines, type = "bytes") > 0)) {
+      return(lines)
+    }
+  }
+
+  character(0)
+}
+
 is_header_line_txt <- function(line) {
   if (length(line) == 0 || nchar(line[[1]], type = "bytes") == 0) return(FALSE)
 
@@ -77,200 +97,15 @@ infer_formacion_header <- function() {
       module_id <- extract_module_id(f)
       if (is.na(module_id) || module_id != 7) next
 
-<<<<<<< ours
       line1 <- read_lines_with_fallback(f, n = 1)
       if (!is_header_line_txt(line1)) next
 
       header <- clean_header_tokens(strsplit(line1[[1]], ";", fixed = TRUE, useBytes = TRUE)[[1]])
       return(header)
     }
-=======
-# Definir la ruta de la carpeta con los archivos
-folder <- file.path(RAW_DIR, "2015")
-
-
-# Al año 2015 hay que añadirle encabezados al archivo Formacion.txt.
-# Se toma el encabezado del mismo módulo en el año anterior (2014)
-# solo si el número de campos coincide exactamente.
-
-read_lines_robust <- function(path) {
-  encodings <- c("UTF-8", "latin1", "windows-1252")
-
-  for (enc in encodings) {
-    content <- tryCatch(
-      readLines(path, warn = FALSE, encoding = enc),
-      error = function(e) NULL
-    )
-<<<<<<< ours
-
-    if (!is.null(content) && length(content) > 0) {
-      return(list(lines = content, encoding = enc))
-    }
   }
 
-  stop(paste("No se pudo leer el archivo con codificaciones probadas:", path))
-}
-
-=======
-
-    if (!is.null(content) && length(content) > 0) {
-      return(list(lines = content, encoding = enc))
-    }
-  }
-
-  stop(paste("No se pudo leer el archivo con codificaciones probadas:", path))
-}
-
->>>>>>> theirs
-count_fields <- function(line) {
-  length(strsplit(line, ";", fixed = TRUE)[[1]])
-}
-
-first_non_empty_line <- function(lines) {
-  idx <- which(trimws(lines) != "")
-  if (length(idx) == 0) {
-    return(NA_character_)
-  }
-  lines[idx[1]]
-}
-
-resolve_first_existing <- function(paths) {
-  for (candidate in paths) {
-    if (file.exists(candidate)) {
-      return(candidate)
-    }
-  }
-  stop(paste("No se encontró ninguno de los archivos candidatos:", paste(paths, collapse = ", ")))
-}
-
-formacion_2015_file <- resolve_first_existing(c(
-  file.path(RAW_DIR, "2015", "07_Formacion.txt"),
-  file.path(RAW_DIR, "2015", "07- Formación.txt")
-))
-formacion_2014_file <- resolve_first_existing(c(
-  file.path(RAW_DIR, "2014", "07_Formacion.txt"),
-  file.path(RAW_DIR, "2014", "07- Formación.txt")
-))
-
-formacion_2015 <- read_lines_robust(formacion_2015_file)
-formacion_2014 <- read_lines_robust(formacion_2014_file)
-
-data_line_2015 <- first_non_empty_line(formacion_2015$lines)
-header_line_2014 <- first_non_empty_line(formacion_2014$lines)
-
-if (is.na(data_line_2015) || is.na(header_line_2014)) {
-  stop("No se encontraron líneas válidas para validar encabezado en Formación 2015/2014.")
-}
-
-field_count_2015 <- count_fields(data_line_2015)
-field_count_2014_header <- count_fields(header_line_2014)
-
-if (field_count_2015 != 112 || field_count_2014_header != 112 || field_count_2015 != field_count_2014_header) {
-  stop(
-    paste0(
-      "No coincide el número de campos esperado (112) en Formación. ",
-      "Formación 2015=", field_count_2015,
-      ", encabezado Formación 2014=", field_count_2014_header,
-      ". Se detiene para evitar inferencias incorrectas."
-    )
-  )
-}
-
-writeLines(
-  c(header_line_2014, formacion_2015$lines),
-  con = formacion_2015_file,
-  useBytes = TRUE
-)
-
-message(
-  "Encabezado 2015/07_Formacion inyectado desde archivo de Formación 2014. ",
-  "Campos 2015=", field_count_2015,
-  ", campos encabezado 2014=", field_count_2014_header,
-  ". Codificacion usada 2015=", formacion_2015$encoding,
-  ", 2014=", formacion_2014$encoding, "."
-)
-
-
-# Obtener una lista de todas las carpetas en la ruta de datos en bruto
-folders <- list.dirs(RAW_DIR)
-
-# Iterar sobre cada carpeta
-for (folder in folders) {
-  
-  # Leer todos los archivos de la carpeta
-  files <- list.files(path = folder, pattern = "*.txt", full.names = TRUE)
-  
-  # Iterar sobre cada archivo
-  for (file in files) {
-    
-    df <- read_delim(file, delim = ";", locale=locale(decimal_mark = ","))
-    df %>% mutate_if(is.character, ~iconv(., from = "UTF-8", to = "UTF-8"))
-    # Cambiar el nombre de la variable "Año" por "anyo"
-    names(df)[names(df) == "Anyo"] <- "anyo"
-    # Cambiar el nombre de la variable "year" por "anyo"
-    names(df)[names(df) == "year"] <- "anyo"
-    names(df)[names(df) == "camas_instaladas"] <- "camas_instalada"
-    names(df)[names(df) == "camas instaladas"] <- "camas_instalada"
-    names(df)[names(df) == "Camas_instaladas"] <- "camas_instalada"
-    names(df)[names(df) == "Camas instaladas"] <- "camas_instalada"
-    names(df)[names(df)=="Cod CCAA (Todas)"] <- "ccaa_codigo"
-    names(df)[names(df)=="ccaa_Codigo"] <- "ccaa_codigo"
-    names(df)[names(df)=="Desc CCAA (Todas)"] <- "ccaa"
-    names(df)[names(df)=="Cod Grupo Finalidad"] <- "cod_finalidad_agrupada"
-    names(df)[names(df)=="FINALIDAD agrupada para Anonimizacion"]<- "Finalidad_agrupada"
-    names(df)[names(df)=="Cod Pertenencia SNS"]<- "cod_depend_agrupada"
-    names(df)[names(df)=="Desc Pertenencia SNS"]<- "Depend_agrupada"
-    names(df)[names(df)=="60_totalCompra"]<- "G_totalCompra"
-    names(df)[names(df)=="61_variaExistencias"]<- "G_variaExistencias"
-    names(df)[names(df)=="62_servExteriores"]<- "G_servExteriores"
-    names(df)[names(df)=="64_gastoPersonal"]<- "G_gastoPersonal"
-    names(df)[names(df)=="68_dotaAmortizacion"]<- "G_dotaAmortizacion"
-    names(df)[names(df)=="69_perdidaDeterioro"]<- "G_perdidaDeterioro"
-    names(df)[names(df)=="6X_restoGasto"]<- "G_restoGasto"
-    names(df)[names(df)=="tot_compraGasto"]<- "G_totGastos"
-    names(df)[names(df)=="70_tIngresos"]<- "I_totIngresosPS"
-    names(df)[names(df)=="700_particular"]<- "I_particular"
-    names(df)[names(df)=="701_AsegPriv"]<- "I_AsegPriv"
-    names(df)[names(df)=="701_1_AsistSanitaria"]<- "I_AsistSanitaria"
-    names(df)[names(df)=="701_2_AccTrafic"]<- "I_AccTrafic"
-    names(df)[names(df)=="702_MATEPSS"]<- "I_MATEPSS"
-    names(df)[names(df)=="704_SNS"]<- "I_SNS"
-    names(df)[names(df)=="705_1_FdirectaSS"]<- "I_FdirectaSS"
-    names(df)[names(df)=="705_2_FdirectaAPriv_MATEPSS"]<- "I_FdirectaAPriv_MATEPSS"
-    names(df)[names(df)=="706_OyEntiPublica"]<- "I_OyEntiPublica"
-    names(df)[names(df)=="708_bonificaciones"]<- "I_bonificaciones"
-    names(df)[names(df)=="709_Otros_Ips"]<- "I_Otros_Ips"
-    names(df)[names(df)=="74_Total_Subvencion"]<- "I_Total_Subvencion"
-    names(df)[names(df)=="7X_restoIngresos"]<- "I_restoIngresos"
-    names(df)[names(df)=="total_ventasIngresos"]<- "I_totIngresos"
-    
-	
-    # Guardar el archivo con el nombre original
-    write_delim(df, file, delim = ";", quote = "all")
->>>>>>> theirs
-  }
-
-  stop("No se pudo inferir de forma segura la cabecera para FormaciÃƒÂ³n (mÃƒÂ³dulo 07).")
-}
-
-read_lines_with_fallback <- function(path, n = 1) {
-  encodings <- c("UTF-8", "latin1", "windows-1252")
-
-  for (enc in encodings) {
-    lines_raw <- tryCatch(
-      readLines(path, n = n, warn = FALSE, encoding = enc),
-      error = function(e) character(0)
-    )
-
-    if (length(lines_raw) == 0) next
-
-    lines <- safe_to_utf8(lines_raw, from = enc)
-    if (any(nchar(lines, type = "bytes") > 0)) {
-      return(lines)
-    }
-  }
-
-  character(0)
+  stop("No se pudo inferir de forma segura la cabecera para Formacion (modulo 07).")
 }
 
 load_formacion_header_2015 <- function(path, year) {
@@ -336,7 +171,6 @@ read_txt_file <- function(path, year) {
 
   has_header <- is_header_line_txt(line1)
 
-  # Caso especial conocido: 2015 FormaciÃ³n sin cabecera
   if (!has_header && year == 2015 && !is.na(module_id) && module_id == 7) {
     df <- readr::read_delim(
       path,
@@ -349,7 +183,6 @@ read_txt_file <- function(path, year) {
     return(df)
   }
 
-  # Si no hay cabecera y no es un caso conocido, aborta para evitar inferencias peligrosas
   if (!has_header) {
     stop("Archivo TXT sin cabecera no reconocido: ", path)
   }
@@ -370,7 +203,6 @@ read_xml_file <- function(path) {
   )
   if (length(lines) == 0) stop("No se pudo leer XML: ", path)
 
-  # Detectar tag de registro (primera etiqueta bajo dataroot)
   record_tag <- NA_character_
   for (ln in lines) {
     ln <- trimws(ln)
@@ -386,11 +218,7 @@ read_xml_file <- function(path) {
   }
 
   if (is.na(record_tag)) {
-<<<<<<< HEAD
-    stop("No se encontrÃ³ nodo de registro en XML: ", path)
-=======
     stop("No se encontró nodo de registro en XML: ", path)
->>>>>>> 60e315c (Resuelve conflicto en 1_cambiarnombredevariables_2)
   }
 
   rows <- list()
@@ -434,10 +262,10 @@ read_xml_file <- function(path) {
 standardize_names <- function(df) {
   names(df) <- trimws(safe_to_utf8(names(df), from = ""))
 
-names_norm <- tolower(iconv(names(df), from = "UTF-8", to = "ASCII//TRANSLIT", sub = "byte"))
-names_norm[is.na(names_norm)] <- ""
-names(df)[names_norm %in% c("ano", "anyo")] <- "anyo"
-names(df)[tolower(names(df)) == "year"] <- "anyo"
+  names_norm <- tolower(iconv(names(df), from = "UTF-8", to = "ASCII//TRANSLIT", sub = "byte"))
+  names_norm[is.na(names_norm)] <- ""
+  names(df)[names_norm %in% c("ano", "anyo")] <- "anyo"
+  names(df)[tolower(names(df)) == "year"] <- "anyo"
 
   names(df)[names(df) == "camas_instaladas"] <- "camas_instalada"
   names(df)[names(df) == "camas instaladas"] <- "camas_instalada"
@@ -512,7 +340,6 @@ for (yy in years) {
 
     df <- standardize_names(df)
 
-    # Si falta anyo (caso conocido: obstÃ©trica XML 2018/2019), usar aÃ±o de carpeta
     if (!("anyo" %in% names(df))) {
       df$anyo <- year_num
     } else {
