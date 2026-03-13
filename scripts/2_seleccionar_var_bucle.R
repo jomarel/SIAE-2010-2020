@@ -47,15 +47,10 @@ normalize_key_names <- function(df, year) {
     return(NULL)
   }
 
-  df$NCODI <- as.character(df$NCODI)
+  df$NCODI <- trimws(as.character(df$NCODI))
 
-  if (!("anyo" %in% names(df))) {
-    df$anyo <- year
-  } else {
-    df$anyo <- ifelse(is.na(df$anyo) | df$anyo == "", year, df$anyo)
-  }
-
-  df$anyo <- as.integer(df$anyo)
+  # El año fiable es siempre el de la carpeta
+  df$anyo <- as.integer(year)
 
   df
 }
@@ -87,10 +82,8 @@ for (year in years) {
       next
     }
 
-    # Quitar columnas duplicadas exactas dentro del propio archivo
     tmp <- tmp[, !duplicated(names(tmp)), drop = FALSE]
 
-    # Validar unicidad de clave
     if (any(duplicated(tmp[, c("NCODI", "anyo")]))) {
       warning(sprintf(
         "Hay duplicados de clave (NCODI, anyo) en %s. Se conserva la primera fila por clave.",
