@@ -1,0 +1,16 @@
+[33mcommit 9b19e844dc56273d4e11d604e74ef54b5892aef8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: jomarel <jomarel@gmail.com>
+Date:   Sat Mar 14 23:02:19 2026 +0100
+
+    Add script 4 limpieza nombres variables y outputs diagnóstico
+
+data_legacy_outputs/df_final_limpio.txt
+data_legacy_outputs/df_final_validado.txt
+
+[33mcommit 36823f3984c6a6656e7731e770bbdf52eff330cc[m
+Author: jomarel <jomarel@gmail.com>
+Date:   Fri Mar 13 22:03:09 2026 +0100
+
+    Pipeline SIAE: panel completo 2010-2023 sin duplicados
+
+data_legacy_outputs/df_final.txt
