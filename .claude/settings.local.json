@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.sanidad.gob.es)",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/jomar/AppData/Local/Programs/**)",
+      "Read(//c/Users/jomar/miniconda3/bin/**)",
+      "Read(//c/Users/jomar/anaconda3/**)",
+      "Read(//c/ProgramData/miniconda3/**)",
+      "Read(//c/Users/jomar/**)",
+      "Read(//c/ProgramData/**)"
+    ]
+  }
+}

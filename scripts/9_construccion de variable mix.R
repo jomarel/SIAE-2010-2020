@@ -1,201 +1,288 @@
+# ============================================================
+# 9_construccion de variable mix.R
+# Construye la variable proxy de case-mix (mix) mediante
+# un modelo Random Forest entrenado en hospitales con peso
+# GRD real, y lo imputa al resto.
+#
+# Input:  df_final  (DF_FINAL_RDATA_PATH)
+#         pesos     (PESOS_TXT_PATH)
+# Output: df_completo (DF_COMPLETO_RDATA_PATH)
+#         + DF_FINAL_CON_MIX_TXT_PATH
+# ============================================================
+
 config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
 source(config_path)
-# Cargar las librerías necesarias
+
+# ------------------------------------------------------------
+# Verificar paquetes
+# ------------------------------------------------------------
+required_pkgs <- c("dplyr", "caret", "glmnet", "randomForest", "ggplot2")
+missing_pkgs  <- required_pkgs[!vapply(required_pkgs, requireNamespace,
+                                       logical(1), quietly = TRUE)]
+if (length(missing_pkgs) > 0) {
+  stop(
+    "Faltan paquetes: ", paste(missing_pkgs, collapse = ", "),
+    "\nInstálalos con install.packages().",
+    call. = FALSE
+  )
+}
+
 library(dplyr)
 library(caret)
 library(glmnet)
 library(randomForest)
 
-install.packages("editData")
-library("editData")
-# Leer las bases de datos
-df_final <- read.table(DF_FINAL_TXT_PATH, sep = ";", dec = ",", header = TRUE)
-pesos <- read.table(PESOS_TXT_PATH, sep = ";", dec = ",", header = TRUE)
+# ------------------------------------------------------------
+# 1. Cargar df_final
+# ------------------------------------------------------------
+if (!file.exists(DF_FINAL_RDATA_PATH)) {
+  stop("No se encontró df_final en: ", DF_FINAL_RDATA_PATH,
+       "\nEjecuta el script 3 antes.", call. = FALSE)
+}
 
-# Realizar el merge para unir los pesos a la base 'df_final'
+load(DF_FINAL_RDATA_PATH)
+
+if (!exists("df_final")) {
+  stop("El objeto df_final no existe en ", DF_FINAL_RDATA_PATH, call. = FALSE)
+}
+
+message("df_final cargado: ", nrow(df_final), " filas × ", ncol(df_final), " columnas.")
+
+# ------------------------------------------------------------
+# 2. Cargar tabla de pesos GRD y unir
+# ------------------------------------------------------------
+if (!file.exists(PESOS_TXT_PATH)) {
+  stop("No se encontró el archivo de pesos en: ", PESOS_TXT_PATH, call. = FALSE)
+}
+
+pesos <- read.table(PESOS_TXT_PATH, sep = ";", dec = ",", header = TRUE,
+                    stringsAsFactors = FALSE)
+pesos$NCODI <- trimws(as.character(pesos$NCODI))
+
+message("Pesos GRD cargados: ", nrow(pesos), " filas.")
+message("  Hospitales con peso real: ", n_distinct(pesos$NCODI))
+
 df <- left_join(df_final, pesos, by = c("NCODI", "anyo"))
 
-# Listar las variables a excluir (identificadores y categóricas)
-variables_excluir <- c("NCODI", "anyo", "ccaa_codigo", "ccaa", 
-                       "cod_finalidad_agrupada", "Finalidad_agrupada", 
-                       "cod_depend_agrupada", "Depend_agrupada")
+n_con_peso <- sum(!is.na(df$peso))
+n_sin_peso <- sum(is.na(df$peso))
+message(sprintf("  Obs. con peso real: %d | Sin peso (a imputar): %d",
+                n_con_peso, n_sin_peso))
 
-# Identificar variables numéricas (convertibles a numéricas)
+# ------------------------------------------------------------
+# 3. Preparar variables predictoras
+# Variables protegidas: identificadores + categóricas + target
+# ------------------------------------------------------------
+PROTECTED_VARS <- c(paste0("u", 1:104), "u900", "NCODI", "anyo",
+                    "ccaa_codigo", "ccaa", "nombre_hospital",
+                    "cod_centro", "CODCNH", "ccaa_cnh", "provincia_cnh",
+                    "finalidad_cnh", "dependencia_cnh",
+                    "cod_finalidad_agrupada", "Finalidad_agrupada",
+                    "cod_depend_agrupada", "Depend_agrupada",
+                    "peso", "mix")
+
+variables_excluir <- intersect(PROTECTED_VARS, names(df))
+
 variables_numericas <- names(df)[!(names(df) %in% variables_excluir)]
-df[variables_numericas] <- lapply(df[variables_numericas], function(x) as.numeric(as.character(x)))
 
-# Calcular porcentaje de NA por variable
-porcentaje_na <- sapply(df[variables_numericas], function(x) mean(is.na(x)) * 100)
-
-# Visualizar variables con alto porcentaje de NA
-variables_muchos_na <- names(porcentaje_na[porcentaje_na > 50])
+# Convertir a numérico
+df[variables_numericas] <- lapply(df[variables_numericas], function(x) {
+  suppressWarnings(as.numeric(as.character(x)))
+})
 
 # Excluir variables con más de 50% de NA
-variables_numericas <- setdiff(variables_numericas, variables_muchos_na)
+pct_na <- vapply(df[variables_numericas], function(x) mean(is.na(x)), numeric(1))
+variables_numericas <- variables_numericas[pct_na <= 0.50]
 
-# Imputar NA con la mediana
+message("Variables predictoras disponibles: ", length(variables_numericas))
+
+# Imputar NA con la mediana (solo en predictores, no en target)
 for (var in variables_numericas) {
-  mediana <- median(df[[var]], na.rm = TRUE)
-  df[[var]][is.na(df[[var]])] <- mediana
+  med <- median(df[[var]], na.rm = TRUE)
+  if (!is.na(med)) df[[var]][is.na(df[[var]])] <- med
 }
 
-# Conjunto de entrenamiento
+# ------------------------------------------------------------
+# 4. Separar entrenamiento / predicción
+# ------------------------------------------------------------
 df_entrenamiento <- df %>% filter(!is.na(peso))
+df_prediccion    <- df %>% filter(is.na(peso))
 
-# Conjunto de predicción
-df_prediccion <- df %>% filter(is.na(peso))
+message(sprintf("Conjunto entrenamiento: %d obs. | Predicción: %d obs.",
+                nrow(df_entrenamiento), nrow(df_prediccion)))
 
-# Matriz de características (excluyendo 'peso' y variables no numéricas)
-X_entrenamiento <- as.matrix(df_entrenamiento %>% select(all_of(variables_numericas)))
+if (nrow(df_entrenamiento) < 30) {
+  stop("Muy pocas observaciones con peso real para entrenar el modelo: ",
+       nrow(df_entrenamiento), call. = FALSE)
+}
+
+X_entrenamiento <- as.matrix(df_entrenamiento[, variables_numericas, drop = FALSE])
 y_entrenamiento <- df_entrenamiento$peso
 
-# Identificar variables con varianza cero
-nzv <- nearZeroVar(X_entrenamiento, saveMetrics = TRUE)
-variables_cero_varianza <- rownames(nzv[nzv$zeroVar == TRUE, ])
+# ------------------------------------------------------------
+# 5. Selección de variables con LASSO
+# ------------------------------------------------------------
+message("\nEjecutando LASSO para selección de variables...")
 
-# Remover variables con varianza cero de X_entrenamiento
-X_entrenamiento <- X_entrenamiento[, !(colnames(X_entrenamiento) %in% variables_cero_varianza)]
+# Eliminar predictores con varianza cero
+nzv               <- caret::nearZeroVar(X_entrenamiento, saveMetrics = TRUE)
+vars_nzv          <- rownames(nzv)[nzv$zeroVar]
+X_entrenamiento   <- X_entrenamiento[, !(colnames(X_entrenamiento) %in% vars_nzv), drop = FALSE]
 
-# Estandarizar las variables
-preProcValues <- preProcess(X_entrenamiento, method = c("center", "scale"))
-X_entrenamiento <- predict(preProcValues, X_entrenamiento)
+message("Variables tras eliminar varianza cero: ", ncol(X_entrenamiento))
 
-# Ajustar modelo Lasso
+# Estandarizar
+preproc_lasso       <- caret::preProcess(X_entrenamiento, method = c("center", "scale"))
+X_ent_std           <- predict(preproc_lasso, X_entrenamiento)
+
 set.seed(123)
-cv_lasso <- cv.glmnet(X_entrenamiento, y_entrenamiento, alpha = 1, nfolds = 10)
+cv_lasso      <- glmnet::cv.glmnet(X_ent_std, y_entrenamiento, alpha = 1, nfolds = 10)
+lambda_opt    <- cv_lasso$lambda.min
 
-# Obtener el valor óptimo de lambda
-lambda_optimo <- cv_lasso$lambda.min
+coefs         <- coef(cv_lasso, s = lambda_opt)
+vars_lasso    <- rownames(coefs)[which(coefs != 0)]
+vars_lasso    <- setdiff(vars_lasso, "(Intercept)")
 
+message("Variables seleccionadas por LASSO: ", length(vars_lasso))
 
-
-# Variables seleccionadas
-coeficientes <- coef(cv_lasso, s = lambda_optimo)
-variables_seleccionadas <- rownames(coeficientes)[which(coeficientes != 0)]
-variables_seleccionadas <- variables_seleccionadas[variables_seleccionadas != "(Intercept)"]
-
-# Matriz de características con variables seleccionadas
-X_entrenamiento_sel <- X_entrenamiento[, variables_seleccionadas, drop = FALSE]
-
-# Estandarizar las variables seleccionadas
-preProcValues <- preProcess(X_entrenamiento_sel, method = c("center", "scale"))
-X_entrenamiento_sel <- predict(preProcValues, X_entrenamiento_sel)
-
-# Preparar el conjunto de predicción con las mismas variables seleccionadas
-X_prediccion <- as.matrix(df_prediccion %>% select(all_of(variables_seleccionadas)))
-
-# Asegurarse de que X_prediccion tenga las mismas columnas que X_entrenamiento_sel
-# Si faltan columnas en X_prediccion, agregarlas con ceros o NA
-faltantes <- setdiff(colnames(X_entrenamiento_sel), colnames(X_prediccion))
-if(length(faltantes) > 0){
-  for(faltante in faltantes){
-    X_prediccion[[faltante]] <- NA  # O 0, dependiendo de cómo quieras manejarlo
-  }
+if (length(vars_lasso) == 0) {
+  warning("LASSO no seleccionó ninguna variable. Usando todas las disponibles.", call. = FALSE)
+  vars_lasso <- colnames(X_ent_std)
 }
 
-# Reordenar las columnas para que coincidan
-X_prediccion <- X_prediccion[, colnames(X_entrenamiento_sel), drop = FALSE]
+X_ent_sel <- X_ent_std[, vars_lasso, drop = FALSE]
 
-# Estandarizar las variables del conjunto de predicción
-X_prediccion <- predict(preProcValues, X_prediccion)
+# Estandarizar de nuevo sobre el subconjunto seleccionado
+preproc_rf    <- caret::preProcess(X_ent_sel, method = c("center", "scale"))
+X_ent_sel     <- predict(preproc_rf, X_ent_sel)
 
-# --- Tu código anterior hasta entrenar el modelo Random Forest ---
+# ------------------------------------------------------------
+# 6. Preparar conjunto de predicción
+# ------------------------------------------------------------
+X_pred_raw <- as.matrix(df_prediccion[, colnames(X_entrenamiento), drop = FALSE])
 
-# Entrenar el modelo Random Forest
-mtry_optimo <- min(145, ncol(X_entrenamiento_sel)) # Ajusta `mtry` al máximo permitido
+# Aplicar preprocesamiento del LASSO (center/scale del paso anterior)
+X_pred_std <- predict(preproc_lasso, X_pred_raw)
+
+# Seleccionar variables LASSO
+faltantes <- setdiff(vars_lasso, colnames(X_pred_std))
+if (length(faltantes) > 0) {
+  for (v in faltantes) X_pred_std <- cbind(X_pred_std, 0)
+  colnames(X_pred_std)[
+    (ncol(X_pred_std) - length(faltantes) + 1):ncol(X_pred_std)
+  ] <- faltantes
+}
+X_pred_sel <- X_pred_std[, vars_lasso, drop = FALSE]
+
+# Aplicar preprocesamiento RF
+X_pred_sel <- predict(preproc_rf, X_pred_sel)
+
+# ------------------------------------------------------------
+# 7. Entrenar Random Forest
+# ------------------------------------------------------------
+message("\nEntrenando Random Forest...")
+
+# mtry: heurístico p/3 para regresión, acotado al número de variables
+mtry_opt <- max(1L, min(floor(ncol(X_ent_sel) / 3), ncol(X_ent_sel)))
+
 set.seed(123)
-modelo_rf <- randomForest(x = X_entrenamiento_sel, y = y_entrenamiento, 
-                          mtry = mtry_optimo, 
-                          importance = TRUE)
+modelo_rf <- randomForest::randomForest(
+  x          = X_ent_sel,
+  y          = y_entrenamiento,
+  mtry       = mtry_opt,
+  ntree      = 500,
+  importance = TRUE
+)
 
-# --- Generar predicciones en el conjunto de entrenamiento ---
-# Predicciones en el conjunto de entrenamiento
-predicciones_entrenamiento <- predict(modelo_rf, X_entrenamiento_sel)
+message(sprintf("  R² (OOB): %.3f | RMSE (OOB): %.3f",
+                1 - modelo_rf$mse[500] / var(y_entrenamiento),
+                sqrt(modelo_rf$mse[500])))
 
-# Añadir predicciones al conjunto de entrenamiento
-df_entrenamiento$mix <- predicciones_entrenamiento
+# ------------------------------------------------------------
+# 8. Predicciones y ensamblado
+# ------------------------------------------------------------
+df_entrenamiento$mix <- predict(modelo_rf, X_ent_sel)
 
-# --- Generar predicciones en el conjunto de predicción ---
-# Predicciones en el conjunto de predicción
-predicciones <- predict(modelo_rf, X_prediccion)
+if (nrow(df_prediccion) > 0) {
+  df_prediccion$mix <- predict(modelo_rf, X_pred_sel)
+} else {
+  message("No hay observaciones sin peso: mix = peso para todos.")
+}
 
-# Añadir predicciones al conjunto de predicción
-df_prediccion$mix <- predicciones
+df_completo <- dplyr::bind_rows(df_entrenamiento, df_prediccion) %>%
+  arrange(NCODI, anyo)
 
-# --- Combinar los conjuntos sin reemplazar 'mix' con 'peso' ---
-df_completo <- bind_rows(df_entrenamiento, df_prediccion)
-df_completo <- df_completo %>% arrange(NCODI, anyo,mix,peso)
-save(df_completo, file="df_completo.RData")
-# --- Evaluar el modelo ---
-df_evaluacion <- df_completo %>% filter(!is.na(peso))
-peso_real <- df_evaluacion$peso
-peso_predicho <- df_evaluacion$mix
+# ------------------------------------------------------------
+# 9. Evaluar el modelo en el conjunto de entrenamiento
+# ------------------------------------------------------------
+df_eval     <- df_completo %>% filter(!is.na(peso))
+peso_real   <- df_eval$peso
+peso_pred   <- df_eval$mix
 
-# Calcular las métricas
-MAE <- mean(abs(peso_real - peso_predicho))
-MSE <- mean((peso_real - peso_predicho)^2)
-RMSE <- sqrt(MSE)
-MAPE <- mean(abs((peso_real - peso_predicho) / peso_real)) * 100
-R2_value <- R2(peso_predicho, peso_real)
+MAE   <- mean(abs(peso_real - peso_pred))
+RMSE  <- sqrt(mean((peso_real - peso_pred)^2))
+MAPE  <- mean(abs((peso_real - peso_pred) / peso_real)) * 100
+R2    <- caret::R2(peso_pred, peso_real)
 
-cat("MAE:", round(MAE, 2), "\n")
-cat("RMSE:", round(RMSE, 2), "\n")
-cat("MAPE:", round(MAPE, 2), "%\n")
-cat("R²:", round(R2_value, 2), "\n")
+message("\n--- Métricas del modelo (in-sample) ---")
+message(sprintf("  MAE:  %.4f", MAE))
+message(sprintf("  RMSE: %.4f", RMSE))
+message(sprintf("  MAPE: %.2f%%", MAPE))
+message(sprintf("  R²:   %.4f", R2))
 
-# --- Crear los gráficos de evaluación ---
-library(ggplot2)
+# ------------------------------------------------------------
+# 10. Guardar diagnósticos gráficos (en INT_DIR, no interactivos)
+# ------------------------------------------------------------
+if (requireNamespace("ggplot2", quietly = TRUE)) {
+  library(ggplot2)
 
-# Agregar los residuos al dataframe
-df_evaluacion <- df_evaluacion %>%
-  mutate(residuals = peso_real - peso_predicho,
-         mean_values = (peso_real + peso_predicho) / 2)
+  df_eval <- df_eval %>%
+    mutate(residuos = peso_real - peso_pred,
+           media_vals = (peso_real + peso_pred) / 2)
 
-# 1. Gráfico de Dispersión
-ggplot(df_evaluacion, aes(x = peso_real, y = peso_predicho)) +
-  geom_point(color = 'blue', alpha = 0.6) +
-  geom_abline(slope = 1, intercept = 0, color = 'red', linetype = 'dashed') +
-  labs(title = "Peso Real vs Peso Predicho",
-       x = "Peso Real",
-       y = "Peso Predicho") +
-  theme_minimal()
+  plots_dir <- file.path(INT_DIR, "mix_model_plots")
+  dir.create(plots_dir, showWarnings = FALSE, recursive = TRUE)
 
-# 2. Gráfico de Residuales
-ggplot(df_evaluacion, aes(x = peso_predicho, y = residuals)) +
-  geom_point(color = 'darkgreen', alpha = 0.6) +
-  geom_hline(yintercept = 0, color = 'red', linetype = 'dashed') +
-  labs(title = "Residuales vs Peso Predicho",
-       x = "Peso Predicho",
-       y = "Residuales") +
-  theme_minimal()
+  # Dispersión real vs predicho
+  p1 <- ggplot(df_eval, aes(x = peso_real, y = peso_pred)) +
+    geom_point(alpha = 0.5, color = "steelblue") +
+    geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
+    labs(title = "Peso real vs predicho (mix)",
+         x = "Peso real (GRD)", y = "Mix predicho") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "dispersion_real_vs_predicho.png"), p1,
+         width = 7, height = 5)
 
-# 3. Histograma de Residuales
-ggplot(df_evaluacion, aes(x = residuals)) +
-  geom_histogram(binwidth = 0.5, fill = 'orange', color = 'black', alpha = 0.7) +
-  labs(title = "Distribución de Residuales",
-       x = "Residuales",
-       y = "Frecuencia") +
-  theme_minimal()
+  # Residuos
+  p2 <- ggplot(df_eval, aes(x = peso_pred, y = residuos)) +
+    geom_point(alpha = 0.5, color = "darkgreen") +
+    geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+    labs(title = "Residuos vs mix predicho", x = "Mix predicho", y = "Residuo") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "residuos.png"), p2, width = 7, height = 5)
 
-# 4. Gráfico Q-Q de Residuales
-qqnorm(df_evaluacion$residuals)
-qqline(df_evaluacion$residuals, col = "red", lwd = 2)
+  # Bland-Altman
+  p3 <- ggplot(df_eval, aes(x = media_vals, y = residuos)) +
+    geom_point(alpha = 0.5, color = "purple") +
+    geom_hline(yintercept = mean(df_eval$residuos), color = "blue",
+               linetype = "dashed") +
+    labs(title = "Bland-Altman (mix)", x = "Media", y = "Diferencia") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "bland_altman.png"), p3, width = 7, height = 5)
 
-# 5. Gráfico Bland-Altman
-ggplot(df_evaluacion, aes(x = mean_values, y = residuals)) +
-  geom_point(color = 'purple', alpha = 0.6) +
-  geom_hline(yintercept = mean(df_evaluacion$residuals), color = 'blue', linetype = 'dashed') +
-  labs(title = "Gráfico Bland-Altman",
-       x = "Promedio (Peso Real y Predicho)",
-       y = "Diferencia (Peso Real - Predicho)") +
-  theme_minimal()
+  message("Gráficos guardados en: ", plots_dir)
+}
 
-# Guardar el dataframe actualizado en un archivo RData
+# ------------------------------------------------------------
+# 11. Guardar outputs
+# ------------------------------------------------------------
 save(df_completo, file = DF_COMPLETO_RDATA_PATH)
+message("\ndf_completo guardado en: ", DF_COMPLETO_RDATA_PATH)
+message("  Filas: ", nrow(df_completo), " | Columnas: ", ncol(df_completo))
+message("  Obs. con mix: ", sum(!is.na(df_completo$mix)))
 
+write.table(df_completo, DF_FINAL_CON_MIX_TXT_PATH,
+            sep = ";", dec = ",", row.names = FALSE, na = "")
+message("TXT con mix guardado en: ", DF_FINAL_CON_MIX_TXT_PATH)
 
-# Guardar el dataframe con la variable 'mix'
-write.table(df_completo, DF_FINAL_CON_MIX_TXT_PATH, sep = ";", row.names = FALSE)
-
-
-
+message("\n=== Script 9 completado ===")
