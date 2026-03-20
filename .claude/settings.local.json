@@ -10,7 +10,8 @@
       "Read(//c/Users/jomar/anaconda3/**)",
       "Read(//c/ProgramData/miniconda3/**)",
       "Read(//c/Users/jomar/**)",
-      "Read(//c/ProgramData/**)"
+      "Read(//c/ProgramData/**)",
+      "Bash(Rscript scripts/_diagnostico_sfa_temp.R)"
     ]
   }
 }
