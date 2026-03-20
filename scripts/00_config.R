@@ -43,7 +43,7 @@ LEGACY_BASE_DIR <- file.path(BASE_DIR, "data_legacy_outputs")
 dir.create(LEGACY_BASE_DIR, recursive = TRUE, showWarnings = FALSE)
 
 # Artefactos de scripts intermedios
-PESOS_TXT_PATH                        <- file.path(LEGACY_BASE_DIR, "pesos.txt")
+PESOS_TXT_PATH                        <- file.path(INT_DIR, "pesos.txt")
 DF_FINAL_RDATA_PATH                   <- file.path(LEGACY_BASE_DIR, "df_final.RData")
 DF_FINAL_TXT_PATH                     <- file.path(LEGACY_BASE_DIR, "df_final.txt")
 DF_COMPLETO_RDATA_PATH                <- file.path(LEGACY_BASE_DIR, "df_completo.RData")
