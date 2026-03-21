@@ -329,14 +329,35 @@ message("  ", paste(vars_lasso, collapse = ", "))
 X_train_rf <- train_df[, vars_lasso, drop = FALSE]
 mtry_opt   <- max(1L, floor(length(vars_lasso) / 3L))
 
-set.seed(123)
-modelo_B_rf <- randomForest::randomForest(
-  x          = X_train_rf,
-  y          = y_train,
-  mtry       = mtry_opt,
-  ntree      = 500,
-  importance = TRUE
-)
+# CACHÉ: si el modelo ya está guardado, cargarlo en lugar de re-entrenar.
+# Esto ahorra ~2-3 min en re-ejecuciones. Para forzar re-entrenamiento,
+# borrar casemix_modelo_B_rf.rds de data_intermediate/.
+rds_path_B <- file.path(INT_DIR, "casemix_modelo_B_rf.rds")
+
+if (file.exists(rds_path_B)) {
+  message("  Cargando modelo RF desde caché (no re-entrenando).")
+  modelo_B_rf <- readRDS(rds_path_B)
+  # Recuperar vars_lasso desde el modelo guardado (robustez ante cambio de sesión)
+  vars_lasso_cached <- rownames(randomForest::importance(modelo_B_rf))
+  if (!setequal(vars_lasso, vars_lasso_cached)) {
+    message("  AVISO: vars_lasso del caché difiere del LASSO actual. Re-entrenando.")
+    modelo_B_rf <- NULL
+  }
+}
+
+if (!exists("modelo_B_rf") || is.null(modelo_B_rf)) {
+  message("  Entrenando modelo RF por primera vez (o caché inválida)...")
+  set.seed(123)
+  modelo_B_rf <- randomForest::randomForest(
+    x          = X_train_rf,
+    y          = y_train,
+    mtry       = mtry_opt,
+    ntree      = 500,
+    importance = TRUE
+  )
+  saveRDS(modelo_B_rf, rds_path_B)
+  message("  Modelo B guardado en caché.")
+}
 
 message(sprintf("  RF: mtry=%d  R²(OOB)=%.3f  RMSE(OOB)=%.4f",
                 mtry_opt,
@@ -387,8 +408,7 @@ write.csv(vars_lasso_df,
           file.path(INT_DIR, "casemix_modeloB_variables_lasso.csv"),
           row.names = FALSE, na = "")
 
-saveRDS(modelo_B_rf, file.path(INT_DIR, "casemix_modelo_B_rf.rds"))
-message("  Modelo B guardado.")
+message("  Modelo B listo.")
 
 # ── Elegir mejor modelo para peso_grd_final ───────────────────
 rmse_A       <- metrics_A$RMSE

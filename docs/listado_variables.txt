@@ -1,0 +1,1249 @@
+C1_01_FILIACION	año	Año
+C1_01_FILIACION	NCODI	Código de centro anonimizadas
+C1_01_FILIACION	ccaa_Codigo	Código INE Comunidad Autónoma
+C1_01_FILIACION	ccaa	Nombre Comunidad Autónoma
+C1_01_FILIACION	cod_finalidad_agrupada	Código de finalidad agrupada
+C1_01_FILIACION	Finalidad_agrupada	Descripción de la finalidad
+C1_01_FILIACION	cod_depend_agrupada	Código de dependencia agrupada
+C1_01_FILIACION	Depend_agrupada	Descripción de la dependencia
+C1_02_OFERTA_ASISTENCIAL	año	Año
+C1_02_OFERTA_ASISTENCIAL	NCODI	Código de centro anonimizadas
+C1_02_OFERTA_ASISTENCIAL	u1	Medicina general/de familia U.1
+C1_02_OFERTA_ASISTENCIAL	u2	Enfermería U.2
+C1_02_OFERTA_ASISTENCIAL	u3	Matrona U.3
+C1_02_OFERTA_ASISTENCIAL	u4	Podología U.4
+C1_02_OFERTA_ASISTENCIAL	u5	Vacunación U.5
+C1_02_OFERTA_ASISTENCIAL	u6	Alergología U.6
+C1_02_OFERTA_ASISTENCIAL	u7	Cardiología U.7
+C1_02_OFERTA_ASISTENCIAL	u8	Dermatología U.8
+C1_02_OFERTA_ASISTENCIAL	u9	Aparato digestivo U.9
+C1_02_OFERTA_ASISTENCIAL	u10	Endocrinología U.10
+C1_02_OFERTA_ASISTENCIAL	u11	Nutrición y Dietética U.11
+C1_02_OFERTA_ASISTENCIAL	u12	Geriatría U.12
+C1_02_OFERTA_ASISTENCIAL	u13	Medicina interna U.13
+C1_02_OFERTA_ASISTENCIAL	u14	Nefrología U.14
+C1_02_OFERTA_ASISTENCIAL	u15	Diálisis U.15
+C1_02_OFERTA_ASISTENCIAL	u16	Neumología U.16
+C1_02_OFERTA_ASISTENCIAL	u17	Neurología U.17
+C1_02_OFERTA_ASISTENCIAL	u18	Neurofisiología U.18
+C1_02_OFERTA_ASISTENCIAL	u19	Oncología U.19
+C1_02_OFERTA_ASISTENCIAL	u20	Pediatría U.20
+C1_02_OFERTA_ASISTENCIAL	u21	Cirugía pediátrica U.21
+C1_02_OFERTA_ASISTENCIAL	u22	Cuidados intermedios neonatales U.22
+C1_02_OFERTA_ASISTENCIAL	u23	Cuidados intensivos neonatales U.23
+C1_02_OFERTA_ASISTENCIAL	u24	Reumatología U.24
+C1_02_OFERTA_ASISTENCIAL	u25	Obstetricia U.25
+C1_02_OFERTA_ASISTENCIAL	u26	Ginecología U.26
+C1_02_OFERTA_ASISTENCIAL	u27	Inseminación artificial U.27
+C1_02_OFERTA_ASISTENCIAL	u28	Fecundación in vitro U.28
+C1_02_OFERTA_ASISTENCIAL	u29	Banco de semen U.29
+C1_02_OFERTA_ASISTENCIAL	u30	Laboratorio de semen para capacitación espermática U.30
+C1_02_OFERTA_ASISTENCIAL	u31	Banco de embriones U.31
+C1_02_OFERTA_ASISTENCIAL	u32	Recuperación de oocitos U.32
+C1_02_OFERTA_ASISTENCIAL	u33	Planificación familiar U.33
+C1_02_OFERTA_ASISTENCIAL	u34	Interrupción voluntaria del embarazo U.34
+C1_02_OFERTA_ASISTENCIAL	u35	Anestesia y Reanimación U.35
+C1_02_OFERTA_ASISTENCIAL	u36	Tratamiento del dolor U.36
+C1_02_OFERTA_ASISTENCIAL	u37	Medicina intensiva U.37
+C1_02_OFERTA_ASISTENCIAL	u38	Quemados U.38
+C1_02_OFERTA_ASISTENCIAL	u39	Angiología y Cirugía Vascular U.39
+C1_02_OFERTA_ASISTENCIAL	u40	Cirugía cardiaca U.40
+C1_02_OFERTA_ASISTENCIAL	u41	Hemodinámica U.41
+C1_02_OFERTA_ASISTENCIAL	u42	Cirugía torácica U.42
+C1_02_OFERTA_ASISTENCIAL	u43	Cirugía general y digestivo U.43
+C1_02_OFERTA_ASISTENCIAL	u44	Odontología/Estomatología U.44
+C1_02_OFERTA_ASISTENCIAL	u45	Cirugía maxilofacial U.45
+C1_02_OFERTA_ASISTENCIAL	u46	Cirugía plástica y reparadora U.46
+C1_02_OFERTA_ASISTENCIAL	u47	Cirugía estética U.47
+C1_02_OFERTA_ASISTENCIAL	u48	Medicina estética U.48
+C1_02_OFERTA_ASISTENCIAL	u49	Neurocirugía U.49
+C1_02_OFERTA_ASISTENCIAL	u50	Oftalmología U.50
+C1_02_OFERTA_ASISTENCIAL	u51	Cirugía refractiva U.51
+C1_02_OFERTA_ASISTENCIAL	u52	Otorrinolaringología U.52
+C1_02_OFERTA_ASISTENCIAL	u53	Urología U.53
+C1_02_OFERTA_ASISTENCIAL	u54	Litotricia renal U.54
+C1_02_OFERTA_ASISTENCIAL	u55	Cirugía ortopédica y Traumatología U.55
+C1_02_OFERTA_ASISTENCIAL	u56	Lesionados medulares U.56
+C1_02_OFERTA_ASISTENCIAL	u57	Rehabilitación U.57
+C1_02_OFERTA_ASISTENCIAL	u58	Hidrología U.58
+C1_02_OFERTA_ASISTENCIAL	u59	Fisioterapia U.59
+C1_02_OFERTA_ASISTENCIAL	u60	Terapia ocupacional U.60
+C1_02_OFERTA_ASISTENCIAL	u61	Logopedia U.61
+C1_02_OFERTA_ASISTENCIAL	u62	Foniatría U.62
+C1_02_OFERTA_ASISTENCIAL	u63	Cirugía mayor ambulatoria U.63
+C1_02_OFERTA_ASISTENCIAL	u64	Cirugía menor ambulatoria U.64
+C1_02_OFERTA_ASISTENCIAL	u65	Hospital de día U.65
+C1_02_OFERTA_ASISTENCIAL	u66	Atención sanitaria domiciliaria U.66
+C1_02_OFERTA_ASISTENCIAL	u67	Cuidados paliativos U.67
+C1_02_OFERTA_ASISTENCIAL	u68	Urgencias U.68
+C1_02_OFERTA_ASISTENCIAL	u69	Psiquiatría U.69
+C1_02_OFERTA_ASISTENCIAL	u70	Psicología clínica U.70
+C1_02_OFERTA_ASISTENCIAL	u71	Atención sanitaria a drogodependientes U.71
+C1_02_OFERTA_ASISTENCIAL	u72	Obtención de muestras U.72
+C1_02_OFERTA_ASISTENCIAL	u73	Análisis clínicos U.73
+C1_02_OFERTA_ASISTENCIAL	u74	Bioquímica clínica U.74
+C1_02_OFERTA_ASISTENCIAL	u75	Inmunología U.75
+C1_02_OFERTA_ASISTENCIAL	u76	Microbiología y Parasitología U.76
+C1_02_OFERTA_ASISTENCIAL	u77	Anatomía patológica U.77
+C1_02_OFERTA_ASISTENCIAL	u78	Genética U.78
+C1_02_OFERTA_ASISTENCIAL	u79	Hematología clínica U.79
+C1_02_OFERTA_ASISTENCIAL	u80	Laboratorio de hematología U.80
+C1_02_OFERTA_ASISTENCIAL	u81	Extracción de sangre para donación U.81
+C1_02_OFERTA_ASISTENCIAL	u82	Servicio de transfusión U.82
+C1_02_OFERTA_ASISTENCIAL	u83	Farmacia U.83
+C1_02_OFERTA_ASISTENCIAL	u84	Depósito de medicamentos U.84
+C1_02_OFERTA_ASISTENCIAL	u85	Farmacología clínica U.85
+C1_02_OFERTA_ASISTENCIAL	u86	Radioterapia U.86
+C1_02_OFERTA_ASISTENCIAL	u87	Medicina nuclear U.87
+C1_02_OFERTA_ASISTENCIAL	u88	Radiodiagnóstico U.88
+C1_02_OFERTA_ASISTENCIAL	u89	Asistencia a lesionados y contaminados por elementos radiactivos U.89
+C1_02_OFERTA_ASISTENCIAL	u90	Medicina preventiva U.90
+C1_02_OFERTA_ASISTENCIAL	u91	Medicina de la educación física y el deporte U.91
+C1_02_OFERTA_ASISTENCIAL	u92	Medicina hiperbárica U.92
+C1_02_OFERTA_ASISTENCIAL	u93	Extracción de órganos U.93
+C1_02_OFERTA_ASISTENCIAL	u94	Trasplante de órganos U.94
+C1_02_OFERTA_ASISTENCIAL	u95	Obtención de tejidos U.95
+C1_02_OFERTA_ASISTENCIAL	u96	Implantación de tejidos U.96
+C1_02_OFERTA_ASISTENCIAL	u97	Banco de tejidos U.97
+C1_02_OFERTA_ASISTENCIAL	u98	Medicina aeronáutica U.98
+C1_02_OFERTA_ASISTENCIAL	u99	Medicina del trabajo U.99
+C1_02_OFERTA_ASISTENCIAL	u100	Transporte sanitario (carretera, aéreo, marítimo) U.100
+C1_02_OFERTA_ASISTENCIAL	u101	Terapias no convencionales U.101
+C1_02_OFERTA_ASISTENCIAL	u900	Otras unidades asistenciales U.900
+C1_03_DOTACION_HOSPITAL	año	Año
+C1_03_DOTACION_HOSPITAL	NCODI	Código de centro anonimizadas
+C1_03_DOTACION_HOSPITAL	camas_instalada	Camas instaladas
+C1_03_DOTACION_HOSPITAL	incubadoras_instalada	Incubadoras instaladas
+C1_03_DOTACION_HOSPITAL	paritorios_instalada	Paritorios instalados
+C1_03_DOTACION_HOSPITAL	quirofanos_instalada	Quirófanos totales instalados
+C1_03_DOTACION_HOSPITAL	salasHemo_instalada	Salas de hemodinámica instaladas
+C1_03_DOTACION_HOSPITAL	camas_funcionamiento	Camas en funcionamiento
+C1_03_DOTACION_HOSPITAL	incubadoras_funcionamiento	Incubadoras en funcionamiento
+C1_03_DOTACION_HOSPITAL	paritorios_funcionamiento	Paritorios en funcionamiento
+C1_03_DOTACION_HOSPITAL	quirofanos_funcionamiento	Quirófanos totales en funcionamiento
+C1_03_DOTACION_HOSPITAL	salasHemo_funcionamiento	Salas de hemodinámica en funcionamiento
+C1_03_DOTACION_HOSPITAL	salas_rx_Hospital	Salas de Rayos X en funcionamiento hospital
+C1_03_DOTACION_HOSPITAL	salas_rx_CEP	Salas de Rayos X en funcionamiento Centro de especialidades
+C1_03_DOTACION_HOSPITAL	puesto_HDia_medico	Puestos en Hospital de Día médico
+C1_03_DOTACION_HOSPITAL	puesto_HDia_psiquiatrico	Puestos en Hospital de Día psiquiátrico
+C1_03_DOTACION_HOSPITAL	puesto_HDia_geriatrico	Puestos en Hospital de Día geriátrico
+C1_03_DOTACION_HOSPITAL	integradasPuestos_HDia_CMA	Puestos en Hospital de Día quirúrgico integrado
+C1_03_DOTACION_HOSPITAL	propiasPuestos_HDia_CMA	Puestos en Hospital de Día quirúrgico independiente
+C1_03_DOTACION_HOSPITAL	propiasQuirofanos_HDia_CMA	Quirófanos en Hospital de Día quirúrgico independiente
+C1_04_DOTACION_TECNOLOGICA	año	Año
+C1_04_DOTACION_TECNOLOGICA	NCODI	Código de centro anonimizadas
+C1_04_DOTACION_TECNOLOGICA	acelerador_hospital	Acelerador Lineal hospital
+C1_04_DOTACION_TECNOLOGICA	acelerador_CEP	Acelerador Lineal centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	acelerador_concertado	Acelerador Lineal Concertado
+C1_04_DOTACION_TECNOLOGICA	angiografo_hospital	Angiografía Digital en hospital
+C1_04_DOTACION_TECNOLOGICA	angiografo_CEP	Angiografía Digital en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	angiografo_concertado	Angiografía Digital Concertada
+C1_04_DOTACION_TECNOLOGICA	bombas_hospital	Bomba de Cobalto en hospital
+C1_04_DOTACION_TECNOLOGICA	bombas_CEP	Bomba de Cobalto en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	bombas_concertado	Bomba de Cobalto concertadas
+C1_04_DOTACION_TECNOLOGICA	densiometros_hospital	Densitómetros en hospitales
+C1_04_DOTACION_TECNOLOGICA	densiometros_CEP	Densitómetros en centros de especialidades
+C1_04_DOTACION_TECNOLOGICA	densiometros_concertado	Densitómetros concertados
+C1_04_DOTACION_TECNOLOGICA	hemodialisis_hospital	Equipos de hemodiálisis en hospital
+C1_04_DOTACION_TECNOLOGICA	hemodialisis_CEP	Equipos de hemodiálisis en centros de especialidades
+C1_04_DOTACION_TECNOLOGICA	hemodialisis_concertado	Equipos de hemodiálisis concertadas
+C1_04_DOTACION_TECNOLOGICA	TAC_hospital	Equipos de TAC hospital
+C1_04_DOTACION_TECNOLOGICA	TAC_CEP	Equipos de TAC en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	TAC_concertado	Equipos de TAC concertados
+C1_04_DOTACION_TECNOLOGICA	PET_hospital	Equipos de PET hospital en funcionamiento
+C1_04_DOTACION_TECNOLOGICA	PET_CEP	Equipos de PET en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	PET_concertado	Equipos de PET concertados
+C1_04_DOTACION_TECNOLOGICA	RNM_hospital	Equipos de Resonancia magnética hospital
+C1_04_DOTACION_TECNOLOGICA	RNM_CEP	Equipos de Resonancia magnética centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	RNM_concertado	Equipos de Resonancia magnética concertados
+C1_04_DOTACION_TECNOLOGICA	gammacamara_hospital	Gammacamaras en hospital
+C1_04_DOTACION_TECNOLOGICA	gammacamara_CEP	Gammacamaras en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	gammacamara_concertado	Gammacamaras concertadas
+C1_04_DOTACION_TECNOLOGICA	litotriptor_hospital	Litotricia renal hospital
+C1_04_DOTACION_TECNOLOGICA	litotriptor_CEP	Litotricia renal en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	litotriptor_concertado	Litotricia renal concertada
+C1_04_DOTACION_TECNOLOGICA	mamografos_hospital	Mamógrafos en hospital
+C1_04_DOTACION_TECNOLOGICA	mamografos_CEP	Mamógrafos en centros de especialidades
+C1_04_DOTACION_TECNOLOGICA	mamografos_concertado	Mamógrafos concertados
+C1_04_DOTACION_TECNOLOGICA	spect_hospital	Equipos de tomografia por emisión de fotones en hospital
+C1_04_DOTACION_TECNOLOGICA	spect_CEP	Equipos de tomografia por emisión de fotones en centro de especialidades
+C1_04_DOTACION_TECNOLOGICA	spect_concertado	Equipos de tomografia por emisión de fotones concertados
+C1_04_DOTACION_TECNOLOGICA	Otra_dotacion_hospital	Otra tecnologia en el Hospital
+C1_04_DOTACION_TECNOLOGICA	Otra_dotacion_CEP	Otra tecnologia en el CEP
+C1_04_DOTACION_TECNOLOGICA	Otra_dotacion_concertado	Otra tecnologia concertada
+C1_05_PERSONAL	año	Año
+C1_05_PERSONAL	NCODI	Código de centro anonimizadas
+C1_05_PERSONAL	anestesia_cTotal	Anestesia y Reanimación Total jornada completa
+C1_05_PERSONAL	aDigestivo_cTotal	Aparato digestivo Total jornada completa
+C1_05_PERSONAL	cardiologia_cTotal	Cardiología Total jornada completa
+C1_05_PERSONAL	neurologia_cTotal	Neurología Total jornada completa
+C1_05_PERSONAL	mFisica_cTotal	Medicina Física y Rehabilitación Total jornada completa
+C1_05_PERSONAL	mResto_cTotal	Medicina Física y Resto de Especialidades Médicas Total jornada completa
+C1_05_PERSONAL	subMedicas_cTotal	SubTotal Especialidades médicas jornada completa
+C1_05_PERSONAL	angiologia_cTotal	Angiología y Cirugía Vascular Total jornada completa
+C1_05_PERSONAL	cCardio_cTotal	Cirugía Cardiovascular Total jornada completa
+C1_05_PERSONAL	cGeneral_cTotal	Cirugía Gral. Y del Aparato Digestivo Total jornada completa
+C1_05_PERSONAL	cOral_cTotal	Cirugía oral y maxilofacial Total jornada completa
+C1_05_PERSONAL	cOrtopedica_cTotal	Cirugía ortopédica y traumatología Total jornada completa
+C1_05_PERSONAL	cPediatrica_cTotal	Cirugía pedriátrica Total jornada completa
+C1_05_PERSONAL	cPlastica_cTotal	Cirugía plástica estética y reparadora Total jornada completa
+C1_05_PERSONAL	cToracica_cTotal	Cirugía Torácica Total jornada completa
+C1_05_PERSONAL	dermatologia_cTotal	Dermatología Médico-Quirúrgico Total jornada completa
+C1_05_PERSONAL	neurocirugia_cTotal	Neurocirugía Total jornada completa
+C1_05_PERSONAL	obstetricia_cTotal	Obstetricia-Ginecología Total jornada completa
+C1_05_PERSONAL	oftalmologia_cTotal	Oftalmología Total jornada completa
+C1_05_PERSONAL	otorrino_cTotal	Otorrinolaringología Total jornada completa
+C1_05_PERSONAL	urologia_cTotal	Urología Total jornada completa
+C1_05_PERSONAL	subQuirurgicas_cTotal	SubTotal Especialidades quirúrgicas jornada completa
+C1_05_PERSONAL	pediatria_cTotal	Pediatría Total jornada completa
+C1_05_PERSONAL	mIntensiva_cTotal	Medicina Intensiva Total jornada completa
+C1_05_PERSONAL	psiquiatria_cTotal	Psiquiatría Total jornada completa
+C1_05_PERSONAL	sCentrales_cTotal	Servicios Centrales Total jornada completa
+C1_05_PERSONAL	urgencias_cTotal	Urgencias-Guardias Total jornada completa
+C1_05_PERSONAL	total_cMedicos	Total personal médico jornada completa
+C1_05_PERSONAL	farmaceuticos_cTotal	Farmaceúticos Total jornada completa
+C1_05_PERSONAL	oTituSuperior_cTotal	Otros titul. superiores sanitarios Total jornada completa
+C1_05_PERSONAL	anestesia_cMujeres	Anestesia y Reanimación mujeres jornada completa
+C1_05_PERSONAL	aDigestivo_cMujeres	Aparato digestivo mujeres jornada completa
+C1_05_PERSONAL	cardiologia_cMujeres	Cardiología mujeres jornada completa
+C1_05_PERSONAL	neurologia_cMujeres	Neurología mujeres jornada completa
+C1_05_PERSONAL	mFisica_cMujeres	Medicina Física y Rehabilitación mujeres jornada completa
+C1_05_PERSONAL	mResto_cMujeres	Medicina Física y Resto de Especialidades Médicas mujeres jornada completa
+C1_05_PERSONAL	subMedicas_cMujeres	SubTotal Especialidades médicas mujeres jornada completa
+C1_05_PERSONAL	angiologia_cMujeres	Angiología y Cirugía Vascular mujeres jornada completa
+C1_05_PERSONAL	cCardio_cMujeres	Cirugía Cardiovascular mujeres jornada completa
+C1_05_PERSONAL	cGeneral_cMujeres	Cirugía Gral. Y del Aparato Digestivo mujeres jornada completa
+C1_05_PERSONAL	cOral_cMujeres	Cirugía oral y maxilofacial mujeres jornada completa
+C1_05_PERSONAL	cOrtopedica_cMujeres	Cirugía ortopédica y traumatología mujeres jornada completa
+C1_05_PERSONAL	cPediatrica_cMujeres	Cirugía pedriátrica mujeres jornada completa
+C1_05_PERSONAL	cPlastica_cMujeres	Cirugía plástica estética y reparadora mujeres jornada completa
+C1_05_PERSONAL	cToracica_cMujeres	Cirugía Torácica mujeres jornada completa
+C1_05_PERSONAL	dermatologia_cMujeres	Dermatología Médico-Quirúrgico mujeres jornada completa
+C1_05_PERSONAL	neurocirugia_cMujeres	Neurocirugía mujeres jornada completa
+C1_05_PERSONAL	obstetricia_cMujeres	Obstetricia-Ginecología mujeres jornada completa
+C1_05_PERSONAL	oftalmologia_cMujeres	Oftalmología mujeres jornada completa
+C1_05_PERSONAL	otorrino_cMujeres	Otorrinolaringología mujeres jornada completa
+C1_05_PERSONAL	urologia_cMujeres	Urología mujeres jornada completa
+C1_05_PERSONAL	subQuirurgicas_cMujeres	SubTotal Especialidades quirúrgicas mujeres jornada completa
+C1_05_PERSONAL	pediatria_cMujeres	Pediatría mujeres jornada completa
+C1_05_PERSONAL	mIntensiva_cMujeres	Medicina Intensiva mujeres jornada completa
+C1_05_PERSONAL	psiquiatria_cMujeres	Psiquiatría mujeres jornada completa
+C1_05_PERSONAL	sCentrales_cMujeres	Servicios Centrales mujeres jornada completa
+C1_05_PERSONAL	urgencias_cMujeres	Urgencias-Guardias mujeres jornada completa
+C1_05_PERSONAL	total_cMujerMedicos	Total personal médico mujeres jornada completa
+C1_05_PERSONAL	farmaceuticos_cMujeres	Farmaceúticos mujeres jornada completa
+C1_05_PERSONAL	oTituSuperior_cMujeres	Otros titul. superiores sanitarios mujeres jornada completa
+C1_05_PERSONAL	anestesia_pTotal	Anestesia y Reanimación Total jornada parcial
+C1_05_PERSONAL	aDigestivo_pTotal	Aparato digestivo Total jornada parcial
+C1_05_PERSONAL	cardiologia_pTotal	Cardiología Total jornada parcial
+C1_05_PERSONAL	neurologia_pTotal	Neurología Total jornada parcial
+C1_05_PERSONAL	mFisica_pTotal	Medicina Física y Rehabilitación Total jornada parcial
+C1_05_PERSONAL	mResto_pTotal	Medicina Física y Resto de Especialidades Médicas Total jornada parcial
+C1_05_PERSONAL	subMedicas_pTotal	SubTotal Especialidades médicas jornada parcial
+C1_05_PERSONAL	angiologia_pTotal	Angiología y Cirugía Vascular Total jornada parcial
+C1_05_PERSONAL	cCardio_pTotal	Cirugía Cardiovascular Total jornada parcial
+C1_05_PERSONAL	cGeneral_pTotal	Cirugía Gral. Y del Aparato Digestivo Total jornada parcial
+C1_05_PERSONAL	cOral_pTotal	Cirugía oral y maxilofacial Total jornada parcial
+C1_05_PERSONAL	cOrtopedica_pTotal	Cirugía ortopédica y traumatología Total jornada parcial
+C1_05_PERSONAL	cPediatrica_pTotal	Cirugía pedriátrica Total jornada parcial
+C1_05_PERSONAL	cPlastica_pTotal	Cirugía plástica estética y reparadora Total jornada parcial
+C1_05_PERSONAL	cToracica_pTotal	Cirugía Torácica Total jornada parcial
+C1_05_PERSONAL	dermatologia_pTotal	Dermatología Médico-Quirúrgico Total jornada parcial
+C1_05_PERSONAL	neurocirugia_pTotal	Neurocirugía Total jornada parcial
+C1_05_PERSONAL	obstetricia_pTotal	Obstetricia-Ginecología Total jornada parcial
+C1_05_PERSONAL	oftalmologia_pTotal	Oftalmología Total jornada parcial
+C1_05_PERSONAL	otorrino_pTotal	Otorrinolaringología Total jornada parcial
+C1_05_PERSONAL	urologia_pTotal	Urología Total jornada parcial
+C1_05_PERSONAL	subQuirurgicas_pTotal	SubTotal Especialidades quirúrgicas jornada parcial
+C1_05_PERSONAL	pediatria_pTotal	Pediatría Total contra jornada parcial
+C1_05_PERSONAL	mIntensiva_pTotal	Medicina Intensiva Total jornada parcial
+C1_05_PERSONAL	psiquiatria_pTotal	Psiquiatría Total jornada parcial
+C1_05_PERSONAL	sCentrales_pTotal	Servicios Centrales Total jornada parcial
+C1_05_PERSONAL	urgencias_pTotal	Urgencias-Guardias Total jornada parcial
+C1_05_PERSONAL	total_pMedicos	Total personal médico Total jornada parcial
+C1_05_PERSONAL	farmaceuticos_pTotal	Farmaceúticos Total jornada parcial
+C1_05_PERSONAL	oTituSuperior_pTotal	Otros titul. superiores sanitarios Total jornada parcial
+C1_05_PERSONAL	anestesia_pMujeres	Anestesia y Reanimación mujeres jornada parcial
+C1_05_PERSONAL	aDigestivo_pMujeres	Aparato digestivo mujeres jornada parcial
+C1_05_PERSONAL	cardiologia_pMujeres	Cardiología mujeres jornada parcial
+C1_05_PERSONAL	neurologia_pMujeres	Neurología mujeres jornada parcial
+C1_05_PERSONAL	mFisica_pMujeres	Medicina Física y Rehabilitación mujeres jornada parcial
+C1_05_PERSONAL	mResto_pMujeres	Medicina Física y Resto de Especialidades Médicas mujeres jornada parcial
+C1_05_PERSONAL	subMedicas_pMujeres	SubTotal Especialidades médicas mujeres jornada parcial
+C1_05_PERSONAL	angiologia_pMujeres	Angiología y Cirugía Vascular mujeres jornada parcial
+C1_05_PERSONAL	cCardio_pMujeres	Cirugía Cardiovascular mujeres jornada parcial
+C1_05_PERSONAL	cGeneral_pMujeres	Cirugía Gral. Y del Aparato Digestivo mujeres jornada parcial
+C1_05_PERSONAL	cOral_pMujeres	Cirugía oral y maxilofacial mujeres jornada parcial
+C1_05_PERSONAL	cOrtopedica_pMujeres	Cirugía ortopédica y traumatología mujeres jornada parcial
+C1_05_PERSONAL	cPediatrica_pMujeres	Cirugía pedriátrica mujeres jornada parcial
+C1_05_PERSONAL	cPlastica_pMujeres	Cirugía plástica estética y reparadora mujeres jornada parcial
+C1_05_PERSONAL	cToracica_pMujeres	Cirugía Torácica mujeres jornada parcial
+C1_05_PERSONAL	dermatologia_pMujeres	Dermatología Médico-Quirúrgico mujeres jornada parcial
+C1_05_PERSONAL	neurocirugia_pMujeres	Neurocirugía mujeres jornada parcial
+C1_05_PERSONAL	obstetricia_pMujeres	Obstetricia-Ginecología mujeres jornada parcial
+C1_05_PERSONAL	oftalmologia_pMujeres	Oftalmología mujeres jornada parcial
+C1_05_PERSONAL	otorrino_pMujeres	Otorrinolaringología mujeres jornada parcial
+C1_05_PERSONAL	urologia_pMujeres	Urología mujeres jornada parcial
+C1_05_PERSONAL	subQuirurgicas_pMujeres	SubTotal Especialidades quirúrgicas mujeres jornada parcial
+C1_05_PERSONAL	pediatria_pMujeres	Pediatría mujeres contra jornada parcial
+C1_05_PERSONAL	mIntensiva_pMujeres	Medicina Intensiva mujeres jornada parcial
+C1_05_PERSONAL	psiquiatria_pMujeres	Psiquiatría mujeres jornada parcial
+C1_05_PERSONAL	sCentrales_pMujeres	Servicios Centrales mujeres jornada parcial
+C1_05_PERSONAL	urgencias_pMujeres	Urgencias-Guardias mujeres jornada parcial
+C1_05_PERSONAL	total_pMujerMedicos	Total personal médico mujeres jornada parcial
+C1_05_PERSONAL	farmaceuticos_pMujeres	Farmaceúticos mujeres jornada parcial
+C1_05_PERSONAL	oTituSuperior_pMujeres	Otros titul. superiores sanitarios mujeres jornada parcial
+C1_05_PERSONAL	anestesia_colabTotal	Anestesia y Reanimación Total colaboradores
+C1_05_PERSONAL	aDigestivo_colabTotal	Aparato digestivo Total colaboradores
+C1_05_PERSONAL	cardiologia_colabTotal	Cardiología Total colaboradores
+C1_05_PERSONAL	neurologia_colabTotal	Neurología Total colaboradores
+C1_05_PERSONAL	mFisica_colabTotal	Medicina Física y Rehabilitación Total colaboradores
+C1_05_PERSONAL	mResto_colabTotal	Medicina Física y Resto de Especialidades Médicas Total colaboradores
+C1_05_PERSONAL	subMedicas_colabTotal	SubTotal Especialidades médicas colaboradores
+C1_05_PERSONAL	angiologia_colabTotal	Angiología y Cirugía Vascular Total colaboradores
+C1_05_PERSONAL	cCardio_colabTotal	Cirugía Cardiovascular Total colaboradores
+C1_05_PERSONAL	cGeneral_colabTotal	Cirugía Gral. Y del Aparato Digestivo Total colaboradores
+C1_05_PERSONAL	cOral_colabTotal	Cirugía oral y maxilofacial Total colaboradores
+C1_05_PERSONAL	cOrtopedica_colabTotal	Cirugía ortopédica y traumatología Total colaboradores
+C1_05_PERSONAL	cPediatrica_colabTotal	Cirugía pedriátrica Total colaboradores
+C1_05_PERSONAL	cPlastica_colabTotal	Cirugía plástica estética y reparadora Total colaboradores
+C1_05_PERSONAL	cToracica_colabTotal	Cirugía Torácica Total colaboradores
+C1_05_PERSONAL	dermatologia_colabTotal	Dermatología Médico-Quirúrgico Total colaboradores
+C1_05_PERSONAL	neurocirugia_colabTotal	Neurocirugía Total colaboradores
+C1_05_PERSONAL	obstetricia_colabTotal	Obstetricia-Ginecología Total colaboradores
+C1_05_PERSONAL	oftalmologia_colabTotal	Oftalmología Total colaboradores
+C1_05_PERSONAL	otorrino_colabTotal	Otorrinolaringología Total colaboradores
+C1_05_PERSONAL	urologia_colabTotal	Urología Total colaboradores
+C1_05_PERSONAL	subQuirurgicas_colabTotal	SubTotal Especialidades quirúrgicas colaboradores
+C1_05_PERSONAL	pediatria_colabTotal	Pediatría Total colaboradores
+C1_05_PERSONAL	mIntensiva_colabTotal	Medicina Intensiva Total colaboradores
+C1_05_PERSONAL	psiquiatria_colabTotal	Psiquiatría Total colaboradores
+C1_05_PERSONAL	sCentrales_colabTotal	Servicios Centrales Total colaboradores
+C1_05_PERSONAL	urgencias_colabTotal	Urgencias-Guardias Total colaboradores
+C1_05_PERSONAL	total_colabMedicos	Total personal médico Total colaboradores
+C1_05_PERSONAL	farmaceuticos_colabTotal	Farmaceúticos Total colaboradores
+C1_05_PERSONAL	oTituSuperior_colabTotal	Otros titul. superiores sanitarios Total colaboradores
+C1_05_PERSONAL	anestesia_colabMujeres	Anestesia y Reanimación mujeres colaboradores
+C1_05_PERSONAL	aDigestivo_colabMujeres	Aparato digestivo mujeres colaboradores
+C1_05_PERSONAL	cardiologia_colabMujeres	Cardiología mujeres colaboradores
+C1_05_PERSONAL	neurologia_colabMujeres	Neurología mujeres colaboradores
+C1_05_PERSONAL	mFisica_colabMujeres	Medicina Física y Rehabilitación mujeres colaboradores
+C1_05_PERSONAL	mResto_colabMujeres	Medicina Física y Resto de Especialidades Médicas mujeres colaboradores
+C1_05_PERSONAL	subMedicas_colabMujeres	SubTotal Especialidades médicas mujeres colaboradores
+C1_05_PERSONAL	angiologia_colabMujeres	Angiología y Cirugía Vascular mujeres colaboradores
+C1_05_PERSONAL	cCardio_colabMujeres	Cirugía Cardiovascular mujeres colaboradores
+C1_05_PERSONAL	cGeneral_colabMujeres	Cirugía Gral. Y del Aparato Digestivo mujeres colaboradores
+C1_05_PERSONAL	cOral_colabMujeres	Cirugía oral y maxilofacial mujeres colaboradores
+C1_05_PERSONAL	cOrtopedica_colabMujeres	Cirugía ortopédica y traumatología mujeres colaboradores
+C1_05_PERSONAL	cPediatrica_colabMujeres	Cirugía pedriátrica mujeres colaboradores
+C1_05_PERSONAL	cPlastica_colabMujeres	Cirugía plástica estética y reparadora mujeres colaboradores
+C1_05_PERSONAL	cToracica_colabMujeres	Cirugía Torácica mujeres colaboradores
+C1_05_PERSONAL	dermatologia_colabMujeres	Dermatología Médico-Quirúrgico mujeres colaboradores
+C1_05_PERSONAL	neurocirugia_colabMujeres	Neurocirugía mujeres colaboradores
+C1_05_PERSONAL	obstetricia_colabMujeres	Obstetricia-Ginecología mujeres colaboradores
+C1_05_PERSONAL	oftalmologia_colabMujeres	Oftalmología mujeres colaboradores
+C1_05_PERSONAL	otorrino_colabMujeres	Otorrinolaringología mujeres colaboradores
+C1_05_PERSONAL	urologia_colabMujeres	Urología mujeres colaboradores
+C1_05_PERSONAL	subQuirurgicas_colabMujeres	SubTotal Especialidades quirúrgicas mujeres colaboradores
+C1_05_PERSONAL	pediatria_colabMujeres	Pediatría mujeres colaboradores
+C1_05_PERSONAL	mIntensiva_colabMujeres	Medicina Intensiva mujeres colaboradores
+C1_05_PERSONAL	psiquiatria_colabMujeres	Psiquiatría mujeres colaboradores
+C1_05_PERSONAL	sCentrales_colabMujeres	Servicios Centrales mujeres colaboradores
+C1_05_PERSONAL	urgencias_colabMujeres	Urgencias-Guardias mujeres colaboradores
+C1_05_PERSONAL	total_colabMujerMedicos	Total personal médico mujeres colaboradores
+C1_05_PERSONAL	farmaceuticos_colabMujeres	Farmaceúticos mujeres colaboradores
+C1_05_PERSONAL	oTituSuperior_colabMujeres	Otros titul. superiores sanitarios mujeres colaboradores
+C1_06_RESTPERS	año	Año
+C1_06_RESTPERS	NCODI	Código de centro anonimizadas
+C1_06_RESTPERS	due_cTotal	DUE, enfermeros Total jornada completa
+C1_06_RESTPERS	matronas_cTotal	Matronas Total jornada completa
+C1_06_RESTPERS	oDueEspeciali_cTotal	Otros enfermeros especialistas Total jornada completa
+C1_06_RESTPERS	fisioterapeutas_cTotal	Fisioterapeutas Total jornada completa
+C1_06_RESTPERS	terapeutas_cTotal	Terapeutas ocupacionales Total jornada completa
+C1_06_RESTPERS	logopedas_cTotal	Logopedas Total jornada completa
+C1_06_RESTPERS	oSaniMedio_cTotal	Otros titul.medios sanitarios Total jornada completa
+C1_06_RESTPERS	gMedioSani_cTotal	Técnicos sanitarios grado medio Total jornada completa
+C1_06_RESTPERS	gSuperiorSani_cTotal	Técnicos sanitarios grado superior Total jornada completa
+C1_06_RESTPERS	tecSani_cTotal	Técnicos sanitarios Total jornada completa
+C1_06_RESTPERS	restSani_cTotal2	Otros Total jornada completa
+C1_06_RESTPERS	due_cMujeres	DUE, enfermeros mujeres jornada completa
+C1_06_RESTPERS	matronas_cMujeres	Matronas mujeres jornada completa
+C1_06_RESTPERS	oDueEspeciali_cMujeres	Otros enfermeros especialistas mujeres jornada completa
+C1_06_RESTPERS	fisioterapeutas_cMujeres	Fisioterapeutas mujeres jornada completa
+C1_06_RESTPERS	terapeutas_cMujeres	Terapeutas ocupacionales mujeres jornada completa
+C1_06_RESTPERS	logopedas_cMujeres	Logopedas mujeres jornada completa
+C1_06_RESTPERS	oSaniMedio_cMujeres	Otros titul.medios sanitarios mujeres jornada completa
+C1_06_RESTPERS	gMedioSani_cMujeres	Técnicos sanitarios grado medio mujeres jornada completa
+C1_06_RESTPERS	gSuperiorSani_cMujeres	Técnicos sanitarios grado superior mujeres jornada completa
+C1_06_RESTPERS	tecSani_cMujeres	Técnicos sanitarios mujeres jornada completa
+C1_06_RESTPERS	restSani_cMujeres2	Otros mujeres jornada completa
+C1_06_RESTPERS	due_pTotal	DUE, enfermeros Total jornada parcial
+C1_06_RESTPERS	matronas_pTotal	Matronas Total jornada parcial
+C1_06_RESTPERS	oDueEspeciali_pTotal	Otros enfermeros especialistas Total jornada parcial
+C1_06_RESTPERS	fisioterapeutas_pTotal	Fisioterapeutas Total jornada parcial
+C1_06_RESTPERS	terapeutas_pTotal	Terapeutas ocupacionales Total jornada parcial
+C1_06_RESTPERS	logopedas_pTotal	Logopedas Total jornada parcial
+C1_06_RESTPERS	oSaniMedio_pTotal	Otros titul.medios sanitarios Total jornada parcial
+C1_06_RESTPERS	gMedioSani_pTotal	Técnicos sanitarios grado medio Total jornada parcial
+C1_06_RESTPERS	gSuperiorSani_pTotal	Técnicos sanitarios grado superior Total jornada parcial
+C1_06_RESTPERS	tecSani_pTotal	Técnicos sanitarios Total jornada parcial
+C1_06_RESTPERS	restSani_pTotal2	Otros Total jornada parcial
+C1_06_RESTPERS	due_pMujeres	DUE, enfermeros mujeres jornada parcial
+C1_06_RESTPERS	matronas_pMujeres	Matronas mujeres jornada parcial
+C1_06_RESTPERS	oDueEspeciali_pMujeres	Otros enfermeros especialistas mujeres jornada parcial
+C1_06_RESTPERS	fisioterapeutas_pMujeres	Fisioterapeutas mujeres jornada parcial
+C1_06_RESTPERS	terapeutas_pMujeres	Terapeutas ocupacionales mujeres jornada parcial
+C1_06_RESTPERS	logopedas_pMujeres	Logopedas mujeres jornada parcial
+C1_06_RESTPERS	oSaniMedio_pMujeres	Otros titul.medios sanitarios mujeres jornada parcial
+C1_06_RESTPERS	gMedioSani_pMujeres	Técnicos sanitarios grado medio mujeres jornada parcial
+C1_06_RESTPERS	gSuperiorSani_pMujeres	Técnicos sanitarios grado superior mujeres jornada parcial
+C1_06_RESTPERS	tecSani_pMujeres	Técnicos sanitarios mujeres jornada parcial
+C1_06_RESTPERS	restSani_pMujeres2	Otros mujeres jornada parcial
+C1_06_RESTPERS	due_colabTotal	DUE, enfermeros Total colaboradores
+C1_06_RESTPERS	matronas_colabTotal	Matronas Total colaboradores
+C1_06_RESTPERS	oDueEspeciali_colabTotal	Otros enfermeros especialistas Total colaboradores
+C1_06_RESTPERS	fisioterapeutas_colabTotal	Fisioterapeutas Total colaboradores
+C1_06_RESTPERS	terapeutas_colabTotal	Terapeutas ocupacionales Total colaboradores
+C1_06_RESTPERS	logopedas_colabTotal	Logopedas Total colaboradores
+C1_06_RESTPERS	oSaniMedio_colabTotal	Otros titul.medios sanitarios Total colaboradores
+C1_06_RESTPERS	gMedioSani_colabTotal	Técnicos sanitarios grado medio Total colaboradores
+C1_06_RESTPERS	gSuperiorSani_colabTotal	Técnicos sanitarios grado superior Total colaboradores
+C1_06_RESTPERS	tecSani_colabTotal	Técnicos sanitarios Total colaboradores
+C1_06_RESTPERS	restSani_colabTotal2	Otros Total colaboradores
+C1_06_RESTPERS	due_colabMujeres	DUE, enfermeras mujeres colaboradores
+C1_06_RESTPERS	matronas_colabMujeres	Matronas mujeres colaboradoras
+C1_06_RESTPERS	oDueEspeciali_colabMujeres	Otros enfermeros especialistas mujeres colaboradoras
+C1_06_RESTPERS	fisioterapeutas_colabMujeres	Fisioterapeutas mujeres colaboradoras
+C1_06_RESTPERS	terapeutas_colabMujeres	Terapeutas ocupacionales mujeres colaboradoras
+C1_06_RESTPERS	logopedas_colabMujeres	Logopedas mujeres colaboradoras
+C1_06_RESTPERS	oSaniMedio_colabMujeres	Otros titul.medios sanitarios mujeres colaboradoras
+C1_06_RESTPERS	gMedioSani_colabMujeres	Técnicos sanitarios grado medio mujeres colaboradoras
+C1_06_RESTPERS	gSuperiorSani_colabMujeres	Técnicos sanitarios grado superior mujeres colaboradoras
+C1_06_RESTPERS	tecSani_colabMujeres	Técnicos sanitarios mujeres colaboradoras
+C1_06_RESTPERS	restSani_colabMujeres2	Otros mujeres colaboradoras
+C1_06_RESTPERS	direccion_cTotal	Dirección y Gestión Total jornada completa
+C1_06_RESTPERS	trabSocial_cTotal	Trabajadores sociales Total jornada completa
+C1_06_RESTPERS	perOficio_cTotal	Per Oficio Total jornada completa
+C1_06_RESTPERS	administrativos_cTotal	Administrativos Total jornada completa
+C1_06_RESTPERS	oNoSani_cTotal	Otros Total jornada completa
+C1_06_RESTPERS	direccion_cMujeres	Dirección y Gestión mujeres jornada completa
+C1_06_RESTPERS	trabSocial_cMujeres	Trabajadores sociales mujeres jornada completa
+C1_06_RESTPERS	perOficio_cMujeres	Per Oficio mujeres jornada completa
+C1_06_RESTPERS	administrativos_cMujeres	Administrativos mujeres jornada completa
+C1_06_RESTPERS	oNoSani_cMujeres	Otros mujeres jornada completa
+C1_06_RESTPERS	direccion_pTotal	Dirección y Gestión Total jornada parcial
+C1_06_RESTPERS	trabSocial_pTotal	Trabajadores sociales Total jornada parcial
+C1_06_RESTPERS	perOficio_pTotal	Per Oficio Total jornada parcial
+C1_06_RESTPERS	administrativos_pTotal	Administrativos Total jornada parcial
+C1_06_RESTPERS	oNoSani_pTotal	Otros (Incluye celadores) Total jornada parcial
+C1_06_RESTPERS	direccion_pMujeres	Dirección y Gestión mujeres jornada parcial
+C1_06_RESTPERS	trabSocial_pMujeres	Trabajadores sociales mujeres jornada parcial
+C1_06_RESTPERS	perOficio_pMujeres	Per Oficio mujeres jornada parcial
+C1_06_RESTPERS	administrativos_pMujeres	Administrativos mujeres jornada parcial
+C1_06_RESTPERS	oNoSani_pMujeres	Otros (Incluye celadores) mujeres jornada parcial
+C1_06_RESTPERS	direccion_colabTotal	Dirección y Gestión Total colaboradores
+C1_06_RESTPERS	trabSocial_colabTotal	Trabajadores sociales Total colaboradores
+C1_06_RESTPERS	perOficio_colabTotal	Per Oficio Total colaboradores
+C1_06_RESTPERS	administrativos_colabTotal	Administrativos Total colaboradores
+C1_06_RESTPERS	oNoSani_colabTotal	Otros (Incluye celadores) Total colaboradores
+C1_06_RESTPERS	direccion_colabMujeres	Dirección y Gestión mujeres colaboradoras
+C1_06_RESTPERS	trabSocial_colabMujeres	Trabajadores sociales mujeres colaboradoras
+C1_06_RESTPERS	perOficio_colabMujeres	Per Oficio mujeres colaboradoras
+C1_06_RESTPERS	administrativos_colabMujeres	Administrativos mujeres colaboradoras
+C1_06_RESTPERS	oNoSani_colabMujeres	Otros (Incluye celadores) mujeres colaboradoras
+C1_07_FORMACION	año	Año
+C1_07_FORMACION	NCODI	Código de centro anonimizadas
+C1_07_FORMACION	alergologia_total	Alergología total
+C1_07_FORMACION	analisis_total	Análisis clínicos total
+C1_07_FORMACION	anatomia_total	Anatomía patológica total
+C1_07_FORMACION	anestesiologia_total	Anestesiología y Reanimación total
+C1_07_FORMACION	angiologia_total	Angiología y Cirugía Vascular total
+C1_07_FORMACION	aparato_digestivo_total	Aparato Digestivo total
+C1_07_FORMACION	bioquimica_total	Bioquímica clínica total
+C1_07_FORMACION	cardiologia_total	Cardiología total
+C1_07_FORMACION	Cirug_Cardiovascular_total	Cirugía Cardiovascular total
+C1_07_FORMACION	Cirug_General_total	Cirugía general y digestivo total
+C1_07_FORMACION	Cirug_Maxilof_total	Cirugía oral y maxilofacial total
+C1_07_FORMACION	Cirug_Ortopedica_total	Cirugía ortopedica y traumatología total
+C1_07_FORMACION	Cirug_Pediatrica_total	Cirugía pediatrica total
+C1_07_FORMACION	Cirug_Plastica_total	Cirugía plástica estetica y reparadora total
+C1_07_FORMACION	Cirug_Toracica_total	Cirugia toracica total
+C1_07_FORMACION	dermatologia_total	Dermatología Médico-Quirúrgica total
+C1_07_FORMACION	endocrinologia_total	Endocrinologia y Nutrición total
+C1_07_FORMACION	farmacologia_total	Farmacología clínica total
+C1_07_FORMACION	geriatria_total	Geriatría total
+C1_07_FORMACION	hematologia_total	Hematología y hemoterapia total
+C1_07_FORMACION	inmunologia_total	Inmunología total
+C1_07_FORMACION	med_Trabajo_total	Medicina del trabajo total
+C1_07_FORMACION	med_Familiar_total	Medicina Familiar y Comunitaria total
+C1_07_FORMACION	med_Fisica_total	Medicina física y rehabilitación total
+C1_07_FORMACION	med_Intensiva_total	Medicina Intensiva total
+C1_07_FORMACION	med_Interna_total	Medicina Interna total
+C1_07_FORMACION	med_Nuclear_total	Medicina Nuclear total
+C1_07_FORMACION	med_Preventiva_total	Medicina Preventiva y Salud Pública total
+C1_07_FORMACION	microbiologia_total	Microbiologia Clinica y Parasitologia total
+C1_07_FORMACION	nefrologia_total	Nefrologia total
+C1_07_FORMACION	neumologia_total	Neumología total
+C1_07_FORMACION	neurocirugia_total	Neurocirugía total
+C1_07_FORMACION	neurofisiologia_total	Neurofisiologia clinica total
+C1_07_FORMACION	neurologia_total	Neurologia total
+C1_07_FORMACION	obstetricia_total	Obstetricia y Ginecologia total
+C1_07_FORMACION	oftalmologia_total	Oftalmologia total
+C1_07_FORMACION	onco_Medica_total	Oncologia Medica total
+C1_07_FORMACION	onco_Radioterapica_total	Oncologia Radioterápica total
+C1_07_FORMACION	otorrino_total	Otorrinolaringología total
+C1_07_FORMACION	pediatria_total	Pediatría y areas especificas total
+C1_07_FORMACION	psiquiatria_total	Psiquiatria total
+C1_07_FORMACION	radiodiagnostico_total	Radiodiagnóstico total
+C1_07_FORMACION	reumatologia_total	Reumatologia total
+C1_07_FORMACION	urologia_total	Urología total
+C1_07_FORMACION	totalMir_total	Total
+C1_07_FORMACION	alergologia_mujeres	Alergología mujeres
+C1_07_FORMACION	analisis_mujeres	Análisis clínicos mujeres
+C1_07_FORMACION	anatomia_mujeres	Anatomía patológica mujeres
+C1_07_FORMACION	anestesiologia_mujeres	Anestesiología y Reanimación mujeres
+C1_07_FORMACION	angiologia_mujeres	Angiología y Cirugía Vascular mujeres
+C1_07_FORMACION	aparato_digestivo_mujeres	Aparato Digestivo mujeres
+C1_07_FORMACION	bioquimica_mujeres	Bioquímica clínica mujeres
+C1_07_FORMACION	cardiologia_mujeres	Cardiología mujeres
+C1_07_FORMACION	Cirug_Cardiovascular_mujeres	Cirugía Cardiovascular mujeres
+C1_07_FORMACION	Cirug_General_mujeres	Cirugía general y digestivo mujeres
+C1_07_FORMACION	Cirug_Maxilof_mujeres	Cirugía oral y maxilofacial mujeres
+C1_07_FORMACION	Cirug_Ortopedica_mujeres	Cirugía ortopedica y traumatología mujeres
+C1_07_FORMACION	Cirug_Pediatrica_mujeres	Cirugía pediatrica mujeres
+C1_07_FORMACION	Cirug_Plastica_mujeres	Cirugía plástica estetica y reparadora mujeres
+C1_07_FORMACION	Cirug_Toracica_mujeres	Cirugia toracica mujeres
+C1_07_FORMACION	dermatologia_mujeres	Dermatología Médico-Quirúrgica mujeres
+C1_07_FORMACION	endocrinologia_mujeres	Endocrinologia y Nutrición mujeres
+C1_07_FORMACION	farmacologia_mujeres	Farmacología clínica mujeres
+C1_07_FORMACION	geriatria_mujeres	Geriatría mujeres
+C1_07_FORMACION	hematologia_mujeres	Hematología y hemoterapia mujeres
+C1_07_FORMACION	inmunologia_mujeres	Inmunología mujeres
+C1_07_FORMACION	med_Trabajo_mujeres	Medicina del trabajo mujeres
+C1_07_FORMACION	med_Familiar_mujeres	Medicina Familiar y Comunitaria mujeres
+C1_07_FORMACION	med_Fisica_mujeres	Medicina física y rehabilitación mujeres
+C1_07_FORMACION	med_Intensiva_mujeres	Medicina Intensiva mujeres
+C1_07_FORMACION	med_Interna_mujeres	Medicina Interna mujeres
+C1_07_FORMACION	med_Nuclear_mujeres	Medicina Nuclear mujeres
+C1_07_FORMACION	med_Preventiva_mujeres	Medicina Preventiva y Salud Pública mujeres
+C1_07_FORMACION	microbiologia_mujeres	Microbiologia Clinica y Parasitologia mujeres
+C1_07_FORMACION	nefrologia_mujeres	Nefrologia mujeres
+C1_07_FORMACION	neumologia_mujeres	Neumología mujeres
+C1_07_FORMACION	neurocirugia_mujeres	Neurocirugía mujeres
+C1_07_FORMACION	neurofisiologia_mujeres	Neurofisiologia clinica mujeres
+C1_07_FORMACION	neurologia_mujeres	Neurologia mujeres
+C1_07_FORMACION	obstetricia_mujeres	Obstetricia y Ginecologia mujeres
+C1_07_FORMACION	oftalmologia_mujeres	Oftalmologia mujeres
+C1_07_FORMACION	onco_Medica_mujeres	Oncologia Medica mujeres
+C1_07_FORMACION	onco_Radioterapica_mujeres	Oncologia Radioterápica mujeres
+C1_07_FORMACION	otorrino_mujeres	Otorrinolaringología mujeres
+C1_07_FORMACION	pediatria_mujeres	Pediatría y areas especificas mujeres
+C1_07_FORMACION	psiquiatria_mujeres	Psiquiatria mujeres
+C1_07_FORMACION	radiodiagnostico_mujeres	Radiodiagnóstico mujeres
+C1_07_FORMACION	reumatologia_mujeres	Reumatologia mujeres
+C1_07_FORMACION	urologia_mujeres	Urología mujeres
+C1_07_FORMACION	totalMir_mujeres	Total mujeres
+C1_07_FORMACION	Eir_Salud_total	Enfermeria Salud Mental total
+C1_07_FORMACION	Eir_MQ_total	Enfermería Cuidados Médicos-Quirúrgicos totales
+C1_07_FORMACION	Eir_Trabajo_total	Enfermería del trabajo totales
+C1_07_FORMACION	Eir_Familiar_total	Enfermería familiar y comunitaria totales
+C1_07_FORMACION	Eir_Geriatrica_total	Enfermería geriátrica totales
+C1_07_FORMACION	Eir_matronas_total	Enfermeria Obstétrico-Ginecológica total
+C1_07_FORMACION	Eir_Pediatrica_total	Enfermeria pediátrica total
+C1_07_FORMACION	totalEir_total	Total Enfermeria Interna Residente total
+C1_07_FORMACION	Eir_Salud_mujeres	Enfermeria Salud Mental mujeres
+C1_07_FORMACION	Eir_MQ_mujeres	Enfermería Cuidados Médicos-Quirúrgicos mujeres
+C1_07_FORMACION	Eir_Trabajo_mujeres	Enfermería del trabajo mujeres
+C1_07_FORMACION	Eir_Familiar_mujeres	Enfermería familiar y comunitaria mujeres
+C1_07_FORMACION	Eir_Geriatrica_mujeres	Enfermería geriátrica mujeres
+C1_07_FORMACION	Eir_matronas_mujeres	Enfermeria Obstétrico-Ginecológica mujeres
+C1_07_FORMACION	Eir_Pediatrica_mujeres	Enfermeria pediátrica mujeres
+C1_07_FORMACION	totalEir_mujeres	Total Enfermeria Interna Residente mujeres
+C1_07_FORMACION	Otros_Internos_total	Otros internos residentes total (FIR, QUIR, BIR, PIR..)
+C1_07_FORMACION	Otro_Postgrado_total	Otro personal en programa de formación postgrado total
+C1_07_FORMACION	Otros_IInternos_mujeres	Otros internos residentes mujeres (FIR, QUIR, BIR, PIR..)
+C1_07_FORMACION	Otro_Postgrado_mujeres	Otro personal en programa de formación postgrado mujeres
+C1_08_SERVICIOS_CONTRATADOS	año	Año
+C1_08_SERVICIOS_CONTRATADOS	NCODI	Código de centro anonimizadas
+C1_08_SERVICIOS_CONTRATADOS	anatomia_centro	Anatomia patologica realizada en el centro
+C1_08_SERVICIOS_CONTRATADOS	diagnostico_centro	Diagnostico por imagen realizado en el centro
+C1_08_SERVICIOS_CONTRATADOS	dialisis_centro	Dialisis realizada en el centro
+C1_08_SERVICIOS_CONTRATADOS	esterilizacion_centro	Esterilización realizada en el centro
+C1_08_SERVICIOS_CONTRATADOS	laboratorio_centro	Pruebas de laboratorio realizadas en el centro
+C1_08_SERVICIOS_CONTRATADOS	rehabilitacion_centro	Rehabilitación realizada en el centro
+C1_08_SERVICIOS_CONTRATADOS	otras_Asistenciales_centro	Otras ofertas asistenciales realizadas en el centro
+C1_08_SERVICIOS_CONTRATADOS	anatomia_fuera	Anatomia patologica realizada fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	diagnostico_fuera	Diagnostico por imagen realizado fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	dialisis_fuera	Dialisis realizada fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	esterilizacion_fuera	Esterilización realizada fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	laboratorio_fuera	Pruebas de laboratorio realizadas fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	rehabilitacion_fuera	Rehabilitación realizada fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	otras_Asistenciales_fuera	Otras ofertas asistenciales realizadas fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	otros_Asis_texto	Otros servicio asistenciales TEXTO
+C1_08_SERVICIOS_CONTRATADOS	cocina_centro	Servicio de cocina en el centro
+C1_08_SERVICIOS_CONTRATADOS	lavanderia_centro	Servicio de lavandería en el centro
+C1_08_SERVICIOS_CONTRATADOS	limpieza_centro	Servicio de limpieza
+C1_08_SERVICIOS_CONTRATADOS	mantenimiento_centro	Servicio de Mantenimiento en el centro
+C1_08_SERVICIOS_CONTRATADOS	seguridad_centro	Seguridad en el centro
+C1_08_SERVICIOS_CONTRATADOS	otros_NoAsistenciales_centro	Otros servicios No asistenciales en el centro
+C1_08_SERVICIOS_CONTRATADOS	cocina_fuera	Servicio de cocina fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	lavanderia_fuera	Servicio de lavandería fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	otros_NoAsistenciales_fuera	Otros servicios No asistenciales fuera del centro
+C1_08_SERVICIOS_CONTRATADOS	otros_NoAsis_texto	Otros servicio NO asistenciales TEXTO
+C1_08_SERVICIOS_CONTRATADOS	oxigenoterapia_centro	Oxigenoterapia contratada en centro
+C1_08_SERVICIOS_CONTRATADOS	oxigenoterapia_fuera	Oxigenoterapia contratada fuera
+C1_08_SERVICIOS_CONTRATADOS	transporte_centro	Transporte sanitario contratado
+C1_11_ACTIVIDAD_OBSTETRICA	año	Año
+C1_11_ACTIVIDAD_OBSTETRICA	NCODI	Código de centro anonimizadas
+C1_11_ACTIVIDAD_OBSTETRICA	partoVaginal	Partos por via vaginal
+C1_11_ACTIVIDAD_OBSTETRICA	cesareas	Cesareas
+C1_11_ACTIVIDAD_OBSTETRICA	rNacVivos	Recien nacidos vivos
+C1_11_ACTIVIDAD_OBSTETRICA	vivos_menor2500	Recien nacidos < 2500 gr
+C1_11_ACTIVIDAD_OBSTETRICA	exitusMaternal	Fallecimientos maternales
+C1_12_HOSPITAL_DIA	año	Año
+C1_12_HOSPITAL_DIA	NCODI	Código de centro anonimizadas
+C1_12_HOSPITAL_DIA	pacienteTot_med	Pacientes totales medico
+C1_12_HOSPITAL_DIA	sesionTot_med	Sesiones totales medico
+C1_12_HOSPITAL_DIA	pacienteTot_psiquia	Pacientes totales psiquiatrico
+C1_12_HOSPITAL_DIA	sesionTot_psiquia	Sesiones totales psiquiatrico
+C1_12_HOSPITAL_DIA	pacienteTot_geria	Pacientes totales geriatrico
+C1_12_HOSPITAL_DIA	sesionTot_geria	Sesiones totales geriatrico
+C1_13_HOSPITALIZACION_DOMICILIO	año	Año
+C1_13_HOSPITALIZACION_DOMICILIO	NCODI	Código de centro anonimizadas
+C1_13_HOSPITALIZACION_DOMICILIO	pacienteTot_hospDom	Pacientes totales hospitalizacion a domicilio
+C1_13_HOSPITALIZACION_DOMICILIO	visitaTot_hospDom	Visitas totales hospitalizacion a domicilio
+C1_15_ACTIVIDAD_URGENCIAS	año	Año
+C1_15_ACTIVIDAD_URGENCIAS	NCODI	Código de centro anonimizadas
+C1_15_ACTIVIDAD_URGENCIAS	Urg_altas	Altas en urgencias
+C1_15_ACTIVIDAD_URGENCIAS	Urg_ingresos	Ingresos en urgencias
+C1_15_ACTIVIDAD_URGENCIAS	Urg_traslados	Traslados en urgencias
+C1_15_ACTIVIDAD_URGENCIAS	Urg_exitus	Fallecimientos en urgencias
+C1_15_ACTIVIDAD_URGENCIAS	Urg_total	URGENCIAS TOTALES
+C1_16_ACTIVIDAD_DIAGNOSTICA	año	Año
+C1_16_ACTIVIDAD_DIAGNOSTICA	NCODI	Código de centro anonimizadas
+C1_16_ACTIVIDAD_DIAGNOSTICA	biopsias_hosp	Biopsias en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	biopsias_CEP	Biopsias en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	necropsias_hosp	Necropsias totales en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	angio_hosp	Angiografía digital en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	angio_CEP	Angiografía digital en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	densiometrias_hosp	Densiometrías en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	densiometrias_CEP	Densiometrías en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	gamma_hosp	Gammagrafías en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	gamma_CEP	Gammagrafías en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	mamo_hosp	Mamografías en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	mamo_CEP	Mamografías en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	pet_hosp	PET y PET-TC en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	pet_CEP	PET y PET-TC en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	resonancia_hosp	Resonancia magnetica en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	resonancia_CEP	Resonancia magnetica en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	rx_hosp	Rx convencional en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	rx_CEP	Rx convencional en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	spect_hosp	SPECT en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	spect_CEP	SPECT en centro de especialidades
+C1_16_ACTIVIDAD_DIAGNOSTICA	tac_hosp	TAC en hospital
+C1_16_ACTIVIDAD_DIAGNOSTICA	tac_CEP	TAC en centro de especialidad
+C1_16_ACTIVIDAD_DIAGNOSTICA	Colonosopia	Colonoscopias realizadas
+C1_16_ACTIVIDAD_DIAGNOSTICA	Broncoscopia	Broncoscopias realizadas
+C1_16_ACTIVIDAD_DIAGNOSTICA	ERCP	Colangiopancreatografía Retrógrada Endoscópica
+C1_17_OTRA_ACTIVIDAD	año	Año
+C1_17_OTRA_ACTIVIDAD	NCODI	Código de centro anonimizadas
+C1_17_OTRA_ACTIVIDAD	totHemodina_Paciente	Pacientes totales en hemodinamica
+C1_17_OTRA_ACTIVIDAD	totPaciente_radioInterv	Pacientes totales en radiologia intervencionista
+C1_17_OTRA_ACTIVIDAD	totLitofrag_Paciente	Pacientes totales en litofragmentacion renal
+C1_17_OTRA_ACTIVIDAD	totLitofrag_Sesion	Sesiones totales en litofragmentacion renal
+C1_17_OTRA_ACTIVIDAD	totAceleLineal_Paciente	Pacientes totales en acelerador lineal
+C1_17_OTRA_ACTIVIDAD	totAceleLineal_Sesion	Sesiones totales en acelerador lineal
+C1_17_OTRA_ACTIVIDAD	totBomCobal_Paciente	Pacientes totales en bomba de cobalto
+C1_17_OTRA_ACTIVIDAD	totBomCobal_Sesion	Sesiones totales en bomba de cobalto
+C1_17_OTRA_ACTIVIDAD	totOtraRadio_Paciente	Pacientes totales en otras
+C1_17_OTRA_ACTIVIDAD	totOtraRadio_Sesion	Sesiones totales en otras
+C1_17_OTRA_ACTIVIDAD	totFisiot_Paciente	Pacientes totales en fisioterapia
+C1_17_OTRA_ACTIVIDAD	totFisiot_Sesion	Sesiones totales en fisioterapia
+C1_17_OTRA_ACTIVIDAD	totLogop_Paciente	Pacientes totales en logopedia
+C1_17_OTRA_ACTIVIDAD	totLogop_Sesion	Sesiones totales en logopedia
+C1_17_OTRA_ACTIVIDAD	totTerapOcupa_Paciente	Pacientes totales en terapia ocupacional
+C1_17_OTRA_ACTIVIDAD	totTerapOcupa_Sesion	Sesiones totales en terapia ocupacional
+C1_17_OTRA_ACTIVIDAD	totHemodial_Paciente	Pacientes totales en hemodialisis
+C1_17_OTRA_ACTIVIDAD	totHemodial_Sesion	Sesiones totales en hemodialisis
+C1_17_OTRA_ACTIVIDAD	totHemodialDom_Paciente	Pacientes totales en hemodialisis domiciliaria
+C1_17_OTRA_ACTIVIDAD	totHemodialDom_Sesion	Sesiones totales en hemodialisis domiciliaria
+C1_17_OTRA_ACTIVIDAD	totDialPerito_Paciente	Pacientes totales en dialisis peritoneal domiciliaria
+C1_17_OTRA_ACTIVIDAD	totDialPerito_Sesion	Sesiones totales en dialisis peritoneal domiciliaria
+C1_21_INVERSIONES	año	Año
+C1_21_INVERSIONES	NCODI	Código de centro anonimizadas
+C1_21_INVERSIONES	inver_iIntangible	INVERSIONES EN INMOVILIZADO INTANGIBLE
+C1_21_INVERSIONES	inver_IMaterial	INVERSIONES EN INMOVILIZADO MATERIAL
+C1_21_INVERSIONES	inver_IMterrenos	Terrenos y bienes naturales
+C1_21_INVERSIONES	inver_IMresto	Resto de Inversiones en inmovilizado material
+C1_21_INVERSIONES	inver_Otras	OTRAS INVERSIONES
+C1_21_INVERSIONES	inver_Total	TOTAL INVERSIONES EN EL AÑO
+C1_09_ACTIVI_HOSPITAL	año	Año
+C1_09_ACTIVI_HOSPITAL	NCODI	Código de centro anonimizadas
+C1_09_ACTIVI_HOSPITAL	aFinales_mIntensiva	Altas total medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altCuracion_cirugia	Altas por curación cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altCuracion_gine	Altas por curación obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altCuracion_largaEstan	Altas por curación larga estancia
+C1_09_ACTIVI_HOSPITAL	altCuracion_med	Altas por curación medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altCuracion_mIntensiva	Altas por curación medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altCuracion_neonatologia	Altas por curación neonatología
+C1_09_ACTIVI_HOSPITAL	altCuracion_o1	Estancias Otros-1
+C1_09_ACTIVI_HOSPITAL	altCuracion_o2	Altas total Otros-2
+C1_09_ACTIVI_HOSPITAL	altCuracion_o3	Altas por curación Otros-3
+C1_09_ACTIVI_HOSPITAL	altCuracion_paliativos	Altas por curación cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altCuracion_pediatria	Altas por curación pediatría
+C1_09_ACTIVI_HOSPITAL	altCuracion_psiAgudo	Altas por curación psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	altCuracion_psiquiatria	Altas por curación psiquiatría
+C1_09_ACTIVI_HOSPITAL	altCuracion_psiquiMedia	Altas por curación psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altCuracion_rehabilitacion	Altas por curación rehabilitación
+C1_09_ACTIVI_HOSPITAL	altCuracion_restoPedia	Altas por curación resto pediatría
+C1_09_ACTIVI_HOSPITAL	altCuracion_total	Altas por curación TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altCuracion_trauma	Altas por curación cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altCuracion_uci	Altas por curación UCI
+C1_09_ACTIVI_HOSPITAL	altCuracion_uCoronarios	Altas por curación Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altCuracion_uNeonatales	Altas por curación Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altCuracion_uQuemados	Altas por curación Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	altExitus_cirugia	Altas por fallecimiento cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altExitus_gine	Altas por fallecimiento obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altExitus_largaEstan	Altas por fallecimiento larga estancia
+C1_09_ACTIVI_HOSPITAL	altExitus_med	Altas por fallecimiento medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altExitus_mIntensiva	Altas por fallecimiento medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altExitus_neonatologia	Altas por fallecimiento neonatología
+C1_09_ACTIVI_HOSPITAL	altExitus_o1	Altas por curación Otros-1
+C1_09_ACTIVI_HOSPITAL	altExitus_o2	Altas por traslado Otros-2
+C1_09_ACTIVI_HOSPITAL	altExitus_o3	Altas por fallecimiento Otros-3
+C1_09_ACTIVI_HOSPITAL	altExitus_paliativos	Altas por fallecimiento cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altExitus_pediatria	Altas por fallecimiento pediatría
+C1_09_ACTIVI_HOSPITAL	altExitus_psiAgudo	Altas por fallecimiento psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	altExitus_psiquiatria	Altas por fallecimiento psiquiatría
+C1_09_ACTIVI_HOSPITAL	altExitus_psiquiMedia	Altas por fallecimiento psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altExitus_rehabilitacion	Altas por fallecimiento rehabilitación
+C1_09_ACTIVI_HOSPITAL	altExitus_restoPedia	Altas por fallecimiento resto pediatría
+C1_09_ACTIVI_HOSPITAL	altExitus_total	Altas por fallecimiento TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altExitus_trauma	Altas por fallecimiento cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altExitus_uci	Altas por fallecimiento UCI
+C1_09_ACTIVI_HOSPITAL	altExitus_uCoronarios	Altas por fallecimiento Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altExitus_uNeonatales	Altas por fallecimiento Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altExitus_uQuemados	Altas por fallecimiento Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	altFinal_cirugia	Altas total cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altFinal_gine	Altas total obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altFinal_largaEstan	Altas total larga estancia
+C1_09_ACTIVI_HOSPITAL	altFinal_med	Altas total medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altFinal_neonatologia	Altas total neonatología
+C1_09_ACTIVI_HOSPITAL	altFinal_o1	Altas total Otros-1
+C1_09_ACTIVI_HOSPITAL	altFinal_o2	Altas total Otros-2
+C1_09_ACTIVI_HOSPITAL	altFinal_o3	Altas total Otros-3
+C1_09_ACTIVI_HOSPITAL	altFinal_paliativos	Altas total cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altFinal_pediatria	Altas total pediatría
+C1_09_ACTIVI_HOSPITAL	altFinal_psiAgudo	Altas total psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	altFinal_psiquiatria	Altas total psiquiatría
+C1_09_ACTIVI_HOSPITAL	altFinal_psiquiMedia	Altas total psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altFinal_rehabilitacion	Altas total rehabilitación
+C1_09_ACTIVI_HOSPITAL	altFinal_restoPedia	Altas total resto pediatría
+C1_09_ACTIVI_HOSPITAL	altFinal_total	Altas total TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altFinal_trauma	Altas total cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altFinal_uci	Altas total UCI
+C1_09_ACTIVI_HOSPITAL	altFinal_uCoronarios	Altas total Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altFinal_uNeonatales	Altas total Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altFinal_uQuemados	Altas total Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	altOtracausa_cirugia	Altas por otras causas cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altOtracausa_gine	Altas por otras causas obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altOtracausa_largaEstan	Altas por otras causas larga estancia
+C1_09_ACTIVI_HOSPITAL	altOtracausa_med	Altas por otras causas medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altOtracausa_mIntensiva	Altas por otras causas medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altOtracausa_neonatologia	Altas por otras causas neonatología
+C1_09_ACTIVI_HOSPITAL	altOtracausa_o1	Altas por traslado Otros-1
+C1_09_ACTIVI_HOSPITAL	altOtracausa_o2	Altas por fallecimiento Otros-2
+C1_09_ACTIVI_HOSPITAL	altOtracausa_o3	Altas por otras causas Otros-3
+C1_09_ACTIVI_HOSPITAL	altOtracausa_paliativos	Altas por otras causas cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altOtracausa_pediatria	Altas por otras causas pediatría
+C1_09_ACTIVI_HOSPITAL	altOtracausa_psiAgudo	Altas por otras causas psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	altOtracausa_psiquiatria	Altas por otras causas psiquiatría
+C1_09_ACTIVI_HOSPITAL	altOtracausa_psiquiMedia	Altas por otras causas psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altOtracausa_rehabilitacion	Altas por otras causas rehabilitación
+C1_09_ACTIVI_HOSPITAL	altOtracausa_restoPedia	Altas por otras causas resto pediatría
+C1_09_ACTIVI_HOSPITAL	altOtracausa_total	Altas por otras causas TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altOtracausa_trauma	Altas por otras causas cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altOtracausa_uci	Altas por otras causas UCI
+C1_09_ACTIVI_HOSPITAL	altOtracausa_uCoronarios	Altas por otras causas Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altOtracausa_uNeonatales	Altas por otras causas Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altOtracausa_uQuemados	Altas por otras causas Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_cirugia	Altas por traslado cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_gine	Altas por traslado obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_largaEstan	Altas por traslado larga estancia
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_med	Altas por traslado medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_mIntensiva	Altas por traslado medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_neonatologia	Altas por traslado neonatología
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_o1	Altas total Otros-1
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_o2	Altas por curación Otros-2
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_o3	Altas por traslado Otros-3
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_paliativos	Altas por traslado cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_pediatria	Altas por traslado pediatría
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_psiAgudo	Altas por traslado psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_psiquiatria	Altas por traslado psiquiatría
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_psiquiMedia	Altas por traslado psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_rehabilitacion	Altas por traslado rehabilitación
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_restoPedia	Altas por traslado resto pediatría
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_total	Altas por traslado TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_trauma	Altas por traslado cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_uci	Altas por traslado UCI
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_uCoronarios	Altas por traslado Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_uNeonatales	Altas por traslado Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altTraslaHosp_uQuemados	Altas por traslado Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_cirugia	Altas por traslados interservicio cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_gine	Altas por traslados interservicio obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_largaEstan	Altas por traslados interservicio larga estancia
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_med	Altas por traslados interservicio medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_mIntensiva	Altas por traslados interservicio medicina intensiva
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_neonatologia	Altas por traslados interservicio neonatología
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_o1	Altas por fallecimiento Otros-1
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_o2	Altas por otras causas Otros-2
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_o3	Altas por traslados interservicio Otros-3
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_paliativos	Altas por traslados interservicio cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_pediatria	Altas por traslados interservicio pediatría
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_psiAgudo	Altas por traslados interservicio psiquiatría agudos
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_psiquiatria	Altas por traslados interservicio psiquiatría
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_psiquiMedia	Altas por traslados interservicio psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_rehabilitacion	Altas por traslados interservicio rehabilitación
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_restoPedia	Altas por traslados interservicio resto pediatría
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_total	Altas por traslados interservicio TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_trauma	Altas por traslados interservicio cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_uci	Altas por traslados interservicio UCI
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_uCoronarios	Altas por traslados interservicio Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_uNeonatales	Altas por traslados interservicio Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	altTraslaInter_uQuemados	Altas por traslados interservicio Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	camas_cirugia	Camas cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	camas_gine	Camas obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	camas_largaEstan	Camas larga estancia
+C1_09_ACTIVI_HOSPITAL	camas_medicina	Camas medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	camas_mIntensiva	Camas medicina intensiva
+C1_09_ACTIVI_HOSPITAL	camas_neonatologia	Camas neonatología
+C1_09_ACTIVI_HOSPITAL	camas_o1	Camas Otros-1
+C1_09_ACTIVI_HOSPITAL	camas_o2	Camas Otros-2
+C1_09_ACTIVI_HOSPITAL	camas_o3	Camas Otros-3
+C1_09_ACTIVI_HOSPITAL	camas_paliativos	Camas cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	camas_pediatria	Camas pediatría
+C1_09_ACTIVI_HOSPITAL	camas_psiAgudo	Camas psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	camas_psiquiatria	Camas psiquiatría
+C1_09_ACTIVI_HOSPITAL	camas_psiquiMedia	Camas psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	camas_rehabilitacion	Camas rehabilitación
+C1_09_ACTIVI_HOSPITAL	camas_restoPedia	Camas resto pediatría
+C1_09_ACTIVI_HOSPITAL	camas_total	Camas TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	camas_trauma	Camas cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	camas_uci	Camas UCI
+C1_09_ACTIVI_HOSPITAL	camas_uCoronarios	Camas Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	camas_uNeonatales	Camas Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	camas_uQuemados	Camas Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	estancias_cirugia	Estancias cirugía y esp. quirúrgicas
+C1_09_ACTIVI_HOSPITAL	estancias_gine	Estancias obstetricia-ginecología
+C1_09_ACTIVI_HOSPITAL	estancias_largaEstan	Estancias larga estancia
+C1_09_ACTIVI_HOSPITAL	estancias_medicina	Estancias medicina y esp. médicas
+C1_09_ACTIVI_HOSPITAL	estancias_mIntensiva	Estancias medicina intensiva
+C1_09_ACTIVI_HOSPITAL	estancias_neonatologia	Estancias neonatología
+C1_09_ACTIVI_HOSPITAL	estancias_o1	Descripcion Otras 3
+C1_09_ACTIVI_HOSPITAL	estancias_o2	Camas Otros-2
+C1_09_ACTIVI_HOSPITAL	estancias_o3	Estancias Otros-3
+C1_09_ACTIVI_HOSPITAL	estancias_paliativos	Estancias cuidados paliativos
+C1_09_ACTIVI_HOSPITAL	estancias_pediatria	Estancias pediatría
+C1_09_ACTIVI_HOSPITAL	estancias_psiAgudo	Estancias psiquiatría unidad de agudos
+C1_09_ACTIVI_HOSPITAL	estancias_psiquiatria	Estancias psiquiatría
+C1_09_ACTIVI_HOSPITAL	estancias_psiquiMedia	Estancias psiquiatría media larga estancia
+C1_09_ACTIVI_HOSPITAL	estancias_rehabilitacion	Estancias rehabilitación
+C1_09_ACTIVI_HOSPITAL	estancias_restoPedia	Estancias resto pediatría
+C1_09_ACTIVI_HOSPITAL	estancias_total	Estancias TOTAL HOSPITAL
+C1_09_ACTIVI_HOSPITAL	estancias_trauma	Estancias cirugía ortopédica y traumatología
+C1_09_ACTIVI_HOSPITAL	estancias_uci	Estancias UCI
+C1_09_ACTIVI_HOSPITAL	estancias_uCoronarios	Estancias Unidad de coronarios
+C1_09_ACTIVI_HOSPITAL	estancias_uNeonatales	Estancias Unidad Intensivos neonatales
+C1_09_ACTIVI_HOSPITAL	estancias_uQuemados	Estancias Unidad de Quemados
+C1_09_ACTIVI_HOSPITAL	ingreProgr	Ingresos programados
+C1_09_ACTIVI_HOSPITAL	ingreUrge	Ingresos urgentes
+C1_09_ACTIVI_HOSPITAL	otros1_texto	Texto otros_1
+C1_09_ACTIVI_HOSPITAL	otros2_texto	Texto otros_2
+C1_09_ACTIVI_HOSPITAL	otros3_texto	Texto otros_3
+C1_09_ACTIVI_HOSPITAL	total_ingresosHops	Total Ingresos
+C1_10_ACTIVIDAD_QUIRURGICA	año	Año
+C1_10_ACTIVIDAD_QUIRURGICA	NCODI	Código de centro anonimizadas
+C1_10_ACTIVIDAD_QUIRURGICA	progAngioVasc_hosp	Angiologia y cirugia vascular programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeAngioVasc_hosp	Angiologia y cirugia vascular urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progAngioVasc_cma	Angiologia y cirugia vascular programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeAngioVasc_cma	Angiologia y cirugia vascular urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progAngioVasc_resto	Angiologia y cirugia vascular programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeAngioVasc_resto	Angiologia y cirugia vascular urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progAngioVasc_total	Angiologia y cirugia vascular programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeAngioVasc_total	Angiologia y cirugia vascular urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progCirCardio_hosp	Cirugía Cardiaca programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirCardio_hosp	Cirugía Cardiaca urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progCirCardio_cma	Cirugía Cardiaca programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirCardio_cma	Cirugía Cardiaca urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progCirCardio_resto	Cirugía Cardiaca programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirCardio_resto	Cirugía Cardiaca urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progCirCardio_total	Cirugía Cardiaca programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirCardio_total	Cirugía Cardiaca urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progCirGeneral_hosp	Cirugía general y digestivo programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirGeneral_hosp	Cirugía general y digestivo urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progCirGeneral_cma	Cirugía general y digestivo programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirGeneral_cma	Cirugía general y digestivo urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progCirGeneral_resto	Cirugía general y digestivo programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirGeneral_resto	Cirugía general y digestivo urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progCirGeneral_total	Cirugía general y digestivo programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirGeneral_total	Cirugía general y digestivo urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progMaxilo_hosp	Cirugía maxilofacial programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeMaxilo_hosp	Cirugía maxilofacial urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progMaxilo_cma	Cirugía maxilofacial programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeMaxilo_cma	Cirugía maxilofacial urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progMaxilo_resto	Cirugía maxilofacial programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeMaxilo_resto	Cirugía maxilofacial urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progMaxilo_total	Cirugía maxilofacial programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeMaxilo_total	Cirugía maxilofacial urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progCirPediat_hosp	Cirugía pediátrica programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirPediat_hosp	Cirugía pediátrica urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progCirPediat_cma	Cirugía pediátrica programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirPediat_cma	Cirugía pediátrica urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progCirPediat_resto	Cirugía pediátrica programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirPediat_resto	Cirugía pediátrica urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progCirPediat_total	Cirugía pediátrica programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirPediat_total	Cirugía pediátrica urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progPlastica_hosp	Cirugía plástica programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgePlastica_hosp	Cirugía plástica urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progPlastica_cma	Cirugía plástica programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgePlastica_cma	Cirugía plástica urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progPlastica_resto	Cirugía plástica programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgePlastica_resto	Cirugía plástica urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progPlastica_total	Cirugía plástica programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgePlastica_total	Cirugía plástica urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progToracica_hosp	Cirugía torácica programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeToracica_hosp	Cirugía torácica urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progToracica_cma	Cirugía torácica programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeToracica_cma	Cirugía torácica urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progToracica_resto	Cirugía torácica programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeToracica_resto	Cirugía torácica urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progToracica_total	Cirugía torácica programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeToracica_total	Cirugía torácica urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progDerma_hosp	Dermatología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeDerma_hosp	Dermatología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progDerma_cma	Dermatología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeDerma_cma	Dermatología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progDerma_resto	Dermatología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeDerma_resto	Dermatología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progDerma_total	Dermatología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeDerma_total	Dermatología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progGine_hosp	Ginecología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeGine_hosp	Ginecología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progGine_cma	Ginecología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeGine_cma	Ginecología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progGine_resto	Ginecología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeGine_resto	Ginecología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progGine_total	Ginecología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeGine_total	Ginecología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progCirNeuro_hosp	Neurocirugía programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirNeuro_hosp	Neurocirugía urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progCirNeuro_cma	Neurocirugía programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirNeuro_cma	Neurocirugía urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progCirNeuro_resto	Neurocirugía programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirNeuro_resto	Neurocirugía urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progCirNeuro_total	Neurocirugía programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeCirNeuro_total	Neurocirugía urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progOftalmo_hosp	Oftalmología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOftalmo_hosp	Oftalmología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progOftalmo_cma	Oftalmología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOftalmo_cma	Oftalmología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progOftalmo_resto	Oftalmología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOftalmo_resto	Oftalmología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progOftalmo_total	Oftalmología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOftalmo_total	Oftalmología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progORL_hosp	Otorrinolaringología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeORL_hosp	Otorrinolaringología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progORL_cma	Otorrinolaringología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeORL_cma	Otorrinolaringología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progORL_resto	Otorrinolaringología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeORL_resto	Otorrinolaringología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progORL_total	Otorrinolaringología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeORL_total	Otorrinolaringología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progTrauma_hosp	C. ortopédica y traumatología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeTrauma_hosp	C. ortopédica y traumatología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progTrauma_cma	C. ortopédica y traumatología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeTrauma_cma	C. ortopédica y traumatología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progTrauma_resto	C. ortopédica y traumatología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeTrauma_resto	C. ortopédica y traumatología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progTrauma_total	C. ortopédica y traumatología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeTrauma_total	C. ortopédica y traumatología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progUrolog_hosp	Urología programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeUrolog_hosp	Urología urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progUrolog_cma	Urología programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeUrolog_cma	Urología urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progUrolog_resto	Urología programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeUrolog_resto	Urología urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progUrolog_total	Urología programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeUrolog_total	Urología urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	progOtrasCirugias_hosp	Otros programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOtrasCirugias_hosp	Otros urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	progOtrasCirugias_cma	Otros programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOtrasCirugias_cma	Otros urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	progOtrasCirugias_resto	Otros programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOtrasCirugias_resto	Otros urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	progOtrasCirugias_total	Otros programados total
+C1_10_ACTIVIDAD_QUIRURGICA	urgeOtrasCirugias_total	Otros urgentes total
+C1_10_ACTIVIDAD_QUIRURGICA	totalProg_hosp	Total programados con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	totalUrge_hosp	Total urgentes con hospitalizacion
+C1_10_ACTIVIDAD_QUIRURGICA	totalProg_cma	Total programados CMA
+C1_10_ACTIVIDAD_QUIRURGICA	totalUrge_cma	Total urgentes CMA
+C1_10_ACTIVIDAD_QUIRURGICA	totalProg_resto	Total programados resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	totalUrge_resto	Total urgentes resto interv.
+C1_10_ACTIVIDAD_QUIRURGICA	total_programada	Total programados total
+C1_10_ACTIVIDAD_QUIRURGICA	total_urgente	Total urgentes total
+C1_14_ACTIVIDAD_CONSULTAS	año	Año
+C1_14_ACTIVIDAD_CONSULTAS	NCODI	Código de centro anonimizadas
+C1_14_ACTIVIDAD_CONSULTAS	primDiges_hosp	1ª consultas hospital en aparato digestivo
+C1_14_ACTIVIDAD_CONSULTAS	totDiges_hosp	Consultas totales hospital en aparato digestivo
+C1_14_ACTIVIDAD_CONSULTAS	primDigestivo_CEP	1ª consultas CEP en aparato digestivo
+C1_14_ACTIVIDAD_CONSULTAS	totDigestivo_CEP	Consultas totales CEP en aparato digestivo
+C1_14_ACTIVIDAD_CONSULTAS	primCardio_hosp	1ª consultas hospital en Cardiología
+C1_14_ACTIVIDAD_CONSULTAS	totCardio_hosp	Consultas totales hospital en Cardiología
+C1_14_ACTIVIDAD_CONSULTAS	primCardio_CEP	1ª consultas CEP en Cardiología
+C1_14_ACTIVIDAD_CONSULTAS	totCardio_CEP	Consultas totales CEP en Cardiología
+C1_14_ACTIVIDAD_CONSULTAS	primDerma_hosp	1ª consultas hospital en Dermatología
+C1_14_ACTIVIDAD_CONSULTAS	totDerma_hosp	Consultas totales hospital en Dermatología
+C1_14_ACTIVIDAD_CONSULTAS	primDerma_CEP	1ª consultas CEP en Dermatología
+C1_14_ACTIVIDAD_CONSULTAS	totDerma_CEP	Consultas totales CEP en Dermatología
+C1_14_ACTIVIDAD_CONSULTAS	primNeurolog_hosp	1ª consultas hospital en Neurología
+C1_14_ACTIVIDAD_CONSULTAS	totNeurolog_hosp	Consultas totales hospital en Neurología
+C1_14_ACTIVIDAD_CONSULTAS	primNeurolog_CEP	1ª consultas CEP en Neurología
+C1_14_ACTIVIDAD_CONSULTAS	totNeurolog_CEP	Consultas totales CEP en Neurología
+C1_14_ACTIVIDAD_CONSULTAS	primPsquia_hosp	1ª consultas hospital en psiquiatría
+C1_14_ACTIVIDAD_CONSULTAS	totPsquia_hosp	Consultas totales hospital en psiquiatría
+C1_14_ACTIVIDAD_CONSULTAS	primPsquia_CEP	1ª consultas CEP en psiquiatría
+C1_14_ACTIVIDAD_CONSULTAS	totPsquia_CEP	Consultas totales CEP en psiquiatría
+C1_14_ACTIVIDAD_CONSULTAS	primRestoMed_hosp	1ª consultas hospital en resto esp. médicas
+C1_14_ACTIVIDAD_CONSULTAS	totRestoMed_hosp	Consultas totales hospital en resto esp. médicas
+C1_14_ACTIVIDAD_CONSULTAS	primRestoMed_CEP	1ª consultas CEP en resto esp. médicas
+C1_14_ACTIVIDAD_CONSULTAS	totRestoMed_CEP	Consultas totales CEP en resto esp. médicas
+C1_14_ACTIVIDAD_CONSULTAS	primCirGeneral_hosp	1ª consultas hospital en Cirugía general
+C1_14_ACTIVIDAD_CONSULTAS	totCirGeneral_hosp	Consultas totales hospital en Cirugía general
+C1_14_ACTIVIDAD_CONSULTAS	primCirGeneral_CEP	1ª consultas CEP en Cirugía general
+C1_14_ACTIVIDAD_CONSULTAS	totCirGeneral_CEP	Consultas totales CEP en Cirugía general
+C1_14_ACTIVIDAD_CONSULTAS	primTrauma_hosp	1ª consultas hospital en Cirugía Orto y trauma
+C1_14_ACTIVIDAD_CONSULTAS	totTrauma_hosp	Consultas totales hospital en Cirugía Orto y trauma
+C1_14_ACTIVIDAD_CONSULTAS	primTrauma_CEP	1ª consultas CEP en Cirugía Orto y trauma
+C1_14_ACTIVIDAD_CONSULTAS	totTrauma_CEP	Consultas totales CEP en Cirugía Orto y trauma
+C1_14_ACTIVIDAD_CONSULTAS	primGine_hosp	1ª consultas hospital en obstetricia-ginecología
+C1_14_ACTIVIDAD_CONSULTAS	totGine_hosp	Consultas totales hospital en obstetricia-ginecología
+C1_14_ACTIVIDAD_CONSULTAS	primGine_CEP	1ª consultas CEP en obstetricia-ginecología
+C1_14_ACTIVIDAD_CONSULTAS	totGine_CEP	Consultas totales CEP en obstetricia-ginecología
+C1_14_ACTIVIDAD_CONSULTAS	primOftalmo_hosp	1ª consultas hospital en Oftalmología
+C1_14_ACTIVIDAD_CONSULTAS	totOftalmo_hosp	Consultas totales hospital en Oftalmología
+C1_14_ACTIVIDAD_CONSULTAS	primOftalmo_CEP	1ª consultas CEP en Oftalmología
+C1_14_ACTIVIDAD_CONSULTAS	totOftalmo_CEP	Consultas totales CEP en Oftalmología
+C1_14_ACTIVIDAD_CONSULTAS	primOrl_hosp	1ª consultas hospital en Otorrinolaringología
+C1_14_ACTIVIDAD_CONSULTAS	totOrl_hosp	Consultas totales hospital en Otorrinolaringología
+C1_14_ACTIVIDAD_CONSULTAS	primOrl_CEP	1ª consultas CEP en Otorrinolaringología
+C1_14_ACTIVIDAD_CONSULTAS	totOrl_CEP	Consultas totales CEP en Otorrinolaringología
+C1_14_ACTIVIDAD_CONSULTAS	primUrolog_hosp	1ª consultas hospital en Urología
+C1_14_ACTIVIDAD_CONSULTAS	totUrolog_hosp	Consultas totales hospital en Urología
+C1_14_ACTIVIDAD_CONSULTAS	primUrolog_CEP	1ª consultas CEP en Urología
+C1_14_ACTIVIDAD_CONSULTAS	totUrolog_CEP	Consultas totales CEP en Urología
+C1_14_ACTIVIDAD_CONSULTAS	primRestoQuirurg_hosp	1ª consultas hospital en resto esp. quirurgicas
+C1_14_ACTIVIDAD_CONSULTAS	totRestoQuirurg_hosp	Consultas totales hospital en resto esp. quirurgicas
+C1_14_ACTIVIDAD_CONSULTAS	primRestoQuirurg_CEP	1ª consultas CEP en resto esp. quirurgicas
+C1_14_ACTIVIDAD_CONSULTAS	totRestoQuirurg_CEP	Consultas totales CEP en resto esp. quirurgicas
+C1_14_ACTIVIDAD_CONSULTAS	primPediatria_hosp	1ª consultas hospital en pediatría
+C1_14_ACTIVIDAD_CONSULTAS	totPediatria_hosp	Consultas totales hospital en pediatría
+C1_14_ACTIVIDAD_CONSULTAS	primPediatria_CEP	1ª consultas CEP en pediatría
+C1_14_ACTIVIDAD_CONSULTAS	totPediatria_CEP	Consultas totales CEP en pediatría
+C1_14_ACTIVIDAD_CONSULTAS	primPreAnest_hosp	1ª consultas hospital en preanestesia
+C1_14_ACTIVIDAD_CONSULTAS	totPreAnest_hosp	Consultas totales hospital en preanestesia
+C1_14_ACTIVIDAD_CONSULTAS	primPreAnest_CEP	1ª consultas CEP en preanestesia
+C1_14_ACTIVIDAD_CONSULTAS	totPreAnest_CEP	Consultas totales CEP en preanestesia
+C1_14_ACTIVIDAD_CONSULTAS	primRehabil_hosp	1ª consultas hospital en rehabilitación
+C1_14_ACTIVIDAD_CONSULTAS	totRehabil_hosp	Consultas totales hospital en rehabilitación
+C1_14_ACTIVIDAD_CONSULTAS	primRehabil_CEP	1ª consultas CEP en rehabilitación
+C1_14_ACTIVIDAD_CONSULTAS	totRehabil_CEP	Consultas totales CEP en rehabilitación
+C1_14_ACTIVIDAD_CONSULTAS	primOtrasConsul_hosp	1ª consultas hospital en Otras
+C1_14_ACTIVIDAD_CONSULTAS	totOtrasConsul_hosp	Consultas totales hospital en Otras
+C1_14_ACTIVIDAD_CONSULTAS	primOtrasConsul_CEP	1ª consultas CEP en Otras
+C1_14_ACTIVIDAD_CONSULTAS	totOtrasConsul_CEP	Consultas totales CEP en Otras
+C1_14_ACTIVIDAD_CONSULTAS	primTotal_hosp	1ª consultas hospital TOTAL
+C1_14_ACTIVIDAD_CONSULTAS	total_hosp	Consultas totales hospital TOTAL
+C1_14_ACTIVIDAD_CONSULTAS	primTotal_CEP	1ª consultas CEP TOTAL
+C1_14_ACTIVIDAD_CONSULTAS	total_CEP	Consultas totales CEP TOTAL
+C1_14_ACTIVIDAD_CONSULTAS	otrasTexto	(campo de texto)
+C1_18_REG_ECONOMICO	año	Año
+C1_18_REG_ECONOMICO	NCODI	Código de centro anonimizadas
+C1_18_REG_ECONOMICO	altas_particular	Altas prestacion servicios a particulares
+C1_18_REG_ECONOMICO	estancias_particular	Estancias prestacion servicios a particulares
+C1_18_REG_ECONOMICO	sesionHdia_particular	H. dia prestacion servicios a particulares
+C1_18_REG_ECONOMICO	consulta_particular	Consultas totales prestacion servicios a particulares
+C1_18_REG_ECONOMICO	cma_particular	C.M.A. prestacion servicios a particulares
+C1_18_REG_ECONOMICO	urge_particular	Urgencias prestacion servicios a particulares
+C1_18_REG_ECONOMICO	hospDom_particular	Hosp. domicilio prestacion servicios a particulares
+C1_18_REG_ECONOMICO	altas_AsegPriv	Altas Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	estancias_AsegPriv	Estancias Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	sesionHdia_AsegPriv	H. dia Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	consulta_AsegPriv	Consultas totales Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	cma_AsegPriv	C.M.A. Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	urge_AsegPriv	Urgencias Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	hospDom_AsegPriv	Hosp. domicilio Entidades Aseguradoras Privadas
+C1_18_REG_ECONOMICO	altas_sns	Altas Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	estancias_sns	Estancias Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	sesionHdia_sns	H. dia Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	consulta_sns	Consultas totales Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	cma_sns	C.M.A. Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	urge_sns	Urgencias Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	hospDom_sns	Hosp. domicilio Sistema Nacional de Salud
+C1_18_REG_ECONOMICO	altas_MutuaFun	Altas mutualidades de funcionarios
+C1_18_REG_ECONOMICO	estancias_MutuaFun	Estancias mutualidades de funcionarios
+C1_18_REG_ECONOMICO	sesionHdia_MutuaFun	H. dia mutualidades de funcionarios
+C1_18_REG_ECONOMICO	consulta_MutuaFun	Consultas totales mutualidades de funcionarios
+C1_18_REG_ECONOMICO	cma_MutuaFun	C.M.A. mutualidades de funcionarios
+C1_18_REG_ECONOMICO	urge_MutuaFun	Urgencias mutualidades de funcionarios
+C1_18_REG_ECONOMICO	hospDom_MutuaFun	Hosp. domicilio mutualidades de funcionarios
+C1_18_REG_ECONOMICO	altas_otrEntiPublica	Altas otras entidades publicas
+C1_18_REG_ECONOMICO	estancias_otrEntiPublica	Estancias otras entidades publicas
+C1_18_REG_ECONOMICO	sesionHdia_otrEntiPublica	H. dia otras entidades publicas
+C1_18_REG_ECONOMICO	consulta_otrEntiPublica	Consultas totales otras entidades publicas
+C1_18_REG_ECONOMICO	cma_otrEntiPublica	C.M.A. otras entidades publicas
+C1_18_REG_ECONOMICO	urge_otrEntiPublica	Urgencias otras entidades publicas
+C1_18_REG_ECONOMICO	hospDom_otrEntiPublica	Hosp. domicilio otras entidades publicas
+C1_18_REG_ECONOMICO	altas_MATEPSS	Altas mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	estancias_MATEPSS	Estancias mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	sesionHdia_MATEPSS	H. dia mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	consulta_MATEPSS	Consultas totales mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	cma_MATEPSS	C.M.A. mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	urge_MATEPSS	Urgencias mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	hospDom_MATEPSS	Hosp. domicilio mutuas accidentes de trabajo
+C1_18_REG_ECONOMICO	altas_convIntern	Altas convenios internacionales
+C1_18_REG_ECONOMICO	estancias_conveInter	Estancias convenios internacionales
+C1_18_REG_ECONOMICO	sesionHdia_conveInter	H. dia convenios internacionales
+C1_18_REG_ECONOMICO	consulta_conveInter	Consultas totales convenios internacionales
+C1_18_REG_ECONOMICO	cma_conveInter	C.M.A. convenios internacionales
+C1_18_REG_ECONOMICO	urge_conveInter	Urgencias convenios internacionales
+C1_18_REG_ECONOMICO	hospDom_conveInter	Hosp. domicilio convenios internacionales
+C1_18_REG_ECONOMICO	altas_AccTrafic	Altas aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	estancias_AccTrafic	Estancias aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	sesionHdia_AccTrafic	H. dia aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	consulta_AccTrafic	Consultas totales aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	cma_AccTrafic	C.M.A. aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	urge_AccTrafic	Urgencias aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	hospDom_AccTrafic	Hosp. domicilio aseguradoras accidentes de tráfico
+C1_18_REG_ECONOMICO	otroRegimen	Otro regimen económico .Texto
+C1_18_REG_ECONOMICO	altas_otroRegim	Altas en otros
+C1_18_REG_ECONOMICO	estancias_otroRegim	Estancias en otros
+C1_18_REG_ECONOMICO	sesionHdia_otroRegim	H. dia en otros
+C1_18_REG_ECONOMICO	consulta_otroRegim	Consultas totales en otros
+C1_18_REG_ECONOMICO	cma_otroRegim	C.M.A. en otros
+C1_18_REG_ECONOMICO	urge_otroRegim	Urgencias en otros
+C1_18_REG_ECONOMICO	hospDom_otroRegim	Hosp. domicilio en otros
+C1_18_REG_ECONOMICO	total_altas	Total Altas
+C1_18_REG_ECONOMICO	total_estancias	Total Estancias
+C1_18_REG_ECONOMICO	total_sesionHdia	Total H. dia
+C1_18_REG_ECONOMICO	total_consulta	Total Consultas totales
+C1_18_REG_ECONOMICO	total_cma	Total C.M.A.
+C1_18_REG_ECONOMICO	total_urgencias	Total Urgencias
+C1_18_REG_ECONOMICO	total_hospDom	Total Hosp. domicilio
+C1_19_GASTOS	año	Año
+C1_19_GASTOS	NCODI	Código de centro anonimizadas
+C1_19_GASTOS	60_totalCompra	COMPRAS
+C1_19_GASTOS	600_producFarma	C. productos farmaceúticos
+C1_19_GASTOS	601_materialSani	C. material sanitario de consumo
+C1_19_GASTOS	601_1_implantes	Implantes, órtesis y prótesis
+C1_19_GASTOS	601_2_restoMateriaSani	Resto de material sanitario de consumo
+C1_19_GASTOS	606_servContratado	Servicios asistenciales prestados por otras empresas
+C1_19_GASTOS	607_trabajoContratado	Trabajos realizados por otras empresas
+C1_19_GASTOS	60X_restoCompras	Resto compras
+C1_19_GASTOS	61_variaExistencias	Variación de Existencias
+C1_19_GASTOS	62_servExteriores	Servicios Exteriores
+C1_19_GASTOS	628_sumistro	Suministros
+C1_19_GASTOS	62X_restoServiExter	Resto servicios exteriores
+C1_19_GASTOS	64_gastoPersonal	GASTOS DE PERSONAL
+C1_19_GASTOS	640_sueldos	Sueldos y salarios
+C1_19_GASTOS	641_indemnizacion	Indemnizaciones
+C1_19_GASTOS	642_SegSocEmpresa	Seguridad Social a cargo de la empresa
+C1_19_GASTOS	643_649_OtrGasSocial	Otros gastos sociales
+C1_19_GASTOS	68_dotaAmortizacion	DOTACIONES PARA AMORTIZACIONES
+C1_19_GASTOS	69_perdidaDeterioro	PÉRDIDAS POR DETERIORO Y OTRAS DOTACIONES
+C1_19_GASTOS	6X_restoGasto	RESTO GASTOS
+C1_19_GASTOS	tot_compraGasto	TOTAL COMPRAS Y GASTOS
+C1_20_INGRESOS	año	Año
+C1_20_INGRESOS	NCODI	Código de centro anonimizadas
+C1_20_INGRESOS	70_tIngresos	INGRESOS POR PRESTACIÓN DE SERVICIOS
+C1_20_INGRESOS	700_particular	Prestación de servicios a particulares
+C1_20_INGRESOS	701_AsegPriv	Concertados con entidades aseguradoras privadas
+C1_20_INGRESOS	701_1_AsistSanitaria	Seguros de asistencia sanitaria y enfermedad
+C1_20_INGRESOS	701_2_AccTrafic	Accidentes de tráfico
+C1_20_INGRESOS	702_MATEPSS	Mutuas Acc. Trabajo y Emp Colaboradoras de la S.S.
+C1_20_INGRESOS	704_SNS	Concertados con Entidades u organismos del SNS
+C1_20_INGRESOS	705_1_FdirectaSS	Financiacion directa de Servicios de Salud
+C1_20_INGRESOS	705_2_FdirectaAPriv_MATEPSS	Financiacion directa de Aseguradoras Privadas y MATEPSS
+C1_20_INGRESOS	706_OyEntiPublica	Procedente de otras Entidades u organismos públicos
+C1_20_INGRESOS	708_bonificaciones	Bonificaciones
+C1_20_INGRESOS	709_Otros_Ips	Otros ingresos por prestación de servicios
+C1_20_INGRESOS	74_Total_Subvencion	SUBVENCIONES, DONACIONES Y LEGADOS
+C1_20_INGRESOS	740_subvenciones	Subvenciones, donaciones y legados a la explotacion
+C1_20_INGRESOS	741_otraSubvencion	Otras subvenciones
+C1_20_INGRESOS	7X_restoIngresos	RESTO VENTAS E INGRESOS
+C1_20_INGRESOS	total_ventasIngresos	TOTAL VENTAS E INGRESOS
+C1_20_INGRESOS	70_Hospital	Ingresos prest. servicios en hospitalizacion
+C1_20_INGRESOS	70_consulExter	Ingresos prest. servicios en consultas externas
+C1_20_INGRESOS	70_CMA	Ingresos prest. servicios en CMA
+C1_20_INGRESOS	70_hospDia	Ingresos prest. servicios en H. dia
+C1_20_INGRESOS	70_Urgencia	Ingresos prest. servicios en urgencias
+C1_20_INGRESOS	70_hospDom	Ingresos prest. servicios en Hosp. Domicilio
+C1_20_INGRESOS	700_Hospital	Ingresos particulares en hospitalizacion
+C1_20_INGRESOS	700_consulExter	Ingresos particulares en consultas externas
+C1_20_INGRESOS	700_CMA	Ingresos particulares en CMA
+C1_20_INGRESOS	700_hospDia	Ingresos particulares en H. dia
+C1_20_INGRESOS	700_Urgencia	Ingresos particulares en urgencias
+C1_20_INGRESOS	700_hospDom	Ingresos particulares en Hosp. Domicilio
+C1_20_INGRESOS	701_Hospital	Ingresos aseguradoras privadas en hospitalizacion
+C1_20_INGRESOS	701_consulExter	Ingresos aseguradoras privadas en consultas externas
+C1_20_INGRESOS	701_CMA	Ingresos aseguradoras privadas en CMA
+C1_20_INGRESOS	701_hospDia	Ingresos aseguradoras privadas en H. dia
+C1_20_INGRESOS	701_Urgencia	Ingresos aseguradoras privadas en urgencias
+C1_20_INGRESOS	701_hospDom	Ingresos aseguradoras privadas en Hosp. Domicilio
+C1_20_INGRESOS	701_1Hospital	Ingresos seguros asist. sanitaria en hospitalizacion
+C1_20_INGRESOS	701_1consulExter	Ingresos seguros asist. sanitaria en consultas externas
+C1_20_INGRESOS	701_1CMA	Ingresos seguros asist. sanitaria en CMA
+C1_20_INGRESOS	701_1hospDia	Ingresos seguros asist. sanitaria en H. dia
+C1_20_INGRESOS	701_1Urgencia	Ingresos seguros asist. sanitaria en urgencias
+C1_20_INGRESOS	701_1hospDom	Ingresos seguros asist. sanitaria en Hosp. Domicilio
+C1_20_INGRESOS	701_2Hospital	Ingresos accidentes de trafico en hospitalizacion
+C1_20_INGRESOS	701_2consulExter	Ingresos accidentes de trafico en consultas externas
+C1_20_INGRESOS	701_2CMA	Ingresos accidentes de trafico en CMA
+C1_20_INGRESOS	701_2hospDia	Ingresos accidentes de trafico en H. dia
+C1_20_INGRESOS	701_2Urgencia	Ingresos accidentes de trafico en urgencias
+C1_20_INGRESOS	701_2hospDom	Ingresos accidentes de trafico en Hosp. Domicilio
+C1_20_INGRESOS	702_Hospital	Ingresos mutuas acc. trabajo en hospitalizacion
+C1_20_INGRESOS	702_consulExter	Ingresos mutuas acc. trabajo en consultas externas
+C1_20_INGRESOS	702_CMA	Ingresos mutuas acc. trabajo en CMA
+C1_20_INGRESOS	702_hospDia	Ingresos mutuas acc. trabajo en H. dia
+C1_20_INGRESOS	702_Urgencia	Ingresos mutuas acc. trabajo en urgencias
+C1_20_INGRESOS	702_hospDom	Ingresos mutuas acc. trabajo en Hosp. Domicilio
+C1_20_INGRESOS	704_Hospital	Ingresos organismos del SNS en hospitalizacion
+C1_20_INGRESOS	704_consulExter	Ingresos organismos del SNS en consultas externas
+C1_20_INGRESOS	704_CMA	Ingresos organismos del SNS en CMA
+C1_20_INGRESOS	704_hospDia	Ingresos organismos del SNS en H. dia
+C1_20_INGRESOS	704_Urgencia	Ingresos organismos del SNS en urgencias
+C1_20_INGRESOS	704_hospDom	Ingresos organismos del SNS en Hosp. Domicilio
+C1_20_INGRESOS	705_1Hospital	Ingresos financiacion directa Serv. Salud en hospitalizacion
+C1_20_INGRESOS	705_1consulExter	Ingresos financiacion directa Serv. Salud en consultas externas
+C1_20_INGRESOS	705_1CMA	Ingresos financiacion directa Serv. Salud en CMA
+C1_20_INGRESOS	705_1hospDia	Ingresos financiacion directa Serv. Salud en H. dia
+C1_20_INGRESOS	705_1Urgencia	Ingresos financiacion directa Serv. Salud en urgencias
+C1_20_INGRESOS	705_1hospDom	Ingresos financiacion directa Serv. Salud en Hosp. Domicilio
+C1_20_INGRESOS	705_2Hospital	Ingresos financiacion directa Aseg. Privadas en hospitalizacion
+C1_20_INGRESOS	705_2consulExter	Ingresos financiacion directa Aseg. Privadas en consultas externas
+C1_20_INGRESOS	705_2CMA	Ingresos financiacion directa Aseg. Privadas en CMA
+C1_20_INGRESOS	705_2hospDia	Ingresos financiacion directa Aseg. Privadas en H. dia
+C1_20_INGRESOS	705_2Urgencia	Ingresos financiacion directa Aseg. Privadas en urgencias
+C1_20_INGRESOS	705_2hospDom	Ingresos financiacion directa Aseg. Privadas en Hosp. Domicilio
+C1_20_INGRESOS	706_Hospital	Ingresos otras entidades y org. publicos en hospitalizacion
+C1_20_INGRESOS	706_consulExter	Ingresos otras entidades y org. publicos en consultas externas
+C1_20_INGRESOS	706_CMA	Ingresos otras entidades y org. publicos en CMA
+C1_20_INGRESOS	706_hospDia	Ingresos otras entidades y org. publicos en H. dia
+C1_20_INGRESOS	706_Urgencia	Ingresos otras entidades y org. publicos en urgencias
+C1_20_INGRESOS	706_hospDom	Ingresos otras entidades y org. publicos en Hosp. Domicilio
+C1_20_INGRESOS	708_Hospital	Bonificaciones de ingresos por hospitalizacion
+C1_20_INGRESOS	708_consulExter	Bonificaciones de ingresos por consultas externas
+C1_20_INGRESOS	708_CMA	Bonificaciones de ingresos por C.M.A.
+C1_20_INGRESOS	708_hospDia	Bonificaciones de ingresos por h.Dia
+C1_20_INGRESOS	708_Urgencia	Bonificaciones de ingresos por urgencias
+C1_20_INGRESOS	708_hospDom	Bonificaciones de ingresos por hosp. domicilio

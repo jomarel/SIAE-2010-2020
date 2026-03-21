@@ -64,6 +64,8 @@ DF_SELECCION_RDATA_PATH               <- file.path(LEGACY_BASE_DIR, "df_seleccio
 # ------------------------------------------------------------
 
 VAR_MAPPING_EXPLICIT_PATH      <- file.path(INT_DIR, "var_mapping_explicit.csv")
+VAR_MAPPING_FROZEN_PATH        <- file.path(INT_DIR, "var_mapping_explicit_FROZEN.csv")
+VAR_MAPPING_DIAGNOSTIC_PATH    <- file.path(INT_DIR, "var_mapping_diagnostic.csv")
 
 # Mapeo NCODI ↔ cod_centro ↔ nombre_hospital (generado por 0_exportar_mapeo_cnh.R)
 NCODI_HOSPITAL_MAP_PATH        <- file.path(INT_DIR, "ncodi_hospital_map.csv")

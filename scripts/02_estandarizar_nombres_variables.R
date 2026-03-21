@@ -156,7 +156,16 @@ load_explicit_mapping <- function(path) {
   m
 }
 
-EXPLICIT_MAP <- load_explicit_mapping(VAR_MAPPING_EXPLICIT_PATH)
+# PROTECCIÓN: usar mapeo congelado si existe (inmutable entre re-ejecuciones de script 2)
+mapping_path_s1 <- if (exists("VAR_MAPPING_FROZEN_PATH") &&
+                        file.exists(VAR_MAPPING_FROZEN_PATH)) {
+  message("  Usando mapeo congelado: var_mapping_explicit_FROZEN.csv")
+  VAR_MAPPING_FROZEN_PATH
+} else {
+  message("  Usando mapeo dinámico: var_mapping_explicit.csv (sin copia congelada)")
+  VAR_MAPPING_EXPLICIT_PATH
+}
+EXPLICIT_MAP <- load_explicit_mapping(mapping_path_s1)
 
 # Vector con nombre; facilita lookup O(1)
 explicit_lookup <- stats::setNames(EXPLICIT_MAP$canonical, EXPLICIT_MAP$original)

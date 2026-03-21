@@ -340,7 +340,14 @@ explicit_active <- EXPLICIT_MAP %>%
          !(original %in% KEY_VARS_NORM))
 
 message("  Mapeos explícitos activos: ", nrow(explicit_active))
-readr::write_csv(explicit_active, file.path(INT_DIR, "var_mapping_explicit.csv"), na = "")
+# PROTECCIÓN STATEFUL: el diagnóstico se escribe en var_mapping_diagnostic.csv,
+# NO en var_mapping_explicit.csv. Así, re-ejecutar script 2 no altera las reglas
+# de renombrado que usa script 1 (que lee el mapeo congelado FROZEN).
+diag_out_path <- if (exists("VAR_MAPPING_DIAGNOSTIC_PATH"))
+  VAR_MAPPING_DIAGNOSTIC_PATH else file.path(INT_DIR, "var_mapping_diagnostic.csv")
+readr::write_csv(explicit_active, diag_out_path, na = "")
+message("  Diagnóstico de mapeo guardado en: var_mapping_diagnostic.csv")
+message("  (var_mapping_explicit.csv NO se sobreescribe — usar script 0_exportar_mapeo_cnh.R si necesitas regenerarlo)")
 
 # --- [0/5] Fuzzy matching complementario ---
 message("[0/5] Detección fuzzy de alias entre años...")
