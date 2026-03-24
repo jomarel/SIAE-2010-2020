@@ -13,7 +13,9 @@
       "Read(//c/ProgramData/**)",
       "Bash(Rscript scripts/_diagnostico_sfa_temp.R)",
       "Bash(\"/c/Program Files/R/R-4.5.0/bin/x64/Rscript.exe\" scripts/9_construccion_variable_mix.R)",
-      "Bash(\"/c/Program Files/R/R-4.5.0/bin/x64/Rscript.exe\" -e \"install.packages\\(c\\(''glmnet'',''randomForest''\\), repos=''https://cloud.r-project.org'', quiet=TRUE\\); cat\\(''OK\\\\n''\\)\")"
+      "Bash(\"/c/Program Files/R/R-4.5.0/bin/x64/Rscript.exe\" -e \"install.packages\\(c\\(''glmnet'',''randomForest''\\), repos=''https://cloud.r-project.org'', quiet=TRUE\\); cat\\(''OK\\\\n''\\)\")",
+      "Bash(Rscript scripts/14_creacion_intensidad.R)",
+      "Bash(/dev/null ls:*)"
     ]
   }
 }

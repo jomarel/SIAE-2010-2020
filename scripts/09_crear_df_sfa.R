@@ -161,18 +161,46 @@ for (v in translog_base) {
   message(sprintf("  %s centrada en %.4f → %s", v, mu, vname_c))
 }
 
-# Términos cuadráticos e interacciones (si las centradas existen)
+# Términos cuadráticos (ln_LK_c se conserva en df_sfa pero no entra en las
+# fronteras — la correlación ln_LK_c↔ln_L_total_c2 es r≈0.95 y provoca
+# multicolinealidad severa que degenera la Hessiana)
 if ("ln_L_total_c" %in% names(df_sfa) && "ln_K_camas_c" %in% names(df_sfa)) {
   df_sfa$ln_L_total_c2 <- 0.5 * df_sfa$ln_L_total_c ^ 2
   df_sfa$ln_K_camas_c2 <- 0.5 * df_sfa$ln_K_camas_c ^ 2
   df_sfa$ln_LK_c       <- df_sfa$ln_L_total_c * df_sfa$ln_K_camas_c
-  message("  Cuadráticos e interacción L×K creados.")
+  message("  Cuadráticos e interacción L×K creados (ln_LK_c solo diagnóstico).")
+}
+
+# Verificación de multicolinealidad entre términos que sí entran al modelo
+vars_tl_modelo <- c("ln_L_total_c","ln_K_camas_c","ln_K_tech_c",
+                    "ln_L_total_c2","ln_K_camas_c2")
+vars_tl_ok <- intersect(vars_tl_modelo, names(df_sfa))
+if (length(vars_tl_ok) >= 2) {
+  mat_cor <- round(cor(df_sfa[vars_tl_ok], use = "complete.obs"), 3)
+  message("  Correlación entre términos translog del modelo (objetivo: ningún par > 0.85):")
+  print(mat_cor)
+  max_off <- max(abs(mat_cor[upper.tri(mat_cor)]))
+  message(sprintf("  Correlación máxima fuera de diagonal: %.3f %s",
+                  max_off, if (max_off > 0.85) "*** AVISO: supera 0.85" else "(OK)"))
 }
 
 # Tendencia temporal
 df_sfa$trend  <- as.integer(df_sfa$anyo) - 2010L
 df_sfa$trend2 <- 0.5 * df_sfa$trend ^ 2
 message("  trend, trend2 creados.")
+
+# Flag de outliers en ln_i_diag (p1-p99) — NO elimina obs, solo marca
+if ("ln_i_diag" %in% names(df_sfa)) {
+  p1_i  <- quantile(df_sfa$ln_i_diag, 0.01, na.rm = TRUE)
+  p99_i <- quantile(df_sfa$ln_i_diag, 0.99, na.rm = TRUE)
+  message(sprintf("  Rango ln_i_diag p1-p99: [%.3f, %.3f]", p1_i, p99_i))
+  df_sfa$i_diag_outlier <- !is.na(df_sfa$ln_i_diag) &
+    (df_sfa$ln_i_diag < p1_i | df_sfa$ln_i_diag > p99_i)
+  message(sprintf("  Obs marcadas i_diag_outlier (p1-p99): %d",
+                  sum(df_sfa$i_diag_outlier, na.rm = TRUE)))
+} else {
+  df_sfa$i_diag_outlier <- FALSE
+}
 
 # ============================================================
 # PASO 4 — Interacciones para ecuación de ineficiencia
