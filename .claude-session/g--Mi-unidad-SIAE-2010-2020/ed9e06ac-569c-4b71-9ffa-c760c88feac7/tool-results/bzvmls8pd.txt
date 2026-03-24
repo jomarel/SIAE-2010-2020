@@ -1,0 +1,503 @@
+Configuración cargada correctamente.
+           ****           *******  
+          /**/           /**////** 
+  ****** ******  ******  /**   /** 
+ **//// ///**/  //////** /*******  
+//*****   /**    ******* /**///**  
+ /////**  /**   **////** /**  //** 
+ ******   /**  //********/**   //**
+//////    //    //////// //     //    version 1.0.1
+
+* Please cite the 'sfaR' package as:
+  Dakpo KH., Desjeux Y., Henningsen A., and Latruffe L. (2024). sfaR: Stochastic Frontier Analysis Using R. R package version 1.0.1.
+
+See also: citation("sfaR")
+
+* For any questions, suggestions, or comments on the 'sfaR' package, you can contact directly the authors or visit:  https://github.com/hdakpo/sfaR/issues
+Aviso:
+package 'sfaR' was built under R version 4.5.3 
+
+Adjuntando el paquete: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+=== Script 11: Estimación SFA (B_boot = 50) ===
+    Para versión definitiva: cambiar B_boot <- 4999
+df_sfa cargado: 10614 x 65
+
+--- Muestra de estimación ---
+Muestra estimación: 6247 obs | 583 hospitales
+D_desc=0: 3110 | D_desc=1: 3137
+Muestra con i_diag válido: 6154 obs | 579 hospitales
+
+Rangos de outputs (log):
+  ln_altQ_pond            min=-0.38  med=7.83  max=10.27  NAs=0
+  ln_altM_pond            min=-0.39  med=7.08  max=10.42  NAs=0
+  ln_altTotal_pond        min=4.29  med=8.63  max=11.05  NAs=0
+  ln_i_diag               min=-9.38  med=2.21  max=6.82  NAs=43
+Rangos de inputs centrados (deben estar ~0):
+  ln_L_total_c            min=-4.08  med=0.79  max=3.90
+  ln_K_camas_c            min=-3.55  med=0.24  max=2.69
+  ln_K_tech_c             min=-0.74  med=0.36  max=2.84
+
+═══════════════════════════════════════════
+DISEÑO D: Función de distancia output (ODF)
+═══════════════════════════════════════════
+  [D] TL       udist=tnormal  method=bfgs hessianType=1L  (n=6247)
+    [Degenerado] log-lik = 2.50406e+190
+  [D] TL       udist=tnormal  method=bhhh hessianType=1L  (n=6247)
+  Modelo D OK: TL udist=tnormal method=bhhh  ll=-5022.22
+Modelo D guardado.
+  [D] log-lik = -5022.22 | npar = 20
+-------------------------------------------------------------------------------- 
+Truncated-Normal Normal SF Model 
+Dependent Variable:                                                  neg_ln_altQ 
+Log likelihood solver:                                         BHHH maximisation 
+Log likelihood iter:                                                        2000 
+Log likelihood value:                                                -5022.21957 
+Log likelihood gradient norm:                                        5.55043e+02 
+Estimation based on:                                       N =  6247 and K =  20 
+Inf. Cr:                                         AIC  =  10084.4 AIC/N  =  1.614 
+                                                 BIC  =  10219.2 BIC/N  =  1.636 
+                                                 HQIC =  10131.2 HQIC/N =  1.622 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.22698 
+           Sigma(v)           =                                          0.22698 
+           Sigma-squared(u)   =                                          0.35253 
+           Sigma(u)           =                                          0.35253 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.76125 
+Gamma = sigma(u)^2/sigma^2    =                                          0.60833 
+Lambda = sigma(u)/sigma(v)    =                                          1.24626 
+Var[u]/{Var[u]+Var[v]}        =                                          0.34232 
+Variances averaged over observations 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.44588 
+Average efficiency E[exp(-ui)] =                                         0.67482 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                                            7 
+Log Likelihood for OLS Log(H0) =                                     -5655.17506 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                      1265.91096 
+Kodde-Palm C*:       95%: 13.40137                                 99%: 17.75503 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                                        55.22702 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+                              Coefficient Std. Error   z value  Pr(>|z|)    
+(Intercept)                      -6.85500    0.01954 -350.8075 < 2.2e-16 ***
+ln_ratio_MQ                       0.39012    0.00992   39.3340 < 2.2e-16 ***
+ln_L_total_c                     -0.45397    0.01552  -29.2587 < 2.2e-16 ***
+ln_K_camas_c                     -0.64320    0.01891  -34.0090 < 2.2e-16 ***
+ln_K_tech_c                      -0.15013    0.01260  -11.9143 < 2.2e-16 ***
+ln_L_total_c2                     0.00027    0.01186    0.0231    0.9816    
+ln_K_camas_c2                     0.14319    0.01750    8.1817 2.800e-16 ***
+I(ln_ratio_MQ^2)                  0.06258    0.00178   35.0810 < 2.2e-16 ***
+I(ln_ratio_MQ * ln_L_total_c)    -0.05702    0.00656   -8.6898 < 2.2e-16 ***
+I(ln_ratio_MQ * ln_K_camas_c)    -0.00633    0.00759   -0.8331    0.4048    
+trend                             0.06062    0.00703    8.6196 < 2.2e-16 ***
+trend2                           -0.00723    0.00114   -6.3284 2.477e-10 ***
+-------------------------------------------------------------------------------- 
+             Location parameter [offset mu] in u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                              Coefficient Std. Error z value Pr(>|z|)  
+Zmu_(Intercept)                  -0.07980    0.03422 -2.3318  0.01971 *
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                              Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)                   -1.80891        NaN     NaN      NaN
+Zu_D_desc                         0.13752        NaN     NaN      NaN
+Zu_pct_sns                       -4.29785        NaN     NaN      NaN
+Zu_desc_pago                      2.44579        NaN     NaN      NaN
+Zu_ShareQ                         1.20805        NaN     NaN      NaN
+Zu_desc_shareQ                    1.51253        NaN     NaN      NaN
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+                              Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)                   -1.48290    0.02065 -71.806 < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : mar. sá. 21, 2026 at 21:49 
+Log likelihood status: Iteration limit exceeded (iterlim) 
+-------------------------------------------------------------------------------- 
+  *** DISEÑO D FALLÓ: objeto 'df_est' no encontrado
+Aviso:
+In sqrt(diag(object$invHessian)) : Se han producido NaNs
+
+═══════════════════════════════════════════
+DISEÑO B: Fronteras quirúrgico/médico
+═══════════════════════════════════════════
+  [Q] TL       udist=tnormal  method=bfgs hessianType=1L  (n=6247)
+  Modelo Q OK: TL udist=tnormal method=bfgs  ll=5.32077e+09
+  [Q] log-lik = 5.32077e+09 | npar = 16
+-------------------------------------------------------------------------------- 
+Truncated-Normal Normal SF Model 
+Dependent Variable:                                                 ln_altQ_pond 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          48 
+Log likelihood value:                                           5320770442.56821 
+Log likelihood gradient norm:                                                NaN 
+Estimation based on:                                       N =  6247 and K =  16 
+Inf. Cr:                           AIC  =  -10641540853.1 AIC/N  =  -1703464.199 
+                                   BIC  =  -10641540745.3 BIC/N  =  -1703464.182 
+                                   HQIC =  -10641540815.8 HQIC/N =  -1703464.193 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00433 
+           Sigma(v)           =                                          0.00433 
+           Sigma-squared(u)   =                                      2.74335e+38 
+           Sigma(u)           =                                      2.74335e+38 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                      1.65631e+19 
+Gamma = sigma(u)^2/sigma^2    =                                          1.00000 
+Lambda = sigma(u)/sigma(v)    =                                      2.51571e+20 
+Var[u]/{Var[u]+Var[v]}        =                                          1.00000 
+Variances averaged over observations 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                     1.32154e+19 
+Average efficiency E[exp(-ui)] =                                             NaN 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                                            7 
+Log Likelihood for OLS Log(H0) =                                     -6640.41888 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                               10641554165.97420 
+Kodde-Palm C*:       95%: 13.40137                                 99%: 17.75503 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                                       -84.34395 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+(Intercept)        10.15553        Inf       0        1
+ln_L_total_c        8.36044        Inf       0        1
+ln_K_camas_c       -6.33738        Inf       0        1
+ln_K_tech_c        -0.49559        Inf       0        1
+ln_L_total_c2      -4.06003        Inf       0        1
+ln_K_camas_c2       4.37935        Inf       0        1
+trend              -3.88723        Inf       0        1
+trend2              0.47894        Inf       0        1
+-------------------------------------------------------------------------------- 
+             Location parameter [offset mu] in u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zmu_(Intercept)       -35.6        Inf       0        1
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)       15.194        Inf       0        1
+Zu_D_desc            20.508        Inf       0        1
+Zu_pct_sns           28.894        Inf       0        1
+Zu_desc_pago         33.113        Inf       0        1
+Zu_ShareQ           -62.575        Inf       0        1
+Zu_desc_shareQ      -33.356        Inf       0        1
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zv_(Intercept)      -5.4411        Inf       0        1
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : mar. sá. 21, 2026 at 21:49 
+Log likelihood status: successful convergence  
+-------------------------------------------------------------------------------- 
+  *** DISEÑO B — modelo Q FALLÓ: objeto 'df_est' no encontrado
+  [M] TL       udist=tnormal  method=bfgs hessianType=1L  (n=6247)
+  Modelo M OK: TL udist=tnormal method=bfgs  ll=1.71798e+10
+  [M] log-lik = 1.71798e+10 | npar = 16
+-------------------------------------------------------------------------------- 
+Truncated-Normal Normal SF Model 
+Dependent Variable:                                                 ln_altM_pond 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          62 
+Log likelihood value:                                          17179813490.59388 
+Log likelihood gradient norm:                                                NaN 
+Estimation based on:                                       N =  6247 and K =  16 
+Inf. Cr:                           AIC  =  -34359626949.2 AIC/N  =  -5500180.398 
+                                   BIC  =  -34359626841.4 BIC/N  =  -5500180.381 
+                                   HQIC =  -34359626911.8 HQIC/N =  -5500180.392 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                     340944.85304 
+           Sigma(v)           =                                     340944.85304 
+           Sigma-squared(u)   =                                57879698848.40189 
+           Sigma(u)           =                                57879698848.40189 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                     240582.70884 
+Gamma = sigma(u)^2/sigma^2    =                                          0.99999 
+Lambda = sigma(u)/sigma(v)    =                                        412.02262 
+Var[u]/{Var[u]+Var[v]}        =                                          0.99998 
+Variances averaged over observations 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                    191955.69939 
+Average efficiency E[exp(-ui)] =                                             NaN 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                                            7 
+Log Likelihood for OLS Log(H0) =                                    -10268.95966 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                               34359647519.10708 
+Kodde-Palm C*:       95%: 13.40137                                 99%: 17.75503 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                                       -50.27476 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+(Intercept)       -13.21999        Inf       0        1
+ln_L_total_c       -1.03860        Inf       0        1
+ln_K_camas_c       -7.10169        Inf       0        1
+ln_K_tech_c         3.40455        Inf       0        1
+ln_L_total_c2      11.15444        Inf       0        1
+ln_K_camas_c2     -20.48720        Inf       0        1
+trend               2.62735        Inf       0        1
+trend2             -0.32218        Inf       0        1
+-------------------------------------------------------------------------------- 
+             Location parameter [offset mu] in u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zmu_(Intercept)     -2.6535        Inf       0        1
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)      -25.127        Inf       0        1
+Zu_D_desc           -36.487        Inf       0        1
+Zu_pct_sns          -22.175        Inf       0        1
+Zu_desc_pago         17.600        Inf       0        1
+Zu_ShareQ            56.686        Inf       0        1
+Zu_desc_shareQ       32.690        Inf       0        1
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value Pr(>|z|)
+Zv_(Intercept)       12.739        Inf       0        1
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : mar. sá. 21, 2026 at 21:49 
+Log likelihood status: successful convergence  
+-------------------------------------------------------------------------------- 
+  *** DISEÑO B — modelo M FALLÓ: objeto 'df_est' no encontrado
+
+═══════════════════════════════════════════
+DISEÑO A: Fronteras cantidad/intensidad
+═══════════════════════════════════════════
+  [Total] TL       udist=tnormal  method=bfgs hessianType=1L  (n=6154)
+    [Degenerado] log-lik = 6.38897e+32
+  [Total] TL       udist=tnormal  method=bhhh hessianType=1L  (n=6154)
+  Modelo Total OK: TL udist=tnormal method=bhhh  ll=-3183.05
+  [Total] log-lik = -3183.05 | npar = 16
+-------------------------------------------------------------------------------- 
+Truncated-Normal Normal SF Model 
+Dependent Variable:                                             ln_altTotal_pond 
+Log likelihood solver:                                         BHHH maximisation 
+Log likelihood iter:                                                         470 
+Log likelihood value:                                                -3183.04849 
+Log likelihood gradient norm:                                        1.44509e+00 
+Estimation based on:                                       N =  6154 and K =  16 
+Inf. Cr:                                          AIC  =  6398.1 AIC/N  =  1.040 
+                                                  BIC  =  6505.7 BIC/N  =  1.057 
+                                                  HQIC =  6435.4 HQIC/N =  1.046 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05461 
+           Sigma(v)           =                                          0.05461 
+           Sigma-squared(u)   =                                          3.06373 
+           Sigma(u)           =                                          3.06373 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.76588 
+Gamma = sigma(u)^2/sigma^2    =                                          0.98249 
+Lambda = sigma(u)/sigma(v)    =                                          7.49004 
+Var[u]/{Var[u]+Var[v]}        =                                          0.97065 
+Variances averaged over observations 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         2.10872 
+Average efficiency E[exp(-ui)] =                                         0.23742 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                                            7 
+Log Likelihood for OLS Log(H0) =                                     -3983.94089 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                      1601.78480 
+Kodde-Palm C*:       95%: 13.40137                                 99%: 17.75503 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                                       -20.90286 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)         9.57516    0.09097 105.2548 < 2.2e-16 ***
+ln_L_total_c        0.24116    0.01000  24.1206 < 2.2e-16 ***
+ln_K_camas_c        0.68875    0.01287  53.5145 < 2.2e-16 ***
+ln_K_tech_c         0.10754    0.00825  13.0306 < 2.2e-16 ***
+ln_L_total_c2       0.07848    0.00918   8.5455 < 2.2e-16 ***
+ln_K_camas_c2      -0.12324    0.01316  -9.3644 < 2.2e-16 ***
+trend              -0.01294    0.00437  -2.9624  0.003052 ** 
+trend2              0.00232    0.00074   3.1533  0.001615 ** 
+-------------------------------------------------------------------------------- 
+             Location parameter [offset mu] in u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zmu_(Intercept)     1.51244    0.09136  16.554 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     13.80588    1.17148  11.785 < 2.2e-16 ***
+Zu_D_desc         -14.34527    1.17677 -12.190 < 2.2e-16 ***
+Zu_pct_sns        -13.75140    0.94928 -14.486 < 2.2e-16 ***
+Zu_desc_pago       12.96506    0.95400  13.590 < 2.2e-16 ***
+Zu_ShareQ         -16.51776    1.34220 -12.306 < 2.2e-16 ***
+Zu_desc_shareQ     15.91064    1.34939  11.791 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)     -2.90751    0.03778 -76.961 < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : mar. sá. 21, 2026 at 21:49 
+Log likelihood status: successive function values within relative tolerance limit (reltol) 
+-------------------------------------------------------------------------------- 
+  *** DISEÑO A — modelo Total FALLÓ: objeto 'df_est_i' no encontrado
+  [I] TL       udist=tnormal  method=bfgs hessianType=1L  (n=6154)
+    [Degenerado] log-lik = 5.15463e+21
+  [I] TL       udist=tnormal  method=bhhh hessianType=1L  (n=6154)
+  Modelo I OK: TL udist=tnormal method=bhhh  ll=-4922.18
+  [I] log-lik = -4922.18 | npar = 16
+-------------------------------------------------------------------------------- 
+Truncated-Normal Normal SF Model 
+Dependent Variable:                                                    ln_i_diag 
+Log likelihood solver:                                         BHHH maximisation 
+Log likelihood iter:                                                         140 
+Log likelihood value:                                                -4922.17585 
+Log likelihood gradient norm:                                        2.61856e-02 
+Estimation based on:                                       N =  6154 and K =  16 
+Inf. Cr:                                          AIC  =  9876.4 AIC/N  =  1.605 
+                                                  BIC  =  9983.9 BIC/N  =  1.622 
+                                                  HQIC =  9913.7 HQIC/N =  1.611 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.10856 
+           Sigma(v)           =                                          0.10856 
+           Sigma-squared(u)   =                                          0.35244 
+           Sigma(u)           =                                          0.35244 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.67897 
+Gamma = sigma(u)^2/sigma^2    =                                          0.76451 
+Lambda = sigma(u)/sigma(v)    =                                          1.80180 
+Var[u]/{Var[u]+Var[v]}        =                                          0.76259 
+Variances averaged over observations 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.83367 
+Average efficiency E[exp(-ui)] =                                         0.18999 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                                            7 
+Log Likelihood for OLS Log(H0) =                                     -6066.21171 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                      2288.07174 
+Kodde-Palm C*:       95%: 13.40137                                 99%: 17.75503 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                                       -35.37495 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)         3.69182    0.18210  20.2736 < 2.2e-16 ***
+ln_L_total_c        0.25027    0.01930  12.9674 < 2.2e-16 ***
+ln_K_camas_c       -0.38336    0.01647 -23.2767 < 2.2e-16 ***
+ln_K_tech_c         0.14978    0.01070  13.9997 < 2.2e-16 ***
+ln_L_total_c2      -0.07244    0.01460  -4.9618 6.983e-07 ***
+ln_K_camas_c2       0.06824    0.01617   4.2213 2.429e-05 ***
+trend               0.01002    0.00588   1.7049   0.08822 .  
+trend2              0.00623    0.00098   6.3624 1.986e-10 ***
+-------------------------------------------------------------------------------- 
+             Location parameter [offset mu] in u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zmu_(Intercept)     1.83164    0.19139  9.5703 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     -7.21293    1.35346 -5.3292 9.862e-08 ***
+Zu_D_desc           5.87148    1.35366  4.3375 1.441e-05 ***
+Zu_pct_sns         -0.41418    0.94011 -0.4406    0.6595    
+Zu_desc_pago       -0.09651    0.94229 -0.1024    0.9184    
+Zu_ShareQ           8.06650    1.37607  5.8620 4.573e-09 ***
+Zu_desc_shareQ     -6.22613    1.37616 -4.5243 6.060e-06 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+                Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)      -2.2205     0.0525 -42.298 < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : mar. sá. 21, 2026 at 21:50 
+Log likelihood status: successive function values within relative tolerance limit (reltol) 
+-------------------------------------------------------------------------------- 
+  *** DISEÑO A — modelo I FALLÓ: objeto 'df_est_i' no encontrado
+
+═══════════════════════════════════════════
+DISEÑO C: Panel hospital × servicio × año
+═══════════════════════════════════════════
+  *** DISEÑO C FALLÓ: Variables faltantes para Diseño C: camas_cirugia, camas_medicina
+
+═══════════════════════════════════════════
+Contrastes de hipótesis
+═══════════════════════════════════════════
+  Diseño B incompleto — tabla no disponible.
+  Diseño A incompleto — tabla no disponible.
+  Bootstrap Wald omitido — Diseño B no estimado completamente.
+
+--- Guardando resultados ---
+  sfa_eficiencias_disenioB.csv guardado (6247 obs).
+  sfa_eficiencias_disenioA.csv guardado (6154 obs).
+
+*** Se registraron 9 errores/warnings — ver sfa_errores_convergencia.txt
+
+═══════════════════════════════════════════
+RESUMEN FINAL — Script 11
+═══════════════════════════════════════════
+  Diseño D (ODF)         FALLÓ
+  Diseño B — modelo Q  FALLÓ
+  Diseño B — modelo M  FALLÓ
+  Diseño A — modelo Total  FALLÓ
+  Diseño A — modelo I  FALLÓ
+  Diseño C — panel     FALLÓ
+
+  Modelos estimados: 0 / 6
+  Bootstrap réplicas válidas: 0 / 50
+
+  *** 6 modelos fallaron. Revisa sfa_errores_convergencia.txt.
+
+=== Script 11 completado ===

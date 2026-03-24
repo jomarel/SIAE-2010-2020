@@ -268,6 +268,258 @@ if ("ln_i_diag" %in% names(df_sfa)) {
   print(idiag_tab)
 }
 
+# ============================================================
+# BLOQUE SFA DEFINITIVO — variables para análisis completo
+# Todo lo que necesita script 11_estimar_sfa.R
+# ============================================================
+
+message("\n--- BLOQUE SFA DEFINITIVO ---")
+
+# Joins auxiliares desde df_final (antes de bloques E y F)
+# cod_finalidad_agrupada (necesario para es_agudo)
+if (!"cod_finalidad_agrupada" %in% names(df_sfa) &&
+    "cod_finalidad_agrupada" %in% names(df_final)) {
+  df_sfa <- dplyr::left_join(
+    df_sfa,
+    df_final %>% dplyr::select(NCODI, anyo, cod_finalidad_agrupada) %>% dplyr::distinct(),
+    by = c("NCODI", "anyo")
+  )
+  message("  [pre-E] cod_finalidad_agrupada añadida desde df_final.")
+}
+
+# u-vars para serv_complejos (necesarias para bloques F y G)
+u_vars_sc <- c("u40","u41","u42","u49","u86","u87","u93","u94")
+u_vars_faltantes <- setdiff(u_vars_sc, names(df_sfa))
+if (length(u_vars_faltantes) > 0) {
+  u_vars_en_final <- intersect(u_vars_faltantes, names(df_final))
+  if (length(u_vars_en_final) > 0) {
+    df_sfa <- dplyr::left_join(
+      df_sfa,
+      df_final %>%
+        dplyr::select(dplyr::all_of(c("NCODI","anyo", u_vars_en_final))) %>%
+        dplyr::distinct(),
+      by = c("NCODI", "anyo")
+    )
+    message(sprintf("  [pre-F] u-vars añadidas desde df_final: %s",
+                    paste(u_vars_en_final, collapse = ", ")))
+  }
+}
+
+# ── A. camas por servicio (de df_final) ─────────────────────
+if (!all(c("camas_cirugia","camas_medicina") %in% names(df_sfa))) {
+  vars_cam_disp <- intersect(c("camas_cirugia","camas_medicina"), names(df_final))
+  if (length(vars_cam_disp) > 0) {
+    df_sfa <- dplyr::left_join(
+      df_sfa,
+      df_final %>%
+        dplyr::select(dplyr::all_of(c("NCODI","anyo", vars_cam_disp))) %>%
+        dplyr::distinct(),
+      by = c("NCODI", "anyo")
+    )
+    message(sprintf("  A. %s añadidas.", paste(vars_cam_disp, collapse = ", ")))
+  } else {
+    message("  A. camas_cirugia / camas_medicina no existen en df_final — omitido.")
+  }
+}
+
+# ── B. Variables COVID ───────────────────────────────────────
+df_sfa <- df_sfa %>%
+  dplyr::mutate(
+    covid        = as.integer(anyo %in% 2020:2022),
+    covid_fuerte = as.integer(anyo == 2020),
+    covid_leve   = as.integer(anyo %in% c(2021, 2022))
+  )
+message("  B. Variables COVID creadas.")
+
+# ── C. Código numérico CCAA desde ccaa_codigo SIAE ──────────
+# Usar ccaa_codigo del SIAE (cobertura ~100%) en lugar de
+# ccaa_cnh del CNH (8% NAs). Código 21 = La Rioja + Ceuta
+# + Melilla en SIAE — desambiguar con ccaa_cnh.
+
+# Eliminar variables ccaa previas para evitar duplicados
+vars_ccaa_old <- grep("^ccaa|^d_ccaa_", names(df_sfa),
+                      value = TRUE)
+df_sfa <- df_sfa %>%
+  dplyr::select(-dplyr::any_of(vars_ccaa_old))
+
+# Unir ccaa_codigo y ccaa_cnh desde df_final
+mapeo_ccaa <- df_final %>%
+  dplyr::select(NCODI, anyo, ccaa_codigo, ccaa_cnh) %>%
+  dplyr::distinct()
+
+df_sfa <- dplyr::left_join(df_sfa, mapeo_ccaa,
+                            by = c("NCODI", "anyo"))
+
+# Construir código corregido (17 CCAA + Ceuta=18 + Melilla=19)
+df_sfa$ccaa_cod <- with(df_sfa, dplyr::case_when(
+  ccaa_codigo %in% 1:16                       ~ as.integer(ccaa_codigo),
+  ccaa_codigo == 21 & ccaa_cnh == "La Rioja"  ~ 17L,
+  ccaa_codigo == 21 & ccaa_cnh == "Ceuta"     ~ 18L,
+  ccaa_codigo == 21 & ccaa_cnh == "Melilla"   ~ 19L,
+  ccaa_codigo == 21 & is.na(ccaa_cnh)         ~ 17L,
+  TRUE ~ NA_integer_
+))
+
+# Eliminar columna auxiliar
+df_sfa$ccaa_codigo <- NULL
+
+message(sprintf("  C. ccaa_cod: %d válidos, %d NA",
+  sum(!is.na(df_sfa$ccaa_cod)),
+  sum(is.na(df_sfa$ccaa_cod))))
+
+# ── D. Dummies CCAA (ref: 9=Cataluña; sin Ceuta=18/Melilla=19)
+for (cc in setdiff(1:17, 9L)) {
+  df_sfa[[paste0("d_ccaa_", cc)]] <- as.integer(
+    !is.na(df_sfa$ccaa_cod) & df_sfa$ccaa_cod == cc)
+}
+message("  D. Dummies d_ccaa_1..17 (excl. 9) creadas.")
+message(sprintf("     La Rioja (d_ccaa_17): %d obs",
+  sum(df_sfa$d_ccaa_17, na.rm = TRUE)))
+
+# ── E. Dummy hospital agudo ──────────────────────────────────
+if ("cod_finalidad_agrupada" %in% names(df_sfa) &&
+    !"es_agudo" %in% names(df_sfa)) {
+  df_sfa <- df_sfa %>%
+    dplyr::mutate(
+      es_agudo = dplyr::case_when(
+        cod_finalidad_agrupada == 1   ~ 1L,
+        is.na(cod_finalidad_agrupada) ~ NA_integer_,
+        TRUE ~ 0L
+      )
+    )
+  message(sprintf("  E. es_agudo: %d agudos, %d otros, %d NA",
+    sum(df_sfa$es_agudo == 1, na.rm = TRUE),
+    sum(df_sfa$es_agudo == 0, na.rm = TRUE),
+    sum(is.na(df_sfa$es_agudo))))
+} else if ("es_agudo" %in% names(df_sfa)) {
+  message("  E. es_agudo ya existe.")
+} else {
+  message("  E. AVISO: cod_finalidad_agrupada no disponible — es_agudo no creado.")
+}
+
+# ── F. Índice servicios complejos ────────────────────────────
+if (!"serv_complejos" %in% names(df_sfa)) {
+  vars_sc <- intersect(
+    c("u40","u41","u42","u49","u86","u87","u93","u94"),
+    names(df_sfa))
+  if (length(vars_sc) > 0) {
+    df_sfa <- df_sfa %>%
+      dplyr::mutate(
+        serv_complejos = rowSums(
+          dplyr::across(dplyr::all_of(vars_sc),
+                        ~ as.integer(. == 1)),
+          na.rm = TRUE))
+    message(sprintf("  F. serv_complejos creado (%d vars).", length(vars_sc)))
+  } else {
+    df_sfa$serv_complejos <- 0L
+    message("  F. AVISO: u-vars no disponibles — serv_complejos = 0.")
+  }
+} else {
+  message("  F. serv_complejos ya existe.")
+}
+
+# ── G. Cluster de hospital (5 grupos Ministerio) ─────────────
+# Nota: K_camas = camas_funcionamiento (mismo campo, nombre canónico del pipeline)
+if (!"grupo_cluster" %in% names(df_sfa)) {
+  nm_camas_g <- {
+    if ("camas_funcionamiento" %in% names(df_sfa)) "camas_funcionamiento"
+    else if ("K_camas" %in% names(df_sfa)) "K_camas"
+    else NA_character_
+  }
+  if (!is.na(nm_camas_g)) {
+    hosp_stats <- df_sfa %>%
+      dplyr::group_by(NCODI) %>%
+      dplyr::summarise(
+        med_camas = median(.data[[nm_camas_g]], na.rm = TRUE),
+        med_tech  = median(K_tech_index,        na.rm = TRUE),
+        max_serv  = if ("serv_complejos" %in% names(df_sfa))
+                     max(serv_complejos, na.rm = TRUE)
+                   else 0L,
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        max_serv = ifelse(!is.finite(max_serv), 0, max_serv),
+        grupo_cluster = dplyr::case_when(
+          med_camas <  100 & med_tech <= 1 & max_serv == 0 ~ 1L,
+          med_camas <  200 & med_tech <= 2 & max_serv <= 1 ~ 2L,
+          med_camas <  400 & med_tech <= 4 & max_serv <= 2 ~ 3L,
+          med_camas <  700 & max_serv <= 4                 ~ 4L,
+          TRUE                                             ~ 5L
+        )
+      )
+    df_sfa <- dplyr::left_join(
+      df_sfa,
+      hosp_stats %>% dplyr::select(NCODI, grupo_cluster),
+      by = "NCODI")
+    message("  G. grupo_cluster creado.")
+  } else {
+    message("  G. AVISO: camas no disponibles — grupo_cluster no creado.")
+  }
+} else {
+  message("  G. grupo_cluster ya existe.")
+}
+
+# Dummies cluster (ref: 1 = comarcal)
+for (g in 2:5) {
+  vname <- paste0("d_cluster", g)
+  if (!vname %in% names(df_sfa) && "grupo_cluster" %in% names(df_sfa)) {
+    df_sfa[[vname]] <- as.integer(
+      !is.na(df_sfa$grupo_cluster) & df_sfa$grupo_cluster == g)
+  }
+}
+message("  G. d_cluster2-5 creadas.")
+
+# ── H. Grupos de pago (3 categorías institucionales) ─────────
+# Pub_Retro (ref): D_desc=0
+# Priv_Conc: D_desc=1 y pct_sns >= 0.50 (concertado SNS)
+# Priv_Merc: D_desc=1 y pct_sns <  0.50 (mercado privado)
+if (!"grupo_pago" %in% names(df_sfa)) {
+  df_sfa <- df_sfa %>%
+    dplyr::mutate(
+      grupo_pago = dplyr::case_when(
+        D_desc == 0                    ~ "Pub_Retro",
+        D_desc == 1 & pct_sns >= 0.50 ~ "Priv_Conc",
+        D_desc == 1 & pct_sns <  0.50 ~ "Priv_Merc",
+        TRUE ~ NA_character_
+      ),
+      d_Priv_Conc = as.integer(!is.na(grupo_pago) & grupo_pago == "Priv_Conc"),
+      d_Priv_Merc = as.integer(!is.na(grupo_pago) & grupo_pago == "Priv_Merc"),
+      Conc_shareQ = d_Priv_Conc * ShareQ,
+      Merc_shareQ = d_Priv_Merc * ShareQ
+    )
+  message("  H. grupo_pago y dummies creados:")
+  print(table(df_sfa$grupo_pago, useNA = "always"))
+} else {
+  message("  H. grupo_pago ya existe.")
+}
+
+# ── I. Verificar ln_L_total_c (centradas) ───────────────────
+# Estas ya se crean en PASO 3 del script — solo verificar
+if (!"ln_L_total_c" %in% names(df_sfa)) {
+  df_sfa <- df_sfa %>%
+    dplyr::mutate(
+      ln_L_total_c  = ln_L_total  - mean(ln_L_total,  na.rm = TRUE),
+      ln_K_camas_c  = ln_K_camas  - mean(ln_K_camas,  na.rm = TRUE),
+      ln_K_tech_c   = ln_K_tech   - mean(ln_K_tech,   na.rm = TRUE),
+      ln_L_medico_c = ln_L_medico - mean(ln_L_medico, na.rm = TRUE),
+      ln_L_quirur_c = ln_L_quirur - mean(ln_L_quirur, na.rm = TRUE)
+    )
+  message("  I. Variables centradas creadas.")
+} else {
+  message("  I. Variables centradas ya existen (creadas en PASO 3).")
+}
+
+# ── J. D_desc_siae y D_desc_cnh ─────────────────────────────
+if (!"D_desc_siae" %in% names(df_sfa)) {
+  warning("  J. D_desc_siae no encontrada — revisar script 06.")
+} else {
+  message("  J. D_desc_siae y D_desc_cnh ya existen.")
+}
+
+# ============================================================
+# FIN BLOQUE SFA DEFINITIVO
+# ============================================================
+
 # Guardar
 df_sfa_path_rdata <- file.path(INT_DIR, "df_sfa.RData")
 df_sfa_path_csv   <- file.path(INT_DIR, "df_sfa.csv")

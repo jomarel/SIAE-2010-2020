@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/_run_bloques_depend.R)"
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/_run_bloques_depend.R)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/11_estimar_sfa.R)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e \"tryCatch\\(parse\\(file=''scripts/11_estimar_sfa.R''\\), error=function\\(e\\) stop\\(''SYNTAX ERROR: '', e$message\\)\\); cat\\(''Sintaxis OK\\\\n''\\)\")",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/12_robustez_sfa.R)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e \"tryCatch\\(parse\\(file=''scripts/13_tests_diagnosticos_sfa.R''\\), error=function\\(e\\) stop\\(''SYNTAX ERROR: '', e$message\\)\\); cat\\(''OK\\\\n''\\)\")",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/13_tests_diagnosticos_sfa.R)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/14_bootstrap_wald.R)",
+      "Bash(where pdflatex:*)",
+      "Bash(where bibtex:*)",
+      "Bash(pdflatex --version)",
+      "Bash(\"C:/Users/jomar/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe\" tesis_doctoral)",
+      "Bash(\"C:/Users/jomar/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode tesis_doctoral.tex)",
+      "Bash(grep -E \"[A-Za-z]{4,}\")",
+      "Bash(grep -n \"\\\\\\\\ref{tab:\\\\|\\\\\\\\label{tab:\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
+      "Bash(pdflatex -interaction=nonstopmode tesis_doctoral.tex)",
+      "Bash(grep -n \"desc_pago\\\\|desc\\\\\\\\_pago\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
+      "Bash(grep -c \"\\\\\\\\begin{table}\\\\[h!\\\\]\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
+      "Bash(grep -c \"\\\\\\\\begin{table}\\\\[htbp\\\\]\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
+      "Bash(grep -n \"show\\\\|Tj\\\\|TJ\\\\|BT\\\\|ET\\\\|\\\\\\\\\\(\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Teórico/gr1.eps\")"
     ]
   }
 }
