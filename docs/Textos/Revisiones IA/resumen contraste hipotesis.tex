@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+\title{Interpretación de Resultados en el Modelo SFA}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{El punto de partida: qué mide $u_{it}$ y por qué necesitamos dos}
+
+Antes de entrar en los contrastes específicos, hay que entender qué estás estimando realmente. En el modelo SFA, $u_{it}$ es la distancia entre lo que el hospital produce y lo que podría producir con los mismos inputs si operara en la frontera. No es un residuo estadístico cualquiera: es la parte del error que, por construcción del modelo, solo puede ser positiva y que se interpreta como ineficiencia técnica.
+
+La clave de toda la estrategia empírica es que el modelo teórico predice efectos asimétricos: la descentralización debería reducir la ineficiencia en cantidad y aumentarla en intensidad. Si se utilizara un único $u_{it}$ para un output agregado, estos dos efectos se cancelarían algebraicamente. Por ello, es necesario estimar dos fronteras con dos términos $u_{it}$ diferenciados: uno para cantidad y otro para intensidad.
+
+\section{La ecuación de ineficiencia}
+
+En cada frontera, la media del término de ineficiencia es:
+
+\begin{equation}
+\mu_{kit} =
+\underbrace{\delta_0}_{\text{nivel base}} +
+\underbrace{\delta_1 D^{desc}_{it}}_{\text{estructura org.}} +
+\underbrace{\delta_2 pct^{SNS}_{it}}_{\text{mecanismo pago}} +
+\underbrace{\delta_3 (D^{desc} \times pct^{SNS})_{it}}_{\text{interacción}} +
+\underbrace{\delta_4 ShareQ_{it}}_{\text{proxy } \psi_{12}} +
+\underbrace{\delta_5 (D^{desc} \times ShareQ)_{it}}_{\text{moderación}} +
+\text{CCAA} + \text{cluster}
+\end{equation}
+
+Un $\mu_{kit}$ más negativo implica menor ineficiencia esperada. Los coeficientes miden el efecto de cada variable sobre la media de la distribución de ineficiencia.
+
+Al estimar dos fronteras, se obtienen dos vectores de coeficientes: $\bm{\alpha}$ (cantidad o quirúrgico) y $\bm{\delta}$ (intensidad o médico). La cuestión central es si $\bm{\alpha} \neq \bm{\delta}$.
+
+\section{Predicción P1: descentralización y cantidad}
+
+El modelo predice que la descentralización reduce la ineficiencia en cantidad.
+
+\textbf{Test:}
+\[
+H_0: \alpha_1 = 0 \quad \text{vs} \quad H_1: \alpha_1 < 0
+\]
+
+\textbf{Resultados:}
+\begin{itemize}
+\item Diseño A: $\hat{\alpha}_1 = -2.530$, $t = -6.98$
+\item Diseño B: $\hat{\alpha}_{Merc} = +2.256$, $t = +5.08$
+\end{itemize}
+
+El resultado del Diseño A implica una reducción de la ineficiencia de aproximadamente 4--6 puntos porcentuales.
+
+El signo positivo en el Diseño B no contradice la hipótesis: refleja especialización (ineficiencia en cirugía, eficiencia en medicina).
+
+\textbf{Conclusión:} P1 confirmada robustamente.
+
+\section{Predicción P2: descentralización e intensidad}
+
+El modelo predice que la descentralización aumenta la ineficiencia en intensidad.
+
+\textbf{Test:}
+\[
+H_0: \delta_1 = 0 \quad \text{vs} \quad H_1: \delta_1 > 0
+\]
+
+\textbf{Resultado:}
+\[
+\hat{\delta}_1 = -1.477, \quad t = -4.21
+\]
+
+No se confirma el signo esperado.
+
+Sin embargo, el contraste relevante es:
+
+\[
+H_0: \alpha_1 = \delta_1 \quad \text{vs} \quad H_1: \alpha_1 < \delta_1
+\]
+
+\[
+z_{dif} = -2.09, \quad p = 0.037
+\]
+
+\textbf{Conclusión:} evidencia parcial. Existe asimetría aunque no inversión de signo.
+
+\section{Predicción P3: efecto del tipo de pago}
+
+\textbf{Resultados:}
+\begin{itemize}
+\item $pct^{SNS}$: $z_{dif} = -0.088$, $p = 0.930$
+\item Interacción: $z_{dif} = +2.349$, $p = 0.019$
+\end{itemize}
+
+El efecto diferencial se encuentra en la interacción, no en el coeficiente principal.
+
+En el Diseño B:
+\[
+z_{dif} = +5.32, \quad p < 0.001
+\]
+
+\textbf{Conclusión:} P3 confirmada.
+
+\section{Predicción P4: papel de $\psi_{12}$}
+
+\textbf{Resultados:}
+
+\begin{itemize}
+\item Diseño A: no significativo
+\item Diseño B: signos opuestos y altamente significativos
+\end{itemize}
+
+\[
+\hat{\alpha}_4 = -7.015, \quad \hat{\delta}_4 = +4.647
+\]
+
+\textbf{Conclusión:} P4 confirmada en Diseño B.
+
+\section{Predicción P*: contraste global}
+
+\textbf{Test:}
+\[
+LR = 2(\ell^{irr} - \ell^{restr}) \sim \chi^2(k)
+\]
+
+\textbf{Resultados:}
+\begin{itemize}
+\item Diseño A: $LR = 10490.8$
+\item Diseño B: $LR = 2508.0$
+\end{itemize}
+
+\textbf{Conclusión:} rechazo contundente de la igualdad de coeficientes.
+
+\section{Correlación entre ineficiencias}
+
+\[
+r = -0.140, \quad p < 0.001
+\]
+
+Interpretación: existe sustitución de esfuerzo entre dimensiones.
+
+\section{Resumen de resultados}
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Predicción & Mecanismo & Diseño A & Diseño B & Veredicto \\
+\midrule
+P1 & $\downarrow$ ineficiencia en cantidad & Confirmada & Confirmada & Sí \\
+P2 & $\uparrow$ ineficiencia en intensidad & Parcial & Parcial & Parcial \\
+P3 & Efectos asimétricos pago & Parcial & Fuerte & Sí \\
+P4 & Moderación $\psi_{12}$ & No & Sí & Sí (B) \\
+P* & Vectores distintos & Sí & Sí & Sí \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

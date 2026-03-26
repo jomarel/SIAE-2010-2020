@@ -1,0 +1,695 @@
+% ============================================================
+% RESUMEN PARA EL DIRECTOR DE TESIS
+% Eficiencia hospitalaria, estructura organizativa y teoría de agencia
+% José María Elena Izquierdo · Universidad de Salamanca · 2026
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% ── Codificación y lengua ───────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+% ── Tipografía ──────────────────────────────────────────────
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Matemáticas ─────────────────────────────────────────────
+\usepackage{amsmath, amssymb, bm}
+
+% ── Diseño de página ────────────────────────────────────────
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm}
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Tablas ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{longtable}
+
+% ── Color y cajas ───────────────────────────────────────────
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{mdframed}
+
+% ── Encabezados y pies ──────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Eficiencia hospitalaria, estructura organizativa y teoría de agencia}
+\fancyhead[R]{\small\itshape Documento de trabajo}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Secciones ───────────────────────────────────────────────
+\usepackage{titlesec}
+\definecolor{azultesis}{RGB}{31,78,121}
+\definecolor{azulclaro}{RGB}{46,109,164}
+\definecolor{gristexto}{RGB}{89,89,89}
+\definecolor{fondocaja}{RGB}{235,243,251}
+\definecolor{fondotabla}{RGB}{214,228,240}
+
+\titleformat{\section}
+  {\color{azultesis}\large\bfseries}
+  {\thesection.}{0.5em}{}
+  [\vspace{-2pt}\color{azultesis}\rule{\linewidth}{0.8pt}]
+
+\titleformat{\subsection}
+  {\color{azulclaro}\normalsize\bfseries}
+  {\thesubsection.}{0.5em}{}
+
+\titlespacing{\section}{0pt}{18pt}{8pt}
+\titlespacing{\subsection}{0pt}{12pt}{4pt}
+
+% ── Otros ───────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, parsep=0pt}
+\usepackage{parskip}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+
+% ── Hyperref ────────────────────────────────────────────────
+\usepackage[colorlinks=true,
+  linkcolor={azultesis},
+  citecolor={azultesis},
+  urlcolor={azultesis}]{hyperref}
+
+% ── Caja de hallazgo central ────────────────────────────────
+\newtcolorbox{cajadestacada}{
+  enhanced,
+  colback=fondocaja,
+  colframe=azultesis,
+  boxrule=0.5pt,
+  leftrule=3pt,
+  arc=2pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fontupper=\small\itshape\color{azultesis}
+}
+
+% ── Comandos propios ────────────────────────────────────────
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+\newcommand{\sig}[1]{\ensuremath{^{#1}}}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ── PORTADA ─────────────────────────────────────────────────
+\thispagestyle{empty}
+\vspace*{3cm}
+
+\begin{center}
+  {\small\color{gristexto}\MakeUppercase{Documento de trabajo para el director de tesis}}\\[6pt]
+  \rule{\linewidth}{1.5pt}\\[18pt]
+
+  {\LARGE\bfseries\color{azultesis}
+    EFICIENCIA HOSPITALARIA, ESTRUCTURA ORGANIZATIVA\\[4pt]
+    Y TEORÍA DE AGENCIA}\\[10pt]
+
+  {\large\itshape\color{gristexto}
+    Un análisis de frontera estocástica del sistema hospitalario español}\\[30pt]
+
+  {\large\bfseries José María Elena Izquierdo}\\[6pt]
+  {\normalsize\color{gristexto}
+    Departamento de Economía Aplicada · Universidad de Salamanca}\\[6pt]
+  {\normalsize\color{gristexto} Marzo 2026}\\[40pt]
+
+  {\small\itshape\color{gristexto} Resumen ejecutivo · ca.\ 10 páginas}
+\end{center}
+
+\newpage
+\setcounter{page}{1}
+
+% ============================================================
+\section{Objetivo y motivación}
+% ============================================================
+
+Esta tesis analiza empíricamente cómo la estructura organizativa de los
+hospitales (centralizada frente a descentralizada) afecta a la eficiencia
+técnica en dos dimensiones diferenciadas del output hospitalario: la
+\textbf{cantidad} de actividad (volumen de altas ponderadas por case-mix) y la
+\textbf{intensidad} diagnóstico-terapéutica por episodio. El punto de partida
+es un modelo de agencia multitarea con derivación formal  que
+genera predicciones falsificables y asimétricas sobre ambas dimensiones. La
+contribución central es contrastar esas predicciones con datos de panel del
+sistema hospitalario español (2010--2023) mediante análisis de frontera
+estocástica.
+
+\begin{cajadestacada}
+\textbf{Pregunta de investigación:} ¿Producen los hospitales descentralizados
+(concesiones, fundaciones, privados concertados) mayor eficiencia en cantidad
+pero menor eficiencia en intensidad que los hospitales públicos del SNS? ¿Y
+depende esa asimetría del tipo de pago y del grado de complementariedad entre
+las tareas del médico?
+\end{cajadestacada}
+
+La motivación es doble. Teóricamente, la literatura de agencia multitarea
+(Holmström y Milgrom, 1991) predice que los incentivos sobre tareas medibles
+desplazan esfuerzo desde las tareas menos verificables, pero esta predicción no
+ha sido contrastada empíricamente en el sector hospitalario con un diseño de
+identificación riguroso. Empíricamente, el sistema hospitalario español ofrece
+una variación institucional relevante: conviven hospitales públicos integrados
+del SNS con concesiones administrativas (modelo Alzira), fundaciones públicas y
+hospitales privados concertados, con formas de pago distintas y distintos
+grados de autonomía en el diseño de contratos internos.
+
+% ============================================================
+\section{El modelo teórico de agencia multitarea}
+% ============================================================
+
+\subsection{Estructura del modelo}
+
+El modelo describe un juego de tres agentes: un financiador público
+(principal), el hospital (agente 1) y el médico (agente 2). Los tres agentes
+producen conjuntamente dos outputs con tecnologías de producción asimétricas:
+
+\begin{itemize}
+  \item \textbf{$q$ (cantidad):} número de altas ponderadas por case-mix. Es el
+    resultado del esfuerzo conjunto del hospital ($a$) y del médico ($t_1$),
+    más un shock aleatorio: $q = a + t_1 + \varepsilon_1$.
+  \item \textbf{$i$ (intensidad):} nivel de recursos diagnóstico-terapéuticos
+    aplicados por episodio. Depende exclusivamente del esfuerzo del médico
+    ($t_2$): $i = t_2 + \varepsilon_2$.
+\end{itemize}
+
+Esta asimetría en la producción es el núcleo estructural del modelo. El
+hospital controla la capacidad instalada y el flujo de pacientes; el médico es
+el único agente con conocimiento privado sobre la idoneidad y la intensidad del
+tratamiento. Si ambos outputs fueran producidos por los mismos agentes con los
+mismos incentivos, las predicciones serían simétricas y no habría hipótesis
+falsificable sobre el efecto diferencial de la estructura organizativa.
+
+Los shocks aleatorios $\varepsilon_1$ y $\varepsilon_2$ se distribuyen
+normalmente con varianzas $\sigma_1^2$ y $\sigma_2^2$ respectivamente. El
+parámetro central del modelo es $\psi_{12}$, que mide la complementariedad o
+sustitución entre las dos tareas del médico: si $\psi_{12}>0$, las tareas son
+\textit{sustitutas} (más tiempo dedicado a ver pacientes reduce la intensidad
+por paciente, caso típico de servicios médicos no quirúrgicos); si
+$\psi_{12}<0$, son \textit{complementarias} (el acto de intervenir genera
+\textit{per se} mayor intensidad, caso típico de servicios quirúrgicos).
+
+\subsection{Estructuras organizativas y contratos óptimos}
+
+El modelo caracteriza dos estructuras organizativas que difieren en la
+arquitectura contractual:
+
+\begin{itemize}
+  \item \textbf{Centralizada (hospitales SNS):} el financiador contrata
+    simultáneamente con el hospital y con el médico. El contrato médico óptimo
+    incluye pagos variables sobre cantidad ($B^C$) e intensidad ($D^C$), cuyos
+    valores dependen de $\psi_{12}$, $\sigma_1^2$ y $\sigma_2^2$ y de los
+    coeficientes de aversión al riesgo.
+  \item \textbf{Descentralizada (concesiones, fundaciones, privados
+    concertados):} el financiador contrata solo con el hospital para
+    determinados niveles de $q$ e $i$, y es el hospital quien diseña
+    autónomamente el contrato con el médico. El hospital internaliza el coste
+    del diseño del contrato interno, lo que genera incentivos de mayor potencia
+    sobre cantidad pero de menor potencia sobre intensidad cuando las tareas son
+    sustitutas.
+\end{itemize}
+
+Un resultado central del modelo ---denominado \textit{potencia secuencialmente
+inducida}--- es que los incentivos del hospital dependen de $\psi_{12}$ en la
+estructura descentralizada pero no en la centralizada: cuando las tareas del
+médico se aproximan a la sustitución perfecta, el financiador reduce los
+incentivos por cantidad al hospital porque anticipa el efecto de desplazamiento
+de esfuerzo sobre la intensidad médica.
+
+Las simulaciones numéricas del modelo (Anexo A de la tesis) muestran que el
+resultado cualitativo es robusto a la variación de $\psi_{12}$ en todo el
+espectro de complementariedad a sustitución. La descentralización mejora
+consistentemente el desempeño en cantidad excepto para valores muy negativos de
+$\psi_{12}$ (complementariedad extrema), y deteriora el desempeño en intensidad
+cuando las tareas son suficientemente sustitutas.
+
+\subsection{Predicciones contrastables}
+
+Del modelo se derivan cinco predicciones empíricas con anclaje directo en los
+parámetros de la ecuación de ineficiencia:
+
+\begin{table}[htbp]
+\centering
+\caption{Predicciones contrastables del modelo teórico}
+\label{tab:predicciones}
+\begin{threeparttable}
+\begin{tabularx}{\linewidth}{cXcc}
+\toprule
+\textbf{Pred.} & \textbf{Descripción} & \textbf{Parámetro} &
+\textbf{Signo} \\
+\midrule
+P1 & Descentralización $\downarrow$ ineficiencia en cantidad ($q$)
+   & $\alpha_1$ en $\mu^q_{it}$ & $\alpha_1 < 0$ \\[3pt]
+P2 & Descentralización $\uparrow$ ineficiencia en intensidad ($i$)
+   & $\delta_1$ en $\mu^i_{it}$ & $\delta_1 > 0$ \\[3pt]
+P3 & El mecanismo de pago tiene efectos asimétricos entre dimensiones
+   & $\alpha_2 \neq \delta_2$ & Signos opuestos \\[3pt]
+P4 & $\psi_{12}$ modera asimétricamente el diferencial entre estructuras
+   & $\alpha_4 \neq \delta_4$ & Signos opuestos \\[3pt]
+P$^*$ & Contraste central: el vector completo de determinantes
+         difiere entre dimensiones
+   & $\bsym{\alpha} \neq \bsym{\delta}$ & Wald rechazado \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+  \small
+  \item $\mu^q_{it}$ y $\mu^i_{it}$ son las medias heterogéneas de los
+    términos de ineficiencia en las fronteras de cantidad e intensidad.
+    $\bsym{\alpha}$ y $\bsym{\delta}$ son los vectores completos de
+    coeficientes de la ecuación de ineficiencia en cada frontera.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La predicción P$^*$ es la que mayor exigencia estadística impone: implica que
+el vector completo de determinantes institucionales opera de forma
+cualitativamente distinta sobre las dos dimensiones del output. Un único término
+de ineficiencia $u_{it}$ cancela algebraicamente los efectos opuestos de P1 y
+P2, haciendo imposible contrastar P$^*$ con los modelos SFA estándar de un solo
+output. Esta observación motiva el diseño empírico en sistema de dos fronteras.
+
+% ============================================================
+\section{Estrategia empírica: análisis de frontera estocástica}
+% ============================================================
+
+\subsection{Marco general SFA}
+
+El análisis de frontera estocástica descompone la desviación de cada hospital
+respecto a la frontera de producción en dos componentes: ruido aleatorio
+simétrico ($v_{it}$) e ineficiencia técnica no negativa ($u_{it}$). La
+eficiencia técnica individual se recupera mediante el estimador de esperanza
+condicional de Jondrow et al.\ (1982):
+\[
+  TE_{it} = \E\!\left[e^{-u_{it}} \mid \varepsilon_{it}\right]
+\]
+Para incorporar los determinantes institucionales de la ineficiencia, se adopta
+la especificación de Battese y Coelli (1995), donde $u_{it}$ sigue una
+distribución normal truncada en cero con media heterogénea $\mu_{it} =
+\mathbf{z}_{it}'\bsym{\delta}$.
+
+La frontera de producción se especifica como una función \textbf{translog}
+centrada en las medias muestrales, con inputs trabajo (personal médico EJC),
+capital físico (camas en funcionamiento), capital tecnológico (índice de
+equipamiento diagnóstico-terapéutico), tendencia temporal cuadrática (progreso
+técnico) y dummies de cluster de complejidad hospitalaria (cinco grupos). La
+especificación translog es estadísticamente preferida sobre Cobb-Douglas en
+todos los modelos, con estadísticos LR entre 247 y 594 ($p<0.001$).
+
+\subsection{Ecuación de ineficiencia}
+
+La media heterogénea del término de ineficiencia es la misma en los cuatro
+diseños:
+\begin{align*}
+  \mu_{kit} = \delta_0
+    &+ \delta_1\, D^{desc}_{it}
+     + \delta_2\, pct^{SNS}_{it}
+     + \delta_3\, (D^{desc}_{it} \times pct^{SNS}_{it}) \\
+    &+ \delta_4\, ShareQ_{it}
+     + \delta_5\, (D^{desc}_{it} \times ShareQ_{it})
+     + \sum_{c}\lambda_c\, D^{ccaa}_{c,it}
+\end{align*}
+
+Cada variable tiene un anclaje directo en el modelo teórico:
+\begin{itemize}
+  \item $D^{desc}_{it}$: estructura organizativa (1 = descentralizado, 0 = SNS
+    centralizado). Sus coeficientes en las dos fronteras son $\alpha_1$ y
+    $\delta_1$ de P1 y P2.
+  \item $pct^{SNS}_{it}$: proporción de altas financiadas por el SNS como
+    proxy del mecanismo de pago. Capta P3.
+  \item $D^{desc} \times pct^{SNS}$: interacción estructura--pago (P3).
+  \item $ShareQ_{it}$: proporción de altas quirúrgicas, proxy continua de
+    $\psi_{12}$. Capta P4.
+  \item $D^{desc} \times ShareQ$: moderación de $\psi_{12}$ sobre el efecto
+    diferencial entre estructuras (P4).
+\end{itemize}
+
+\subsection{Los cuatro diseños de estimación}
+
+\begin{table}[htbp]
+\centering
+\caption{Diseños de estimación y su papel en el análisis}
+\label{tab:disenos}
+\begin{threeparttable}
+\small
+\begin{tabular}{cp{4.5cm}p{2.8cm}p{4cm}}
+\toprule
+\textbf{Dis.} & \textbf{Descripción} & \textbf{Hipótesis} &
+\textbf{Papel} \\
+\midrule
+D & Función de distancia output (ODF), un único $u_{it}$
+  & P3, P4
+  & Punto de partida metodológico \\[4pt]
+A & Sistema de dos fronteras: cantidad total vs.\ intensidad diagnóstica ($i_{diag}$)
+  & P1, P2, P3, P4, P$^*$
+  & Contraste directo del modelo teórico \\[4pt]
+B & Sistema de dos fronteras: altas quirúrgicas vs.\ altas médicas
+  & P1, P3, P4, P$^*$
+  & Contraste con proxy estructural de $\psi_{12}$ \\[4pt]
+C & Panel hospital $\times$ servicio $\times$ año, interacción triple
+  & P4 (variación intra-hospital)
+  & Robustez dentro del hospital \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Los Diseños A y B son los centrales para el contraste del modelo. El
+    Diseño B usa la clasificación quirúrgico/médico como proxy estructural de
+    $\psi_{12}$, exógeno a nivel de servicio, evitando la endogeneidad de un
+    proxy construido a nivel hospital-año.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los contrastes formales son: (i)~test $t$ unilateral sobre $\alpha_1$ y
+$\delta_1$ (P1 y P2 individualmente); (ii)~test $z$ sobre la diferencia
+$\alpha_1 - \delta_1$ (contraste de asimetría); (iii)~test de Wald bootstrap
+con $B=4{,}999$ repeticiones sobre $H_0: \bsym{\alpha} = \bsym{\delta}$
+(predicción P$^*$); (iv)~test LR Kodde-Palm para la existencia de ineficiencia;
+y (v)~test LR para la forma funcional (Cobb-Douglas vs.\ translog). La muestra
+principal del Diseño A consta de 4.765 observaciones hospital-año (880
+hospitales únicos, período 2010--2023).
+
+% ============================================================
+\section{Resultados principales}
+% ============================================================
+
+\subsection{Síntesis}
+
+\begin{table}[htbp]
+\centering
+\caption{Síntesis de resultados por predicción}
+\label{tab:resultados}
+\begin{threeparttable}
+\small
+\begin{tabular}{cp{3.2cm}p{3cm}p{2.8cm}c}
+\toprule
+\textbf{Pred.} & \textbf{Diseño A} & \textbf{Veredicto A}
+  & \textbf{Diseño B} & \textbf{Veredicto final} \\
+\midrule
+P1 & $\hat{\alpha}_1=-2.530^{***}$ ($t=-6.98$)
+   & Confirmada (7/7 esp.)
+   & Confirmada vía $Priv\_Merc$
+   & \textbf{Confirmada} \\[4pt]
+P2 & $z_{dif}=-2.09^{*}$ (asimetría sig., sin inversión)
+   & Parcial
+   & $\hat{\delta}_{Merc}<0$
+   & \textbf{Parcial} \\[4pt]
+P3 & $z_{dif}=2.35^{*}$
+   & Confirmada
+   & $z_{dif}=5.32^{***}$
+   & \textbf{Confirmada} \\[4pt]
+P4 & $z_{dif}=-0.84$ (n.s.)
+   & No confirmada en A
+   & $z_{dif}=-9.89^{***}$
+   & \textbf{Confirmada (B)} \\[4pt]
+P$^*$ & $LR=10{,}491^{***}$
+   & Confirmada
+   & $LR=2{,}508^{***}$
+   & \textbf{Confirmada} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $^{*}p<0.05$; $^{***}p<0.001$. La eficiencia técnica media oscila
+    entre 0.683 (frontera de intensidad, Diseño A) y 0.791 (frontera
+    quirúrgica, Diseño B).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Predicción P1: descentralización reduce ineficiencia en cantidad}
+
+El coeficiente de $D^{desc}$ en la frontera de cantidad es $-2.530$ ($t=-6.98$,
+$p<0.001$) en la especificación principal. Los hospitales con mayor autonomía en
+el diseño de contratos internos producen más actividad por unidad de input. Este
+resultado es extraordinariamente robusto: el signo y la significación se
+mantienen en las siete especificaciones alternativas del análisis de robustez,
+con $t$-estadísticos entre $-3.3$ y $-11.0$.
+
+\subsection{Predicción P2: descentralización aumenta ineficiencia en intensidad}
+
+El coeficiente de $D^{desc}$ en la frontera de intensidad es $-1.477$
+($t=-4.21$), negativo en todas las especificaciones, no positivo como predice el
+modelo bajo el supuesto de sustitución fuerte. Sin embargo, la diferencia entre
+los dos coeficientes es estadísticamente significativa ($z_{dif}=-2.09$,
+$p=0.037$): la descentralización reduce la ineficiencia en cantidad
+significativamente \textit{más} que en intensidad, en la dirección asimétrica
+predicha por el modelo.
+
+\begin{cajadestacada}
+\textbf{Interpretación de P2:} el signo negativo de $\hat{\delta}_1$ es
+consistente con un valor medio de $\psi_{12}$ insuficiente para revertir el
+efecto, o bien con la presencia de mecanismos institucionales de control de
+calidad (acreditación autonómica, contratos-programa con estándares de
+intensidad) que limitan la sustitución de esfuerzo entre tareas. La asimetría
+estadísticamente significativa sí confirma la dirección del efecto predicho por
+el modelo.
+\end{cajadestacada}
+
+\subsection{Predicción P3: el tipo de pago modera asimétricamente}
+
+El coeficiente de $pct^{SNS}$ es negativo y altamente significativo en ambas
+fronteras ($-2.473$ en cantidad, $-2.439$ en intensidad): una mayor financiación
+pública reduce la ineficiencia en ambas dimensiones. La interacción
+$D^{desc}\times pct^{SNS}$ difiere significativamente entre fronteras
+($z_{dif}=2.35$ en A, $z_{dif}=5.32$ en B, ambos $p<0.05$): el tipo de pago
+modera el efecto de la descentralización de forma cualitativamente distinta
+sobre cantidad e intensidad.
+
+\subsection{Predicción P4: $\psi_{12}$ modera asimétricamente el diferencial}
+
+El resultado individual más robusto de todo el análisis. En el Diseño B,
+$ShareQ$ tiene signos completamente opuestos en las dos fronteras: $-7.015$
+($t=-8.42$) en quirúrgico y $+4.647$ ($t=5.58$) en médico, con
+$z_{dif}=-9.89$ ($p<0.001$). Los hospitales con mayor proporción de actividad
+quirúrgica operan en un régimen de complementariedad entre tareas ($\psi_{12}<0$):
+el acto quirúrgico genera \textit{per se} mayor intensidad diagnóstica pre y
+postoperatoria, lo que mejora la eficiencia relativa en la frontera quirúrgica
+pero la deteriora en la frontera médica. La correlación negativa entre
+ineficiencias en el Diseño B ($r=-0.140$, $p<0.001$) proporciona evidencia
+adicional directa del mecanismo de sustitución de esfuerzo entre tareas.
+
+\subsection{Contraste central P$^*$: los vectores de determinantes difieren}
+
+El test de razón de verosimilitud sobre $H_0: \bsym{\alpha} = \bsym{\delta}$
+rechaza abrumadoramente la hipótesis nula en ambos diseños ($LR_A=10{,}491$,
+$LR_B=2{,}508$, ambos $p<0.001$). Los determinantes institucionales de la
+ineficiencia operan de forma cualitativamente distinta sobre las dos dimensiones
+del output. Este resultado no es recuperable con ningún modelo SFA estándar de
+un único término de ineficiencia.
+
+% ============================================================
+\section{Tests de robustez y especificación}
+% ============================================================
+
+\subsection{Tests formales de especificación}
+
+\begin{itemize}
+  \item \textbf{Test Kodde-Palm ($H_0: \sigma^2_u=0$):} estadísticos LR entre
+    474 y 2.240 ($p<0.001$ en todos los modelos). La ineficiencia técnica es
+    estadísticamente significativa.
+  \item \textbf{Test LR forma funcional (Cobb-Douglas vs.\ translog):}
+    estadísticos entre 247 y 594 ($p<0.001$). La translog es preferida en todos
+    los diseños.
+  \item \textbf{Correlación entre ineficiencias:} baja en valor absoluto
+    ($|r|<0.15$ en ambos diseños), lo que justifica la estimación independiente
+    de las dos fronteras.
+\end{itemize}
+
+\subsection{Análisis de robustez}
+
+\begin{table}[htbp]
+\centering
+\caption{Robustez: coeficiente de $D^{desc}$ en fronteras de cantidad e
+intensidad}
+\label{tab:robustez}
+\begin{threeparttable}
+\small
+\begin{tabular}{clrrrrc}
+\toprule
+& & \multicolumn{2}{c}{$\hat{\alpha}$ (cantidad)}
+  & \multicolumn{2}{c}{$\hat{\delta}$ (intensidad)}
+  & \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+\textbf{Esp.} & \textbf{Modificación} & Coef. & $t$
+  & Coef. & $t$ & \textbf{Asim.} \\
+\midrule
+\textbf{Princ.} & $i_{diag}$, $D^{desc}$ coalesce
+  & $-2.530$ & $-6.98$ & $-1.477$ & $-4.21$ & Sí \\
+R1 & Intensidad alternativa ($i_{simple}$)
+  & $-1.264$ & $-4.62$ & $-0.704$ & $-3.33$ & Sí \\
+R2a & $D^{desc}$ fuente SIAE
+  & $-2.954$ & $-9.08$ & $-0.414$ & $-1.82$ & Sí \\
+R2b & $D^{desc}$ fuente CNH
+  & $-6.498$ & $-8.60$ & $-0.865$ & $-1.69$ & Sí \\
+R3 & Distribución half-normal
+  & $-5.245$ & $-10.19$ & $-2.788$ & $-5.18$ & Sí \\
+R4 & Muestra 2010--2019 (sin COVID)
+  & $-2.649$ & $-6.05$ & $-2.880$ & $-4.66$ & Sí \\
+R5 & Sin hospitales ONG
+  & $-6.009$ & $-10.97$ & $-2.730$ & $-5.24$ & Sí \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $\hat{\alpha}$ negativo y significativo en 7/7 especificaciones.
+    $\hat{\delta}$ significativo al 5\% en 5/7 especificaciones. La columna
+    Asim.\ indica si la diferencia $\hat{\alpha}-\hat{\delta}$ es
+    estadísticamente significativa.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Destaca la especificación R4 (muestra 2010--2019): $\hat{\delta}_1 = -2.880$,
+más próximo al valor predicho por el modelo que la especificación principal
+($-1.477$), lo que sugiere que el período post-COVID introdujo efectos de
+recuperación diferencial que atenúan la asimetría observada. La especificación
+R2b (fuente CNH, más granular) produce los coeficientes más elevados en valor
+absoluto, coherente con que el CNH identifica mejor a los hospitales
+genuinamente descentralizados.
+
+Están pendientes de ejecución: (i)~bootstrap Wald con $B=4{,}999$ para el test
+P$^*$ formal; (ii)~sistema bivariado con cópula gaussiana (Kumbhakar, 1997) si
+el test de independencia de ineficiencias es rechazado; y (iii)~reestimación
+con pesos GRD diferenciados por tipo de GRD quirúrgico/médico, condicionada a
+la recepción de los microdatos RAE-CMBD del Ministerio de Sanidad.
+
+% ============================================================
+\section{Implicaciones de política hospitalaria \texorpdfstring{\normalfont\small\itshape\color{gristexto}[capítulo en elaboración]}{}}
+% ============================================================
+
+\begin{mdframed}[
+  linecolor=orange!70!black,
+  linewidth=0.8pt,
+  backgroundcolor=orange!6,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=7pt,
+  innerbottommargin=7pt,
+  skipabove=6pt,
+  skipbelow=6pt
+]
+\small\itshape\color{orange!80!black}
+\textbf{Nota:} este capítulo está actualmente en elaboración. Las propuestas
+recogidas a continuación representan las líneas de política que se derivan de
+forma más directa de los resultados empíricos disponibles, pero el análisis no
+está cerrado. En particular, están pendientes de incorporar: la discusión sobre
+los límites de la evidencia para fundamentar recomendaciones causales, el
+tratamiento diferenciado por tipo de comunidad autónoma y modelo de
+financiación, y las implicaciones específicas que se deriven de los resultados
+del bootstrap Wald y del sistema bivariado con cópula cuando estén disponibles.
+\end{mdframed}
+
+\vspace{4pt}
+
+Los resultados tienen implicaciones directas para el diseño institucional del
+sistema hospitalario. La evidencia confirma que la estructura organizativa tiene
+efectos estadísticamente significativos y cualitativamente distintos sobre las
+dos dimensiones del output. Un enfoque de política de ``talla única'' ---ya sea
+centralización total o descentralización generalizada--- ignora esta
+multidimensionalidad.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+  \item \textbf{Evaluación multidimensional del rendimiento hospitalario.} Los
+    sistemas de evaluación deberían incorporar medidas separadas de eficiencia
+    en volumen y en intensidad diagnóstico-terapéutica. Una métrica global agrega
+    efectos de signo contrario y puede confundir a los reguladores sobre el
+    desempeño real de los hospitales descentralizados. El diseño de esta tesis
+    ---sistema de dos fronteras estocásticas--- puede implementarse con los datos
+    disponibles del SIAE y del CMBD como herramienta de regulación por
+    comparación (\textit{yardstick competition}).
+
+  \item \textbf{Extensión del pago por actividad diferenciado.} El coeficiente
+    de $pct^{SNS}$ sugiere que una mayor proporción de financiación por
+    actividad reduce la ineficiencia en ambas dimensiones. La extensión del
+    sistema de pago por GRD a toda la red concertada, con tarifas que
+    diferencien entre servicios quirúrgicos y médicos, es la medida con mayor
+    apoyo empírico.
+
+  \item \textbf{Inclusión de indicadores de intensidad en los
+    contratos-programa.} Los contratos-programa autonómicos deberían incluir
+    indicadores verificables de intensidad diagnóstico-terapéutica (número de
+    procedimientos por alta, tasa de diagnóstico por imagen, estancia media
+    ajustada por severidad) vinculados a una parte de la financiación, para
+    contrarrestar el efecto de sustitución de esfuerzo predicho por el modelo
+    cuando $\psi_{12}>0$.
+
+  \item \textbf{Cláusulas de calidad en contratos de concesión.} Para
+    hospitales en régimen de concesión administrativa, los pliegos de
+    condiciones deberían incluir umbrales mínimos verificables de intensidad
+    diagnóstica y auditoría periódica. Los resultados sugieren que los
+    mecanismos de control de calidad ya existentes (acreditación autonómica)
+    limitan el deterioro de la intensidad pero no lo eliminan.
+
+  \item \textbf{Diseño de reformas de descentralización.} La evidencia es
+    consistente con los efectos causales del modelo teórico, pero no los
+    establece de forma concluyente (la asignación de hospitales a formas
+    descentralizadas no es aleatoria). Para establecer causalidad sería
+    necesario explotar variación exógena derivada de cambios normativos
+    autonómicos (reversiones de concesiones en la Comunidad Valenciana y
+    Madrid).
+
+\end{enumerate}
+
+\begin{cajadestacada}
+\textbf{Síntesis de política:} los resultados apuntan a que la clave no es
+elegir entre centralización y descentralización, sino diseñar contratos
+hospitalarios que aprovechen las ventajas de la descentralización en volumen
+(P1 confirmada) mientras se incorporan mecanismos institucionales que
+contrarresten su desventaja en intensidad (P2 confirmada en sentido débil). El
+tipo de pago y el mix de servicios quirúrgico/médico del hospital son los
+moderadores institucionales que el diseño de contratos debería tener en cuenta.
+\end{cajadestacada}
+
+% ============================================================
+\section{Estado actual y estructura de la tesis}
+% ============================================================
+
+La tesis está estructurada en ocho capítulos y tres anexos. El modelo teórico
+(Cap.~2) y la estrategia empírica (Cap.~3) están completos. Los capítulos de
+datos (4), resultados (5) y robustez (6) recogen los resultados actualmente
+disponibles. El capítulo de conclusiones (8) está redactado en borrador. El
+capítulo de política hospitalaria (7) está en elaboración: las propuestas
+recogidas en la sección anterior son una primera versión que se ampliará y
+matizará conforme se completen los análisis de robustez pendientes. La Tabla~\ref{tab:pendientes}
+recoge el conjunto de tareas en curso, tanto econométricas como de redacción:
+
+\begin{table}[htbp]
+\centering
+\caption{Tareas pendientes por orden de prioridad}
+\label{tab:pendientes}
+\begin{tabular}{p{5.5cm}p{2cm}p{5cm}}
+\toprule
+\textbf{Tarea} & \textbf{Prioridad} & \textbf{Estado} \\
+\midrule
+Bootstrap Wald P$^*$ ($B=4{,}999$)
+  & Alta & Pendiente ($\sim$6h cómputo) \\[3pt]
+Sistema bivariado con cópula gaussiana
+  & Alta & Pendiente (depende de test $\rho$) \\[3pt]
+Diseño A con pesos GRD diferenciados Q/M
+  & Alta & Pendiente (espera RAE-CMBD) \\[3pt]
+Cap.~7 --- Política hospitalaria (redacción completa)
+  & Alta & En elaboración --- primera versión disponible \\[3pt]
+Control dummies COVID en muestra principal
+  & Media & Estimación R4 disponible \\[3pt]
+Diseño D (ODF): resolver SE=NaN
+  & Baja & Orientativo --- baja prioridad \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{1.5cm}
+\begin{center}
+  \rule{0.5\linewidth}{0.4pt}\\[6pt]
+  {\small\itshape\color{gristexto}
+    Documento de trabajo --- Marzo 2026 --- José María Elena Izquierdo}
+\end{center}
+
+\end{document}
