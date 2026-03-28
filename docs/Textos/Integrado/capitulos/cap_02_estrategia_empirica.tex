@@ -1,0 +1,202 @@
+﻿\chapter{Estrategia empírica}
+\label{ch:estrategia}
+
+\section{Motivación empírica}
+
+Este capítulo desarrolla la estrategia empírica para contrastar las predicciones del modelo teórico del Capítulo~\ref{ch:modelo}. La contribución empírica central es identificar y contrastar la asimetría predicha utilizando un sistema de fronteras estocásticas con datos de panel del sistema hospitalario español para el período 2010--2023. La evidencia producida es, hasta donde conocemos, la primera contrastación empírica directa de un modelo de agencia multitarea en el sector hospitalario español mediante análisis de frontera estocástica.
+
+\section{Marco general: análisis de frontera estocástica}
+
+El análisis de frontera estocástica (SFA), desarrollado simultáneamente por \citet{aigner1977} y \citet{meeusen1977}, descompone la desviación de un hospital respecto a la frontera de producción en dos componentes:
+\begin{equation}
+  \ln y_{it} = f(\mathbf{x}_{it};\,\bsym{\beta}) + v_{it} - u_{it}
+  \label{eq:sfa_base}
+\end{equation}
+donde $v_{it} \sim \N(0, \sigma^2_v)$ es ruido aleatorio simétrico y $u_{it} \geq 0$ es el término de ineficiencia técnica. La eficiencia técnica del hospital $i$ en el período $t$ se estima como:
+\begin{equation}
+  TE_{it} = \E\!\left[e^{-u_{it}} \mid \varepsilon_{it}\right]
+  \label{eq:te}
+\end{equation}
+siguiendo el estimador de \citet{jondrow1982}.
+
+Para incorporar los determinantes de la ineficiencia, se adopta la especificación de \citet{battese1995}, donde $u_{it}$ sigue una distribución normal truncada en cero con media heterogénea:
+\begin{equation}
+  u_{it} \sim \N^+\!\left(\mu_{it},\, \sigma^2_u\right), \quad \mu_{it} = \mathbf{z}_{it}'\bsym{\delta}
+  \label{eq:bc95}
+\end{equation}
+Esta especificación, extendida por \citet{wang2002} para permitir heterogeneidad también en la varianza de $u_{it}$, es la base de todos los diseños de estimación. El SFA se ha aplicado extensamente al sector hospitalario, incluyendo los trabajos de \citet{puigjunoy2000} para España, \citet{linna1998} para Finlandia, \citet{rosko2008} para Estados Unidos y \citet{street2003} para el NHS británico.
+
+\section{Especificación de la frontera de producción}
+
+Para todos los diseños se adopta una forma funcional translog en los inputs, centrada en las medias muestrales para facilitar la interpretación:
+\begin{align}
+  \ln y_{kit} &= \beta_0
+    + \beta_1 \ln\tilde{L}_{it}
+    + \beta_2 \ln\tilde{K}^C_{it}
+    + \beta_3 \ln\tilde{K}^T_{it}
+    + \beta_4 (\ln\tilde{L}_{it})^2
+    + \beta_5 (\ln\tilde{K}^C_{it})^2
+    \notag \\
+    &\quad
+    + \beta_6\, t
+    + \beta_7\, t^2
+    + \sum_{g=2}^{5} \gamma_g\, D^{cluster}_g
+    + v_{it} - u_{kit}
+  \label{eq:frontera_tl}
+\end{align}
+donde $\tilde{L}_{it}$, $\tilde{K}^C_{it}$ y $\tilde{K}^T_{it}$ son los logaritmos centrados del personal médico EJC, las camas en funcionamiento y el índice tecnológico. La tendencia temporal $t$ captura el progreso técnico. Las dummies $D^{cluster}_g$ controlan la heterogeneidad tecnológica entre grupos de hospitales de distinta complejidad, siguiendo la clasificación del Ministerio de Sanidad \citep{ministerio2007}.\footnote{El término de interacción $\ln\tilde{L}\times\ln\tilde{K}^C$ se eliminó de la especificación por multicolinealidad severa ($r=0.953$ con $(\ln\tilde{L})^2$). El \textit{condition number} de la matriz translog reducida es 171, manejable. La translog es estadísticamente preferida sobre Cobb-Douglas mediante tests LR con estadísticos entre 246 y 594 ($p<0.001$).}
+
+\section{Ecuación de ineficiencia}
+\label{sec:ecuacion_inef}
+
+La media heterogénea del término de ineficiencia es:
+\begin{align}
+  \mu_{kit} &= \delta_0
+    + \delta_1\, D^{desc}_{it}
+    + \delta_2\, pct^{SNS}_{it}
+    + \delta_3\, (D^{desc}_{it} \times pct^{SNS}_{it})
+    + \delta_4\, ShareQ_{it}
+    + \delta_5\, (D^{desc}_{it} \times ShareQ_{it})
+    \notag \\
+    &\quad + \sum_{c \neq 9} \lambda_c\, D^{ccaa}_{c,it}
+    + \omega_{kit}
+  \label{eq:uhet}
+\end{align}
+donde $D^{desc}_{it}$ es la variable de estructura organizativa (1 = descentralizado, 0 = centralizado SNS), $pct^{SNS}_{it}$ es la proporción de altas financiadas por el SNS como proxy del mecanismo de pago, $ShareQ_{it}$ es la proporción de altas quirúrgicas sobre el total como proxy de $\psi_{12}$, y $D^{ccaa}_{c,it}$ son dummies de comunidad autónoma que absorben la heterogeneidad regional (referencia: Cataluña, $c=9$).
+
+Cada variable de la ecuación de ineficiencia tiene un anclaje directo en el modelo teórico:
+\begin{itemize}
+  \item $D^{desc}$: capta el efecto de la estructura organizativa (centralizada vs.\ descentralizada) sobre la ineficiencia. Sus coeficientes en las dos fronteras son los parámetros $\alpha_1$ y $\delta_1$ de las predicciones P1 y P2.
+  \item $pct^{SNS}$: aproxima el mecanismo de pago. Un hospital con alta proporción de altas SNS está sujeto predominantemente a financiación prospectiva por actividad o presupuesto global.
+  \item $D^{desc}\times pct^{SNS}$: captura la interacción entre estructura y tipo de pago (predicción P3).
+  \item $ShareQ$: proxy continua de $\psi_{12}$. Hospitales con alta proporción de actividad quirúrgica operan en un régimen de complementariedad entre tareas.
+  \item $D^{desc}\times ShareQ$: moderación de $\psi_{12}$ sobre el efecto de la descentralización (predicción P4).
+\end{itemize}
+
+% ── Bloque 1: Observación sobre pct_sns ─────────────────────
+\begin{remark}[Contenido informativo de $pct^{SNS}$ según el tipo de hospital]
+\label{rem:pctsns_asimetria}
+La variable $pct^{SNS}$ no mide directamente el carácter prospectivo o retrospectivo del mecanismo de pago: mide la intensidad de la relación financiera con el pagador público. Su contenido interpretativo difiere sistemáticamente según el tipo de hospital.
+
+Para los \textbf{hospitales centralizados} ($D^{desc}=0$), un valor alto de $pct^{SNS}$ indica que casi toda la actividad se financia mediante el presupuesto global autonómico, que es de naturaleza retrospectiva: el hospital no cobra por alta individual sino que recibe una dotación presupuestaria anual con independencia del volumen producido. La variación de $pct^{SNS}$ en este grupo es pequeña (mediana 0.951), de modo que el coeficiente está identificado principalmente por la variación en los hospitales descentralizados.
+
+Para los \textbf{hospitales descentralizados} ($D^{desc}=1$), $pct^{SNS}$ alto mide la proporción de actividad sujeta a contrato de actividad o concierto con el SNS, que en general tiene carácter prospectivo: el hospital cobra una tarifa fija por alta, independientemente del coste real incurrido. En estos hospitales, $pct^{SNS}$ alto implica mayor dependencia de un contrato de actividad con techo máximo, lo que genera incentivos específicos sobre el volumen.
+
+El coeficiente de $pct^{SNS}$ en la ecuación de ineficiencia es, por tanto, una media ponderada de dos efectos conceptualmente distintos, identificada principalmente por la variación en los hospitales descentralizados. La interacción $D^{desc}\times pct^{SNS}$ es la que permite separar estos efectos: su coeficiente mide el efecto adicional de ser descentralizado con alta dependencia SNS respecto de ser simplemente descentralizado.
+\end{remark}
+% ── Fin Bloque 1 ─────────────────────────────────────────────
+
+\section{Los cuatro diseños de estimación}
+
+Se plantean cuatro diseños complementarios con roles distintos en la estructura del análisis (Tabla~\ref{tab:disenos}).
+
+\begin{table}[htbp]
+\centering
+\caption{Diseños de estimación y su papel en el análisis}
+\label{tab:disenos}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{1.2cm}p{3.5cm}p{2.5cm}p{3.5cm}}
+\toprule
+\textbf{Diseño} & \textbf{Descripción} &
+\textbf{Permite} & \textbf{Papel} \\
+\midrule
+D & Función de distancia output (ODF) con dos outputs simultáneos y un único $u_{it}$
+  & P3, P4 (no P1/P2)
+  & Punto de partida metodológico \\[6pt]
+A & Sistema de dos fronteras: cantidad total e intensidad diagnóstica
+  & P1, P2, P3, P4, P$^*$
+  & Contraste directo del modelo teórico \\[6pt]
+B & Sistema de dos fronteras: altas quirúrgicas y altas médicas
+  & P1, P3, P4, P$^*$
+  & Contraste con proxy estructural de $\psi_{12}$ \\[6pt]
+C & Panel hospital $\times$ servicio $\times$ año
+  & P4 con variación intra-hospital
+  & Robustez con variación dentro del hospital \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\subsection{Diseño D --- Función de distancia output}
+
+Siguiendo a \citet{coelli1999}, se estima una función de distancia output translog con dos outputs (altas quirúrgicas y médicas ponderadas). La normalización por el output quirúrgico impone homogeneidad de grado 1 en outputs:
+\begin{equation}
+  -\ln altQ^{pond}_{it} = f\!\left(\frac{altM^{pond}_{it}}{altQ^{pond}_{it}},\, \mathbf{x}_{it}\right) + v_{it} - u_{it}
+  \label{eq:odf}
+\end{equation}
+
+El Diseño D no puede falsificar P1 ni P2 porque dispone de un único $u_{it}$: los efectos de signo contrario de la descentralización sobre las dos dimensiones se cancelan. Sirve para P3 y P4 y para analizar la distribución interna de la ineficiencia entre outputs, y proporciona un punto de partida metodológico que establece la existencia de ineficiencia significativa \citep{coelli2005}.
+
+\subsection{Diseño A --- Sistema bivariado cantidad/intensidad}
+
+Es el diseño más cercano al modelo teórico. Estima dos fronteras independientes, una para la cantidad total ($\ln altTotal^{pond}$) y otra para la intensidad ($\ln i_{diag}$), con ecuaciones de ineficiencia que comparten las mismas variables explicativas. El contraste central es:
+\begin{equation}
+  H_0:\; \bsym{\alpha} = \bsym{\delta}
+  \label{eq:h0_pstar}
+\end{equation}
+
+La variable de intensidad $i_{diag}$ se construye como un índice ponderado de procedimientos diagnósticos por alta:
+\begin{equation}
+  i_{diag,it} = \frac{\sum_p w_p \cdot n_{p,it}}{altTotal^{pond}_{it}}
+  \label{eq:i_diag}
+\end{equation}
+donde $w_p$ es el peso relativo de cada tipo de procedimiento (TAC, RNM, PET, angiografía, gammagrafía, colonoscopia, etc.) y $n_{p,it}$ es el número de procedimientos realizados. Los datos proceden del módulo C1\_16 del SIAE.\footnote{En 2021 el módulo C1\_16 cambió la denominación de variables de procedimientos. Se verificó la coherencia de la serie temporal: la mediana de $i_{diag}$ se mantiene estable en el rango 8.1--9.5 durante 2010--2023.}
+
+\subsection{Diseño B --- Sistema bivariado quirúrgico/médico}
+
+En lugar de medir $i$ directamente, redefine los dos outputs usando la desagregación del SIAE por tipo de servicio. La justificación estructural es directa desde el modelo teórico: los servicios quirúrgicos son el caso canónico de $\psi_{12} < 0$ (complementariedad), porque el acto quirúrgico implica per se alta intensidad; los servicios médicos son el caso de $\psi_{12} > 0$ (sustitución), porque ver más pacientes compite con el tiempo diagnóstico por paciente.
+
+La ventaja operacional es que elimina la necesidad de medir la intensidad directamente y utiliza una clasificación estructural como proxy de $\psi_{12}$.
+
+\subsection{Diseño C --- Panel hospital \texorpdfstring{$\times$}{x} servicio}
+
+Construye un panel largo con dos filas por hospital-año (quirúrgicos y médicos) y estima una frontera única con la interacción $D^{desc}\times C_s$ en la ecuación de ineficiencia. El coeficiente captura si la descentralización afecta de forma diferente a los servicios quirúrgicos que a los médicos, con la ventaja de explotar variación \textit{dentro} del hospital.
+
+\section{Estimación e inferencia}
+
+Todos los modelos se estiman por máxima verosimilitud utilizando el paquete \texttt{sfaR} \citep{dakpo2024} en R. La secuencia de optimización intenta sucesivamente los métodos BFGS, BHHH y Nelder-Mead con distribuciones normal truncada (\texttt{tnormal}) y seminormal (\texttt{hnormal}).\footnote{Una solución se considera degenerada si la log-verosimilitud no es finita, si algún coeficiente supera 100 en valor absoluto, o si algún error estándar de los coeficientes de ineficiencia no es finito.}
+
+Para el test conjunto P$^*$ se utiliza un test de razón de verosimilitud (LR):
+\begin{equation}
+  LR = 2\left(\ell^{irr} - \ell^{restr}\right) \sim \chi^2(k)
+  \label{eq:lr_test}
+\end{equation}
+donde $\ell^{irr}$ es la suma de log-verosimilitudes de los modelos separados y $\ell^{restr}$ corresponde al modelo con muestras apiladas e igualdad de coeficientes.\footnote{Se intentó un bootstrap paramétrico con $B=4{,}999$ réplicas, pero la tasa de convergencia fue del 2.9\% en el Diseño A y del 0.06\% en el Diseño B, insuficiente para construir una distribución empírica fiable. La baja convergencia se debe a la concentración geográfica de los hospitales descentralizados. Se reporta el test LR como alternativa asintóticamente válida \citep{simar2007}.}
+
+\section{Justificación de las elecciones metodológicas adicionales}
+\label{sec:justificacion_adicional}
+
+Esta sección justifica de forma más detallada las opciones metodológicas que determinan el diseño empírico.
+
+\subsection{La función de distancia output frente a la función de producción}
+
+La especificación de una función de distancia output (ODF) en el Diseño D, frente a la alternativa más común de función de producción, responde a dos consideraciones. \textit{Primera}, en un hospital multiproducto, la función de producción estándar requiere agregar múltiples outputs en un escalar, lo que implica supuestos ad hoc sobre los pesos de agregación. La función de distancia output evita esa agregación al incorporar los múltiples outputs directamente en la especificación, imponiendo únicamente la restricción de homogeneidad de grado 1 en outputs para la normalización \citep{coelli1999,grosskopf1987}. \textit{Segunda}, la función de distancia output es la representación natural de la tecnología de producción cuando el objetivo es medir la eficiencia técnica en el espacio de outputs: la ineficiencia se interpreta como la capacidad de expandir el vector de outputs proporcionalmente dado el vector de inputs.
+
+La limitación de la función de distancia frente a la función de producción es que los coeficientes de los outputs no tienen interpretación directa como elasticidades, sino como parámetros de la frontera de isocuantas en el espacio de outputs. Para los Diseños A y B, se opta por fronteras de producción separadas (una por dimensión de output) en lugar de la ODF, porque la ODF con dos outputs no permite identificar los efectos asimétricos de la descentralización sobre las dos dimensiones (el único $u_{it}$ cancela los efectos de signo contrario).
+
+\subsection{Efectos aleatorios verdaderos frente a efectos fijos}
+
+La utilización de efectos aleatorios en la especificación del panel ---mediante la distribución $u_{it} \sim N^+(\mu_{it}, \sigma_u^2)$ con media heterogénea--- frente a la alternativa de efectos fijos tiene una justificación estadística y económica.
+
+\textit{Estadísticamente}, el estimador de efectos fijos en SFA tiene el problema del parámetro incidental: si la ineficiencia es un efecto fijo individual $u_i$, no puede separarse del heterogeneidad permanente del hospital (calidad del equipo directivo, dotación histórica de infraestructuras) que es por definición una característica permanente, no ineficiencia transitoria. Los estimadores de efectos fijos en SFA tienden a producir eficiencias cercanas a 1 para hospitales que son consistentemente ``eficientes'' aunque parte de esa eficiencia sea heterogeneidad permanente, no resultado del comportamiento del agente \citep{greene2005a}.
+
+\textit{Económicamente}, la ineficiencia transitoria ($u_{it}$ variable en el tiempo) es el objeto de interés relevante para los contratos de incentivos: lo que el modelo teórico predice es que la estructura organizativa afecta al comportamiento de los agentes en cada período, no a las características permanentes del hospital. El modelo de efectos aleatorios con media heterogénea \citep{battese1995,wang2002} captura exactamente este tipo de ineficiencia transitoria condicionada por la estructura organizativa, que es la que el modelo teórico predice que varía con $D^{desc}$.
+
+La especificación de Greene (2005) con efectos aleatorios \textit{verdaderos} --- que descompone el error en $\alpha_i + v_{it} - u_{it}$, separando la heterogeneidad permanente de la ineficiencia transitoria--- es la extensión natural de los modelos utilizados en esta tesis, y está planteada como línea de extensión futura en el Capítulo~\ref{ch:conclusiones}.
+
+La especificación de \citet{greene2005a} constituye la extensión natural de los modelos de esta tesis y está planteada como línea de trabajo futuro. No obstante, es relevante señalar que el Diseño~C proporciona una defensa parcial frente a esta objeción. Al explotar la variación intra-hospital ---comparando la ineficiencia en servicios quirúrgicos con la ineficiencia en servicios médicos dentro del mismo hospital y año---, el Diseño~C es inmune a la confusión entre heterogeneidad permanente del hospital e ineficiencia: cualquier característica invariante del centro (antigüedad de las instalaciones, cultura organizativa, habilidad del equipo directivo, localización) cancela en la comparación intra-hospital. La confirmación de P4 en el Diseño~C ($ShareQ \times C_s = -11.413$, $t = -16.92$) es, por tanto, el resultado más limpio frente a la objeción de confusión entre heterogeneidad persistente e ineficiencia transitoria. El hecho de que el patrón asimétrico se mantenga incluso explotando solo la variación dentro del hospital refuerza la interpretación de que los resultados reflejan genuinamente diferencias de eficiencia, no mera heterogeneidad institucional.
+
+\subsection{Tratamiento de la multicolinealidad en la especificación translog}
+
+La especificación translog completa incluye todos los términos de segundo orden en los inputs: $(\ln\tilde{L})^2$, $(\ln\tilde{K}^C)^2$, $(\ln\tilde{K}^T)^2$ y los productos cruzados $\ln\tilde{L}\times\ln\tilde{K}^C$, $\ln\tilde{L}\times\ln\tilde{K}^T$ y $\ln\tilde{K}^C\times\ln\tilde{K}^T$. En la práctica, los hospitales de mayor tamaño tienden a tener simultáneamente más personal, más camas y más equipamiento tecnológico, lo que genera correlaciones muy altas entre los regresores de segundo orden. El \textit{condition number} de la matriz de diseño de la especificación completa supera 500 en todos los diseños, indicando multicolinealidad severa.
+
+La solución adoptada es eliminar el término de interacción $\ln\tilde{L}\times\ln\tilde{K}^C$ ---el par de inputs con correlación más alta--- y retener los términos cuadráticos y el resto de interacciones. El \textit{condition number} de la matriz reducida es 171, manejable según los criterios estándar de la literatura \citep{kumbhakar2000}. El test LR confirma que la especificación reducida no es rechazada frente a la completa una vez que se controla la multicolinealidad: el estadístico LR del término eliminado es 2.1 (p=0.148), no significativo.
+
+La centración de todas las variables en sus medias muestrales antes de la construcción de los términos cuadráticos e interacciones reduce sustancialmente la multicolinealidad sin alterar la elasticidades estimadas en el punto de evaluación (la media muestral), lo que facilita la interpretación de los coeficientes de primer orden como elasticidades evaluadas en el hospital ``tipo''.
+
+
+
+% ###########################################################
+% CAPÍTULO 4: DATOS Y VARIABLES
+% ###########################################################

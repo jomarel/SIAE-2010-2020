@@ -1,0 +1,103 @@
+﻿\chapter{Construcción de variables y pipeline de datos}
+\label{app:pipeline}
+
+\section{Estructura del proyecto}
+
+Los datos se procesan mediante un pipeline secuencial de scripts en R, cuyo código fuente está disponible en el repositorio del proyecto.\footnote{Repositorio privado durante el período de tesis.} La ruta raíz del proyecto es \texttt{G:/Mi unidad/SIAE 2010-2020/}.
+
+\section{Orden de ejecución}
+
+\begin{table}[htbp]
+\centering
+\caption{Pipeline de scripts R}
+\label{tab:pipeline}
+\small
+\begin{tabular}{p{4cm}p{9cm}}
+\toprule
+\textbf{Script} & \textbf{Función} \\
+\midrule
+\texttt{00\_config.R} & Configuración central \\
+\texttt{01\_exportar\_mapeo\_cnh.R} & Mapa NCODI $\leftrightarrow$ CNH \\
+\texttt{02\_estandarizar\_nombres.R} & Renombra variables XML/TXT a nombres canónicos \\
+\texttt{03\_unir\_modulos\_por\_anyo.R} & Une módulos SIAE por año \\
+\texttt{04\_construir\_panel.R} & Apila años $\rightarrow$ panel longitudinal \\
+\texttt{05\_construir\_casemix.R} & Case-mix (RF+LASSO), outputs ponderados, ShareQ \\
+\texttt{06\_construir\_Ddesc\_pago.R} & $D^{desc}$, $pct^{SNS}$, inputs \\
+\texttt{07\_construir\_intensidad.R} & $i_{diag}$ con bridges C1\_16 \\
+\texttt{08\_auditoria\_variables.R} & Verificación de cobertura \\
+\texttt{09\_crear\_df\_sfa.R} & Dataset reducido para SFA \\
+\texttt{10\_descriptivos\_sfa.R} & Tablas descriptivas \\
+\texttt{11\_estimar\_sfa.R} & Estimación 4 diseños + contrastes \\
+\texttt{12\_robustez\_sfa.R} & 5 análisis de robustez \\
+\texttt{13\_tests\_diagnosticos.R} & Tests formales \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Armonización de formatos TXT y XML}
+\label{sec:armonizacion_txt_xml_b}
+
+El SIAE distribuyó sus microdatos en formato TXT con delimitador punto y coma para los años 2010--2015 y en formato XML (con estructura jerárquica de módulos) para los años 2016--2023. La transición entre formatos introdujo cambios en los nombres de variables, en la estructura de codificación de los módulos y en la presencia de nuevas variables no disponibles en el período TXT.
+
+El proceso de armonización (script \texttt{02\_estandarizar\_nombres.R}) construye un \textit{mapping} canónico de nombres de variables que asocia cada variable del período TXT con su equivalente en el período XML. El mapping se construye en dos etapas. \textit{Primera}, una correspondencia exacta para las variables con nombre idéntico entre períodos (aproximadamente el 70\% del total). \textit{Segunda}, una correspondencia por \textit{fuzzy matching} basada en la distancia de Levenshtein normalizada entre nombres de variables, con umbral de similitud de 0.85, para las variables con nombre similar pero no idéntico. Las correspondencias obtenidas por fuzzy matching se validan manualmente contra la documentación metodológica del SIAE publicada por el Ministerio de Sanidad.
+
+\section{Proceso de \textit{fuzzy matching} NCODI--CNH}
+\label{sec:fuzzy_matching_cnh}
+
+La vinculación entre las observaciones del SIAE (identificadas por el código NCODI de seis dígitos) y las del Catálogo Nacional de Hospitales (identificadas por el código CNH de siete dígitos) requiere un proceso de resolución de ambigüedades. El CNH publica anualmente un fichero con los hospitales activos; el SIAE mantiene su propio registro de centros activos. Los dos registros no son perfectamente congruentes porque el CNH incluye centros sin internamiento (consultorios, centros de salud) que el SIAE excluye, y porque algunos hospitales del SIAE tienen códigos NCODI que no aparecen en el CNH del mismo año.
+
+El proceso de matching se realiza en tres pasos (script \texttt{01\_exportar\_mapeo\_cnh.R}):
+
+\begin{enumerate}
+  \item \textbf{Matching exacto por código}: para los hospitales con código NCODI que tiene una correspondencia directa y unívoca en el CNH del mismo año ($\approx$ 78\% de los casos).
+  \item \textbf{Matching por nombre y municipio}: para los hospitales sin código exacto, se construye una cadena de texto combinando nombre y municipio del hospital y se calcula la distancia de Levenshtein normalizada entre la cadena del SIAE y la del CNH. Se acepta el match con similitud $\geq 0.80$ y se verifica que el municipio coincida al menos parcialmente.
+  \item \textbf{Revisión manual}: para los casos con similitud $< 0.80$ o con ambigüedad (dos hospitales del CNH con similitud alta para el mismo NCODI), se realiza una revisión manual contra la página web del hospital y los registros históricos del SIAE.
+\end{enumerate}
+
+El resultado del matching cubre el 100\% de las observaciones del panel, con una cobertura del CNH del 96.4\% (el 3.6\% restante son hospitales que aparecen en el SIAE pero no en el CNH del año correspondiente, principalmente centros cerrados temporalmente o de nueva apertura; para estos, la dependencia funcional se imputa del año más cercano disponible).
+
+\section{Armonización de variables \texorpdfstring{$i_{diag}$}{i\_diag}: validación de bridges C1\_16 v3}
+\label{sec:bridges_v3}
+
+En 2021, el módulo C1\_16 del SIAE cambió la denominación de las variables de procedimientos diagnósticos. Las equivalencias correctas utilizadas en la versión 3 del script de construcción son:
+\begin{itemize}
+  \item $\leq$2020: \texttt{biopsias\_hosp + biopsias\_CEP} $\rightarrow$ $\geq$2021: \texttt{totbiopsias}
+  \item $\leq$2020: \texttt{tac\_hosp + tac\_CEP} $\rightarrow$ $\geq$2021: \texttt{tottac}
+  \item $\leq$2020: \texttt{resonancia\_hosp + resonancia\_CEP} $\rightarrow$ $\geq$2021: \texttt{totresonancia}
+  \item $\leq$2020: \texttt{Colonosopia} (sic, error tipográfico en variable original) $\rightarrow$ $\geq$2021: \texttt{Col\_hosp + Col\_Amb}
+  \item Y análogamente para PET, Rx, SPECT, angiografía, gammacámara, mamografía, densitometría, broncoscopia y ERCP.
+\end{itemize}
+
+La versión 3 del bridge (\texttt{bridges\_C1\_16\_v3.csv}) corrige un error en la versión 2 que duplicaba las biopsias para los años 2016--2020, porque el módulo XML de esos años ya incluía la suma \texttt{hosp + CEP} en algunas variables pero no en otras, y la versión 2 sumaba incorrectamente las dos fuentes. La versión 3 verifica para cada variable y cada año si la suma de componentes \texttt{hosp + CEP} iguala o supera al total reportado, y solo agrega los componentes cuando es necesario.
+
+Validación: la mediana de $i_{diag}$ es estable en el rango 8.1--9.5 durante 2010--2019, con una tendencia suave de aumento coherente con el progreso técnico diagnóstico. No se observa salto brusco en 2021 ni en 2016. La serie de 2016--2020 fue validada contra las estadísticas publicadas por el Ministerio de Sanidad sobre número de TAC y RNM realizados por hospital en esos años.
+
+\section{Modelo de imputación de case-mix: detalles metodológicos}
+\label{sec:casemix_imputacion}
+
+Para los hospitales sin información directa de pesos GRD-APR (años 2016--2023 y hospitales no incluidos en el archivo de pesos 2010--2015), se estima un modelo de aprendizaje automático. Los detalles metodológicos son los siguientes.
+
+\subsection{Variables predictoras}
+
+Los predictores utilizados para la imputación del peso GRD medio son variables del SIAE disponibles para todos los hospitales y años del panel:
+
+\begin{itemize}
+  \item Proporción de altas con ingreso previo en UCI (\texttt{pct\_uci}): proxy de la gravedad media de los casos.
+  \item Proporción de altas quirúrgicas sobre el total (\texttt{shareQ}): proxy de la complejidad del mix quirúrgico.
+  \item Ratio de altas programadas sobre altas urgentes (\texttt{ratio\_prog\_urg}): proxy del grado de urgencia de la actividad.
+  \item Índice tecnológico $K^T$: proxy de la sofisticación diagnóstica y terapéutica del hospital.
+  \item Número de camas en funcionamiento ($K^C$): control de tamaño.
+  \item Estancia media (número de estancias / número de altas): proxy de la complejidad media.
+  \item Dummy de comunidad autónoma: captura diferencias regionales en la codificación GRD.
+\end{itemize}
+
+\subsection{Procedimiento de estimación}
+
+Se entrena un modelo de Random Forest con 500 árboles (función \texttt{ranger} del paquete homónimo en R) sobre los datos disponibles del período 2010--2015 (246 hospitales, hasta 1.230 observaciones). El hiperparámetro \texttt{mtry} (número de variables a considerar en cada partición) se selecciona mediante validación cruzada con $k=5$ pliegues. El modelo LASSO (función \texttt{glmnet}) se estima sobre las mismas predictoras y se usa para comparación. El mejor modelo en términos de $R^2$ out-of-sample (Random Forest con $R^2 = 0.845$ vs. LASSO con $R^2 = 0.812$) se usa para la imputación.
+
+La validación temporal hold-out usa los datos de 2014--2015 como test (entrena en 2010--2013). El $R^2 = 0.845$ indica que el modelo predice bien el peso GRD de los hospitales en años fuera de la muestra de entrenamiento. La varianza del error de imputación es mayor para los hospitales de pequeño tamaño (menos de 200 camas) y para los hospitales con cartera de servicios muy especializada (hospitales monoespecialistas de tumores, oftalmología, etc.), que quedan en su mayoría excluidos de la muestra por el filtro de actividad mínima.
+
+El modelo se guarda como \texttt{casemix\_modelo\_B\_rf.rds} y se reutiliza sin re-entrenamiento en ejecuciones posteriores del pipeline. La caché del modelo RF permite reproducir exactamente los mismos valores imputados en cualquier ejecución del pipeline.
+
+
+% ── ANEXO C: TABLAS COMPLEMENTARIAS ──────────────────────

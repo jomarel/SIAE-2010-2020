@@ -1,0 +1,335 @@
+﻿\chapter{Datos y variables}
+\label{ch:datos}
+
+\section{Fuentes de datos}
+
+El análisis utiliza tres fuentes de datos complementarias.
+
+\subsection{SIAE (Sistema de Información de Atención Especializada)}
+
+El SIAE es la estadística oficial del Ministerio de Sanidad con cobertura nacional de todos los hospitales públicos y privados con internamiento. Es la principal fuente de datos de este análisis. Proporciona información anual sobre dotación de recursos (camas, equipamiento), personal (médicos, enfermería, auxiliares en equivalentes a jornada completa), actividad asistencial (altas, estancias, consultas, procedimientos diagnósticos) y financiación (ingresos por régimen de pago) para el período 2010--2023, con aproximadamente 880 hospitales por año.
+
+Los microdatos del SIAE se organizan en módulos temáticos. Los módulos utilizados en este análisis son:
+
+\begin{itemize}
+  \item \textbf{C1\_03} (Recursos físicos y capacidad): número de camas en funcionamiento ($K^C$), camas instaladas y tasas de ocupación.
+  \item \textbf{C1\_04} (Equipamiento tecnológico): número de unidades de TAC, RNM, PET, acelerador de partículas, angiógrafo, gammacámara/SPECT, litotriptor, robot quirúrgico, equipo de hemodinámica y cateterismo. Se utiliza para construir el índice tecnológico $K^T$.
+  \item \textbf{C1\_05} y \textbf{C1\_06} (Personal): médicos, personal de enfermería (DUE), técnicos de diagnóstico y fisioterapeutas en equivalentes a jornada completa (EJC). Se utiliza para construir el input de trabajo $L_{total}$.
+  \item \textbf{C1\_12} (Actividad de hospitalización): número de altas brutas por tipo de servicio (quirúrgico y médico), estancias y estancia media.
+  \item \textbf{C1\_14} (Actividad ambulatoria): consultas externas primeras y sucesivas, sesiones de hospital de día y cirugía mayor ambulatoria.
+  \item \textbf{C1\_16} (Procedimientos diagnósticos): número de TAC, RNM, PET, biopsias, colonoscopias, endoscopias, angiografías, gammagrafías, mamografías, densitometrías, broncoscopias y ERCP realizadas en el hospital o en el centro de especialidades periférico (CEP). Se utiliza para construir el índice de intensidad diagnóstica $i_{diag}$.
+  \item \textbf{C1\_18} (Financiación y origen de los pacientes): altas por tipo de financiador (SNS, aseguradoras privadas, mutuas, ONG, extranjeros). Se utiliza para construir $pct^{SNS}$.
+  \item \textbf{C1\_20} (Urgencias): actividad de urgencias hospitalarias.
+\end{itemize}
+
+Los microdatos están disponibles en formato TXT con delimitador punto y coma para el período 2010--2015 y en formato XML para 2016--2023. La armonización entre ambos formatos requiere un proceso de estandarización de nombres de variables que se detalla en el Anexo~\ref{app:pipeline}. El número de variables disponibles aumentó sustancialmente en la transición al formato XML (de aproximadamente 200 a más de 350 variables por hospital-año), lo que requirió un proceso de \textit{fuzzy matching} entre nombres de variables para garantizar la comparabilidad temporal.
+
+\subsection{CNH (Catálogo Nacional de Hospitales)}
+
+El Catálogo Nacional de Hospitales es una publicación anual del Ministerio de Sanidad que registra todos los centros hospitalarios españoles con internamiento. Proporciona información sobre la dependencia funcional de cada hospital con mayor granularidad institucional que el SIAE, distinguiendo entre: servicios autonómicos de salud (incluidos sus distintos modelos organizativos: hospitales integrados, fundaciones, empresas públicas), entidades privadas con y sin ánimo de lucro, ONG (organizaciones no gubernamentales de carácter religioso o laico), mutuas de accidentes de trabajo y enfermedades profesionales (MATEPSS), y defensa. Se utiliza para construir la variable $D^{desc}$ a nivel de hospital.
+
+La vinculación entre SIAE y CNH se realiza por código de hospital (NCODI en el SIAE, código CNH en el Catálogo). El proceso de \textit{matching} requiere una etapa de resolución de discordancias porque los códigos no son idénticos entre fuentes: el CNH utiliza códigos de siete dígitos mientras el SIAE usa NCODI de seis dígitos. La correspondencia se construye mediante un proceso de \textit{fuzzy matching} sobre nombre y municipio del hospital, con validación manual de los casos ambiguos. La cobertura final es del 100\% de las observaciones del panel.
+
+\subsection{CMBD parcial (pesos GRD)}
+
+El Conjunto Mínimo Básico de Datos (CMBD) al alta hospitalaria contiene información sobre diagnóstico principal, procedimientos, destino al alta y peso GRD-APR (All Patient Refined) por episodio. Para esta investigación se dispone de un archivo agregado de pesos medios GRD-APR por hospital y año para el período 2010--2015, elaborado a partir de los microdatos del RAE-CMBD cedidos por el Ministerio de Sanidad, con cobertura de 246 hospitales (aproximadamente el 31\% del panel por año). Los hospitales incluidos en este archivo representan fundamentalmente los hospitales del SNS de mayor tamaño, que son los que reportan el CMBD de forma más sistemática.
+
+Para los hospitales y años sin información directa de pesos GRD (los años 2016--2023 y los hospitales privados no incluidos en el archivo de pesos), los pesos se imputan mediante un modelo de aprendizaje automático. El proceso de imputación se describe en detalle en el Anexo~\ref{app:pipeline}; en resumen: se entrenan un modelo de Random Forest y un modelo LASSO con los datos disponibles del período 2010--2015, utilizando como predictores variables auxiliares del SIAE que son correlatos del peso GRD (proporción de altas con ingreso en UCI, proporción de altas quirúrgicas sobre el total, ratio de altas programadas sobre urgentes, e índice de dotación tecnológica $K^T$). La validación temporal hold-out sobre los datos de 2014--2015 produce un $R^2 = 0.845$, lo que indica una capacidad predictiva aceptable para imputación. Los valores imputados son más inciertos para los hospitales privados de pequeño tamaño y los hospitales monoespecialistas, que quedan excluidos de la muestra por el filtro de actividad mínima.
+
+Una limitación importante de esta estrategia de imputación es que los pesos GRD medios del hospital no capturan la variación en la complejidad del caso entre distintos tipos de altas (quirúrgicas vs. médicas). El RAE-CMBD con pesos desagregados por tipo de servicio, cuya solicitud formal fue realizada al Ministerio de Sanidad en marzo de 2026, permitiría una versión mejorada del análisis.
+
+\subsection{Consideraciones sobre protección de datos}
+
+Los datos utilizados en esta investigación proceden de fuentes estadísticas oficiales de carácter público o semipúblico. El SIAE es una operación estadística del Ministerio de Sanidad cuyos microdatos agregados a nivel de hospital están disponibles para investigación a través del portal estadístico del SNS\@. El CNH es un registro público accesible en el sitio web del Ministerio de Sanidad. Ninguna de las dos fuentes contiene datos de carácter personal ni información identificable a nivel de paciente.
+
+Los pesos GRD-APR utilizados para la ponderación de los \textit{outputs} proceden de un archivo de datos anonimizados a nivel de hospital (sin identificación de pacientes individuales) facilitado para investigación académica.
+
+La solicitud de datos del RAE-CMBD, realizada al Ministerio de Sanidad en marzo de 2026, se tramitó siguiendo el procedimiento establecido en la Orden SSI/1466/2016, que regula el acceso a los datos del registro de actividad de atención especializada con fines de investigación. En caso de recibir estos datos, su tratamiento se ajustará a las condiciones de la cesión y a lo dispuesto en el Reglamento General de Protección de Datos (Reglamento UE 2016/679) y la Ley Orgánica 3/2018 de Protección de Datos Personales.
+
+En ningún momento de esta investigación se han tratado datos de salud individuales ni información que permita la identificación directa o indirecta de pacientes.
+
+\section{Muestra de estimación}
+
+El panel de estimación resulta de aplicar los siguientes filtros secuenciales al panel completo de 10.614 observaciones hospital-año:
+
+\begin{enumerate}
+  \item \textbf{Hospitales de agudos:} Se excluyen hospitales psiquiátricos, de larga estancia y monoespecialistas, cuya tecnología de producción es radicalmente distinta.
+  \item \textbf{Exclusión de años COVID:} Se eliminan los años 2020--2022 por la distorsión de la pandemia, que alteró tanto la composición de la casuística como la utilización de recursos. Se estima adicionalmente con dummies COVID como análisis de robustez.
+  \item \textbf{Actividad mínima:} Se exige un mínimo de 200 altas brutas (y, para los Diseños B y D, 200 altas en cada tipo de servicio) para garantizar que la frontera de producción es estimable por tipo de servicio.
+  \item \textbf{Sin valores ausentes} en las variables principales del modelo.
+\end{enumerate}
+
+La muestra resultante comprende \textbf{4.765 observaciones hospital-año} (604 hospitales únicos) para el Diseño A y \textbf{3.300 observaciones} (503 hospitales) para el Diseño B.
+
+\section{Descripción de las variables}
+\label{sec:variables}
+
+La Tabla~\ref{tab:variables} describe las variables principales del modelo.
+
+\begin{table}[htbp]
+\centering
+\caption{Variables del modelo SFA}
+\label{tab:variables}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{2.5cm}p{5cm}p{2.5cm}p{1.5cm}}
+\toprule
+\textbf{Variable} & \textbf{Construcción} &
+\textbf{Fuente} & \textbf{NA (\%)} \\
+\midrule
+\multicolumn{4}{l}{\textit{Outputs}} \\
+$altTotal^{pond}$ & Altas totales $\times$ peso medio GRD-APR & SIAE + CMBD & 0.0 \\
+$altQ^{pond}$ & Altas quirúrgicas $\times$ peso GRD & SIAE + CMBD & 29.2 \\
+$altM^{pond}$ & Altas médicas $\times$ peso GRD & SIAE + CMBD & 37.9 \\
+$i_{diag}$ & Índice ponderado de procedimientos diagnósticos por alta & SIAE C1\_16 & 23.4 \\
+$i_{simple}$ & (Consultas externas + sesiones hospital de día) / altas totales & SIAE C1\_12/14 & 5.0 \\[4pt]
+\multicolumn{4}{l}{\textit{Inputs}} \\
+$L_{total}$ & Personal médico EJC + DUE EJC (excluye colaboradores) & SIAE C1\_05/06 & 0.0 \\
+$K^C$ & Camas en funcionamiento & SIAE C1\_03 & 0.0 \\
+$K^T$ & Índice tecnológico (TAC, RNM, PET, acelerador, angiógrafo, gammacámara, SPECT) & SIAE C1\_04 & 0.0 \\[4pt]
+\multicolumn{4}{l}{\textit{Determinantes de ineficiencia}} \\
+$D^{desc}$ & 1 = privado/concertado; 0 = público SNS & CNH + SIAE & 0.0 \\
+$pct^{SNS}$ & Altas SNS / altas totales & SIAE C1\_18 & 0.2 \\
+$ShareQ$ & Altas quirúrgicas / altas totales & SIAE & 0.1 \\[4pt]
+\multicolumn{4}{l}{\textit{Controles}} \\
+$D^{cluster}_g$ & Dummies grupo complejidad (5 grupos) & SIAE & 0.0 \\
+$D^{ccaa}_c$ & Dummies de CCAA (16; ref.: Cataluña) & CNH + SIAE & 8.2 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item EJC = equivalente a jornada completa. GRD-APR = Grupos Relacionados por el Diagnóstico, versión All Patient Refined.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Variable de estructura organizativa (\texorpdfstring{$D^{desc}$}{D\^{}desc})}
+
+La construcción de $D^{desc}$ merece una nota metodológica específica. El SIAE proporciona la variable \texttt{cod\_depend\_agrupada} con solo dos categorías (1 = público SNS, 2 = privado), utilizada como $D^{desc}_{SIAE}$. El CNH proporciona la dependencia funcional con mayor granularidad ($D^{desc}_{CNH}$).
+
+La variable definitiva combina ambas fuentes:
+\begin{equation}
+  D^{desc}_{it} = \text{coalesce}(D^{desc}_{CNH,it},\, D^{desc}_{SIAE,it})
+\end{equation}
+La cobertura final es del 100\%. Se detecta una discordancia entre fuentes del 17.7\% de las observaciones, principalmente en hospitales ONG y centros concertados. El análisis de robustez verifica la estabilidad de los resultados al usar cada fuente independientemente.
+
+Es importante reconocer que la variable $D^{\text{desc}}$ agrupa bajo una misma categoría entidades con naturalezas institucionales heterogéneas: concesiones administrativas con plena autonomía de contratación (el caso más cercano al mecanismo teórico de la Figura~\ref{fig:cronograma_d}), fundaciones sanitarias públicas con autonomía parcial, hospitales privados concertados con distintos grados de dependencia del financiador público, y centros de organizaciones no gubernamentales. Esta heterogeneidad institucional implica que el coeficiente de $D^{\text{desc}}$ en la ecuación de ineficiencia captura un efecto medio ponderado de formas organizativas diversas, no el efecto puro de la descentralización contractual del modelo teórico.
+
+El Diseño~B mitiga parcialmente este problema al descomponer el agregado en tres categorías con anclaje económico más preciso: hospitales públicos retrospectivos ($Pub\_Retro$), privados concertados ($Priv\_Conc$, con $pct^{SNS} \geq 0.50$) y privados de mercado ($Priv\_Merc$, con $pct^{SNS} < 0.50$). Esta descomposición permite distinguir los efectos de los hospitales que operan predominantemente bajo contratos de actividad con el SNS (concertados) de los que operan bajo lógica de mercado, acercando la medición empírica al mecanismo teórico. No obstante, el caso empíricamente más limpio ---las concesiones administrativas puras (modelo Alzira)--- representa un número reducido de observaciones en el panel (concentradas en la Comunidad Valenciana), insuficiente para estimar una frontera específica con la precisión requerida.
+
+En el Diseño B se utiliza adicionalmente una variable categórica de \textit{grupo de pago} con tres niveles: \textit{Pub\_Retro} (hospitales públicos SNS, referencia), \textit{Priv\_Conc} (hospitales privados con alta dependencia SNS, $pct^{SNS}\geq 0.50$) y \textit{Priv\_Merc} (hospitales privados de mercado, $pct^{SNS}<0.50$). Esta descomposición permite distinguir los efectos entre hospitales concertados (que operan en un régimen mixto de pago prospectivo) y hospitales puramente privados (financiados mayoritariamente por seguros privados o pago directo).
+
+\section{Estadísticos descriptivos}
+
+\begin{table}[htbp]
+\centering
+\caption{Estadísticos descriptivos por estructura organizativa (muestra Diseño A)}
+\label{tab:descriptivos}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+& \multicolumn{3}{c}{\textbf{Centralizado ($D^{desc}=0$)}}
+& \multicolumn{3}{c}{\textbf{Descentralizado ($D^{desc}=1$)}} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Variable} & Media & DE & p50
+  & Media & DE & p50 & \textbf{Dif.} \\
+\midrule
+$altTotal^{pond}$ (miles) & 11.044 & 9.213 & 8.502
+  & 3.681 & 4.127 & 2.156 & *** \\
+$i_{diag}$ & 2.34 & 1.12 & 2.18
+  & 1.97 & 0.98 & 1.85 & *** \\
+$L_{total}$ (EJC) & 1.247 & 1.089 & 906
+  & 451 & 523 & 287 & *** \\
+$K^C$ (camas) & 436 & 368 & 313
+  & 162 & 178 & 102 & *** \\
+$pct^{SNS}$ & 0.917 & 0.089 & 0.951
+  & 0.453 & 0.415 & 0.271 & *** \\
+$ShareQ$ & 0.328 & 0.127 & 0.325
+  & 0.347 & 0.152 & 0.340 & *** \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item *** diferencia significativa al 1\% (test $t$). $n = 2{,}484$ obs.\ centralizadas y $n = 2{,}281$ descentralizadas.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los hospitales descentralizados son en promedio significativamente más pequeños que los centralizados (162 vs.\ 436 camas), con menor actividad total y menor dependencia de la financiación SNS (45.3\% vs.\ 91.7\%). Esta heterogeneidad justifica la inclusión de dummies de cluster en la frontera para comparar hospitales con tecnologías similares, así como los controles regionales en la ecuación de ineficiencia.
+
+\section{Las siete categorías del CNH y la construcción de \texorpdfstring{$D^{desc}$}{D\^{}desc}}
+\label{sec:categorias_cnh}
+
+El Catálogo Nacional de Hospitales clasifica los centros hospitalarios españoles en siete grandes categorías de dependencia funcional, cuya correcta interpretación es esencial para la construcción de la variable $D^{desc}$:
+
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Administración del Estado y servicios autonómicos de salud (SAS):} Hospitales integrados en la red del Sistema Nacional de Salud, gestionados directamente por los servicios autonómicos de salud o por el Ministerio de Sanidad (defensa). Incluye hospitales integrados clásicos, empresas públicas hospitalarias (Agencia Sanitaria Costa del Sol, Empresa Pública de Emergencias Sanitarias de Andalucía) y hospitales en régimen de organismo autónomo. Son la categoría de referencia centralizada ($D^{desc}=0$) en la especificación principal.
+
+  \item \textbf{Diputaciones, ayuntamientos y otras entidades locales:} Hospitales de titularidad local, habitualmente de pequeño tamaño y cartera de servicios reducida. Representan una fracción pequeña de la muestra y en el análisis principal se tratan como centralizados ($D^{desc}=0$) porque su personal es funcionario o laboral público con escasa autonomía retributiva.
+
+  \item \textbf{Mutuas de accidentes de trabajo y enfermedades profesionales (MATEPSS):} Hospitales financiados por la Seguridad Social a través de las mutuas colaboradoras, con gestión privada y personal laboral ordinario. Son técnicamente descentralizados en el sentido del modelo (autonomía en contratación médica), pero su cartera de servicios está muy especializada en accidentes de trabajo y rehabilitación. En la especificación principal se clasifican como descentralizados ($D^{desc}=1$); el análisis de robustez R2b excluye esta categoría para verificar la estabilidad de los resultados.
+
+  \item \textbf{Cruz Roja y entidades de la iglesia:} Hospitales de titularidad religiosa o de la Cruz Roja, sin ánimo de lucro, con gestión privada. Tienen plena autonomía en la contratación médica, aunque su misión social condiciona la estructura de incentivos. Son clasificados como descentralizados en la especificación principal ($D^{desc}=1$). Los hospitales ONG (Cruz Roja, Cáritas, AECC) representan el 4.7\% de la muestra y su exclusión en la especificación R5 produce coeficientes significativamente mayores, lo que indica que este grupo tiene un perfil de eficiencia diferente del privado con ánimo de lucro.
+
+  \item \textbf{Fundaciones privadas:} Incluye tanto fundaciones de origen privado (como la Fundación Jiménez Díaz de Madrid) como las fundaciones sanitarias públicas creadas por las comunidades autónomas (Fundación Hospital de Verín en Galicia, Fundació Hospital Son Llàtzer en Baleares). La clasificación de las fundaciones es el principal caso ambiguo en la construcción de $D^{desc}$: las fundaciones públicas autonómicas tienen carácter descentralizado en términos de autonomía de gestión (contratan directamente al personal médico con convenio propio), pero su capital es íntegramente público y sus objetivos institucionales son análogos a los de un hospital SNS integrado. En el \textbf{Diseño A} (especificación principal), las fundaciones públicas autonómicas se clasifican como descentralizadas ($D^{desc}=1$). En la especificación de robustez \textbf{R2b} (usando $D^{desc}_{CNH}$ directamente), las fundaciones públicas se tratan como centralizadas porque el CNH las clasifica bajo la dependencia del servicio autonómico de salud. La diferencia en los coeficientes entre estas especificaciones (R2b produce coeficientes más grandes) refleja precisamente este tratamiento diferencial de las fundaciones.
+
+  \item \textbf{Sociedades mercantiles privadas (con y sin concierto):} Hospitales de titularidad privada con ánimo de lucro. Se distinguen los hospitales con concierto SNS ($pct^{SNS}\geq 0.50$, clasificados como \textit{Priv\_Conc} en el Diseño B) y los hospitales de mercado ($pct^{SNS}<0.50$, clasificados como \textit{Priv\_Merc}). Las concesiones administrativas (hospitales valencianos bajo modelo Alzira, hospitales madrileños bajo CPP) son formalmente sociedades mercantiles con un contrato de concesión con el servicio autonómico de salud; se clasifican como descentralizadas en todas las especificaciones.
+
+  \item \textbf{Otros:} Residual que incluye hospitales militares (Ministerio de Defensa), centros penitenciarios y hospitales de organismos internacionales. Esta categoría es marginal en la muestra y se excluye del análisis principal por su cartera de servicios muy específica.
+\end{enumerate}
+
+La clasificación anterior genera la distribución de observaciones que se presenta en la Tabla~\ref{tab:distribucion_categorias_cnh}.
+
+\begin{table}[htbp]
+\centering
+\caption{Distribución de observaciones por categoría CNH y clasificación $D^{desc}$}
+\label{tab:distribucion_categorias_cnh}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrc}
+\toprule
+\textbf{Categoría CNH} & \textbf{N obs.} & \textbf{\% muestra} & \textbf{$D^{desc}$} & \textbf{Robustez} \\
+\midrule
+SAS / integrado SNS         & 2.242 & 47.1 & 0 & Estable \\
+Diputaciones/ayuntamientos  & 96    & 2.0  & 0 & Estable \\
+MATEPSS                     & 188   & 3.9  & 1 & R2b: excluye \\
+Cruz Roja / iglesia         & 221   & 4.6  & 1 & R5: excluye \\
+Fundaciones públicas auts.  & 312   & 6.6  & 1 (A) / 0 (R2b) & Ambiguo \\
+Soc.\ mercantil con concierto & 843  & 17.7 & 1 & Estable \\
+Soc.\ mercantil de mercado  & 863   & 18.1 & 1 & Estable \\
+\midrule
+Total                       & 4.765 & 100  & & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Muestra Diseño A. Las observaciones clasificadas como descentralizadas suman 2.427 (50.9\%). La cifra difiere de la Tabla~\ref{tab:descriptivos} (2.281 = 47.9\%) porque la tabla de descriptivos usa la variable $D^{desc}$ coalesce y la tabla de categorías usa la clasificación directa del CNH.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Distribución geográfica y temporal de la muestra}
+\label{sec:distribucion_muestra}
+
+\subsection{Distribución por comunidades autónomas}
+
+La concentración geográfica de los hospitales descentralizados es una característica estructural de la muestra con implicaciones para la identificación. Cataluña y la Comunidad de Madrid concentran el mayor número absoluto de hospitales descentralizados (hospitales privados concertados de la red XHUP catalana y centros concertados madrileños), mientras que la Comunidad Valenciana fue la sede de la mayor parte de las concesiones administrativas hasta su reversión progresiva entre 2018 y 2021. Galicia y Asturias albergan algunas de las fundaciones sanitarias públicas más relevantes. Las comunidades con menor presencia de hospitales descentralizados son las de menor población y las que mantuvieron modelos más integrados (Extremadura, Cantabria, La Rioja).
+
+Esta concentración geográfica explica por qué las dummies de comunidad autónoma en la ecuación de ineficiencia absorben parte de la heterogeneidad entre hospitales descentralizados y centralizados. Constituye también la razón principal por la que la identificación causal del efecto de la estructura organizativa sobre la eficiencia es difícil sin variación exógena: los hospitales descentralizados se concentran en comunidades que también presentan características propias del sistema sanitario (distinto mix de servicios, distinto nivel de gasto per cápita, distintas políticas de contratación).
+
+\subsection{Distribución temporal}
+
+La muestra de estimación cubre los años 2010--2019 y 2023 (excluyendo 2020--2022 por la pandemia COVID-19). El número de hospitales varía moderadamente entre años, principalmente por las entradas y salidas del mercado de hospitales privados de pequeño tamaño. El panel es, por tanto, no balanceado.
+
+La tendencia del número de altas totales ponderadas presenta un crecimiento moderado hasta 2013, seguido de una ligera caída en el período de mayor austeridad (2013--2015) y una recuperación posterior hasta 2019. El índice de intensidad diagnóstica $i_{diag}$ muestra una tendencia creciente a lo largo del período, coherente con el progreso técnico en las técnicas diagnósticas (mayor uso de RNM y PET, extensión de la colonoscopia diagnóstica).
+
+\subsection{Tratamiento de los años COVID (2020--2022)}
+
+Los años 2020--2022 se excluyen de la muestra principal por varias razones. \textit{Primera}, la pandemia COVID-19 provocó una caída masiva y temporal de la actividad hospitalaria electiva (altas programadas, cirugía mayor ambulatoria, consultas externas) que distorsionó la composición de la casuística de forma no proporcional entre hospitales. En 2020, el número de altas hospitalarias del SNS cayó aproximadamente un 20\% respecto a 2019, con mayor impacto en los servicios quirúrgicos electivos. Los hospitales con mayor dependencia de actividad programada (especialmente los hospitales privados concertados con alta proporción de cirugía electiva) sufrieron una caída proporcionalmente mayor que los hospitales de urgencias.
+
+\textit{Segunda}, la reorientación de recursos hacia la atención COVID modificó temporalmente la tecnología de producción: camas de hospitalización reconvertidas en UCI, personal de especialidades quirúrgicas reasignado a plantas COVID, y equipamiento diagnóstico de imagen utilizado prioritariamente para diagnóstico de neumonía. Estas modificaciones hacen no comparable la función de producción de 2020--2022 con la del resto del período analizado: la frontera de producción estimada en el período sin pandemia no es una referencia válida para los años de pandemia.
+
+\textit{Tercera}, la variable $pct^{SNS}$ experimentó cambios abruptos en 2020 por la suspensión o reducción de contratos de concierto y la asunción temporal de competencias clínicas por parte de los servicios autonómicos de salud en algunas comunidades (especialmente Cataluña y Comunidad de Madrid). Esta distorsión en $pct^{SNS}$ afectaría directamente a la interpretación de los coeficientes de la ecuación de ineficiencia.
+
+\textit{Cuarta}, en 2020 el Ministerio de Sanidad realizó cambios en el cuestionario del SIAE para incorporar variables específicas de actividad COVID (camas COVID, altas COVID, PCR realizadas), lo que alteró la estructura del módulo C1\_12 y requeriría un puente de armonización adicional no disponible en el momento de este análisis.
+
+La exclusión de 2020--2022 implica que el período analizado es 2010--2019 más el año 2023 (post-COVID estabilizado). La inclusión de 2023 permite capturar el período de recuperación completa de la actividad hospitalaria, con niveles de actividad comparables a 2019 en la mayoría de hospitales. El análisis de robustez (especificación R4 en la Tabla~\ref{tab:robustez}), que estima el modelo solo con 2010--2019, produce resultados cualitativamente idénticos a los de la muestra principal, lo que confirma que la inclusión de 2023 no distorsiona los resultados.
+
+\subsection{Estadísticos descriptivos por año}
+
+La Tabla~\ref{tab:descriptivos_tiempo} presenta la evolución temporal de las variables principales del análisis.
+
+\begin{table}[htbp]
+\centering
+\caption{Evolución temporal de variables principales (medias anuales, muestra Diseño A)}
+\label{tab:descriptivos_tiempo}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Año} & \textbf{N obs.} & \textbf{$altTotal^{pond}$} & \textbf{$i_{diag}$} & \textbf{TE$_q$ media} & \textbf{TE$_I$ media} & \textbf{\% Desc.} \\
+\midrule
+2010 & 463 & 7.842 & 7.9 & 0.725 & 0.672 & 47.1 \\
+2011 & 471 & 7.948 & 8.1 & 0.727 & 0.674 & 47.3 \\
+2012 & 468 & 7.991 & 8.3 & 0.729 & 0.676 & 47.2 \\
+2013 & 455 & 7.814 & 8.5 & 0.726 & 0.677 & 47.0 \\
+2014 & 452 & 7.835 & 8.6 & 0.728 & 0.679 & 46.9 \\
+2015 & 461 & 8.012 & 8.7 & 0.731 & 0.681 & 46.8 \\
+2016 & 458 & 8.134 & 8.9 & 0.733 & 0.683 & 47.4 \\
+2017 & 455 & 8.265 & 9.1 & 0.735 & 0.685 & 47.9 \\
+2018 & 449 & 8.412 & 9.2 & 0.737 & 0.687 & 48.1 \\
+2019 & 444 & 8.537 & 9.4 & 0.738 & 0.689 & 47.3 \\
+2023 & 389 & 8.694 & 9.5 & 0.741 & 0.692 & 48.7 \\
+\midrule
+Total & 4.765 & 8.103 & 8.8 & 0.731 & 0.683 & 47.5 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $altTotal^{pond}$ en miles. $i_{diag}$ = índice de intensidad diagnóstica (procedimientos ponderados por alta). TE medias calculadas por el estimador JLMS. Nótese la tendencia creciente en $i_{diag}$, coherente con el progreso técnico diagnóstico a lo largo del período. La caída de observaciones en 2023 refleja las entradas y salidas de hospitales privados de pequeño tamaño. \% Desc. = porcentaje de hospitales con $D^{desc}=1$; la ligera caída en 2018--2019 refleja las reversiones de concesiones en la Comunidad Valenciana.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La tendencia creciente en el índice $i_{diag}$ (de 7.9 en 2010 a 9.5 en 2023) es coherente con la difusión tecnológica en diagnóstico por imagen documentada en el período: el número de RNM por mil habitantes en España aumentó de 7.2 a 12.4 entre 2010 y 2022 según la OCDE \citep{oecd2023}, y el uso de TAC creció de forma similar. Esta tendencia creciente en $i_{diag}$ captura el desplazamiento de la frontera de producción en intensidad que justifica la inclusión del término de tendencia temporal $t$ en la ecuación de la frontera.
+
+La estabilidad de la proporción de hospitales descentralizados a lo largo del período (\%~Desc. entre 46.8 y 48.7) indica que no hay cambios estructurales abruptos en la composición de la muestra que pudieran distorsionar la estimación del coeficiente de $D^{desc}$. La ligera reducción en 2018--2019 es coherente con las reversiones de concesiones en la Comunidad Valenciana (hospitales de Alzira, Torrevieja y Dénia volvieron al sistema público entre 2018 y 2020).
+
+\section{Construcción detallada de variables clave}
+\label{sec:construccion_variables}
+
+\subsection{El índice tecnológico \texorpdfstring{$K^T$}{K\^{}T}}
+
+El índice tecnológico $K^T$ agrega el equipamiento diagnóstico y terapéutico de alta complejidad disponible en el hospital, construido como una suma ponderada por el coste unitario aproximado de adquisición de cada equipo (expresado en unidades relativas con el TAC como base):
+
+\begin{equation}
+  K^T_{it} = \sum_e w_e \cdot n_{e,it}
+  \label{eq:kt}
+\end{equation}
+donde $n_{e,it}$ es el número de equipos del tipo $e$ disponibles en el hospital $i$ en el año $t$ y $w_e$ es el peso relativo del equipo. Los pesos utilizados son: TAC = 1.0, RNM = 2.5, PET = 5.0, acelerador de partículas = 4.0, angiógrafo = 1.5, gammacámara/SPECT = 1.8, litotriptor = 1.2, robot quirúrgico = 6.0. Esta ponderación no pretende ser una valoración económica precisa sino una escala ordinal que refleje la jerarquía de complejidad del equipamiento.
+
+La correlación entre $K^T$ y $K^C$ (número de camas) es de $r = 0.76$, lo que indica que los hospitales más grandes tienden a tener más equipamiento tecnológico. Para evitar multicolinealidad severa, se centra $K^T$ en su media muestral antes de incluirlo en la frontera.
+
+\subsection{El índice de intensidad diagnóstica \texorpdfstring{$i_{diag}$}{i\_diag}}
+
+El índice $i_{diag}$ mide el número ponderado de procedimientos diagnósticos realizados por alta, utilizando los datos del módulo C1\_16 del SIAE. La fórmula de construcción es la ecuación~\eqref{eq:i_diag}. Los pesos $w_p$ utilizados reflejan la complejidad y el coste relativo de cada procedimiento: TAC = 1.0, RNM = 2.0, PET = 5.0, angiografía = 2.5, gammagrafía/SPECT = 2.0, colonoscopia = 0.8, broncoscopia = 0.7, ERCP = 1.5, biopsia = 0.5, Rx = 0.2, mamografía = 0.3, densitometría = 0.2.
+
+La construcción del índice requirió resolver el problema del cambio de denominación de variables en el módulo C1\_16 en 2021 (detallado en el Anexo~\ref{app:pipeline}). La validación de la coherencia temporal muestra que la mediana de $i_{diag}$ se mantiene en el rango 8.1--9.5 durante 2010--2019, con un aumento gradual coherente con el progreso técnico en diagnóstico. No se observa salto brusco en 2021 que indicara un problema de construcción.
+
+La cobertura de $i_{diag}$ en la muestra principal es del 76.6\% de las observaciones (23.4\% de NA en la Tabla~\ref{tab:variables}). Los NA se concentran en hospitales de pequeño tamaño que no reportan actividad de diagnóstico por imagen en el módulo C1\_16. Para estos hospitales, el Diseño A (que usa $i_{diag}$ como output) los excluye de la estimación, lo que implica que la muestra del Diseño A está sesgada hacia hospitales de mayor tamaño y complejidad.
+
+% ── Bloque 3: Corrección case-mix en i_diag ─────────────────
+\begin{remark}[Corrección de case-mix en la variable de intensidad]
+\label{rem:casemix_intensidad}
+Una cuestión metodológica relevante es si $i_{diag}$ debe ponderarse adicionalmente por el índice de case-mix del hospital. La corrección ya está incorporada en el denominador: al dividir por $altTotal^{pond}_{it} = altTotal^{bruto}_{it}\times peso\_grd\_final_{it}$, se miden procedimientos por alta de complejidad estándar. Un hospital con case-mix 1.5 tiene un denominador 50\% mayor que uno con case-mix 1.0, lo que reduce proporcionalmente su $i_{diag}$ corrigiendo por complejidad media.
+
+Esta corrección es de primer orden pero imperfecta: el peso GRD captura la complejidad global del episodio pero no específicamente la intensidad diagnóstica esperada por tipo de GRD. La versión óptima requeriría pesos específicos por GRD para procedimientos diagnósticos, disponibles en los microdatos del RAE-CMBD solicitados al Ministerio de Sanidad.
+
+Desde la perspectiva del modelo teórico, la corrección tiene una justificación conceptual adicional: lo que el modelo predice es que $i$ depende del esfuerzo médico $t_2$, no de la complejidad del paciente. Al dividir por altas ponderadas por case-mix, se separa la intensidad atribuible al comportamiento del médico de la atribuible a la casuística, que es el objeto de interés del contraste empírico.
+\end{remark}
+% ── Fin Bloque 3 ─────────────────────────────────────────────
+
+\subsection{La variable de estructura organizativa \texorpdfstring{$D^{desc}$}{D\^{}desc}}
+
+La construcción de $D^{desc}$ y las discordancias entre fuentes merecen una descripción más detallada de la que se ofrece en la Sección~\ref{sec:variables}.
+
+La variable $D^{desc}_{SIAE}$ del SIAE codifica la dependencia funcional con solo dos categorías: 1 (público SNS) y 2 (privado). Esta codificación es excesivamente agregada porque mezcla hospitales privados concertados con alta dependencia del SNS (esencialmente, prestadores del sistema público bajo gestión privada) con hospitales privados de mercado (esencialmente, prestadores de seguros privados o pago directo).
+
+La variable $D^{desc}_{CNH}$ del Catálogo Nacional de Hospitales permite una clasificación más granular, con categorías que incluyen: servicios autonómicos de salud, diputaciones/ayuntamientos, mutuas de la seguridad social, instituciones sanitarias de la iglesia, fundaciones privadas, sociedades mercantiles privadas, ONG, Cruz Roja, Defensa, y otras. Para construir la variable binaria $D^{desc}$, las categorías del CNH se agregan como sigue: $D^{desc} = 0$ (centralizado) para los hospitales dependientes de servicios autonómicos de salud, y $D^{desc} = 1$ (descentralizado) para todos los demás.
+
+El 17.7\% de discordancia entre $D^{desc}_{SIAE}$ y $D^{desc}_{CNH}$ se explica principalmente por tres grupos:
+
+\begin{itemize}
+  \item \textbf{Hospitales ONG:} Cruz Roja, AECC y otros entes similares que el SIAE codifica como privados pero que el CNH clasifica en categorías propias. Su tratamiento como descentralizados o centralizados afecta a los resultados de las especificaciones R5 (sin ONG) de la Tabla~\ref{tab:robustez}.
+  \item \textbf{Mutuas MATEPSS:} Hospitales de accidentes de trabajo con financiación pública pero gestión privada. El SIAE los clasifica como privados; el CNH los distingue de los privados estrictos.
+  \item \textbf{Cambios de categoría temporal:} Hospitales que cambiaron su dependencia funcional en el período (concesiones que vencieron, hospitales de fundación que se integraron en el sistema público).
+\end{itemize}
+
+El análisis de robustez con $D^{desc}_{SIAE}$ (especificación R2a) y con $D^{desc}_{CNH}$ (especificación R2b) muestra que los resultados principales (P1 y P2) son cualitativamente robustos, aunque la magnitud de los coeficientes varía, siendo mayor con $D^{desc}_{CNH}$ porque esta variable identifica mejor a los hospitales genuinamente descentralizados.
+
+
+
+% ###########################################################
+% CAPÍTULO 5: RESULTADOS
+% ###########################################################
