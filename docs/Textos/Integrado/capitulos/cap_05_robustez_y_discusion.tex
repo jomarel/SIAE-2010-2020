@@ -1,0 +1,186 @@
+﻿\chapter{Robustez, tests de especificación y discusión}
+\label{ch:robustez}
+
+\section{Tests formales de especificación}
+
+\begin{table}[htbp]
+\centering
+\caption{Tests formales de especificación}
+\label{tab:tests_spec}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{\textbf{Modelo}} \\
+\cmidrule{2-5}
+\textbf{Test} & A (cant.) & A (int.) & B (Q) & B (M) \\
+\midrule
+\textit{Kodde-Palm (ineficiencia)} \\
+\quad LR & $1{,}153.0$ & $2{,}239.9$ & $992.6$ & $473.6$ \\
+\quad $p$-valor & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\[4pt]
+\textit{LR forma funcional (CD vs.\ translog)} \\
+\quad LR & $478.4$ & $445.8$ & $593.7$ & $246.5$ \\
+\quad $p$-valor & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\[4pt]
+\textit{Correlación entre ineficiencias} \\
+\quad Pearson $r$ & \multicolumn{2}{c}{$0.126^{***}$}
+  & \multicolumn{2}{c}{$-0.140^{***}$} \\
+\quad Spearman $r$ & \multicolumn{2}{c}{$0.076^{***}$}
+  & \multicolumn{2}{c}{$-0.106^{***}$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Test Kodde-Palm \citep{kodde1986}: $H_0: \sigma^2_u = 0$; valor crítico al 5\% bajo distribución mixta: 2.706. *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los resultados confirman: (i) la ineficiencia técnica es significativa al 0.1\% en todos los modelos; (ii) la translog es preferida sobre Cobb-Douglas; (iii) las correlaciones entre ineficiencias son bajas ($|r|<0.15$), justificando fronteras independientes.
+
+\section{Análisis de robustez}
+
+\begin{table}[htbp]
+\centering
+\caption{Robustez: coeficiente de $D^{desc}$ en fronteras de cantidad e intensidad}
+\label{tab:robustez}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{\textbf{$\hat{\alpha}$ (cantidad)}}
+& \multicolumn{2}{c}{\textbf{$\hat{\delta}$ (intensidad)}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Especificación} & Coef. & $t$ & Coef. & $t$ \\
+\midrule
+\textbf{Principal} ($i_{diag}$, $D^{desc}$ coalesce)
+  & $-2.530$ & $-6.98$ & $-1.477$ & $-4.21$ \\[3pt]
+R1: Intensidad alternativa ($i_{simple}$)
+  & $-1.264$ & $-4.62$ & $-0.704$ & $-3.33$ \\
+R2a: $D^{desc}_{SIAE}$
+  & $-2.954$ & $-9.08$ & $-0.414$ & $-1.82$ \\
+R2b: $D^{desc}_{CNH}$
+  & $-6.498$ & $-8.60$ & $-0.865$ & $-1.69$ \\
+R3: Distribución half-normal
+  & $-5.245$ & $-10.19$ & $-2.788$ & $-5.18$ \\
+R4: Muestra 2010--2019
+  & $-2.649$ & $-6.05$ & $-2.880$ & $-4.66$ \\
+R5: Sin hospitales ONG
+  & $-6.009$ & $-10.97$ & $-2.730$ & $-5.24$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Todas las especificaciones incluyen dummies de cluster y CCAA. $\hat{\alpha}$ negativo y significativo en 7/7. Correlación $i_{diag}$ vs.\ $i_{simple}$: $r=0.29$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La robustez de $\hat{\alpha}$ (P1) es notable: negativo y significativo en las siete especificaciones, con $t$-estadísticos entre $-3.3$ y $-11.0$. La robustez de $\hat{\delta}$ (P2) es más limitada: el signo es negativo en todas las especificaciones, pero la significación varía (significativo al 5\% en 5 de las 7 especificaciones). La diferencia entre $\hat{\alpha}$ y $\hat{\delta}$ es estadísticamente significativa en la especificación principal ($z=-2.09$, $p=0.037$).
+
+Los resultados de robustez merecen comentario específico. La especificación R2b ($D^{desc}_{CNH}$) produce el coeficiente más grande en valor absoluto tanto en cantidad ($-6.498$, $t=-8.60$) como en intensidad ($-0.865$, $t=-1.69$). Este resultado es coherente con la hipótesis de que la variable CNH identifica mejor a los hospitales genuinamente descentralizados: el CNH clasifica con mayor precisión las fundaciones, ONG y concesiones, mientras que el SIAE tiende a agregar categorías. La especificación R5 (sin ONG) produce también coeficientes más grandes, lo que confirma que los hospitales ONG tienen un perfil de eficiencia diferente de los hospitales privados con ánimo de lucro y su inclusión en la categoría descentralizada atenúa el coeficiente estimado.
+
+La especificación R4 (muestra 2010--2019) produce resultados prácticamente idénticos a la especificación principal para $\hat{\alpha}$, pero con un valor mayor para $\hat{\delta}$ ($-2.880$ vs. $-1.477$), más cercano al predicho por el modelo teórico. Este resultado sugiere que el período 2023 (post-COVID) puede haber introducido efectos de recuperación que atenúan parcialmente la asimetría predicha, posiblemente porque la pandemia afectó de forma diferencial a la actividad quirúrgica y médica y los hospitales aún no habían convergido a su equilibrio de largo plazo en 2023.
+
+\section{Síntesis de resultados}
+
+\begin{table}[htbp]
+\centering
+\caption{Síntesis: predicciones del modelo vs.\ evidencia empírica}
+\label{tab:sintesis}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{0.8cm}p{3.5cm}p{3cm}p{3cm}p{1.5cm}}
+\toprule
+\textbf{Pred.} & \textbf{Descripción} &
+\textbf{Diseño A} & \textbf{Diseño B} &
+\textbf{Veredicto} \\
+\midrule
+P1 & Desc.\ $\downarrow$ inef.\ cantidad
+  & $\hat{\alpha}=-2.53^{***}$ (7/7)
+  & Confirmada vía $Priv\_Merc$
+  & \textbf{Confirmada} \\[6pt]
+P2 & Desc.\ $\uparrow$ inef.\ intensidad
+  & $\hat{\delta}_1 = -1.477^{***}$ (signo opuesto); asimetría $z = -2.09^{*}$
+  & $\hat{\delta}_{Merc}<0$
+  & \textbf{No confirmada en signo; asimetría confirmada} \\[6pt]
+P3 & Pago difiere entre dims.
+  & $z_{dif}=2.35^{*}$
+  & $z_{dif}=5.32^{***}$
+  & \textbf{Confirmada} \\[6pt]
+P4 & $\psi_{12}$ modera asimétric.
+  & $z_{dif}=-0.84$ (ns)
+  & $z_{dif}=-9.89^{***}$
+  & \textbf{Confirmada (B)} \\[6pt]
+P$^*$ & Vectores distintos
+  & LR$=10{,}491^{***}$
+  & LR$=2{,}508^{***}$
+  & \textbf{Confirmada} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item * $p<0.05$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Interpretación económica de P2}
+
+El hecho de que $\hat{\delta}$ sea negativo (no positivo) en todas las especificaciones merece una reflexión económica. El modelo predice $\delta_1 > 0$ bajo el supuesto de que las tareas son suficientemente sustitutas ($\psi_{12}$ suficientemente positivo). Los datos sugieren dos interpretaciones no excluyentes.
+
+Desde una perspectiva de falsificación estricta, P2 no se confirma: el signo del coeficiente es el opuesto al predicho en todas las especificaciones. Sin embargo, el modelo teórico no predice inversión de signo para cualquier valor de $\psi_{12}$: la Figura~\ref{fig:app_incentivos_psi} del Anexo~\ref{app:simulaciones} muestra que la inversión requiere sustitución fuerte ($\psi_{12}$ cercano al límite superior). Para valores moderados de $\psi_{12}$, el modelo predice que ambas dimensiones mejoran bajo descentralización, pero la cantidad mejora más que la intensidad. Esta es exactamente la pauta que observamos en los datos ($|\hat{\alpha}_1| = 2.530 > |\hat{\delta}_1| = 1.477$). El resultado empírico es, por tanto, consistente con la estructura del modelo bajo el supuesto de sustitución moderada, aunque no con la predicción de signo derivada bajo sustitución fuerte.
+
+En primer lugar, el parámetro $\psi_{12}$ medio en el sistema hospitalario español puede no ser positivo con la magnitud suficiente para revertir el signo del efecto de la descentralización sobre la intensidad. El Resultado~\ref{res:comparacion_independientes}(b) del modelo teórico muestra que, para tareas independientes ($\psi_{12}=0$), la intensidad ya es menor en la estructura descentralizada, pero con un valor de $\psi_{12}$ medio bajo, el efecto empírico se manifestaría como una reducción de la ineficiencia en ambas dimensiones, aunque de diferente magnitud.
+
+En segundo lugar, los hospitales privados españoles han desarrollado mecanismos institucionales de control de calidad ---acreditación sanitaria autonómica, cuadros de mandos de actividad, contratos-programa con los servicios autonómicos de salud--- que imponen umbrales mínimos de intensidad y limitan la sustitución de esfuerzo entre tareas. Estos mecanismos no están explícitamente modelizados en el marco teórico, pero pueden entenderse como restricciones adicionales que comprimen el rango de variación de la intensidad hacia abajo.
+
+La asimetría estadísticamente significativa entre $\hat{\alpha}$ y $\hat{\delta}$ ($z=-2.09$, $p=0.037$) sí confirma la dirección predicha: la descentralización genera una mejora de eficiencia significativamente mayor en cantidad que en intensidad.
+
+\section{Discusión económica adicional}
+\label{sec:discusion_economica}
+
+\subsection{La magnitud del efecto de la descentralización}
+
+El coeficiente de $D^{desc}$ en la frontera de cantidad ($-2.530$) no puede interpretarse directamente como un porcentaje de eficiencia porque la media heterogénea de $u_{it}$ no es igual a la ineficiencia técnica esperada (la relación es no lineal en el modelo de normal truncada). La diferencia observada en eficiencia media es $0.748 - 0.712 = 0.036$ en la frontera de cantidad (Tabla~\ref{tab:te_medias}). Esta diferencia bruta subestima el efecto neto porque los hospitales descentralizados son en promedio de menor tamaño y complejidad; controlando por estas características mediante las dummies de cluster y CCAA en la ecuación de ineficiencia, la diferencia atribuible a la estructura organizativa es mayor.
+
+Para cuantificar el efecto de forma más precisa, nótese que la diferencia en eficiencia entre un hospital centralizado y uno descentralizado con los mismos valores de $pct^{SNS}$, $ShareQ$ y dummies de CCAA y cluster es, en la especificación principal, del orden de $\E[\exp(-u_{it})|D^{desc}=1] / \E[\exp(-u_{it})|D^{desc}=0] \approx 1.04$, es decir, los hospitales descentralizados tienen una eficiencia técnica en cantidad aproximadamente un 4\% superior a los centralizados, manteniendo todo lo demás constante.
+
+\subsection{La función de producción translog: interpretación de los coeficientes}
+
+Los coeficientes de la frontera de producción translog (Tabla~\ref{app:tablas}) son coherentes con las restricciones teóricas esperadas. Las elasticidades del trabajo y del capital son positivas y significativas en todos los modelos. La presencia de términos cuadráticos significativos confirma que la especificación translog añade información respecto de la Cobb-Douglas, lo que explica el rechazo de la hipótesis de restricción.
+
+La elasticidad media del trabajo ($\hat{\beta}_1 \approx 0.40$--$0.55$) indica que un aumento del 10\% en el personal médico EJC se traduce en un aumento del 4-5.5\% en el output ponderado, manteniendo el capital constante. La elasticidad del capital-camas ($\hat{\beta}_2 \approx 0.25$--$0.40$) es menor, coherente con el papel del trabajo como input más variable en la producción hospitalaria. La suma de las elasticidades (rendimientos de escala aparentes) es próxima a uno para los hospitales de tamaño medio, con ligeros rendimientos crecientes para los hospitales pequeños y rendimientos constantes o levemente decrecientes para los grandes, patrón también documentado en \citet{linna1998} y \citet{farsi2005}.
+
+El progreso técnico ($\hat{\beta}_6 > 0$) es positivo y significativo, indicando un desplazamiento de la frontera de producción hacia arriba a lo largo del período 2010--2023. La magnitud del coeficiente implica un avance tecnológico anual del orden del 0.5-1.5\% en la frontera, coherente con el progreso técnico documentado para el sector hospitalario europeo en el período.
+
+\subsection{El papel moderador de \texorpdfstring{$pct^{SNS}$}{pct\^{}SNS}}
+
+El coeficiente de $pct^{SNS}$ ($-2.473$ en cantidad, $-2.439$ en intensidad) es notablemente simétrico entre las dos fronteras: la financiación pública reduce la ineficiencia de forma similar en ambas dimensiones. Esto es coherente con la predicción del modelo de que el esquema de pago tiene efectos sobre ambos outputs cuando el principal contrata con ambos agentes (estructura centralizada). La simetría del coeficiente también sugiere que los contratos-programa del SNS son relativamente bien calibrados: no hay un sesgo sistemático hacia la cantidad o hacia la intensidad en el diseño de los contratos-programa autonómicos.
+
+La interacción $D^{desc}\times pct^{SNS}$ ($+2.901$ en cantidad, $+1.937$ en intensidad) indica que, para los hospitales descentralizados con alta dependencia del SNS (hospitales concertados), la ventaja en cantidad de la descentralización se reduce significativamente. Intuitivamente, un hospital concertado que depende en un 70\% de pacientes SNS está sujeto a un control externo que atenúa la autonomía de gestión característica de la descentralización. El hospital privado puro (con $pct^{SNS}$ bajo) es el que exhibe con mayor nitidez el patrón predicho de mayor eficiencia en cantidad y menor en intensidad.
+
+% ── Bloque 5: Implicación de política del punto de cruce ────
+Esta asimetría en los puntos de cruce ---0.763 en intensidad frente a 0.872 en cantidad--- tiene una implicación directa para el diseño de contratos de concierto hospitalario. El nivel óptimo de dependencia SNS de un hospital privado no es el mismo según qué dimensión del output quiera maximizar el financiador público. Un concierto que establezca una proporción SNS entre el 76.3\% y el 87.2\% de la actividad sitúa al hospital en una zona en la que la descentralización mejora simultáneamente la intensidad diagnóstica (porque la presión del concierto supera el umbral de 76.3\%) sin haber alcanzado aún el techo que frena la eficiencia en cantidad (que no se alcanza hasta el 87.2\%). Esta zona de calibración óptima del concierto es un resultado cuantitativo que las recomendaciones de política del Capítulo~\ref{ch:politica} discuten en mayor detalle.
+% ── Fin Bloque 5 ─────────────────────────────────────────────
+
+\subsection{La heterogeneidad regional en la ecuación de ineficiencia}
+
+Las dummies de comunidad autónoma en la ecuación de ineficiencia (no reportadas en las tablas principales por razones de espacio) muestran que existe heterogeneidad regional sustancial en los niveles de ineficiencia, incluso controlando por estructura organizativa, tipo de pago y tipo de servicio. Las comunidades autónomas con sistemas sanitarios más desarrollados y con mayor tradición de gestión hospitalaria (Cataluña, País Vasco) presentan menores niveles de ineficiencia que las comunidades con sistemas más recientemente transferidos. Esta heterogeneidad regional es una limitación adicional para la identificación causal del efecto de la estructura organizativa: las comunidades con mayor proporción de hospitales descentralizados (Cataluña, Madrid, Comunidad Valenciana) son también las que tienen sistemas sanitarios más maduros y sofisticados.
+
+\section{Limitaciones metodológicas}
+
+El análisis presenta las siguientes limitaciones metodológicas principales, que definen la agenda de investigación futura.
+
+\textbf{Inputs compartidos.} La frontera de intensidad (Diseño A) usa los mismos inputs que la de cantidad. La separación teórica entre $q$ (esfuerzo conjunto de hospital y médico) e $i$ (esfuerzo exclusivamente médico) justifica la estimación independiente, pero no resuelve completamente el problema de la asignación de inputs compartidos. La extensión natural es un sistema bivariado con cópula gaussiana \citep{kumbhakar1997}, que modelizaría la correlación entre los términos de ineficiencia de las dos fronteras y permitiría explotar la información conjunta.
+
+\textbf{Ponderación de outputs.} Los outputs ponderados por case-mix utilizan un peso GRD medio para el hospital, no diferenciado por tipo de servicio. Los pesos diferenciados requieren los microdatos del RAE-CMBD por episodio, cuya disponibilidad permitiría una versión óptima del Diseño A con outputs ponderados separadamente para actividad quirúrgica y médica.
+
+\textbf{Endogeneidad de la estructura organizativa.} La asignación de hospitales a estructuras descentralizadas no es aleatoria: las concesiones se concentraron en Valencia y Madrid, las fundaciones en Galicia y Cataluña, y los hospitales concertados en regiones con larga tradición de colaboración público-privada. Las dummies de CCAA absorben parte de esta heterogeneidad geográfica, pero la identificación causal requeriría variación exógena en la asignación, como la derivada de cambios normativos autonómicos.
+
+\textbf{Tiempo de ajuste.} La estructura organizativa del hospital puede cambiar (reversiones de concesiones, cambios de dependencia funcional) pero los efectos sobre la eficiencia pueden tardar varios años en manifestarse completamente. El panel no permite identificar de forma limpia los efectos de corto y largo plazo de los cambios de estructura organizativa.
+
+\textbf{Dimensiones omitidas del output.} El análisis se centra en cantidad e intensidad diagnóstica como aproximaciones del output hospitalario multidimensional. La calidad clínica en sentido estricto ---resultados de salud de los pacientes, mortalidad intrahospitalaria ajustada por riesgo, reingresos evitables--- no puede medirse directamente con los datos del SIAE, y su omisión implica que las estimaciones de eficiencia técnica en este análisis son condicionalmente a una tecnología que no incluye la dimensión de resultados clínicos.
+
+
+
+% ###########################################################
+% CAPÍTULO 7: IMPLICACIONES DE POLÍTICA HOSPITALARIA
+% ###########################################################

@@ -1,0 +1,115 @@
+﻿% ============================================================
+% TESIS DOCTORAL
+% Eficiencia hospitalaria, estructura organizativa
+% y teoría de agencia: Un análisis de frontera estocástica
+% del sistema hospitalario español
+%
+% José María Elena Izquierdo
+% Departamento de Economía Aplicada
+% Universidad de Salamanca
+% 2026
+% ============================================================
+
+\documentclass[12pt, a4paper, twoside, openright]{book}
+
+% ── Codificación y lengua ───────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noquoting]{babel}
+
+% ── Tipografía ──────────────────────────────────────────────
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Matemáticas ─────────────────────────────────────────────
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+\usepackage{bm}
+
+% ── Tablas y figuras ────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% ── Diseño de página ────────────────────────────────────────
+\usepackage{geometry}
+\geometry{
+  top=2.5cm, bottom=2.5cm,
+  left=3.5cm, right=2.5cm,
+  bindingoffset=0.5cm,
+  headheight=28pt
+}
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Encabezados y pies ──────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape\leftmark}
+\fancyhead[RO]{\small\itshape\rightmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Color (necesario para hyperref con colores mixtos) ──────
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+% ── Referencias y enlaces ──────────────────────────────────
+\usepackage[colorlinks=true,
+  linkcolor={blue!60!black},
+  citecolor={blue!60!black},
+  urlcolor={blue!60!black}]{hyperref}
+\usepackage{natbib}
+\usepackage{eurosym}
+
+% ── Figuras: ruta hacia directorio teórico ─────────────────
+\graphicspath{{../Teórico/}{./}}
+
+% ── Diagramas TikZ ──────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, babel}
+
+% ── Otros ───────────────────────────────────────────────────
+\usepackage{color,soul}
+\usepackage{enumitem}
+\usepackage{footnote}
+
+% ── Comandos propios ────────────────────────────────────────
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\CE}{\mathrm{CE}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+\newcommand{\sig}[1]{\ensuremath{^{#1}}}
+
+% ── Entornos de teorema ─────────────────────────────────────
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposición}[chapter]
+\newtheorem{result}{Resultado}[chapter]
+\newtheorem{corollary}{Corolario}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{remark}
+\newtheorem{remark}{Observación}[chapter]
+
+% Estilo compartido para ambos cronogramas
+\tikzset{
+  cronograma/.style={
+    >=Stealth, thick
+  },
+  cdot/.style={
+    circle, fill=black, minimum size=5pt, inner sep=0pt
+  },
+  clbl/.style={
+    font=\fontsize{8.5}{10}\selectfont, align=center, 
+    text width=3.2cm
+  }
+}% ═══════════════════════════════════════════════════════════

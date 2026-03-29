@@ -1,0 +1,104 @@
+﻿\chapter{Simulaciones numéricas del modelo teórico}
+\label{app:simulaciones}
+
+Este anexo presenta en detalle las simulaciones numéricas utilizadas en la Sección~\ref{sec:simulaciones_resumen} del Capítulo~\ref{ch:modelo}. Todos los gráficos se construyen para valores unitarios de los parámetros fundamentales (coeficientes de aversión al riesgo, tecnologías de costes, peso de las sombras presupuestarias) salvo cuando se indique otra cosa. Las simulaciones cubren dos dimensiones de variación: (i) el grado de complementariedad/sustitución entre tareas ($\psi_{12}$) y (ii) la precisión de las señales de resultados ($\sigma_1$, $\sigma_2$).
+
+\section{Variación en \texorpdfstring{$\psi_{12}$}{psi\_12}: de complementariedad a sustitución}
+
+La Figura~\ref{fig:app_incentivos_psi} reproduce los incentivos óptimos para una rejilla de valores de $\psi_{12}$ desde $-1$ (complementariedad perfecta) hasta $+1$ (sustitución perfecta), bajo valores unitarios de los demás parámetros.
+
+Excepto el pago incentivador constante al hospital cuando el principal contrata cantidad con él (caso centralizado), todos los pagos variables cambian con $\psi_{12}$. Cuando los esfuerzos son complementarios perfectos, los incentivos alcanzan su máximo y se igualan entre sí en ambas estructuras. El pago óptimo a la cantidad del hospital en la estructura descentralizada y el del médico sobre cantidad disminuyen continuamente con $\psi_{12}$. Los pagos por intensidad empiezan a aumentar cuando el grado de sustitución supera cierto umbral.
+
+Cuando el principal solo contrata con el hospital (estructura descentralizada), la potencia de los incentivos es mayor en cantidad que en intensidad (excepto en complementariedad o sustitución perfectas). Cuando las tareas tienden a la sustitución perfecta, los pagos variables al médico tienden a cero en la centralizada, pero permanecen positivos y simétricos en la descentralizada.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr1-eps-converted-to.pdf}
+  \caption{Incentivos óptimos para distintos valores de $\psi_{12}$}
+  \label{fig:app_incentivos_psi}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr2-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos para distintos valores de $\psi_{12}$}
+  \label{fig:app_esfuerzos_psi}
+\end{figure}
+
+\section{Casos especiales: medición perfecta}
+
+Cuando uno de los dos outputs se mide sin error, el modelo admite soluciones en forma cerrada que permiten aislar con precisión la contribución de cada fuente de incertidumbre. Este apartado examina los dos casos límite: $\sigma_1=0$ (cantidad perfectamente observable) y $\sigma_2=0$ (intensidad perfectamente observable).
+
+Cuando $\sigma_1=0$, el ruido en la señal de cantidad desaparece y los incentivos sobre dicha dimensión dejan de estar distorsionados por el riesgo. En la solución de segundo \textit{best}, ambas estructuras alcanzan el nivel de primer \textit{best} para el esfuerzo hospitalario $a$: la incertidumbre ya no justifica una reducción de la potencia del incentivo por cantidad. Sin embargo, la medición de la intensidad $i$ sigue siendo ruidosa ($\sigma_2>0$), de modo que los incentivos sobre esa dimensión continúan siendo inferiores a los de primer \textit{best}. En la estructura centralizada, el principal puede calibrar el pago al médico sobre intensidad sin que la jerarquía hospital-médico introduzca distorsiones adicionales; en la descentralizada, el hospital descuenta el riesgo sobre $i$ al diseñar el subcontrato interno, lo que reduce la potencia del incentivo que transmite al médico. El resultado es que, en este caso límite, la intensidad del tratamiento es mayor bajo la estructura centralizada. La Figura~\ref{fig:app_sigma1cero} muestra el diferencial de esfuerzos entre estructuras en función de $\psi_{12}$ cuando $\sigma_1=0$, confirmando que la ventaja de la descentralización en cantidad se neutraliza y que la ordenación relativa en intensidad se invierte respecto al caso general.
+
+Cuando $\sigma_2=0$ se obtiene la imagen simétrica: la intensidad alcanza su nivel de primer \textit{best} en ambas estructuras, mientras que el esfuerzo en cantidad sigue siendo subóptimo por el ruido residual $\sigma_1>0$. En esta configuración, la jerarquía descentralizada conserva íntegra su ventaja sobre la dimensión de cantidad, porque los incentivos hospital-médico sobre $i$ no precisan compensación por riesgo. Al desaparecer la distorsión de la intensidad, el hospital puede concentrar su atención en maximizar el esfuerzo en cantidad, y los incentivos del principal sobre $a$ son más eficaces que en la estructura centralizada. La Figura~\ref{fig:app_sigma2cero} ilustra este resultado simétrico: el diferencial de esfuerzos en cantidad $a^D - a^C$ se mantiene positivo para todos los valores de $\psi_{12}$, mientras que el diferencial en intensidad desaparece.
+
+Ambos casos límite confirman que los efectos de la estructura organizativa sobre cantidad e intensidad son asimétricos e irreducibles a una única medida de eficiencia global. Incluso cuando se elimina una de las dos fuentes de incertidumbre, persiste una tensión entre las dos dimensiones del output: la descentralización favorece la cantidad a expensas de la intensidad, y esta tensión solo desaparece cuando ambos outputs son perfectamente observables, caso en que las dos estructuras son equivalentes y se recupera el primer \textit{best}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr3-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos dado $\sigma_1=0$ (medición perfecta de cantidad)}
+  \label{fig:app_sigma1cero}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr4-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos dado $\sigma_2=0$ (medición perfecta de intensidad)}
+  \label{fig:app_sigma2cero}
+\end{figure}
+
+\section{Variación en el ruido de cantidad (\texorpdfstring{$\sigma_1$}{sigma\_1})}
+
+Este apartado examina cómo la potencia de los incentivos y el diferencial de esfuerzos entre estructuras responden a cambios en el nivel de ruido en la medición de la cantidad, $\sigma_1$. Las simulaciones fijan $\psi_{12}=0.5$ (tareas sustitutas moderadas) y varían $\sigma_1$ en un rango amplio, manteniendo el resto de parámetros en sus valores unitarios de referencia.
+
+El resultado estándar de la teoría de agencia bajo riesgo moral es que la potencia óptima del incentivo decrece con la varianza de la señal de resultados: $b^* = 1/(1+\rho\,\sigma_1^2\,\tau)$ en el caso de un único agente y un único \textit{output}. En el modelo multiagente multioutput de esta tesis, el mismo principio opera sobre ambas estructuras, pero con una asimetría relevante. A medida que $\sigma_1$ aumenta, los pagos variables por cantidad $b^C$ y $b^D$ convergen hacia cero en ambas estructuras, reduciendo la presión sobre el esfuerzo hospitalario $a$ y, a través de la complementariedad/sustitución entre tareas, sobre el esfuerzo médico en cantidad $t_1$. Los pagos variables por intensidad $D^C$ y $D^D$ son más robustos al aumento de $\sigma_1$ porque no dependen directamente del ruido en cantidad cuando $\sigma_{12}=0$. La Figura~\ref{fig:app_incentivos_sigma1} muestra esta dinámica: los incentivos por cantidad caen monotónamente con $\sigma_1$, mientras que los incentivos por intensidad se estabilizan o varían lentamente.
+
+El resultado más relevante para la predicción P3 de la tesis es que el diferencial de esfuerzos $a^D - a^C$ se mantiene positivo para todo el rango de $\sigma_1$ simulado. La ventaja de la estructura descentralizada en cantidad no se revierte cuando el ruido aumenta; la descentralización preserva su superioridad relativa incluso cuando la señal de cantidad es muy imprecisa. Esto se debe a que el ruido afecta por igual a la potencia absoluta de los incentivos en ambas estructuras, pero no altera la distorsión diferencial introducida por la jerarquía: en la centralizada, el principal debe compensar tanto al hospital como al médico por el riesgo sobre $q$, lo que reduce doblemente la potencia del incentivo; en la descentralizada, el hospital puede concentrar el riesgo sobre sí mismo y proteger al médico de la incertidumbre sobre cantidad, permitiendo un incentivo más elevado sobre $a$.
+
+La Figura~\ref{fig:app_esfuerzos_sigma1} confirma que, aunque la magnitud absoluta del diferencial $a^D - a^C$ disminuye cuando $\sigma_1$ crece (la reducción del incentivo comprime el rango de variación de $a$), el signo positivo se mantiene en todo el rango. Este resultado refuerza la robustez de la predicción P1: la ordenación relativa entre estructuras en la dimensión de cantidad es independiente del nivel de ruido, y la evidencia empírica que favorece a la descentralización no es un artefacto del nivel particular de varianza de las señales observadas en el panel de hospitales españoles.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr5-eps-converted-to.pdf}
+  \caption{Incentivos óptimos cuando aumenta $\sigma_1$ ($\psi_{12}=0.5$)}
+  \label{fig:app_incentivos_sigma1}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr6-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos cuando aumenta $\sigma_1$ ($\psi_{12}=0.5$)}
+  \label{fig:app_esfuerzos_sigma1}
+\end{figure}
+
+\section{Variación en el ruido de intensidad (\texorpdfstring{$\sigma_2$}{sigma\_2})}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr7-eps-converted-to.pdf}
+  \caption{Incentivos óptimos cuando aumenta $\sigma_2$ ($\psi_{12}=0.5$)}
+  \label{fig:app_incentivos_sigma2}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr8-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos cuando aumenta $\sigma_2$ (tareas sustitutas, $\psi_{12}=0.5$)}
+  \label{fig:app_esfuerzos_sigma2_sust}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{gr9-eps-converted-to.pdf}
+  \caption{Diferencial de esfuerzos cuando aumenta $\sigma_2$ (tareas complementarias, $\psi_{12}=-0.5$)}
+  \label{fig:app_esfuerzos_sigma2_comp}
+\end{figure}
+
+Para tareas sustitutas ($\psi_{12}=0.5$), cuando la intensidad se mide sin ruido, los niveles de $t_2$ del médico son iguales en las dos estructuras y los esfuerzos sobre cantidad son mayores en la descentralizada. A medida que $\sigma_2$ crece, la intensidad se reduce en la descentralizada respecto de la centralizada, y los esfuerzos sobre cantidad también disminuyen, pero permanecen mayores en la descentralizada.
+
+Para tareas complementarias ($\psi_{12}=-0.5$), se invierten los efectos iniciales sobre los esfuerzos en cantidad: el esfuerzo del médico disminuye y el del hospital aumenta en la descentralizada. Cuando $\sigma_2$ crece ligeramente por encima de $\sigma_1$, el esfuerzo del médico sobre cantidad pasa a ser mayor en la centralizada.
+
+
+% ── ANEXO B: PIPELINE DE DATOS ───────────────────────────

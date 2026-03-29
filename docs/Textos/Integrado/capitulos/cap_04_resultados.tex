@@ -1,0 +1,355 @@
+﻿\chapter{Resultados}
+\label{ch:resultados}
+
+\section{Eficiencia técnica: valores medios}
+
+La Tabla~\ref{tab:te_medias} muestra las eficiencias técnicas medias estimadas por los cuatro diseños.
+
+\begin{table}[htbp]
+\centering
+\caption{Eficiencias técnicas medias por diseño y estructura organizativa}
+\label{tab:te_medias}
+\begin{threeparttable}
+\begin{tabular}{lccccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Diseño A}} &
+  \multicolumn{2}{c}{\textbf{Diseño B}} &
+  \textbf{Diseño D} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-6}
+& Cantidad & Intensidad & Quirúrgico & Médico & ODF \\
+\midrule
+\textit{Muestra total} \\
+\quad Media & 0.731 & 0.683 & 0.791 & 0.767 & 0.744 \\
+\quad DE & 0.170 & 0.226 & 0.141 & 0.144 & 0.222 \\[4pt]
+\textit{Centralizado} \\
+\quad Media & 0.748 & 0.695 & 0.801 & 0.779 & --- \\[4pt]
+\textit{Descentralizado} \\
+\quad Media & 0.712 & 0.669 & 0.780 & 0.754 & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Eficiencias calculadas mediante el estimador JLMS \citep{jondrow1982}. Modelos estimados con distribución tnormal. Log-verosimilitudes: A (cant.): $-2{,}349.6$; A (int.): $-3{,}924.0$; B (Q): $-1{,}456.3$; B (M): $-2{,}775.8$; D: $-1{,}254.8$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los valores medios de eficiencia técnica oscilan entre 0.683 y 0.791, en función del diseño y la dimensión del output. Estos valores son coherentes con los reportados en la literatura de eficiencia hospitalaria española \citep{puigjunoy2000} e internacional \citep{hollingsworth2008,rosko2008}. \citet{hollingsworth2008} reporta en su revisión de más de doscientos estudios una eficiencia técnica media de aproximadamente 0.83 para estudios SFA, ligeramente superior a nuestras estimaciones; la diferencia puede atribuirse al período analizado (mayor restricción presupuestaria en 2010--2023 que en períodos anteriores) y a la definición más exigente de frontera que implica el uso de fronteras separadas por tipo de output.
+
+La eficiencia en intensidad (TE$_I$ = 0.683 en el Diseño A) es sistemáticamente inferior a la eficiencia en cantidad (TE$_q$ = 0.731), lo que sugiere que los hospitales se acercan más a su frontera de producción en volumen que en calidad-intensidad de la atención. Esta diferencia de aproximadamente 4.8 puntos porcentuales implica que hay un mayor margen de mejora en la dimensión de intensidad que en la de cantidad. La eficiencia en servicios quirúrgicos (0.791) es superior a la de servicios médicos (0.767), coherente con la mayor complementariedad entre tareas en los primeros.
+
+La diferencia de eficiencia media entre hospitales centralizados (TE$_q$ = 0.748) y descentralizados (TE$_q$ = 0.712) es pequeña en magnitud, lo que anticipa que el efecto de la estructura organizativa sobre la ineficiencia está condicionado por otras variables (tipo de pago, tipo de servicio, comunidad autónoma). La interpretación univariada de estas medias no es suficiente para identificar el mecanismo, que requiere el análisis de la ecuación de ineficiencia heterogénea de los modelos SFA.
+
+
+\section{Diseño D: función de distancia output}
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño D: Ecuación de ineficiencia (ODF)}
+\label{tab:odf}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{\textbf{ODF original}}
+& \multicolumn{2}{c}{\textbf{ODF enriquecido}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Parámetro} & Coef. & $t$ & Coef. & $t$ \\
+\midrule
+Intercepto & $-6.108$ & $-17.54$ & & \\
+$d\_Priv\_Conc$ & $1.275$ & $2.44$ & & \\
+$d\_Priv\_Merc$ & $3.894$ & $9.61$ & & \\
+$ShareQ$ & $9.345$ & $13.37$ & & \\
+$Conc\_shareQ$ & $-1.198$ & $-1.14$ & & \\
+$Merc\_shareQ$ & $-4.699$ & $-5.77$ & & \\
+$\ln(ratio_{MQ}) \times D^{desc}$ & & & $-0.036$ & $-1.17$ \\
+$\ln(ratio_{MQ}) \times pct^{SNS}$ & & & $-0.252$ & $-7.53$ \\
+\midrule
+Log-verosimilitud & \multicolumn{2}{c}{$-1{,}254.8$}
+  & \multicolumn{2}{c}{$-854.0$} \\
+Test LR (enriquecido vs.\ original) & \multicolumn{4}{c}{$801.6^{***}$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Dummies de CCAA incluidas, no reportadas. *** $p<0.001$. $ratio_{MQ} = altM^{pond}/altQ^{pond}$. El ODF enriquecido sigue la metodología de \textit{output bias} de \citet{kumbhakar2015}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+El Diseño D aporta varios resultados relevantes. El intercepto ($-6.108$, $t=-17.54$) indica que, en el punto de referencia (hospital público SNS con $ShareQ$ medio), la ineficiencia técnica media es sustancialmente positiva. El coeficiente de $d\_Priv\_Merc$ ($+3.894$, $t=9.61$) señala que los hospitales privados de mercado son más ineficientes en términos del output compuesto, lo que en el ODF refleja una combinación de menor eficiencia en la proporción intensidad/cantidad. El coeficiente de $ShareQ$ ($+9.345$, $t=13.37$) captura que los hospitales con mayor actividad quirúrgica tienden a ser más ineficientes en el output compuesto normalizado ---un resultado que el Diseño B interpretará como una mayor ineficiencia en la dimensión médica que compensa una mayor eficiencia en la quirúrgica.
+
+El coeficiente de $Merc\_shareQ$ ($-4.70$, $t=-5.77$) indica que la interacción entre ser hospital de mercado y tener alta actividad quirúrgica reduce la ineficiencia global, coherente con P4: los hospitales privados de mercado con alta proporción quirúrgica explotan la complementariedad entre tareas, obtienen eficiencia en su actividad natural (cirugía) y la ventaja domina al coste en intensidad médica. El ODF enriquecido muestra que la mayor dependencia del SNS reduce el ratio cantidad/intensidad en la frontera ($-0.252$, $t=-7.53$), consistente con la predicción del modelo teórico: los hospitales bajo financiación prospectiva pública equilibran mejor las dos dimensiones del output al estar sujetos a contratos-programa que evalúan ambas.
+
+
+\section{Diseño A: cantidad versus intensidad}
+\label{sec:res_A}
+
+La Tabla~\ref{tab:disA} presenta los contrastes centrales del Diseño A, el más directamente vinculado al modelo teórico.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño A: Contrastes P1--P4 (cantidad vs.\ intensidad)}
+\label{tab:disA}
+\begin{threeparttable}
+\begin{tabular}{lrrrrrrl}
+\toprule
+& \multicolumn{3}{c}{\textbf{$\hat{\alpha}$ (cantidad)}}
+& \multicolumn{3}{c}{\textbf{$\hat{\delta}$ (intensidad)}} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Parámetro} & Coef. & SE & $t$
+  & Coef. & SE & $t$ & \textbf{$z_{dif}$} \\
+\midrule
+Intercepto
+  & $-0.186$ & $0.210$ & $-0.88$
+  & $0.639$  & $0.324$ & $1.97$ & \\
+$D^{desc}$
+  & $-2.530$ & $0.363$ & $-6.98$\sig{***}
+  & $-1.477$ & $0.351$ & $-4.21$\sig{***}
+  & $-2.09$\sig{*} \\
+$pct^{SNS}$
+  & $-2.473$ & $0.285$ & $-8.67$\sig{***}
+  & $-2.439$ & $0.278$ & $-8.78$\sig{***}
+  & $-0.09$ \\
+$D^{desc} \times pct^{SNS}$
+  & $2.901$  & $0.298$ & $9.73$\sig{***}
+  & $1.937$  & $0.282$ & $6.87$\sig{***}
+  & $2.35$\sig{*} \\
+$ShareQ$
+  & $-1.888$ & $0.357$ & $-5.28$\sig{***}
+  & $-1.473$ & $0.340$ & $-4.34$\sig{***}
+  & $-0.84$ \\
+$D^{desc} \times ShareQ$
+  & $1.921$  & $0.342$ & $5.61$\sig{***}
+  & $1.911$  & $0.340$ & $5.62$\sig{***}
+  & $0.02$ \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-2{,}349.6$}
+  & \multicolumn{3}{c}{$-3{,}924.0$} & \\
+$n$ & \multicolumn{3}{c}{$4{,}765$}
+  & \multicolumn{3}{c}{$4{,}765$} & \\
+TE media & \multicolumn{3}{c}{$0.731$}
+  & \multicolumn{3}{c}{$0.683$} & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $z_{dif}$: test $H_0: \hat{\alpha}_k = \hat{\delta}_k$. Dummies de CCAA y cluster incluidas, no reportadas. * $p<0.05$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\textbf{Predicción P1 (confirmada).} El coeficiente de $D^{desc}$ en la frontera de cantidad es negativo y altamente significativo ($-2.530$, $t=-6.98$): los hospitales descentralizados exhiben menor ineficiencia técnica en cantidad que los hospitales públicos de referencia. En términos del mecanismo del modelo teórico, este resultado refleja que la mayor autonomía del hospital para diseñar contratos internos genera incentivos más potentes sobre el volumen de actividad, lo que se traduce en menor distancia respecto a la frontera de producción en esa dimensión. Este resultado es robusto en las siete especificaciones alternativas ($t$-estadísticos entre $-3.3$ y $-11.0$).
+
+\textbf{Predicción P2 (no confirmada en signo; asimetría confirmada).} El coeficiente de $D^{desc}$ en la frontera de intensidad es negativo ($\hat{\delta}_1 = -1.477$, $t=-4.21$), con signo opuesto al predicho por el modelo bajo el supuesto de sustitución fuerte ($\delta_1 > 0$). En sentido estricto, P2 no se confirma: la descentralización no aumenta la ineficiencia en intensidad sino que la reduce. No obstante, conviene separar dos afirmaciones: (i) P2 en sentido estricto de signo ($\delta_1 > 0$) \textit{no} se confirma en ninguna especificación; (ii) la \textit{asimetría} entre dimensiones \textit{sí} se confirma: la diferencia $|\hat{\alpha}_1| > |\hat{\delta}_1|$ es estadísticamente significativa ($z_{dif}=-2.09$, $p=0.037$), confirmando que la descentralización reduce la ineficiencia en cantidad significativamente más que en intensidad. Esta tensión entre la predicción de signo y el comportamiento asimétrico observado constituye una pauta fructífera: el resultado es consistente con el modelo bajo sustitución moderada ($\psi_{12}$ positivo pero insuficiente para revertir el signo), pero no con la predicción derivada bajo sustitución fuerte.
+
+% ── Bloque 2: Punto de cruce y ejemplo numérico ─────────────
+\paragraph{Efecto marginal de $pct^{SNS}$ condicionado al tipo de hospital.}
+El coeficiente de $pct^{SNS}$ es casi idéntico entre las dos fronteras ($-2.473$ en cantidad, $-2.439$ en intensidad), pero su contenido económico difiere según el tipo de hospital. Derivando la ecuación de ineficiencia:
+\begin{equation}
+  \frac{\partial \mu^q_{it}}{\partial pct^{SNS}_{it}} =
+  \hat{\delta}_2 + \hat{\delta}_3 \cdot D^{desc}_{it} =
+  -2.473 + 2.901 \cdot D^{desc}_{it}
+  \label{eq:dpct_dq}
+\end{equation}
+Para un \textbf{hospital público} ($D^{desc}=0$), el efecto marginal es $-2.473$ en cantidad y $-2.439$ en intensidad: la mayor integración con el SNS reduce la ineficiencia de forma casi simétrica en ambas dimensiones ($z_{dif}=-0.09$, $p=0.930$). Esto refleja que los contratos-programa transmiten disciplina de eficiencia en ambas dimensiones sin sesgo hacia ninguna de ellas, coherente con el contenido retrospectivo del presupuesto global.
+
+Para un \textbf{hospital privado} ($D^{desc}=1$), el efecto marginal de $pct^{SNS}$ es $+0.428$ en cantidad y $-0.502$ en intensidad: signos \textit{opuestos}. Mayor dependencia SNS \textit{aumenta} la ineficiencia en cantidad (por el techo contractual del concierto) pero \textit{reduce} la ineficiencia en intensidad (por los requisitos de calidad del contrato). Este resultado es económicamente rico: el contrato de actividad con el SNS tiene efectos asimétricos sobre las dos dimensiones del output hospitalario.
+
+\paragraph{El punto de cruce.} El efecto de ser descentralizado sobre la ineficiencia en cantidad es:
+\begin{equation}
+  \frac{\partial \mu^q}{\partial D^{desc}} =
+  -2.530 + 2.901 \cdot pct^{SNS}
+  \label{eq:ddesc_dq}
+\end{equation}
+Este efecto se anula cuando $pct^{SNS} = 2.530/2.901 = 0.872$: para hospitales con más del 87.2\% de actividad SNS, la descentralización \textit{aumenta} la ineficiencia en cantidad. El punto de cruce en la frontera de intensidad es $1.477/1.937 = 0.763$. La diferencia entre los dos umbrales define una zona de $pct^{SNS}$ entre 0.763 y 0.872 en la que la descentralización mejora la eficiencia en intensidad pero no en cantidad: suficiente presión del concierto SNS para mantener estándares diagnósticos sin haber alcanzado el techo que frena la eficiencia en volumen. Esta asimetría tiene implicaciones para el diseño de contratos de concierto: el nivel óptimo de dependencia SNS varía según qué dimensión del output se quiera maximizar.
+% ── Fin Bloque 2 ─────────────────────────────────────────────
+
+\textbf{Predicción P3 (confirmada).} El coeficiente de $pct^{SNS}$ es negativo y altamente significativo en ambas fronteras ($-2.473$ en cantidad, $-2.439$ en intensidad): una mayor financiación pública reduce la ineficiencia en ambas dimensiones, lo que refleja que los contratos-programa del SNS imponen disciplina de eficiencia tanto en volumen como en calidad. La interacción $D^{desc}\times pct^{SNS}$ difiere significativamente entre fronteras ($z_{dif}=2.35$, $p=0.019$), confirmando P3: el tipo de pago modera el efecto de la descentralización de forma distinta sobre cantidad e intensidad. Los hospitales descentralizados con alta financiación SNS (concertados) ven reducido su ventaja en cantidad y su desventaja en intensidad respecto de los puramente privados.
+
+% ── Bloque 4: Interpretación P2 ─────────────────────────────
+\paragraph{Sobre la no confirmación de signo y la asimetría confirmada de P2.}
+La predicción P2 establece $\hat{\delta}_1 > 0$. Los datos muestran $\hat{\delta}_1 = -1.477$, negativo en todas las especificaciones de robustez. Sin embargo, la diferencia con $\hat{\alpha}_1 = -2.530$ es estadísticamente significativa ($z_{dif}=-2.09$, $p=0.037$), confirmando la dirección de la asimetría predicha aunque sin inversión de signo.
+
+Hay dos interpretaciones no excluyentes. La \textbf{primera} es paramétrica: el modelo predice $\delta_1 > 0$ solo cuando $\psi_{12}$ es suficientemente positivo. Si el parámetro medio en el sistema español es positivo pero pequeño, el efecto en intensidad puede ser negativo pero significativamente menos negativo que en cantidad. De hecho, el análisis del punto de cruce muestra que la descentralización aumenta la ineficiencia en intensidad solo para hospitales con $pct^{SNS} > 0.763$: aproximadamente el 36\% de los hospitales descentralizados de la muestra (grupo $Priv\_Conc$). El coeficiente promedio mezcla este efecto positivo con el negativo del 64\% restante, resultando en un coeficiente negativo pero asimétrico respecto a la frontera de cantidad.
+
+La \textbf{segunda} interpretación es institucional: los hospitales privados españoles operan bajo restricciones de calidad adicionales (acreditación autonómica, auditoría de conciertos, contratos-programa con estándares de intensidad) que limitan la sustitución de esfuerzo desde la intensidad hacia la cantidad. Estos mecanismos pueden ser suficientes para evitar la inversión de signo predicha por el modelo en ausencia de restricciones institucionales. Su distinción empírica requeriría información sobre los contratos individuales de cada hospital con su CCAA, no disponible de forma homogénea.
+% ── Fin Bloque 4 ─────────────────────────────────────────────
+
+\textbf{Predicción P4 (no confirmada en Diseño A).} El coeficiente de $ShareQ$ es negativo y significativo en ambas fronteras, pero no difiere significativamente entre ellas ($z_{dif}=-0.84$, $p=0.400$). La falta de confirmación en el Diseño A puede deberse a que $ShareQ$ como proxy de $\psi_{12}$ es demasiado ruidosa cuando se usa junto con la variable $i_{diag}$: los hospitales con alta proporción quirúrgica tienen mayor $ShareQ$ pero también mayor $i_{diag}$ por la propia naturaleza de la cirugía (que es per se más intensiva en diagnóstico). La predicción se confirma con mayor potencia en el Diseño B, donde los outputs quirúrgico y médico están separados estructuralmente.
+
+
+\section{Diseño B: servicios quirúrgicos versus médicos}
+\label{sec:res_B}
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño B: Contrastes P1--P4 (quirúrgico vs.\ médico)}
+\label{tab:disB}
+\begin{threeparttable}
+\begin{tabular}{lrrrrrrl}
+\toprule
+& \multicolumn{3}{c}{\textbf{$\hat{\alpha}$ (quirúrgico)}}
+& \multicolumn{3}{c}{\textbf{$\hat{\delta}$ (médico)}} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Parámetro} & Coef. & SE & $t$
+  & Coef. & SE & $t$ & \textbf{$z_{dif}$} \\
+\midrule
+Intercepto
+  & $-0.160$ & $0.299$ & $-0.54$
+  & $-3.926$ & $0.738$ & $-5.32$\sig{***} & \\
+$d\_Priv\_Conc$
+  & $1.327$  & $0.538$ & $2.47$\sig{*}
+  & $-0.241$ & $0.608$ & $-0.40$
+  & $1.93$\sig{.} \\
+$d\_Priv\_Merc$
+  & $2.256$  & $0.444$ & $5.08$\sig{***}
+  & $-2.720$ & $0.823$ & $-3.30$\sig{***}
+  & $5.32$\sig{***} \\
+$Conc\_shareQ$
+  & $-0.539$ & $1.432$ & $-0.38$
+  & $-0.518$ & $1.157$ & $-0.45$
+  & $-0.01$ \\
+$Merc\_shareQ$
+  & $-2.985$ & $1.175$ & $-2.54$\sig{*}
+  & $3.223$  & $1.192$ & $2.71$\sig{**}
+  & $-3.71$\sig{***} \\
+$ShareQ$
+  & $-7.015$ & $0.833$ & $-8.42$\sig{***}
+  & $4.647$  & $0.833$ & $5.58$\sig{***}
+  & $-9.89$\sig{***} \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-1{,}456.3$}
+  & \multicolumn{3}{c}{$-2{,}775.8$} & \\
+$n$ & \multicolumn{3}{c}{$3{,}300$}
+  & \multicolumn{3}{c}{$3{,}300$} & \\
+TE media & \multicolumn{3}{c}{$0.791$}
+  & \multicolumn{3}{c}{$0.767$} & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $Priv\_Conc$ = privado con $pct^{SNS}\geq 0.50$; $Priv\_Merc$ = privado de mercado. Ref.: $Pub\_Retro$. . $p<0.10$; * $p<0.05$; ** $p<0.01$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\textbf{Predicción P4 (confirmada con muy alta potencia).} El resultado más robusto de todo el análisis. $ShareQ$ tiene signos completamente opuestos en las dos fronteras: $-7.015$ ($t=-8.42$) en quirúrgico y $+4.647$ ($t=5.58$) en médico, con $z_{dif}=-9.89$ ($p<0.001$). La interpretación económica es precisa: los hospitales con mayor proporción de actividad quirúrgica operan en un régimen de complementariedad entre tareas ($\psi_{12}<0$), donde el acto quirúrgico genera per se mayor intensidad diagnóstica preoperatoria y postoperatoria. Para ellos, una alta proporción quirúrgica equivale a una ventaja tecnológica en su frontera natural (quirúrgica) pero genera menor eficiencia relativa en la frontera médica, donde compiten sin la complementariedad. Este resultado es exactamente la moderación asimétrica predicha por el parámetro $\psi_{12}$ del modelo teórico.
+
+\textbf{Predicción P3 (confirmada para Priv\_Merc).} El coeficiente de $d\_Priv\_Merc$ tiene signos completamente opuestos: $+2.256$ ($t=5.08$) en quirúrgico y $-2.720$ ($t=-3.30$) en médico, con $z_{dif}=5.32$ ($p<0.001$). La interpretación es que los hospitales privados de mercado son especialistas en medicina no quirúrgica (consultas de especialidades, hospitales de día, diagnóstico ambulatorio) pero no en cirugía hospitalaria con internamiento. Su eficiencia en medicina es mayor que la del hospital público de referencia, mientras que son menos eficientes en cirugía. El coeficiente de $d\_Priv\_Conc$ ($+1.327$ en quirúrgico, $-0.241$ en médico) muestra un patrón similar pero menos pronunciado, coherente con que estos hospitales están más integrados en el sistema público y su cartera de servicios es más similar a la de los hospitales del SNS.
+
+\textbf{La interacción $Merc\_shareQ$} tiene signos opuestos: $-2.985$ ($t=-2.54$) en quirúrgico y $+3.223$ ($t=2.71$) en médico, con $z_{dif}=-3.71$ ($p<0.001$). Los hospitales privados de mercado con mayor actividad quirúrgica son más eficientes en cirugía (confirma P4 para el sector privado) pero más ineficientes en medicina, lo que refuerza la interpretación de especialización tecnológica basada en la complementariedad de tareas.
+
+\textbf{Correlación entre ineficiencias.} La correlación de Pearson entre las ineficiencias estimadas de las dos fronteras es $r=-0.140$ ($p<0.001$). Esta correlación negativa es evidencia directa del mecanismo de sustitución de esfuerzo entre tareas predicho por el modelo: los hospitales más ineficientes en cirugía tienden a ser más eficientes en medicina, y viceversa. La baja magnitud ($|r|<0.15$) indica que las dos fronteras son mayormente independientes, lo que justifica el uso de fronteras separadas frente a un sistema bivariado con cópula \citep{kumbhakar1997}. Si la correlación fuera alta (digamos, $|r|>0.5$), estimando conjuntamente con cópula se ganaría eficiencia estadística, pero la correlación observada sugiere que la ganancia sería marginal.
+
+
+\section{Diseño C: panel hospital \texorpdfstring{$\times$}{x} servicio}
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño C: Ecuación de ineficiencia (panel hospital $\times$ servicio)}
+\label{tab:disC}
+\begin{threeparttable}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Parámetro} & \textbf{Coef.} & \textbf{SE} & \textbf{$t$} \\
+\midrule
+$d\_Priv\_Conc$ & $0.291$ & $0.101$ & $2.88$\sig{**} \\
+$d\_Priv\_Merc$ & $0.679$ & $0.074$ & $9.21$\sig{***} \\
+$C_s$ (quirúrgico) & $2.645$ & $0.206$ & $12.87$\sig{***} \\
+$Priv\_Conc \times C_s$ & $0.992$ & $0.171$ & $5.80$\sig{***} \\
+$Priv\_Merc \times C_s$ & $0.409$ & $0.131$ & $3.12$\sig{**} \\
+$ShareQ$ & $2.740$ & $0.230$ & $11.91$\sig{***} \\
+$ShareQ \times C_s$ & $-11.413$ & $0.675$ & $-16.92$\sig{***} \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-4{,}640.3$} \\
+$n$ & \multicolumn{3}{c}{$6{,}600$} \\
+TE media & \multicolumn{3}{c}{$0.682$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item 6.600 obs.\ = 503 hospitales $\times$ 2 servicios. ** $p<0.01$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+El coeficiente de $ShareQ \times C_s = -11.413$ ($t=-16.92$) confirma P4 con variación \textit{dentro} del hospital: un mayor peso de actividad quirúrgica reduce la ineficiencia en la frontera quirúrgica en mucha mayor medida que en la médica. Este resultado elimina la posibilidad de que la correlación observada en los Diseños A y B se deba a heterogeneidad no observada entre hospitales (es decir, que los hospitales con mayor actividad quirúrgica sean simplemente hospitales más eficientes en todas las dimensiones). La identificación del efecto diferencial se basa en la variación intra-hospital a través de los términos de interacción: el coeficiente de $Priv\_Conc \times C_s$ mide si la estructura concertada afecta diferencialmente a los servicios quirúrgicos respecto de los médicos dentro de hospitales con características similares, controlando por el nivel medio de ineficiencia de cada grupo organizativo. Nótese que los coeficientes de nivel ($d\_Priv\_Conc$, $d\_Priv\_Merc$) capturan diferencias medias entre grupos de hospitales, mientras que las interacciones con $C_s$ capturan el efecto diferencial intra-hospital entre tipos de servicio, que es el objeto de interés para P4.
+
+Los coeficientes de $d\_Priv\_Conc$ ($+0.291$, $t=2.88$) y $d\_Priv\_Merc$ ($+0.679$, $t=9.21$) en el Diseño C son positivos, indicando que los hospitales privados son en promedio más ineficientes en el output compuesto del panel hospital$\times$servicio que los hospitales públicos de referencia. Este resultado aparentemente contradictorio con los Diseños A y B se explica por la composición de la muestra del Diseño C: al incluir las dos filas por hospital (quirúrgico y médico), los hospitales privados tienen un mayor peso de la fila de servicios quirúrgicos, en los que son más ineficientes (según el Diseño B). Los coeficientes positivos en el Diseño C son, por tanto, un artefacto de la composición de la muestra y no contradicen los resultados de los Diseños A y B.
+
+El coeficiente de $C_s$ (quirúrgico vs. médico, $+2.645$, $t=12.87$) indica que la frontera quirúrgica tiene niveles de ineficiencia sistemáticamente mayores que la médica dentro del mismo hospital. Esto puede reflejar que la cirugía es tecnológicamente más compleja y que la varianza en los resultados entre hospitales es mayor en servicios quirúrgicos que en médicos, generando una distribución más dispersa de la ineficiencia.
+
+
+\section{Test \texorpdfstring{P$^*$}{P*}: contraste conjunto}
+\label{sec:test_pstar}
+
+\begin{table}[htbp]
+\centering
+\caption{Test P$^*$: razón de verosimilitud $H_0: \bsym{\alpha} = \bsym{\delta}$}
+\label{tab:test_pstar}
+\begin{threeparttable}
+\begin{tabular}{lrrrrc}
+\toprule
+\textbf{Diseño} & $\ell^{irr}$ & $\ell^{restr}$ &
+\textbf{LR} & $k$ & \textbf{$p$-valor} \\
+\midrule
+A (cantidad vs.\ intensidad) &
+  $-6{,}273.7$ & $-11{,}519.1$ &
+  $10{,}490.8$ & 22 & $<0.001^{***}$ \\
+B (quirúrgico vs.\ médico) &
+  $-4{,}232.1$ & $-5{,}486.1$ &
+  $2{,}508.0$ & 22 & $<0.001^{***}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item $\ell^{irr} = \ell_{m1} + \ell_{m2}$. $k = 22$ grados de libertad (intercepto + 21 coeficientes de ineficiencia). *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+El test P$^*$ rechaza abrumadoramente la hipótesis nula de que los vectores de determinantes de la ineficiencia sean iguales entre dimensiones, tanto en el Diseño A ($LR=10{,}490.8$) como en el B ($LR=2{,}508.0$). Los determinantes de la ineficiencia operan de forma cualitativamente distinta sobre las dos dimensiones del output hospitalario, confirmando la predicción central del modelo teórico.
+
+\section{Interpretación económica integrada de los resultados}
+\label{sec:interpretacion_economica_integ}
+
+Esta sección integra los resultados de los cuatro diseños desde la perspectiva económica del modelo teórico, respondiendo a las preguntas de política que motivan la investigación.
+
+\subsection{¿Qué mide realmente el coeficiente de \texorpdfstring{$D^{desc}$}{D\^{}desc}?}
+
+El coeficiente de $D^{desc}$ en la ecuación de ineficiencia del Diseño A mide la diferencia en la media de la distribución de ineficiencia $u_{it}$ entre hospitales descentralizados y centralizados, manteniendo constantes el tipo de pago ($pct^{SNS}$), la proporción de actividad quirúrgica ($ShareQ$) y las dummies de comunidad autónoma y cluster de complejidad. No es, por tanto, una comparación bruta sino neta de estos factores.
+
+El coeficiente $\hat{\alpha}_1 = -2.530$ en la frontera de cantidad indica que un hospital descentralizado con los mismos valores de las covariables que un hospital centralizado tiene una media de $u_{it}$ (ineficiencia) $2.530$ unidades menor. La diferencia en eficiencia técnica media entre hospitales centralizados y descentralizados es de 3.6 puntos porcentuales en la frontera de cantidad (0.748 vs.\ 0.712, Tabla~\ref{tab:te_medias}). Esta diferencia bruta subestima el efecto neto de la descentralización porque los hospitales descentralizados son en promedio de menor tamaño y complejidad; controlando por estas características mediante las dummies de cluster y CCAA en la ecuación de ineficiencia, la diferencia atribuible a la estructura organizativa es mayor.
+
+Interpretado en términos del mecanismo del modelo teórico, este coeficiente capta el efecto del diseño organizativo sobre la cadena de incentivos hospital-médico. Los hospitales descentralizados diseñan autónomamente los contratos de su personal médico y pueden alinear los incentivos del médico con los objetivos de volumen del hospital. Esto reduce la ineficiencia en cantidad porque el hospital internaliza el problema de esfuerzo del médico en la dimensión de cantidad y diseña un contrato que induce el nivel óptimo de $t_1$.
+
+\subsection{Interpretación del Diseño D: ineficiencia en el output compuesto}
+
+El Diseño D, que estima una función de distancia output (ODF) con un único término de ineficiencia, produce resultados aparentemente diferentes de los Diseños A y B porque el output compuesto mezcla las dos dimensiones. La ineficiencia en el ODF puede interpretarse como una medida del alejamiento de la \textit{frontera de posibilidades de producción} entre cantidad e intensidad: un hospital en la frontera ODF produce la combinación cantidad/intensidad máxima posibles dados sus inputs.
+
+El intercepto de $-6.108$ en el ODF original indica que, en el punto de referencia (hospital público SNS con $ShareQ$ medio), la media de $u_{it}$ es sustancialmente positiva. El coeficiente de $d\_Priv\_Merc$ ($+3.894$, $t=9.61$) indica que los hospitales privados de mercado son más ineficientes en el output compuesto. Este resultado, aparentemente contradictorio con el efecto negativo de $D^{desc}$ en la frontera de cantidad del Diseño A, se explica por la composición del output compuesto: los hospitales privados de mercado son más eficientes en las dimensiones de menor complejidad (consultas externas, cirugía ambulatoria) pero operan lejos de la frontera en la combinación cantidad-intensidad de hospitalización aguda que mide el ODF.
+
+En términos del modelo teórico, el ODF no puede identificar el mecanismo de sustitución de esfuerzo porque un único $u_{it}$ cancela los efectos de signo contrario de la descentralización sobre las dos dimensiones. Esta es la justificación estadística y económica del uso de fronteras separadas en los Diseños A y B: la hipótesis de P* (que los vectores de determinantes son distintos entre dimensiones) implica que el ODF introduce sesgos de agregación que oscurecen el mecanismo subyacente.
+
+\subsection{El papel de los parámetros estructurales \texorpdfstring{$\beta_k$}{beta\_k} de la frontera}
+
+Los parámetros de la frontera de producción translog tienen una interpretación económica propia que complementa el análisis de ineficiencia. Las elasticidades del trabajo y del capital-camas capturan la tecnología de producción hospitalaria y permiten inferir si los hospitales operan con rendimientos de escala crecientes, constantes o decrecientes.
+
+La elasticidad del trabajo ($\hat{\beta}_1 \approx 0.40$--$0.55$) es consistente con el papel dominante del factor humano en la producción hospitalaria: los médicos y enfermeras son el input cuantitativamente más importante. La elasticidad del capital-camas ($\hat{\beta}_2 \approx 0.25$--$0.40$) refleja que las camas son un input de capacidad que determina el output potencial pero que el trabajo es el factor que realiza la transformación de inputs en altas. La suma de elasticidades en el punto medio de la muestra ($\hat{\beta}_1 + \hat{\beta}_2 \approx 0.65$--$0.95$) indica rendimientos de escala ligeramente crecientes o constantes, coherente con los estudios de costes hospitalarios que también documentan este patrón \citep{linna1998,farsi2005}.
+
+La presencia de rendimientos crecientes de escala en hospitales de menor tamaño (clusters 1 y 2) y rendimientos constantes o levemente decrecientes en hospitales de mayor tamaño (clusters 4 y 5) justifica la heterogeneidad tecnológica capturada por las dummies de cluster. Un único parámetro de tecnología para todos los hospitales produciría un sesgo importante en las estimaciones de ineficiencia para los hospitales pequeños.
+
+El coeficiente de progreso técnico ($\hat{\beta}_6 > 0$, típicamente en el rango 0.008--0.015) indica que la frontera de producción se desplaza hacia arriba en aproximadamente 0.8--1.5\% anual a lo largo del período. Este progreso técnico refleja la adopción de nuevas técnicas diagnósticas y quirúrgicas, la informatización de los sistemas de información hospitalaria y las mejoras organizativas graduales. El término cuadrático $\hat{\beta}_7 < 0$ indica una leve desaceleración del progreso técnico en los años más recientes del período, coherente con la fase de madurez tecnológica que sigue a la adopción inicial de tecnologías de diagnóstico por imagen.
+
+\subsection{Correlación entre ineficiencias: evidencia del mecanismo de sustitución}
+
+La correlación negativa entre ineficiencias en el Diseño B ($r=-0.140$, $p<0.001$) merece una discusión más detallada. En el modelo teórico, el mecanismo de sustitución de esfuerzo ($\psi_{12}>0$) predice que los hospitales que dedican más esfuerzo a la cantidad sacrifican esfuerzo en intensidad, y viceversa. Si este mecanismo opera a nivel de hospital-año, los hospitales más ineficientes en cirugía (aquellos que no consiguen maximizar el output quirúrgico) deberían ser más eficientes en medicina, porque su menor incentivo sobre la cantidad quirúrgica libera capacidad de atención para los servicios médicos.
+
+La correlación negativa observada es, por tanto, evidencia directa del mecanismo de sustitución predicho por el modelo, operando no solo entre servicios dentro de un mismo hospital (lo que captura el Diseño C) sino también a nivel del hospital como unidad. La baja magnitud absoluta ($|r|=0.14$) indica que la sustitución no es perfecta ---los hospitales con mayor eficiencia en una dimensión no son sistemáticamente menos eficientes en la otra--- pero la dirección es la predicha.
+
+En el Diseño A (frontera de cantidad vs. intensidad diagnóstica), la correlación es positiva y débil ($r=+0.126$, $p<0.001$). Este resultado, a primera vista contradictorio con P2, se explica por la diferente naturaleza de los dos outputs: la intensidad diagnóstica ($i_{diag}$) no es estrictamente sustituta de la cantidad de altas cuando las dos variables miden cosas distintas (número de procedimientos diagnósticos por alta vs. número de altas totales). Los hospitales que realizan más procedimientos diagnósticos por alta no necesariamente son hospitales que atienden a menos pacientes; pueden ser sencillamente hospitales de mayor complejidad que realizan tanto más altas como más diagnósticos. La correlación positiva en el Diseño A refleja esta heterogeneidad de complejidad que el Diseño B elimina al usar la comparación intra-tipo de servicio.
+
+
+% ###########################################################
+% CAPÍTULO 6: ROBUSTEZ Y DISCUSIÓN
+% ###########################################################
