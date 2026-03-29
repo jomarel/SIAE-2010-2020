@@ -1,8 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Cronograma de la contratación bajo estructura centralizada. El principal contrata simultáneamente con el hospital ($b(q)$) y el médico ($w(q,i)$).}}{19}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Cronograma de la contratación bajo estructura descentralizada. El principal solo contrata con el hospital ($b(q) + d \cdot i$); el hospital diseña autónomamente el contrato interno con el médico ($B$, $D$).}}{21}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Cronograma de la contratación bajo estructura centralizada. El principal contrata simultáneamente con el hospital ($b(q)$) y el médico ($w(q,i)$).}}{41}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Cronograma de la contratación bajo estructura descentralizada. El principal solo contrata con el hospital ($b(q) + d \cdot i$); el hospital diseña autónomamente el contrato interno con el médico ($B$, $D$).}}{43}{figure.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -10,17 +11,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Incentivos óptimos para distintos valores de $\psi _{12}$}}{96}{figure.caption.42}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Diferencial de esfuerzos para distintos valores de $\psi _{12}$}}{97}{figure.caption.43}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Diferencial de esfuerzos dado $\sigma _1=0$ (medición perfecta de cantidad)}}{98}{figure.caption.44}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Diferencial de esfuerzos dado $\sigma _2=0$ (medición perfecta de intensidad)}}{98}{figure.caption.45}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Incentivos óptimos cuando aumenta $\sigma _1$ ($\psi _{12}=0.5$)}}{100}{figure.caption.46}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _1$ ($\psi _{12}=0.5$)}}{100}{figure.caption.47}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Incentivos óptimos cuando aumenta $\sigma _2$ ($\psi _{12}=0.5$)}}{101}{figure.caption.48}%
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _2$ (tareas sustitutas, $\psi _{12}=0.5$)}}{102}{figure.caption.49}%
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _2$ (tareas complementarias, $\psi _{12}=-0.5$)}}{102}{figure.caption.50}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Incentivos óptimos para distintos valores de $\psi _{12}$}}{120}{figure.caption.49}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Diferencial de esfuerzos para distintos valores de $\psi _{12}$}}{121}{figure.caption.50}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Diferencial de esfuerzos dado $\sigma _1=0$ (medición perfecta de cantidad)}}{122}{figure.caption.51}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Diferencial de esfuerzos dado $\sigma _2=0$ (medición perfecta de intensidad)}}{122}{figure.caption.52}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Incentivos óptimos cuando aumenta $\sigma _1$ ($\psi _{12}=0.5$)}}{124}{figure.caption.53}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _1$ ($\psi _{12}=0.5$)}}{124}{figure.caption.54}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Incentivos óptimos cuando aumenta $\sigma _2$ ($\psi _{12}=0.5$)}}{125}{figure.caption.55}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _2$ (tareas sustitutas, $\psi _{12}=0.5$)}}{126}{figure.caption.56}%
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Diferencial de esfuerzos cuando aumenta $\sigma _2$ (tareas complementarias, $\psi _{12}=-0.5$)}}{126}{figure.caption.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Distribución de eficiencias técnicas --- muestra completa}}{111}{figure.caption.56}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Distribución de eficiencias técnicas por estructura organizativa. Azul: hospitales centralizados; rojo: hospitales descentralizados.}}{111}{figure.caption.57}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Evolución temporal de la eficiencia técnica media en cantidad (Diseño~A, estimador JLMS). Línea azul sólida: muestra principal 2010--2019. Línea gris discontinua: años COVID 2020--2022. Banda sombreada: $\pm 1$ desviación típica entre hospitales.}}{112}{figure.caption.58}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Distribución de eficiencias técnicas --- muestra completa}}{135}{figure.caption.63}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Distribución de eficiencias técnicas por estructura organizativa. Azul: hospitales centralizados; rojo: hospitales descentralizados.}}{135}{figure.caption.64}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Evolución temporal de la eficiencia técnica media en cantidad (Diseño~A, estimador JLMS). Línea azul sólida: muestra principal 2010--2019. Línea gris discontinua: años COVID 2020--2022. Banda sombreada: $\pm 1$ desviación típica entre hospitales.}}{136}{figure.caption.65}%

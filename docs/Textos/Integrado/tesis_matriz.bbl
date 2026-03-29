@@ -11,33 +11,22 @@ Angrist, J.~D. and Pischke, J.-S. (2009).
 \newblock {\em Mostly Harmless Econometrics: An Empiricist's Companion}.
 \newblock Princeton University Press.
 
-\bibitem[Arrow, 1963]{arrow1963}
-Arrow, K.~J. (1963).
-\newblock Uncertainty and the welfare economics of medical care.
-\newblock {\em American Economic Review}, 53(5):941--973.
-
 \bibitem[Battese and Coelli, 1995]{battese1995}
 Battese, G.~E. and Coelli, T.~J. (1995).
 \newblock A model for technical inefficiency effects in a stochastic frontier
   production function for panel data.
 \newblock {\em Empirical Economics}, 20(2):325--332.
 
+\bibitem[Bernal-Delgado et~al., 2024]{observatorioHIT2024}
+Bernal-Delgado, E., Angulo-Pueyo, E., et~al. (2024).
+\newblock Spain: {H}ealth {S}ystem {R}eview.
+\newblock Health Systems in Transition~3, European Observatory on Health
+  Systems and Policies.
+
 \bibitem[Bolton and Dewatripont, 2005]{bolton2005}
 Bolton, P. and Dewatripont, M. (2005).
 \newblock {\em Contract Theory}.
 \newblock MIT Press, Cambridge, MA.
-
-\bibitem[Burgess and Wilson, 1998]{burgess1998}
-Burgess, J.~F. and Wilson, P.~W. (1998).
-\newblock Variation in inefficiency among {US} hospitals.
-\newblock {\em INFOR: Information Systems and Operational Research},
-  36(3):84--102.
-
-\bibitem[Chalkley and Malcomson, 1998]{chalkley1998}
-Chalkley, M. and Malcomson, J.~M. (1998).
-\newblock Contracting for health services when patient demand does not reflect
-  quality.
-\newblock {\em Journal of Health Economics}, 17(1):1--19.
 
 \bibitem[Coelli and Perelman, 1999]{coelli1999}
 Coelli, T. and Perelman, S. (1999).
@@ -55,6 +44,12 @@ Dakpo, K.~H., Desjeux, Y., Henningsen, A., and Latruffe, L. (2024).
 \newblock {\em {sfaR}: Stochastic Frontier Analysis using {R}}.
 \newblock R package version 1.0.1.
 
+\bibitem[Dom{\'i}nguez~Mart{\'i}n, 2006]{dominguez2006}
+Dom{\'i}nguez~Mart{\'i}n, M. (2006).
+\newblock {\em Formas de gesti{\'o}n de la sanidad p{\'u}blica en
+  {E}spa{\~n}a}.
+\newblock La Ley, Madrid.
+
 \bibitem[Eggleston, 2005]{eggleston2005}
 Eggleston, K. (2005).
 \newblock Multitasking and mixed systems for provider payment.
@@ -66,21 +61,10 @@ Elena-Izquierdo, J.~M. (2019).
   hospitalaria.
 \newblock Documento de trabajo, Universidad de Salamanca.
 
-\bibitem[Ellis and McGuire, 1986]{ellis1986}
-Ellis, R.~P. and McGuire, T.~G. (1986).
-\newblock Provider behavior under prospective reimbursement: Cost sharing and
-  supply.
-\newblock {\em Journal of Health Economics}, 5(2):129--151.
-
 \bibitem[Farsi and Filippini, 2005]{farsi2005}
 Farsi, M. and Filippini, M. (2005).
 \newblock An analysis of efficiency and productivity in {S}wiss hospitals.
 \newblock {\em Swiss Journal of Economics and Statistics}, 141(1):95--118.
-
-\bibitem[Gaynor et~al., 2015]{gaynor2015}
-Gaynor, M., Ho, K., and Town, R.~J. (2015).
-\newblock The industrial organization of health-care markets.
-\newblock {\em Journal of Economic Literature}, 53(2):235--284.
 
 \bibitem[Greene, 2005]{greene2005a}
 Greene, W.~H. (2005).
@@ -125,11 +109,6 @@ Holmstr{\"o}m, B. and Milgrom, P. (1991).
   ownership, and job design.
 \newblock {\em Journal of Law, Economics, \& Organization}, 7(Special
   Issue):24--52.
-
-\bibitem[Jacobs et~al., 2006]{jacobs2006}
-Jacobs, R., Smith, P.~C., and Street, A. (2006).
-\newblock Measuring hospital efficiency: A survey.
-\newblock {\em Journal of Health Services Research \& Policy}, 11(4):245--250.
 
 \bibitem[Jelovac and Macho-Stadler, 2002]{jelovac2002}
 Jelovac, I. and Macho-Stadler, I. (2002).
@@ -180,11 +159,6 @@ Linna, M. (1998).
 \newblock Measuring hospital cost efficiency with panel data models.
 \newblock {\em Health Economics}, 7(5):415--427.
 
-\bibitem[Ma, 1994]{ma1994}
-Ma, C.-t.~A. (1994).
-\newblock Health care payment systems: Cost and quality incentives.
-\newblock {\em Journal of Economics \& Management Strategy}, 3(1):93--112.
-
 \bibitem[Ma, 1997]{ma1997}
 Ma, C.-t.~A. (1997).
 \newblock Option contracts and vertical foreclosure.
@@ -193,32 +167,50 @@ Ma, C.-t.~A. (1997).
   Cost and quality incentives, \textit{Journal of Economics \& Management
   Strategy}, 3(1), 93--112.
 
-\bibitem[McClellan, 1997]{mcclellan1997}
-McClellan, M. (1997).
-\newblock Hospital reimbursement incentives: An empirical analysis.
-\newblock {\em Journal of Economics \& Management Strategy}, 6(1):91--128.
-
 \bibitem[Meeusen and van~den Broeck, 1977]{meeusen1977}
 Meeusen, W. and van~den Broeck, J. (1977).
 \newblock Efficiency estimation from cobb-douglas production functions with
   composed error.
 \newblock {\em International Economic Review}, 18(2):435--444.
 
+\bibitem[{Ministerio de Sanidad}, 2026a]{ministerio2026estatuto}
+{Ministerio de Sanidad} (2026a).
+\newblock Documento ejecutivo: {R}esumen del borrador del nuevo {E}statuto
+  {M}arco.
+\newblock Technical report, Ministerio de Sanidad.
+\newblock Enero de 2026. Disponible en
+  \url{https://www.sanidad.gob.es/areas/profesionesSanitarias/docs/Resumen_Borrador_Estatuto_Marco.pdf}.
+
+\bibitem[{Ministerio de Sanidad}, 2026b]{ministerio2026gestion}
+{Ministerio de Sanidad} (2026b).
+\newblock El {G}obierno aprueba el anteproyecto de {L}ey de {G}esti{\'o}n
+  {P}{\'u}blica e {I}ntegridad del {S}istema {N}acional de {S}alud.
+\newblock Technical report, Ministerio de Sanidad.
+\newblock Nota de prensa, 10 de febrero de 2026. Disponible en
+  \url{https://www.sanidad.gob.es}.
+
 \bibitem[{Ministerio de Sanidad y Consumo}, 2007]{ministerio2007}
 {Ministerio de Sanidad y Consumo} (2007).
 \newblock Clasificación de hospitales del {SNS} por complejidad asistencial.
 \newblock Technical report, Ministerio de Sanidad y Consumo, Madrid.
 
-\bibitem[Newhouse, 1970]{newhouse1970}
-Newhouse, J.~P. (1970).
-\newblock Toward a theory of nonprofit institutions: An economic model of a
-  hospital.
-\newblock {\em American Economic Review}, 60(1):64--74.
+\bibitem[Monereo~P{\'e}rez et~al., 2007]{monereo2007}
+Monereo~P{\'e}rez, J.~L., Molina~Navarrete, C., and Moreno~Vida, M.~N. (2007).
+\newblock {\em Comentario pr{\'a}ctico a la legislaci{\'o}n reguladora de la
+  sanidad en {E}spa{\~n}a}.
+\newblock Comares, Granada.
+\newblock Directores.
 
 \bibitem[{OECD}, 2023]{oecd2023}
 {OECD} (2023).
 \newblock Health at a glance 2023: {OECD} indicators.
 \newblock Technical report, OECD Publishing, Paris.
+
+\bibitem[Pem{\'a}n~Gav{\'i}n, 2005]{peman2005}
+Pem{\'a}n~Gav{\'i}n, J.~M. (2005).
+\newblock {\em Asistencia sanitaria y {S}istema {N}acional de {S}alud: estudios
+  jur{\'i}dicos}.
+\newblock Comares, Granada.
 
 \bibitem[Prior, 2006]{prior2006}
 Prior, D. (2006).
@@ -257,11 +249,6 @@ Simar, L. and Wilson, P.~W. (2007).
   production processes.
 \newblock {\em Journal of Econometrics}, 136(1):31--64.
 
-\bibitem[Sloan, 2000]{sloan2000}
-Sloan, F.~A. (2000).
-\newblock Not-for-profit ownership and hospital behavior.
-\newblock {\em Handbook of Health Economics}, 1:1141--1174.
-
 \bibitem[Street, 2003]{street2003}
 Street, A. (2003).
 \newblock How much confidence should we place in efficiency estimates?
@@ -277,12 +264,6 @@ Wang, H.-J. and Schmidt, P. (2002).
 \newblock One-step and two-step estimation of the effects of exogenous
   variables on technical efficiency levels.
 \newblock {\em Journal of Productivity Analysis}, 18(2):129--144.
-
-\bibitem[Worthington, 2004]{worthington2004}
-Worthington, A.~C. (2004).
-\newblock Frontier efficiency measurement in health care: A review of empirical
-  techniques and selected applications.
-\newblock {\em Medical Care Research and Review}, 61(2):135--170.
 
 \bibitem[Zuckerman et~al., 1994]{zuckerman1994}
 Zuckerman, S., Hadley, J., and Iezzoni, L. (1994).

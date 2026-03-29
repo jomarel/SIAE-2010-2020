@@ -4,6 +4,8 @@ The top-level auxiliary file: tesis_matriz.aux
 Reallocating 'name_of_file' (item size: 1) to 34 items.
 A level-1 auxiliary file: capitulos/cap_00_introduccion.aux
 Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: capitulos/cap_01_marco_juridico.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
 A level-1 auxiliary file: capitulos/cap_01_modelo_teorico.aux
 Reallocating 'name_of_file' (item size: 1) to 41 items.
 A level-1 auxiliary file: capitulos/cap_02_estrategia_empirica.aux
@@ -27,44 +29,44 @@ Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 21 items.
 Database file #1: referencias_maestras.bib
-You've used 50 entries,
+You've used 45 entries,
             1935 wiz_defined-function locations,
-            772 strings with 11918 characters,
-and the built_in function-call counts, 18911 in all, are:
-= -- 1925
-> -- 601
-< -- 42
-+ -- 205
-- -- 187
-* -- 1628
-:= -- 3274
-add.period$ -- 155
-call.type$ -- 50
-change.case$ -- 338
-chr.to.int$ -- 50
-cite$ -- 50
-duplicate$ -- 703
-empty$ -- 1415
-format.name$ -- 279
-if$ -- 3678
-int.to.chr$ -- 1
+            746 strings with 11746 characters,
+and the built_in function-call counts, 16503 in all, are:
+= -- 1666
+> -- 548
+< -- 38
++ -- 188
+- -- 171
+* -- 1381
+:= -- 2901
+add.period$ -- 143
+call.type$ -- 45
+change.case$ -- 303
+chr.to.int$ -- 44
+cite$ -- 45
+duplicate$ -- 625
+empty$ -- 1215
+format.name$ -- 252
+if$ -- 3205
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 52
-newline$ -- 256
-num.names$ -- 152
-pop$ -- 233
+missing$ -- 47
+newline$ -- 234
+num.names$ -- 137
+pop$ -- 226
 preamble$ -- 1
-purify$ -- 342
+purify$ -- 308
 quote$ -- 0
-skip$ -- 536
+skip$ -- 472
 stack$ -- 0
-substring$ -- 1574
-swap$ -- 55
-text.length$ -- 1
+substring$ -- 1255
+swap$ -- 48
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 288
+type$ -- 252
 warning$ -- 0
-while$ -- 180
+while$ -- 148
 width$ -- 0
-write$ -- 660
+write$ -- 601
