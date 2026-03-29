@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.22)  29 MAR 2026 11:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.22)  29 MAR 2026 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -881,21 +881,16 @@ Package hyperref Info: Link coloring ON on input line 7.
 {C:/Users/jomar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]) [2
 
 ] (frontmatter/preliminares.tex
-Underfull \vbox (badness 2343) has occurred while \output is active []
-
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
  [1
 
-] [2]
-Underfull \vbox (badness 2343) has occurred while \output is active []
+] [2] [3] [4
 
- [3
+] [5] [6] [7
 
-] [4] [5
-
-] [6
+] [8
 
 ] (tesis_matriz.toc
 LaTeX Info: Redefining \. on input line 1.
@@ -938,39 +933,39 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\jomar\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [7]
+) [9]
 LaTeX Info: Redefining \. on input line 68.
 LaTeX Info: Redefining \% on input line 68.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported on input line 68.
- [8{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
+ [10{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 LaTeX Info: Redefining \. on input line 103.
 LaTeX Info: Redefining \% on input line 103.
- [9{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+ [11{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Info: Redefining \. on input line 143.
 LaTeX Info: Redefining \% on input line 143.
- [10]
+ [12]
 LaTeX Info: Redefining \. on input line 177.
 LaTeX Info: Redefining \% on input line 177.
- [11])
+ [13])
 \tf@toc=\write5
 \openout5 = `tesis_matriz.toc'.
 
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
- [12] (tesis_matriz.lot
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
+ [14] (tesis_matriz.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
 \tf@lot=\write6
 \openout6 = `tesis_matriz.lot'.
 
- [13
+ [15
 
 ]
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
- [14
+LaTeX Info: Redefining \. on input line 212.
+LaTeX Info: Redefining \% on input line 212.
+ [16
 
 ] (tesis_matriz.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -979,16 +974,22 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lof=\write7
 \openout7 = `tesis_matriz.lof'.
 
-) [15]
+) [17]
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
- [16
+ [18
 
 ]
 \openout2 = `capitulos/cap_00_introduccion.aux'.
 
  (capitulos/cap_00_introduccion.tex
 Cap\'{\i }tulo 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 23.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 23.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 23.
 
 Underfull \vbox (badness 1478) has occurred while \output is active []
 
@@ -996,987 +997,39 @@ Underfull \vbox (badness 1478) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.11 
+l.24 
       [1
 
 
 ]
-Underfull \vbox (badness 1264) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17 
+l.28 
       [2]
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 38.
+LaTeX Info: Redefining \% on input line 38.
  [3]
-Overfull \hbox (7.01811pt too wide) in paragraph at lines 32--33
+Overfull \hbox (7.01811pt too wide) in paragraph at lines 45--46
 []\T1/lmr/m/n/12 (-20) Esta com-bi-na-ci�n ---descentralizaci�n efec-ti-va y coor-di-na-ci�n institucionalizada---
  []
 
-LaTeX Info: Redefining \. on input line 35.
-LaTeX Info: Redefining \% on input line 35.
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
 [4]
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
  [5]
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
  [6]
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
  [7]
-LaTeX Info: Redefining \. on input line 95.
-LaTeX Info: Redefining \% on input line 95.
- [8]
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
- [9]
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
- [10]
-LaTeX Info: Redefining \. on input line 133.
-LaTeX Info: Redefining \% on input line 133.
- [11])
-LaTeX Info: Redefining \. on input line 15.
-LaTeX Info: Redefining \% on input line 15.
- [12]
-\openout2 = `capitulos/cap_01_marco_juridico.aux'.
-
- (capitulos/cap_01_marco_juridico.tex
-Cap\'{\i }tulo 2.
-[13
-
-
-
-
-]
-Underfull \vbox (badness 1264) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
- [14]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 39.
- (C:\Users\jomar\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
- [15{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-LaTeX Info: Redefining \. on input line 56.
-LaTeX Info: Redefining \% on input line 56.
- [16]
-Underfull \vbox (badness 1383) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
- [17]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
- [18]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
- [19]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 119.
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]|\T1/lmr/bx/n/10.95 (+20) R�gimen de
- []
-
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
-[20]
-LaTeX Info: Redefining \. on input line 148.
-LaTeX Info: Redefining \% on input line 148.
- [21]
-LaTeX Info: Redefining \. on input line 164.
-LaTeX Info: Redefining \% on input line 164.
- [22]
-LaTeX Info: Redefining \. on input line 189.
-LaTeX Info: Redefining \% on input line 189.
- [23]
-LaTeX Info: Redefining \. on input line 201.
-LaTeX Info: Redefining \% on input line 201.
- [24]
-LaTeX Info: Redefining \. on input line 215.
-LaTeX Info: Redefining \% on input line 215.
- [25]
-LaTeX Info: Redefining \. on input line 236.
-LaTeX Info: Redefining \% on input line 236.
- [26]
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
- [27]
-LaTeX Info: Redefining \. on input line 267.
-LaTeX Info: Redefining \% on input line 267.
- [28]
-Overfull \hbox (4.4862pt too wide) in paragraph at lines 268--269
-[]\T1/lmr/m/n/12 (-20) El vo-lu-men de ac-ti-vi-dad ---n�mero de al-tas, es-tan-cias, in-ter-ven-cio-nes, consultas---
- []
-
-LaTeX Info: Redefining \. on input line 287.
-LaTeX Info: Redefining \% on input line 287.
-[29]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 295.
-LaTeX Info: Redefining \% on input line 295.
- [30]
-LaTeX Info: Redefining \. on input line 306.
-LaTeX Info: Redefining \% on input line 306.
- [31]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 310.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 310.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 310.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 310.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\psi' on input line 310.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 310.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 310.
-
-
-Underfull \vbox (badness 6910) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
- [32]
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-[]|\T1/lmr/bx/sc/12 (+20) Categor�a jur�dico-
- []
-
-
-Underfull \hbox (badness 7362) in paragraph at lines 332--332
-[]|\T1/lmr/m/n/12 (+20) Mecanismo de fi-nan-cia-ci�n
- []
-
-LaTeX Info: Redefining \. on input line 351.
-LaTeX Info: Redefining \% on input line 351.
-[33])
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
- [34]
-\openout2 = `capitulos/cap_01_modelo_teorico.aux'.
-
- (capitulos/cap_01_modelo_teorico.tex
-Cap\'{\i }tulo 3.
-[35
-
-
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
- [36]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 35.
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
- [37{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
- [38]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
- [39]
-LaTeX Info: Redefining \. on input line 145.
-LaTeX Info: Redefining \% on input line 145.
- [40]
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.5> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.94997> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.25> on input line 197.
-
-Underfull \vbox (badness 1127) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 210.
-LaTeX Info: Redefining \% on input line 210.
- [41]
-LaTeX Info: Redefining \. on input line 236.
-LaTeX Info: Redefining \% on input line 236.
- [42]
-Underfull \vbox (badness 1152) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 296.
-LaTeX Info: Redefining \% on input line 296.
- [43]
-Underfull \vbox (badness 1168) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 332.
-LaTeX Info: Redefining \% on input line 332.
- [44]
-LaTeX Info: Redefining \. on input line 355.
-LaTeX Info: Redefining \% on input line 355.
- [45]
-Overfull \hbox (7.23163pt too wide) in paragraph at lines 367--368
-[][]\T1/lmr/m/it/12 (-20) Los in-cen-ti-vos
- []
-
-LaTeX Info: Redefining \. on input line 370.
-LaTeX Info: Redefining \% on input line 370.
-[46]
-LaTeX Info: Redefining \. on input line 389.
-LaTeX Info: Redefining \% on input line 389.
- [47]
-LaTeX Info: Redefining \. on input line 405.
-LaTeX Info: Redefining \% on input line 405.
- [48]
-Underfull \hbox (badness 1360) in paragraph at lines 430--430
-[]|\T1/lmr/bx/sc/12 (+20) Signo es-pe-
- []
-
-LaTeX Info: Redefining \. on input line 442.
-LaTeX Info: Redefining \% on input line 442.
-[49]
-LaTeX Info: Redefining \. on input line 459.
-LaTeX Info: Redefining \% on input line 459.
- [50]
-LaTeX Info: Redefining \. on input line 471.
-LaTeX Info: Redefining \% on input line 471.
- [51]
-LaTeX Info: Redefining \. on input line 487.
-LaTeX Info: Redefining \% on input line 487.
- [52]
-LaTeX Info: Redefining \. on input line 499.
-LaTeX Info: Redefining \% on input line 499.
- [53]
-LaTeX Info: Redefining \. on input line 514.
-LaTeX Info: Redefining \% on input line 514.
- [54])
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
- [55]
-\openout2 = `capitulos/cap_02_estrategia_empirica.aux'.
-
- (capitulos/cap_02_estrategia_empirica.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [56
-
-
-
-
-]
-Cap\'{\i }tulo 4.
-[57]
-Overfull \hbox (55.08704pt too wide) detected at line 64
-[]
- []
-
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
-[58]
-LaTeX Info: Redefining \. on input line 86.
-LaTeX Info: Redefining \% on input line 86.
- [59]
-Overfull \hbox (2.29866pt too wide) in paragraph at lines 101--101
-[]|\T1/lmr/bx/n/10.95 (-20) Dise�o| 
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 104--105
-\T1/lmr/m/n/10.95 (+20) out-put (ODF) con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-[]|\T1/lmr/m/n/10.95 (+20) P3, P4 (no
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-[]|\T1/lmr/m/n/10.95 (+20) P4 con va-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-\T1/lmr/m/n/10.95 (+20) ria-ci�n intra-
- []
-
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
-[60]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 158.
- (C:\Users\jomar\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Underfull \vbox (badness 2134) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 159.
-LaTeX Info: Redefining \% on input line 159.
- [61]
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
- [62]
-LaTeX Info: Redefining \. on input line 189.
-LaTeX Info: Redefining \% on input line 189.
- [63])
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
- [64]
-\openout2 = `capitulos/cap_03_datos_y_variables.aux'.
-
- (capitulos/cap_03_datos_y_variables.tex
-Cap\'{\i }tulo 5.
-[65
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
- [66]
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
- [67]
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-[]|\T1/lmr/bx/n/10.95 (+20) NA
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--85
-[]|\T1/lmr/m/n/10.95 (+20) SIAE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
-[]|\T1/lmr/m/n/10.95 (+20) SIAE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-[]|\T1/lmr/m/n/10.95 (+20) �ndice tec-no-l�-gi-co (TAC,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-\T1/lmr/m/n/10.95 (+20) RNM, PET, ace-le-ra-dor,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-\T1/lmr/m/n/10.95 (+20) an-gi�-gra-fo, gam-ma-c�-ma-ra,
- []
-
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
-[68]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 106.
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
- [69]
-Underfull \vbox (badness 3579) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
- [70]
-Overfull \hbox (26.66391pt too wide) in paragraph at lines 131--159
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
-[71]
-LaTeX Info: Redefining \. on input line 178.
-LaTeX Info: Redefining \% on input line 178.
- [72]
-Overfull \hbox (18.10501pt too wide) in paragraph at lines 191--212
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
-[73]
-LaTeX Info: Redefining \. on input line 232.
-LaTeX Info: Redefining \% on input line 232.
- [74]
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
- [75]
-Underfull \vbox (badness 1048) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 293.
-LaTeX Info: Redefining \% on input line 293.
- [76]
-LaTeX Info: Redefining \. on input line 310.
-LaTeX Info: Redefining \% on input line 310.
- [77]
-LaTeX Info: Redefining \. on input line 329.
-LaTeX Info: Redefining \% on input line 329.
- [78])
-LaTeX Info: Redefining \. on input line 19.
-LaTeX Info: Redefining \% on input line 19.
- [79]
-\openout2 = `capitulos/cap_04_resultados.aux'.
-
- (capitulos/cap_04_resultados.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [80
-
-
-
-
-]
-Cap\'{\i }tulo 6.
-[81]
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
- [82]
-Overfull \hbox (20.73148pt too wide) in paragraph at lines 94--139
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
-[83]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
- [84]
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
- [85]
-Overfull \hbox (29.2316pt too wide) in paragraph at lines 189--234
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 237.
-LaTeX Info: Redefining \% on input line 237.
-[86]
-Overfull \hbox (24.22209pt too wide) in paragraph at lines 238--239
-[]\T1/lmr/bx/sc/12 (-20) Predicci�n P3 (con-fir-ma-da pa-ra Priv_Merc). \T1/lmr/m/n/12 (-20) El co-efi-cien-te de $\OML/lmm/m/it/12 d[]Priv[]Merc$
- []
-
-LaTeX Info: Redefining \. on input line 277.
-LaTeX Info: Redefining \% on input line 277.
-[87]
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
- [88]
-Overfull \hbox (2.26973pt too wide) in paragraph at lines 291--309
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 323.
-LaTeX Info: Redefining \% on input line 323.
-[89]
-LaTeX Info: Redefining \. on input line 334.
-LaTeX Info: Redefining \% on input line 334.
- [90]
-LaTeX Info: Redefining \. on input line 347.
-LaTeX Info: Redefining \% on input line 347.
- [91])
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
- [92]
-\openout2 = `capitulos/cap_05_robustez_y_discusion.aux'.
-
- (capitulos/cap_05_robustez_y_discusion.tex
-Cap\'{\i }tulo 7.
-
-Overfull \hbox (6.45392pt too wide) in paragraph at lines 11--35
- [] 
- []
-
-[93
-
-
-
-
-]
-Overfull \hbox (6.69586pt too wide) in paragraph at lines 92--92
-[]|\T1/lmr/bx/n/10.95 (-20) Pred.| 
- []
-
-
-Overfull \hbox (8.73364pt too wide) in paragraph at lines 94--95
-[]|\T1/lmr/bx/n/10.95 (-20) Veredicto| 
- []
-
-
-Underfull \hbox (badness 4713) in paragraph at lines 97--98
-[]|$[] \OT1/lmr/m/n/10.95 (+20) = \OMS/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 (+20) 2\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (+20) 53[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-[]|\T1/lmr/m/n/10.95 (+20) Confirmada v�a
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 99--99
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-
-Underfull \hbox (badness 1168) in paragraph at lines 101--102
-[]|$[] \OT1/lmr/m/n/10.95 (+20) = \OMS/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 (+20) 1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (+20) 477[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-\T1/lmr/m/n/10.95 (+20) (signo opues-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-\T1/lmr/m/n/10.95 (+20) to); asi-me-tr�a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+18) fir-ma-da
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) en
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) signo;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) asi-me-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) tr�a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) con-fir-
- []
-
-
-Underfull \hbox (badness 5475) in paragraph at lines 104--105
-[]|\T1/lmr/m/n/10.95 (+20) Pago di-fie-re en-tre
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 107--107
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 108--109
-[]|$\OML/lmm/m/it/10.95  []$ \T1/lmr/m/n/10.95 (+20) mo-de-ra asi-m�-
- []
-
-
-Overfull \hbox (20.33539pt too wide) in paragraph at lines 111--111
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 115--116
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
- [94]
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
- [95]
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
- [96]
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
- [97]
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
- [98])
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
- [99]
-\openout2 = `capitulos/cap_06_implicaciones_politica_hospitalaria.aux'.
-
- (capitulos/cap_06_implicaciones_politica_hospitalaria.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [100
-
-
-
-
-]
-Cap\'{\i }tulo 8.
-[101]
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
- [102]
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
- [103]
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
- [104]
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [105]
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
- [106]
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
- [107]
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
- [108])
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
- [109]
-\openout2 = `capitulos/cap_07_conclusiones.aux'.
-
- (capitulos/cap_07_conclusiones.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [110
-
-
-
-
-]
-Cap\'{\i }tulo 9.
-[111]
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
- [112]
-LaTeX Info: Redefining \. on input line 41.
-LaTeX Info: Redefining \% on input line 41.
- [113]
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
- [114]
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
- [115]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
- [116])
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
- [117]
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
- [118]
-\openout2 = `anexos/anexo_01_simulaciones_modelo_teorico.aux'.
-
- (anexos/anexo_01_simulaciones_modelo_teorico.tex
-Ap\'{e}ndice A.
-<../Teórico/gr1-eps-converted-to.pdf, id=2190, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr1-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr1-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr1-eps-converted-to.pdf  used on input line 16.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-[119
-
-
-
-
-]
-<../Teórico/gr2-eps-converted-to.pdf, id=2195, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr2-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr2-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr2-eps-converted-to.pdf  used on input line 23.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
- [120 <../Teórico/gr1-eps-converted-to.pdf>]
-<../Teórico/gr3-eps-converted-to.pdf, id=2204, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr3-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr3-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr3-eps-converted-to.pdf  used on input line 40.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr4-eps-converted-to.pdf, id=2205, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr4-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr4-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr4-eps-converted-to.pdf  used on input line 47.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
- [121 <../Teórico/gr2-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
- [122 <../Teórico/gr3-eps-converted-to.pdf> <../Teórico/gr4-eps-converted-to.pdf>]
-<../Teórico/gr5-eps-converted-to.pdf, id=2223, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr5-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr5-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr5-eps-converted-to.pdf  used on input line 64.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr6-eps-converted-to.pdf, id=2224, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr6-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr6-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr6-eps-converted-to.pdf  used on input line 71.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr7-eps-converted-to.pdf, id=2225, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr7-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr7-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr7-eps-converted-to.pdf  used on input line 80.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [123]
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [124 <../Teórico/gr5-eps-converted-to.pdf> <../Teórico/gr6-eps-converted-to.pdf>]
-<../Teórico/gr8-eps-converted-to.pdf, id=2238, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr8-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr8-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr8-eps-converted-to.pdf  used on input line 87.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-
-
-pdfTeX warning: pdflatex (file ../Teórico/gr9-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Teórico/gr9-eps-converted-to.pdf, id=2239, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr9-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr9-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr9-eps-converted-to.pdf  used on input line 94.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-)
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [125 <../Teórico/gr7-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [126 <../Teórico/gr8-eps-converted-to.pdf> <../Teórico/gr9-eps-converted-to.pdf>]
-\openout2 = `anexos/anexo_02_variables_y_pipeline.aux'.
-
- (anexos/anexo_02_variables_y_pipeline.tex
-Ap\'{e}ndice B.
-
-Overfull \hbox (18.40985pt too wide) in paragraph at lines 20--20
-[]|\T1/lmtt/m/n/10.95 01_exportar_mapeo_cnh.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 21--21
-[]|\T1/lmtt/m/n/10.95 02_estandarizar_nombres.R| 
- []
-
-
-Overfull \hbox (35.65605pt too wide) in paragraph at lines 22--22
-[]|\T1/lmtt/m/n/10.95 03_unir_modulos_por_anyo.R| 
- []
-
-
-Overfull \hbox (1.16365pt too wide) in paragraph at lines 23--23
-[]|\T1/lmtt/m/n/10.95 04_construir_panel.R| 
- []
-
-
-Overfull \hbox (12.66112pt too wide) in paragraph at lines 24--24
-[]|\T1/lmtt/m/n/10.95 05_construir_casemix.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 25--25
-[]|\T1/lmtt/m/n/10.95 06_construir_Ddesc_pago.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 26--26
-[]|\T1/lmtt/m/n/10.95 07_construir_intensidad.R| 
- []
-
-
-Overfull \hbox (24.15858pt too wide) in paragraph at lines 27--27
-[]|\T1/lmtt/m/n/10.95 08_auditoria_variables.R| 
- []
-
-
-Overfull \hbox (6.91238pt too wide) in paragraph at lines 29--29
-[]|\T1/lmtt/m/n/10.95 10_descriptivos_sfa.R| 
- []
-
-
-Overfull \hbox (18.40985pt too wide) in paragraph at lines 32--32
-[]|\T1/lmtt/m/n/10.95 13_tests_diagnosticos.R| 
- []
-
-[127
-
-
-
-
-]
-Overfull \hbox (17.75616pt too wide) in paragraph at lines 49--50
-[]\T1/lmr/m/n/12 (-20) El pro-ce-so de mat-ching se rea-li-za en tres pa-sos (script \T1/lmtt/m/n/12 01_exportar_mapeo_cnh.R\T1/lmr/m/n/12 (-20) ): 
- []
-
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
-[128]
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
- [129]
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
- [130])
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
- [131]
-\openout2 = `anexos/anexo_03_tablas_complementarias.aux'.
-
- (anexos/anexo_03_tablas_complementarias.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [132
-
-
-
-
-]
-Ap\'{e}ndice C.
-[133]
-
-LaTeX Warning: Reference `tab:eficiencias_medias' on page 134 undefined on input line 95.
-
-<hist_TE_cantidad_global.pdf, id=2296, 361.35pt x 252.945pt>
-File: hist_TE_cantidad_global.pdf Graphic file (type pdf)
-<use hist_TE_cantidad_global.pdf>
-Package pdftex.def Info: hist_TE_cantidad_global.pdf  used on input line 100.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_intensidad_global.pdf, id=2297, 361.35pt x 252.945pt>
-File: hist_TE_intensidad_global.pdf Graphic file (type pdf)
-<use hist_TE_intensidad_global.pdf>
-Package pdftex.def Info: hist_TE_intensidad_global.pdf  used on input line 105.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_cantidad_desc.pdf, id=2298, 361.35pt x 252.945pt>
-File: hist_TE_cantidad_desc.pdf Graphic file (type pdf)
-<use hist_TE_cantidad_desc.pdf>
-Package pdftex.def Info: hist_TE_cantidad_desc.pdf  used on input line 115.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_intensidad_desc.pdf, id=2299, 361.35pt x 252.945pt>
-File: hist_TE_intensidad_desc.pdf Graphic file (type pdf)
-<use hist_TE_intensidad_desc.pdf>
-Package pdftex.def Info: hist_TE_intensidad_desc.pdf  used on input line 120.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_anyo.pdf, id=2300, 433.62pt x 252.945pt>
-File: hist_TE_anyo.pdf Graphic file (type pdf)
-<use hist_TE_anyo.pdf>
-Package pdftex.def Info: hist_TE_anyo.pdf  used on input line 130.
-(pdftex.def)             Requested size: 309.42374pt x 180.50693pt.
-)
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [134]
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [135 <./hist_TE_cantidad_global.pdf> <./hist_TE_intensidad_global.pdf> <./hist_TE_cantidad_desc.pdf> <./hist_TE_intensidad_desc.pdf>]
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [136 <./hist_TE_anyo.pdf>] (tesis_matriz.bbl [137
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
- [138]
-LaTeX Info: Redefining \. on input line 209.
-LaTeX Info: Redefining \% on input line 209.
- [139])
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
- [140] (tesis_matriz.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
- (capitulos/cap_00_introduccion.aux) (capitulos/cap_01_marco_juridico.aux) (capitulos/cap_01_modelo_teorico.aux) (capitulos/cap_02_estrategia_empirica.aux) (capitulos/cap_03_datos_y_variables.aux) (capitulos/cap_04_resultados.aux) (capitulos/cap_05_robustez_y_discusion.aux) (capitulos/cap_06_implicaciones_politica_hospitalaria.aux) (capitulos/cap_07_conclusiones.aux) (anexos/anexo_01_simulaciones_modelo_teorico.aux) (anexos/anexo_02_variables_y_pipeline.aux) (anexos/anexo_03_tablas_complementarias.aux))
- ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
- ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `tesis_matriz.out' has not changed.
-(rerunfilecheck)             Checksum: 3AE70F5A31EAF613F43EF33FF7A59365;53663.
- ) 
-Here is how much of TeX's memory you used:
- 32046 strings out of 467867
- 600985 string characters out of 5418334
- 1050519 words of memory out of 5000000
- 59118 multiletter control sequences out of 15000+600000
- 841502 words of font info for 452 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 89i,16n,97p,1469b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
-
-<C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesis_matriz.pdf (158 pages, 1595112 bytes).
-PDF statistics:
- 2634 PDF objects out of 2984 (max. 8388607)
- 584 named destinations out of 1000 (max. 500000)
- 111187 words of extra memory for PDF output out of 128383 (max. 10000000)
-
+LaTeX Info: Redefining \. on input line 101.
+LaT
