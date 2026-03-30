@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Acerete et~al., 2011]{acerete2011}
+Acerete, B., Stafford, A., y Stapleton, P. (2011).
+\newblock {Spanish healthcare public private partnerships: the `{A}lzira
+  model'}.
+\newblock {\em Critical Perspectives on Accounting}, 22(6):533--549.
+
 \bibitem[Aigner et~al., 1977]{aigner1977}
 Aigner, D., Lovell, C. A.~K., y Schmidt, P. (1977).
 \newblock Formulation and estimation of stochastic frontier production function
@@ -45,6 +51,12 @@ Coelli, T.~J., Rao, D. S.~P., O'Donnell, C.~J., y Battese, G.~E. (2005).
 \newblock {\em An Introduction to Efficiency and Productivity Analysis}.
 \newblock Springer, New York, 2nd edition.
 
+\bibitem[Cots et~al., 2001]{cots2001}
+Cots, F., Elvira, D., Vall, O., y Castells, X. (2001).
+\newblock {C{\'o}mo pagamos a nuestros hospitales. La referencia de
+  Catalu{\~n}a y el contrapunto desde Andaluc{\'i}a}.
+\newblock {\em Gaceta Sanitaria}, 15(2):150--161.
+
 \bibitem[Dakpo et~al., 2024]{dakpo2024}
 Dakpo, K.~H., Desjeux, Y., Henningsen, A., y Latruffe, L. (2024).
 \newblock {\em {sfaR}: Stochastic Frontier Analysis using {R}}.
@@ -61,16 +73,17 @@ Eggleston, K. (2005).
 \newblock Multitasking and mixed systems for provider payment.
 \newblock {\em Journal of Health Economics}, 24(1):211--223.
 
-\bibitem[Elena-Izquierdo, 2019]{izquierdo2019}
-Elena-Izquierdo, J.~M. (2019).
-\newblock Incentivos y estructura organizativa en la financiaci{\'o}n
-  hospitalaria.
-\newblock Documento de trabajo, Universidad de Salamanca.
-
 \bibitem[Farsi y Filippini, 2005]{farsi2005}
 Farsi, M. y Filippini, M. (2005).
 \newblock An analysis of efficiency and productivity in {S}wiss hospitals.
 \newblock {\em Swiss Journal of Economics and Statistics}, 141(1):95--118.
+
+\bibitem[Garc{\'\i}a-Lacalle et~al., 2009]{garcia2009financiacion}
+Garc{\'\i}a-Lacalle, J., Mart{\'\i}n~Vallesp{\'\i}n, E., y
+  Royo~Monta{\~n}{\'e}s, R. (2009).
+\newblock La financiaci{\'o}n de la sanidad p{\'u}blica. efecto de los sistemas
+  de pago prospectivos en el rendimiento de los hospitales.
+\newblock {\em Presupuesto y gasto p{\'u}blico}, 4(57):99--115.
 
 \bibitem[Greene, 2005]{greene2005a}
 Greene, W.~H. (2005).
@@ -179,6 +192,14 @@ Ma, C.-t.~A. (1997).
   Cost and quality incentives, \textit{Journal of Economics \& Management
   Strategy}, 3(1), 93--112.
 
+\bibitem[Mart{\'i}n et~al., 2019]{martin2019eficiencia}
+Mart{\'i}n, J.~J., L{\'o}pez~del Amo~Gonz{\'a}lez, M.~P., y Caba{\'e}s~Hita,
+  J.~M. (2019).
+\newblock {An{\'a}lisis multinivel de la eficiencia t{\'e}cnica de los
+  hospitales del Sistema Nacional de Salud espa{\~n}ol por tipo de propiedad y
+  gesti{\'o}n}.
+\newblock {\em Gaceta Sanitaria}, 33(4):325--332.
+
 \bibitem[Martín y López~del Amo~González, 2007]{martin2007medida}
 Martín, J. J.~M. y López~del Amo~González, M.~P. (2007).
 \newblock La medida de la eficiencia en las organizaciones sanitarias.
@@ -189,6 +210,12 @@ Meeusen, W. y van~den Broeck, J. (1977).
 \newblock Efficiency estimation from cobb-douglas production functions with
   composed error.
 \newblock {\em International Economic Review}, 18(2):435--444.
+
+\bibitem[Men{\'e}ndez~Rexach, 2008]{menendez2008}
+Men{\'e}ndez~Rexach, {\'A}. (2008).
+\newblock {La gestión indirecta de la asistencia sanitaria pública.
+  Reflexiones en torno al debate sobre la privatización de la sanidad}.
+\newblock {\em Revista de Administraci{\'o}n Sanitaria}, 6(2):269--296.
 
 \bibitem[{Ministerio de Sanidad}, 2026a]{ministerio2026estatuto}
 {Ministerio de Sanidad} (2026a).
@@ -244,15 +271,12 @@ Puig-Junoy, J. y Dalmau, E. (2000).
   clinical management of critically ill patients, \textit{Health Economics},
   7(3), 263--277.
 
-\bibitem[Repullo, 2008]{repullo2008}
-Repullo, J.~R. (2008).
-\newblock Sistemas de financiación y organizativos de los servicios
-  sanitarios: experiencias españolas.
-\newblock In {\em Informe SESPAS 2008}. Sociedad Española de Salud Pública y
-  Administración Sanitaria.
-\newblock Véase también López-Casasnovas, G. y Saez, M. (1999), The impact
-  of teaching status on average costs in Spanish hospitals, \textit{Health
-  Economics}, 8(7), 641--651.
+\bibitem[Repullo y Freire, 2008]{repullo2008}
+Repullo, J.~R. y Freire, J.~M. (2008).
+\newblock {Gobernabilidad del Sistema Nacional de Salud: mejorando el balance
+  entre los beneficios y los costes de la descentralizaci{\'o}n. Informe SESPAS
+  2008.}
+\newblock {\em Gaceta Sanitaria}, 22:118--125.
 
 \bibitem[Rodríguez~López y Sánchez~Macías, 2004]{rodriguez_sanchez2004}
 Rodríguez~López, F. y Sánchez~Macías, J.~I. (2004).
@@ -287,6 +311,12 @@ Street, A. (2003).
 Tiemann, O. y Schreyoegg, J. (2012).
 \newblock Changes in hospital efficiency after privatization.
 \newblock {\em Health Care Management Science}, 15(4):310--326.
+
+\bibitem[Villar~Rojas, 2009]{villarrojas2009}
+Villar~Rojas, F.~J. (2009).
+\newblock {La privatizaci{\'o}n de la gesti{\'o}n de los servicios sanitarios
+  p{\'u}blicos: las experiencias de Valencia y Madrid}.
+\newblock {\em Revista Derecho y Salud}, 17(1):1--22.
 
 \bibitem[Wang y Schmidt, 2002]{wang2002}
 Wang, H.-J. y Schmidt, P. (2002).
