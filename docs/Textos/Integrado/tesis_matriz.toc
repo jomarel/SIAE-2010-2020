@@ -12,10 +12,10 @@
 \contentsline {subsection}{\numberline {1.4.3}Evolución reciente: expansión y reversión de concesiones}{9}{subsection.1.4.3}%
 \contentsline {subsection}{\numberline {1.4.4}Mecanismos de pago hospitalario en España}{10}{subsection.1.4.4}%
 \contentsline {subsection}{\numberline {1.4.5}Datos básicos del sistema hospitalario español}{11}{subsection.1.4.5}%
-\contentsline {section}{\numberline {1.5}Justificación metodológica: SFA versus DEA}{11}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}Por qué análisis de frontera estocástica}{11}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Ventajas del panel sobre la sección cruzada}{13}{subsection.1.5.2}%
-\contentsline {subsection}{\numberline {1.5.3}Justificación de la forma funcional translog}{13}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.5}Justificación metodológica: SFA versus DEA}{12}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Por qué análisis de frontera estocástica}{12}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Ventajas del panel sobre la sección cruzada}{14}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Justificación de la forma funcional translog}{14}{subsection.1.5.3}%
 \contentsline {section}{\numberline {1.6}Estructura de la tesis}{14}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Marco jurídico e institucional de la organización hospitalaria en España}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Actualidad y persistencia del debate sobre la organización hospitalaria}{15}{section.2.1}%

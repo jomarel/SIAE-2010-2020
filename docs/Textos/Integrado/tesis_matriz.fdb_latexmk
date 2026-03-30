@@ -1,11 +1,11 @@
 # Fdb version 4
-["bibtex tesis_matriz"] 1774904655.46712 "tesis_matriz.aux" "tesis_matriz.bbl" "tesis_matriz" 1774904664.47561 0
+["bibtex tesis_matriz"] 1774911152.69316 "tesis_matriz.aux" "tesis_matriz.bbl" "tesis_matriz" 1774911167.30988 0
   "./apalike-es.bst" 1774861279 25736 111fdcca7368c3e08988683be4a22079 ""
-  "./referencias_maestras.bib" 1774904635 25454 2d58d313cc2b435dca2809a2e1339cfb ""
+  "./referencias_maestras.bib" 1774911119 26244 99bf63a6f27b66c1deea1670234a44de ""
   "anexos/anexo_01_simulaciones_modelo_teorico.aux" 1774861279 5121 d4c487aab52cc0b45bb99aae567b2504 ""
   "anexos/anexo_02_variables_y_pipeline.aux" 1774861279 3316 bc25fcd12351fd8e43c2fa6f45e12d67 ""
   "anexos/anexo_03_tablas_complementarias.aux" 1774861279 4470 aae3cfbe9bc5b2a4925808964e7e5ccb ""
-  "capitulos/cap_00_introduccion.aux" 1774904661 4372 97c2ec92388fd2943116502fade7c1d1 "pdflatex"
+  "capitulos/cap_00_introduccion.aux" 1774911162 4476 f70098dc03cb653ea74a5c2c77d7082f "pdflatex"
   "capitulos/cap_01_marco_juridico.aux" 1774861280 9583 9bd440fb4e39910bab242f486e84cd48 ""
   "capitulos/cap_01_modelo_teorico.aux" 1774861280 12109 5ca34948cd638dff8817a71e4870e612 ""
   "capitulos/cap_02_estrategia_empirica.aux" 1774861280 5470 6565b75bdcfc877385eacb6e0ba81df5 ""
@@ -14,12 +14,12 @@
   "capitulos/cap_05_robustez_y_discusion.aux" 1774861280 3904 df48a7da1f83ff6ff7dec9e8a668e920 ""
   "capitulos/cap_06_implicaciones_politica_hospitalaria.aux" 1774861280 5133 abc6347e7003f47be598ac8dc609b58b ""
   "capitulos/cap_07_conclusiones.aux" 1774861280 3242 99d35cd9424f0aecfefa99e91c086c55 ""
-  "tesis_matriz.aux" 1774904661 4516 76ce952fe5dc62bb2c47c487b582e7bc "pdflatex"
+  "tesis_matriz.aux" 1774911162 4659 5cb4184de6969885b025aaa03c58a3ea "pdflatex"
   (generated)
   "tesis_matriz.bbl"
   "tesis_matriz.blg"
   (rewritten before read)
-["pdflatex"] 1774904656.26363 "g:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_matriz.tex" "tesis_matriz.pdf" "tesis_matriz" 1774904664.50488 0
+["pdflatex"] 1774911154.41456 "g:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_matriz.tex" "tesis_matriz.pdf" "tesis_matriz" 1774911167.37268 0
   "C:/Users/jomar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774387933 97403 380695d574896bebfe3d62ef452e9c1c ""
   "C:/Users/jomar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1774194834 13333849 26db0b3498ac47f82db9ca8c63c7e3bb ""
   "C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -267,8 +267,8 @@
   "anexos/anexo_02_variables_y_pipeline.tex" 1774861279 9696 04308ea4b6f30fc8fc2f4791a2d7e354 ""
   "anexos/anexo_03_tablas_complementarias.aux" 1774861279 4470 aae3cfbe9bc5b2a4925808964e7e5ccb ""
   "anexos/anexo_03_tablas_complementarias.tex" 1774861279 7362 696a813b9e6986da59bdb7dff25975cd ""
-  "capitulos/cap_00_introduccion.aux" 1774904661 4372 97c2ec92388fd2943116502fade7c1d1 "pdflatex"
-  "capitulos/cap_00_introduccion.tex" 1774904635 40511 56d9985902d9902380cabb86457ce10d ""
+  "capitulos/cap_00_introduccion.aux" 1774911162 4476 f70098dc03cb653ea74a5c2c77d7082f "pdflatex"
+  "capitulos/cap_00_introduccion.tex" 1774911119 42597 cf0bbfe351a14e652f6e2925fb48dd81 ""
   "capitulos/cap_01_marco_juridico.aux" 1774861280 9583 9bd440fb4e39910bab242f486e84cd48 ""
   "capitulos/cap_01_marco_juridico.tex" 1774861280 59459 0a6bfad433ba48d4941e41b71cd971af ""
   "capitulos/cap_01_modelo_teorico.aux" 1774861280 12109 5ca34948cd638dff8817a71e4870e612 ""
@@ -289,13 +289,13 @@
   "frontmatter/preliminares.tex" 1774861280 15748 38b0fb2c5dbdc6bfc3ef90afc502af79 ""
   "g:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_matriz.tex" 1774863589 1001 fe5cd8ab5bfb1e07207705956b7d2327 ""
   "preambulo_tesis.tex" 1774863585 4602 82560409c4eb080921fd07b8f5a901d5 ""
-  "tesis_matriz.aux" 1774904661 4516 76ce952fe5dc62bb2c47c487b582e7bc "pdflatex"
-  "tesis_matriz.bbl" 1774904656 14305 b54f419e4458faa115a36a4098d465c5 "bibtex tesis_matriz"
-  "tesis_matriz.lof" 1774904661 2896 8a79eb8bc9f4c919c143a98f821f635f "pdflatex"
-  "tesis_matriz.lot" 1774904661 3057 cb938cb7c4e56cd7ae7a0d58fbdc4a85 "pdflatex"
-  "tesis_matriz.out" 1774904661 4399 52fe1446903863decc6e534314f28939 "pdflatex"
+  "tesis_matriz.aux" 1774911162 4659 5cb4184de6969885b025aaa03c58a3ea "pdflatex"
+  "tesis_matriz.bbl" 1774911153 14964 9867cf986227708d9fdb212682a5ff4a "bibtex tesis_matriz"
+  "tesis_matriz.lof" 1774911163 2896 8a79eb8bc9f4c919c143a98f821f635f "pdflatex"
+  "tesis_matriz.lot" 1774911163 3057 cb938cb7c4e56cd7ae7a0d58fbdc4a85 "pdflatex"
+  "tesis_matriz.out" 1774911162 4399 52fe1446903863decc6e534314f28939 "pdflatex"
   "tesis_matriz.tex" 1774863589 1001 fe5cd8ab5bfb1e07207705956b7d2327 ""
-  "tesis_matriz.toc" 1774904661 21689 7c9a737db5a8046518b28db2e3ccdcb1 "pdflatex"
+  "tesis_matriz.toc" 1774911163 21689 78031158890aacead86b0796834607db "pdflatex"
   (generated)
   "capitulos/cap_00_introduccion.aux"
   "tesis_matriz.aux"
