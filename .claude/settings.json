@@ -19,7 +19,24 @@
       "Bash(grep -n \"desc_pago\\\\|desc\\\\\\\\_pago\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
       "Bash(grep -c \"\\\\\\\\begin{table}\\\\[h!\\\\]\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
       "Bash(grep -c \"\\\\\\\\begin{table}\\\\[htbp\\\\]\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Integrado/tesis_doctoral.tex\")",
-      "Bash(grep -n \"show\\\\|Tj\\\\|TJ\\\\|BT\\\\|ET\\\\|\\\\\\\\\\(\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Teórico/gr1.eps\")"
+      "Bash(grep -n \"show\\\\|Tj\\\\|TJ\\\\|BT\\\\|ET\\\\|\\\\\\\\\\(\" \"G:/Mi unidad/SIAE 2010-2020/docs/Textos/Teórico/gr1.eps\")",
+      "Bash(Rscript -e ':*)",
+      "Bash(where Rscript)",
+      "Read(//c/Program Files/R/**)",
+      "Read(//c/Program Files/R//**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(export PATH=\"/c/Program Files/R/R-4.5.2/bin:$PATH\")",
+      "Bash(Rscript --no-save --no-restore -e ':*)",
+      "Bash(ls \"/c/Program Files/R\"/*/bin/Rscript.exe)",
+      "Bash(ls \"/c/Program Files \\(x86\\)/R\"/*/bin/Rscript.exe)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e ':*)",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e \"library\\(readxl\\); print\\(excel_sheets\\(''docs/NCODI_Hospital_DEFINITIVO_2020_2024.xlsx''\\)\\)\")",
+      "Bash(\"C:/Program Files/R/R-4.5.2/bin/Rscript.exe\" /tmp/investigate_df_sfa.R)",
+      "Bash(/tmp/cross_sfa2.R:*)",
+      "Bash(Rscript --no-save --no-restore /tmp/cross_sfa2.R)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

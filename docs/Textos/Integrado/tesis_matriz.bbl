@@ -29,6 +29,12 @@ Battese, G.~E. y Coelli, T.~J. (1995).
   production function for panel data.
 \newblock {\em Empirical Economics}, 20(2):325--332.
 
+\bibitem[BBVA, 2025]{fbbva2025}
+BBVA, F. (2025).
+\newblock Esenciales 2/2025: Gasto en salud de los hogares en españa.
+\newblock El gasto privado en sanidad representa alrededor del 26--28 \% del
+  gasto sanitario total en España en 2022.
+
 \bibitem[Bernal-Delgado et~al., 2024]{observatorioHIT2024}
 Bernal-Delgado, E., Angulo-Pueyo, E., et~al. (2024).
 \newblock Spain: {H}ealth {S}ystem {R}eview.
@@ -51,6 +57,13 @@ Coelli, T.~J., Rao, D. S.~P., O'Donnell, C.~J., y Battese, G.~E. (2005).
 \newblock {\em An Introduction to Efficiency and Productivity Analysis}.
 \newblock Springer, New York, 2nd edition.
 
+\bibitem[ConSalud.es, 2025]{consalud2025}
+ConSalud.es (2025).
+\newblock España asigna gran parte de su pib a sanidad: el gasto sanitario
+  total alcanza los 142.773 millones de euros en 2023.
+\newblock {\em ConSalud}.
+\newblock Informe del Sistema de Cuentas de Salud del Ministerio de Sanidad.
+
 \bibitem[Cots et~al., 2001]{cots2001}
 Cots, F., Elvira, D., Vall, O., y Castells, X. (2001).
 \newblock {C{\'o}mo pagamos a nuestros hospitales. La referencia de
@@ -61,6 +74,14 @@ Cots, F., Elvira, D., Vall, O., y Castells, X. (2001).
 Dakpo, K.~H., Desjeux, Y., Henningsen, A., y Latruffe, L. (2024).
 \newblock {\em {sfaR}: Stochastic Frontier Analysis using {R}}.
 \newblock R package version 1.0.1.
+
+\bibitem[de~Sanidad, 2024]{ministeriosanidad2023}
+de~Sanidad, M. (2024).
+\newblock Estadística de gasto sanitario público. ejercicio 2023.
+\newblock Technical report, Subdirección General de Cartera de Servicios del
+  SNS y Fondos de Compensación.
+\newblock Datos de gasto público en servicios hospitalarios y especializados
+  (casi 60.000 millones de euros en 2023).
 
 \bibitem[Dom{\'i}nguez~Mart{\'i}n, 2006]{dominguez2006}
 Dom{\'i}nguez~Mart{\'i}n, M. (2006).
@@ -216,13 +237,6 @@ Men{\'e}ndez~Rexach, {\'A}. (2008).
 \newblock {La gestión indirecta de la asistencia sanitaria pública.
   Reflexiones en torno al debate sobre la privatización de la sanidad}.
 \newblock {\em Revista de Administraci{\'o}n Sanitaria}, 6(2):269--296.
-
-\bibitem[{Ministerio de Sanidad}, 2024]{ministerio_siae2022}
-{Ministerio de Sanidad} (2024).
-\newblock {Estad{\'i}stica de Centros de Atenci{\'o}n Especializada. A{\~n}o
-  2022}.
-\newblock Technical report, Ministerio de Sanidad, Subdirecci{\'o}n General de
-  Informaci{\'o}n Sanitaria, Madrid.
 
 \bibitem[{Ministerio de Sanidad}, 2026a]{ministerio2026estatuto}
 {Ministerio de Sanidad} (2026a).
