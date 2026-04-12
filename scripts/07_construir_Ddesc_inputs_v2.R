@@ -1,11 +1,12 @@
 ## =============================================================
 ## Phase 3 — D_desc, Payment, Inputs (L, K), Log-centered,
 ##           Trend, Clusters, Interactions, CCAA, es_agudo, grupo_pago
-## v4:
+## v5:
 ##   - integrates the old 07b fixes directly
 ##   - rebuilds es_agudo and ccaa_codigo before using them
 ##   - avoids left_join collision on grupo_cluster / d_cluster*
 ##   - adds K_rx_salas (module 3) to technology indexes
+##   - adds K_quirofanos from module 3 for Design B/C
 ##   - stores K_hemo_salas and K_tech_diag_hemo for robustness
 ## =============================================================
 
@@ -120,6 +121,14 @@ cat("\n========== D. Capital inputs (technology bridged) ==========\n")
 
 df$K_camas <- to_num(df$camas_funcionamiento)
 
+# Module 3: operating rooms in use (continuous series across years)
+df$K_quirofanos <- get_num_col(df, c(
+  "quirofanos_funcionamiento",
+  "quirofanos_Funcionamiento",
+  "quirofanos funcionamiento"
+))
+
+
 # ----- module 4 technology: <=2020 classic names; >=2021 Tot* names -----
 bridge_stock <- function(pre_hosp, pre_cep = NULL, post_tot = NULL) {
   hosp <- get_num_col(df, pre_hosp)
@@ -233,6 +242,8 @@ df$K_tech_index[all_gen_na] <- NA_real_
 
 cat("K_camas:      mean =", round(mean(df$K_camas, na.rm = TRUE), 1),
     "| NA% =", round(100 * mean(is.na(df$K_camas)), 1), "\n")
+cat("K_quirofanos: mean =", round(mean(df$K_quirofanos, na.rm = TRUE), 2),
+    "| NA% =", round(100 * mean(is.na(df$K_quirofanos)), 1), "\n")
 cat("K_rx_salas:   mean =", round(mean(df$K_rx_salas, na.rm = TRUE), 2),
     "| NA% =", round(100 * mean(is.na(df$K_rx_salas)), 1), "\n")
 cat("K_hemo_salas: mean =", round(mean(df$K_hemo_salas, na.rm = TRUE), 2),
@@ -266,6 +277,10 @@ df$ln_L_total_c2  <- 0.5 * df$ln_L_total_c^2
 df$ln_K_camas_c2  <- 0.5 * df$ln_K_camas_c^2
 cat(sprintf("Centers: ln_L=%.4f, ln_K_camas=%.4f, ln_K_tech=%.4f, ln_K_tech_diag=%.4f\n",
             mu_L, mu_K, mu_T, mu_Td))
+
+df$ln_K_tech_diag_c2 <- 0.5 * df$ln_K_tech_diag_c^2
+# Y añadir a VARS_NEW en la sección L:
+# "ln_K_tech_diag_c2"
 
 ## =============================================================
 ## F. Trend
@@ -377,7 +392,7 @@ VARS_NEW <- c(
   "cod_finalidad_agrupada", "ccaa_codigo",
   "D_desc", "pct_sns",
   "L_total", "L_quirur", "L_medico",
-  "K_camas", "K_rx_salas", "K_hemo_salas",
+  "K_camas", "K_quirofanos", "K_rx_salas", "K_hemo_salas",
   "TAC_total_tech", "RNM_total_tech", "PET_total_tech",
   "acelerador_total_tech", "angiografo_total_tech",
   "gammacamara_total_tech", "spect_total_tech",

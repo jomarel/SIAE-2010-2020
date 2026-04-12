@@ -1,10 +1,10 @@
 ## =============================================================
 ## Phase 5 — Audit + Build df_sfa + Final verification
-## v2:
-##   - includes revised hospital-only intensity variables
+## v3:
+##   - aligned with bridged intensity measure using i_diag_sum
+##   - includes K_quirofanos for Designs B/C
 ##   - includes both general and diagnostic technology indices
 ##   - final verification reports quantity sample and suggested intensity sample
-##   - script 10 is NOT modified here
 ## =============================================================
 
 setwd("G:/Mi unidad/SIAE 2010-2020")
@@ -29,9 +29,9 @@ SFA_VARS <- c(
   "altTotal_bruto","altTotal_pond","ln_altTotal_pond",
   "altQ_bruto","altQ_pond","ln_altQ_pond",
   "altM_bruto","altM_pond","ln_altM_pond",
-  "i_diag_hosp_num","i_diag","ln_i_diag","i_simple","ln_i_simple",
+  "i_diag_sum","i_diag","ln_i_diag","i_simple","ln_i_simple",
   "L_total","L_medico","L_quirur",
-  "K_camas","K_tech_index","K_tech_diag",
+  "K_camas","K_quirofanos","K_tech_index","K_tech_diag",
   "ln_L_total","ln_K_camas","ln_K_tech","ln_K_tech_diag",
   "ln_L_total_c","ln_K_camas_c","ln_K_tech_c","ln_K_tech_diag_c",
   "ln_L_total_c2","ln_K_camas_c2","ln_K_tech_c2","ln_K_tech_diag_c2",
@@ -113,7 +113,7 @@ sfa_vars <- c(
   "altTotal_bruto","altTotal_pond","ln_altTotal_pond",
   "altQ_bruto","altQ_pond","ln_altQ_pond",
   "altM_bruto","altM_pond","ln_altM_pond",
-  "i_diag_hosp_num","i_diag","ln_i_diag","i_simple","ln_i_simple",
+  "i_diag_sum","i_diag","ln_i_diag","i_simple","ln_i_simple",
   "L_total","K_camas","K_tech_index","K_tech_diag",
   "ln_L_total_c","ln_K_camas_c","ln_K_tech_c","ln_K_tech_diag_c",
   "ln_L_total_c2","ln_K_camas_c2","ln_K_tech_c2","ln_K_tech_diag_c2",
@@ -150,8 +150,8 @@ df_sfa$flag_sample_I_main <- with(df_sfa,
   es_agudo == 1 &
   !(anyo %in% 2020:2022) &
   altTotal_bruto >= 200 &
-  !is.na(i_diag_hosp_num) &
-  i_diag_hosp_num >= 1000 &
+  !is.na(i_diag_sum) &
+  i_diag_sum >= 1000 &
   is.finite(ln_i_diag) &
   !is.na(D_desc) &
   !is.na(pct_sns) &
@@ -163,8 +163,8 @@ df_sfa$flag_sample_I_loose <- with(df_sfa,
   es_agudo == 1 &
   !(anyo %in% 2020:2022) &
   altTotal_bruto >= 200 &
-  !is.na(i_diag_hosp_num) &
-  i_diag_hosp_num >= 500 &
+  !is.na(i_diag_sum) &
+  i_diag_sum >= 500 &
   is.finite(ln_i_diag) &
   !is.na(D_desc) &
   !is.na(pct_sns) &
@@ -176,8 +176,8 @@ df_sfa$flag_sample_I_strict <- with(df_sfa,
   es_agudo == 1 &
   !(anyo %in% 2020:2022) &
   altTotal_bruto >= 200 &
-  !is.na(i_diag_hosp_num) &
-  i_diag_hosp_num >= 2500 &
+  !is.na(i_diag_sum) &
+  i_diag_sum >= 2500 &
   is.finite(ln_i_diag) &
   !is.na(D_desc) &
   !is.na(pct_sns) &
@@ -210,7 +210,7 @@ q_yr <- df_Q %>%
 print(as.data.frame(q_yr))
 
 df_I <- df_sfa %>% filter(flag_sample_I_main)
-cat("\nIntensity sample (suggested, main filter i_diag_hosp_num >= 1000):",
+cat("\nIntensity sample (suggested, main filter i_diag_sum >= 1000):",
     nrow(df_I), "obs\n")
 
 i_yr <- df_I %>%
@@ -218,7 +218,7 @@ i_yr <- df_I %>%
   summarise(
     n_obs = n(),
     median_i_diag = round(median(i_diag, na.rm = TRUE), 2),
-    median_i_diag_num = round(median(i_diag_hosp_num, na.rm = TRUE), 1),
+    median_i_diag_sum = round(median(i_diag_sum, na.rm = TRUE), 1),
     pct_D1 = round(100 * mean(D_desc == 1, na.rm = TRUE), 1),
     .groups = "drop"
   )

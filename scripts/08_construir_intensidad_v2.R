@@ -150,6 +150,19 @@ df$i_diag <- ifelse(!is.na(altTotal_bruto) & !is.na(df$i_diag_sum),
 df$ln_i_diag <- ifelse(!is.na(df$i_diag) & df$i_diag > 0,
                        log(df$i_diag), NA_real_)
 
+## Winsorización al p1/p99 — guardada como variable estándar
+p1_i  <- quantile(df$i_diag, 0.01, na.rm = TRUE)
+p99_i <- quantile(df$i_diag, 0.99, na.rm = TRUE)
+cat(sprintf("i_diag winsorization: p1=%.3f  p99=%.3f\n", p1_i, p99_i))
+cat(sprintf("  obs below p1: %d  |  obs above p99: %d\n",
+    sum(df$i_diag < p1_i, na.rm = TRUE),
+    sum(df$i_diag > p99_i, na.rm = TRUE)))
+
+df$i_diag_w <- pmin(pmax(df$i_diag, p1_i), p99_i)
+df$i_diag_w[is.na(df$i_diag)] <- NA_real_
+df$ln_i_diag_w <- ifelse(!is.na(df$i_diag_w) & df$i_diag_w > 0,
+                          log(df$i_diag_w), NA_real_)
+
 ## =============================================================
 ## Simple intensity (kept for robustness / diagnostics)
 ## =============================================================
@@ -227,6 +240,7 @@ df$proc_ercp         <- proc_ercp
 
 VARS_NEW <- c(
   "i_diag_sum", "i_diag", "ln_i_diag",
+  "i_diag_w", "ln_i_diag_w",
   "i_simple", "ln_i_simple",
   "proc_biopsias", "proc_tac", "proc_resonancia", "proc_pet",
   "proc_rx", "proc_spect", "proc_angio", "proc_gamma",
