@@ -1,0 +1,75 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tesis_matriz.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: capitulos/cap_00_introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: capitulos/cap_01_marco_juridico.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: capitulos/cap_01_modelo_teorico.aux
+Reallocating 'name_of_file' (item size: 1) to 41 items.
+A level-1 auxiliary file: capitulos/cap_02_estrategia_empirica.aux
+Reallocating 'name_of_file' (item size: 1) to 39 items.
+A level-1 auxiliary file: capitulos/cap_03_datos_y_variables.aux
+Reallocating 'name_of_file' (item size: 1) to 32 items.
+A level-1 auxiliary file: capitulos/cap_04_resultados.aux
+Reallocating 'name_of_file' (item size: 1) to 42 items.
+A level-1 auxiliary file: capitulos/cap_05_robustez_y_discusion.aux
+Reallocating 'name_of_file' (item size: 1) to 57 items.
+A level-1 auxiliary file: capitulos/cap_06_implicaciones_politica_hospitalaria.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: capitulos/cap_07_conclusiones.aux
+Reallocating 'name_of_file' (item size: 1) to 48 items.
+A level-1 auxiliary file: anexos/anexo_01_simulaciones_modelo_teorico.aux
+Reallocating 'name_of_file' (item size: 1) to 41 items.
+A level-1 auxiliary file: anexos/anexo_02_variables_y_pipeline.aux
+Reallocating 'name_of_file' (item size: 1) to 43 items.
+A level-1 auxiliary file: anexos/anexo_03_tablas_complementarias.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+The style file: apalike-es.bst
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+Database file #1: referencias_maestras.bib
+Warning--entry type for "fbbva2025" isn't style-file defined
+--line 923 of file referencias_maestras.bib
+You've used 59 entries,
+            1935 wiz_defined-function locations,
+            816 strings with 14573 characters,
+and the built_in function-call counts, 21792 in all, are:
+= -- 2211
+> -- 724
+< -- 48
++ -- 245
+- -- 227
+* -- 1835
+:= -- 3826
+add.period$ -- 185
+call.type$ -- 59
+change.case$ -- 403
+chr.to.int$ -- 57
+cite$ -- 59
+duplicate$ -- 816
+empty$ -- 1592
+format.name$ -- 328
+if$ -- 4224
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 59
+newline$ -- 305
+num.names$ -- 179
+pop$ -- 286
+preamble$ -- 1
+purify$ -- 406
+quote$ -- 0
+skip$ -- 625
+stack$ -- 0
+substring$ -- 1699
+swap$ -- 65
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 336
+warning$ -- 0
+while$ -- 201
+width$ -- 0
+write$ -- 785
+(There was 1 warning)

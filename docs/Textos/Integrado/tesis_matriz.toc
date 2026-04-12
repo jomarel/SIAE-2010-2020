@@ -124,9 +124,9 @@
 \contentsline {section}{\numberline {6.1}Eficiencia técnica: valores medios}{87}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Diseño D: función de distancia output}{88}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Diseño A: cantidad versus intensidad}{89}{section.6.3}%
-\contentsline {paragraph}{Efecto marginal de $pct^{SNS}$ condicionado al tipo de hospital.}{90}{section*.34}%
-\contentsline {paragraph}{El punto de cruce.}{91}{section*.35}%
-\contentsline {paragraph}{Sobre la no confirmación de signo y la asimetría confirmada de P2.}{91}{section*.36}%
+\contentsline {paragraph}{Efecto marginal de $pct^{SNS}$ condicionado al tipo de hospital.}{90}{section*.23}%
+\contentsline {paragraph}{El punto de cruce.}{91}{section*.24}%
+\contentsline {paragraph}{Sobre la no confirmación de signo y la asimetría confirmada de P2.}{91}{section*.25}%
 \contentsline {section}{\numberline {6.4}Diseño B: servicios quirúrgicos versus médicos}{92}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Diseño C: panel hospital $\times $ servicio}{93}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Test P$^*$: contraste conjunto}{95}{section.6.6}%

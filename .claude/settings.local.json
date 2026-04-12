@@ -19,7 +19,8 @@
       "Bash(pdflatex -interaction=nonstopmode -halt-on-error tesis_matriz.tex)",
       "Bash(bibtex tesis_matriz)",
       "Bash(pdflatex -interaction=nonstopmode tesis_matriz.tex)",
-      "Bash(grep -E \"\\\\\\\\contentsline \\\\{chapter\\\\}\" tesis_matriz.toc)"
+      "Bash(grep -E \"\\\\\\\\contentsline \\\\{chapter\\\\}\" tesis_matriz.toc)",
+      "Bash(Rscript -e ':*)"
     ]
   }
 }

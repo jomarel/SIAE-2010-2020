@@ -1,0 +1,245 @@
+=== RESULTS: ALL DESIGNS ===
+Generated: 2026-04-06 09:20:59 
+
+--- Design A: Total ---
+
+=== m_A_Total ===
+logLik: -3030.436 
+N: 5332 
+TE mean: 0.7193 
+TE median: 0.787 
+gamma: 0.915825 
+
+Z-coefficients:
+  Z_(Intercept)            4.7938  se=  0.3729  t= 12.855 ***
+  Z_D_desc                -7.5062  se=  0.6577  t=-11.413 ***
+  Z_pct_sns               -5.8540  se=  0.5385  t=-10.870 ***
+  Z_desc_pago              7.1715  se=  0.6123  t= 11.713 ***
+  Z_ShareQ                -5.7865  se=  0.5812  t= -9.956 ***
+  Z_desc_shareQ            7.0185  se=  0.6542  t= 10.729 ***
+  Z_d_ccaa_1               0.3942  se=  0.0881  t=  4.475 ***
+  Z_d_ccaa_2               1.1738  se=  0.1630  t=  7.201 ***
+  Z_d_ccaa_3               1.4851  se=  0.1708  t=  8.696 ***
+  Z_d_ccaa_4               0.6553  se=  0.1921  t=  3.411 ***
+  Z_d_ccaa_5               1.4705  se=  0.1279  t= 11.501 ***
+  Z_d_ccaa_6               1.1235  se=  0.2020  t=  5.562 ***
+  Z_d_ccaa_7               2.0908  se=  0.1845  t= 11.330 ***
+  Z_d_ccaa_8               0.7820  se=  0.1365  t=  5.728 ***
+  Z_d_ccaa_10             -0.3717  se=  0.1277  t= -2.911 ***
+  Z_d_ccaa_11              1.5107  se=  0.1658  t=  9.112 ***
+  Z_d_ccaa_12              0.6930  se=  0.1094  t=  6.336 ***
+  Z_d_ccaa_13             -0.1010  se=  0.1124  t= -0.899 
+  Z_d_ccaa_14              0.8640  se=  0.1340  t=  6.447 ***
+  Z_d_ccaa_15             -3.0170  se=  0.9029  t= -3.342 ***
+  Z_d_ccaa_16             -0.3421  se=  0.1607  t= -2.129 **
+  Z_d_ccaa_17             -5.0906  se=  3.4580  t= -1.472 
+  Z_d_ccaa_18             -0.2048  se=  0.5134  t= -0.399 
+  Z_d_ccaa_19             -5.1557  se=  1.4475  t= -3.562 ***
+  sigmaSq                0.949454
+  gamma                  0.915825
+
+--- Design A: Intensity (winsorized) ---
+
+=== m_A_I_winsorized ===
+logLik: -4286.247 
+N: 5332 
+TE mean: 0.6656 
+TE median: 0.7608 
+gamma: 0.985689 
+
+Z-coefficients:
+  Z_(Intercept)          -29.2097  se=  5.5915  t= -5.224 ***
+  Z_D_desc                25.8820  se=  4.6000  t=  5.627 ***
+  Z_pct_sns                1.7503  se=  0.9088  t=  1.926 *
+  Z_desc_pago             -2.2454  se=  1.0623  t= -2.114 **
+  Z_ShareQ                21.5909  se=  3.9830  t=  5.421 ***
+  Z_desc_shareQ          -20.9520  se=  3.9015  t= -5.370 ***
+  Z_d_ccaa_1              -3.3951  se=  0.6048  t= -5.614 ***
+  Z_d_ccaa_2              -2.3797  se=  0.6934  t= -3.432 ***
+  Z_d_ccaa_3             -25.2082  se=  6.0078  t= -4.196 ***
+  Z_d_ccaa_4              -1.6195  se=  0.4259  t= -3.802 ***
+  Z_d_ccaa_5              -6.2902  se=  1.1088  t= -5.673 ***
+  Z_d_ccaa_6               0.5643  se=  0.9772  t=  0.578 
+  Z_d_ccaa_7               0.0404  se=  0.5250  t=  0.077 
+  Z_d_ccaa_8              -1.3975  se=  0.6810  t= -2.052 **
+  Z_d_ccaa_10             -5.3222  se=  0.9360  t= -5.686 ***
+  Z_d_ccaa_11             -0.3920  se=  0.5800  t= -0.676 
+  Z_d_ccaa_12             -3.2632  se=  0.6197  t= -5.265 ***
+  Z_d_ccaa_13             -8.2275  se=  1.3527  t= -6.082 ***
+  Z_d_ccaa_14             -2.0564  se=  0.6591  t= -3.120 ***
+  Z_d_ccaa_15              1.0266  se=  0.5149  t=  1.994 **
+  Z_d_ccaa_16             -0.4519  se=  0.2741  t= -1.649 *
+  Z_d_ccaa_17             -2.4306  se=  1.1772  t= -2.065 **
+  sigmaSq                6.812620
+  gamma                  0.985689
+
+--- Design A: Contrast ---
+                 variable coef_Total se_Total coef_Intensity se_Intensity
+Z_D_desc           D_desc    -7.5062   0.6577        25.8820       4.6000
+Z_pct_sns         pct_sns    -5.8540   0.5385         1.7503       0.9088
+Z_desc_pago     desc_pago     7.1715   0.6123        -2.2454       1.0623
+Z_ShareQ           ShareQ    -5.7865   0.5812        21.5909       3.9830
+Z_desc_shareQ desc_shareQ     7.0185   0.6542       -20.9520       3.9015
+              z_diff p_value
+Z_D_desc      -7.185       0
+Z_pct_sns     -7.198       0
+Z_desc_pago    7.680       0
+Z_ShareQ      -6.802       0
+Z_desc_shareQ  7.070       0
+
+
+--- Design B: Surgical (Q) ---
+
+=== m_B_Q ===
+logLik: -1259.967 
+N: 3866 
+TE mean: 0.5504 
+TE median: 0.432 
+gamma: 0 
+
+Z-coefficients:
+  Z_(Intercept)            1.7423  se=  0.0153  t=113.574 ***
+  Z_d_Priv_Conc            0.0945  se=  0.2399  t=  0.394 
+  Z_d_Priv_Merc           -0.1725  se=  0.0080  t=-21.688 ***
+  Z_Conc_shareQ           -0.0556  se=  0.3028  t= -0.184 
+  Z_Merc_shareQ           -0.6605  se=  0.0929  t= -7.112 ***
+  Z_ShareQ                -2.3732  se=  0.0990  t=-23.976 ***
+  Z_d_ccaa_1               0.0581  se=  0.0036  t= 15.942 ***
+  Z_d_ccaa_2               0.1644  se=  0.0166  t=  9.892 ***
+  Z_d_ccaa_3               0.1644  se=  0.0061  t= 26.747 ***
+  Z_d_ccaa_4               0.1173  se=  0.6788  t=  0.173 
+  Z_d_ccaa_5               0.3010  se=  0.1572  t=  1.914 *
+  Z_d_ccaa_6               0.0567  se=  0.1291  t=  0.439 
+  Z_d_ccaa_7               0.3547  se=  0.0230  t= 15.430 ***
+  Z_d_ccaa_8               0.0477  se=  0.0248  t=  1.921 *
+  Z_d_ccaa_10             -0.0042  se=  0.0677  t= -0.063 
+  Z_d_ccaa_11              0.1352  se=  0.0100  t= 13.572 ***
+  Z_d_ccaa_12              0.1293  se=  0.0049  t= 26.200 ***
+  Z_d_ccaa_13              0.0852  se=  0.0250  t=  3.411 ***
+  Z_d_ccaa_14              0.1493  se=  0.0467  t=  3.199 ***
+  Z_d_ccaa_15             -3.4533  se=  0.1021  t=-33.837 ***
+  Z_d_ccaa_16             -0.1286  se=  0.0199  t= -6.453 ***
+  sigmaSq                0.112440
+  gamma                  0.000000
+
+--- Design B: Medical (M) ---
+
+=== m_B_M ===
+logLik: -2909.741 
+N: 3866 
+TE mean: 0.4877 
+TE median: 0.4542 
+gamma: 0.000887 
+
+Z-coefficients:
+  Z_(Intercept)            0.3631  se=  0.0767  t=  4.736 ***
+  Z_d_Priv_Conc           -0.9185  se=  0.1205  t= -7.621 ***
+  Z_d_Priv_Merc           -1.0701  se=  0.0805  t=-13.290 ***
+  Z_Conc_shareQ            1.3576  se=  0.2208  t=  6.148 ***
+  Z_Merc_shareQ            1.4004  se=  0.1541  t=  9.085 ***
+  Z_ShareQ                 0.9090  se=  0.1184  t=  7.679 ***
+  Z_d_ccaa_1               0.2547  se=  0.0322  t=  7.919 ***
+  Z_d_ccaa_2               0.1539  se=  0.0497  t=  3.096 ***
+  Z_d_ccaa_3               0.0025  se=  0.0500  t=  0.051 
+  Z_d_ccaa_4               0.1992  se=  0.0504  t=  3.954 ***
+  Z_d_ccaa_5               0.3843  se=  0.0489  t=  7.862 ***
+  Z_d_ccaa_6              -0.0780  se=  0.0955  t= -0.816 
+  Z_d_ccaa_7               0.3730  se=  0.0551  t=  6.773 ***
+  Z_d_ccaa_8               0.1129  se=  0.0503  t=  2.245 **
+  Z_d_ccaa_10              0.1209  se=  0.0336  t=  3.596 ***
+  Z_d_ccaa_11              0.2689  se=  0.0581  t=  4.627 ***
+  Z_d_ccaa_12              0.1834  se=  0.0430  t=  4.267 ***
+  Z_d_ccaa_13              0.2201  se=  0.0338  t=  6.519 ***
+  Z_d_ccaa_14              0.1615  se=  0.0550  t=  2.937 ***
+  Z_d_ccaa_15              0.1633  se=  0.0831  t=  1.965 **
+  Z_d_ccaa_16             -0.4037  se=  0.0425  t= -9.496 ***
+  sigmaSq                0.263775
+  gamma                  0.000887
+
+--- Design B: Contrast ---
+                 variable  coef_Q   se_Q  coef_M   se_M  z_diff p_value
+Z_d_Priv_Conc d_Priv_Conc  0.0945 0.2399 -0.9185 0.1205   3.773   2e-04
+Z_d_Priv_Merc d_Priv_Merc -0.1725 0.0080 -1.0701 0.0805  11.094   0e+00
+Z_ShareQ           ShareQ -2.3732 0.0990  0.9090 0.1184 -21.271   0e+00
+Z_Conc_shareQ Conc_shareQ -0.0556 0.3028  1.3576 0.2208  -3.771   2e-04
+Z_Merc_shareQ Merc_shareQ -0.6605 0.0929  1.4004 0.1541 -11.452   0e+00
+
+--- TE correlation Q vs M ---
+Pearson: -0.0235 
+Spearman: 0.0449 
+
+
+--- Design C: Panel service ---
+
+=== m_C_panel ===
+logLik: -4797 
+N: 7732 
+TE mean: 0.2912 
+TE median: 0.2237 
+gamma: 0.370349 
+
+Z-coefficients:
+  Z_(Intercept)            0.9484  se=  0.0715  t= 13.264 ***
+  Z_d_Priv_Conc           -0.2939  se=  0.0529  t= -5.554 ***
+  Z_d_Priv_Merc           -0.4162  se=  0.0326  t=-12.786 ***
+  Z_C_s                    1.3363  se=  0.0497  t= 26.865 ***
+  Z_Priv_Conc_Cs           0.2140  se=  0.0633  t=  3.379 ***
+  Z_Priv_Merc_Cs          -0.2062  se=  0.0328  t= -6.296 ***
+  Z_ShareQ                 1.5800  se=  0.0912  t= 17.332 ***
+  Z_ShareQ_Cs             -4.0899  se=  0.1352  t=-30.258 ***
+  Z_d_ccaa_1               0.1819  se=  0.0218  t=  8.345 ***
+  Z_d_ccaa_2               0.1800  se=  0.0456  t=  3.951 ***
+  Z_d_ccaa_3               0.1533  se=  0.0424  t=  3.612 ***
+  Z_d_ccaa_4               0.1896  se=  0.0465  t=  4.080 ***
+  Z_d_ccaa_5               0.4111  se=  0.0370  t= 11.101 ***
+  Z_d_ccaa_6               0.0188  se=  0.0607  t=  0.309 
+  Z_d_ccaa_7               0.3786  se=  0.0274  t= 13.803 ***
+  Z_d_ccaa_8               0.1558  se=  0.0490  t=  3.182 ***
+  Z_d_ccaa_10              0.0858  se=  0.0270  t=  3.178 ***
+  Z_d_ccaa_11              0.2373  se=  0.0465  t=  5.106 ***
+  Z_d_ccaa_12              0.2292  se=  0.0432  t=  5.306 ***
+  Z_d_ccaa_13              0.1983  se=  0.0252  t=  7.854 ***
+  Z_d_ccaa_14              0.2096  se=  0.0357  t=  5.870 ***
+  Z_d_ccaa_15              0.2320  se=  0.0516  t=  4.495 ***
+  Z_d_ccaa_16             -0.2625  se=  0.0321  t= -8.177 ***
+  sigmaSq                0.206327
+  gamma                  0.370349
+
+
+--- Design D: Output Distance Function ---
+
+=== m_D_ODF ===
+logLik: -867.8423 
+N: 3866 
+TE mean: 0.5848 
+TE median: 0.6425 
+gamma: 0.661916 
+
+Z-coefficients:
+  Z_(Intercept)           -0.7286  se=  0.0718  t=-10.147 ***
+  Z_d_Priv_Conc            1.0300  se=  0.1213  t=  8.491 ***
+  Z_d_Priv_Merc            1.5975  se=  0.0921  t= 17.339 ***
+  Z_Conc_shareQ           -1.3594  se=  0.2143  t= -6.344 ***
+  Z_Merc_shareQ           -1.7196  se=  0.1681  t=-10.231 ***
+  Z_ShareQ                 3.0029  se=  0.1405  t= 21.374 ***
+  Z_d_ccaa_1              -0.2505  se=  0.0323  t= -7.751 ***
+  Z_d_ccaa_2              -0.2530  se=  0.0522  t= -4.851 ***
+  Z_d_ccaa_3              -0.4493  se=  0.0590  t= -7.619 ***
+  Z_d_ccaa_4              -0.3943  se=  0.0591  t= -6.673 ***
+  Z_d_ccaa_5              -0.5746  se=  0.0411  t=-13.987 ***
+  Z_d_ccaa_6              -0.1120  se=  0.1176  t= -0.953 
+  Z_d_ccaa_7              -0.6845  se=  0.0523  t=-13.075 ***
+  Z_d_ccaa_8              -0.3083  se=  0.0716  t= -4.303 ***
+  Z_d_ccaa_10             -0.1665  se=  0.0319  t= -5.224 ***
+  Z_d_ccaa_11             -0.2895  se=  0.0691  t= -4.192 ***
+  Z_d_ccaa_12             -0.3075  se=  0.0463  t= -6.634 ***
+  Z_d_ccaa_13             -0.2777  se=  0.0383  t= -7.242 ***
+  Z_d_ccaa_14             -0.4110  se=  0.0679  t= -6.057 ***
+  Z_d_ccaa_15             -0.6194  se=  0.0947  t= -6.542 ***
+  Z_d_ccaa_16             -0.0069  se=  0.0383  t= -0.181 
+  sigmaSq                0.123616
+  gamma                  0.661916
+
+
+P* test A: LR=11125.30 df=24 p=0.000000
+P* test B: LR=4211.47 df=21 p=0.000000

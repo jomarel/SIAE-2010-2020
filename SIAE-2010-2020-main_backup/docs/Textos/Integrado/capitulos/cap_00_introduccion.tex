@@ -1,0 +1,353 @@
+﻿\chapter{Introducción}
+\label{ch:intro}
+
+\section{Planteamiento del problema}
+
+La organización hospitalaria es un objeto de investigación particularmente exigente para la economía aplicada porque combina, en un mismo marco institucional, un mandato público de provisión y tutela de la salud y una realidad productiva y organizativa donde la relación entre recursos y resultados no se resume bien en un único indicador. El artículo 43 de la Constitución Española reconoce el derecho a la protección de la salud y encomienda a los poderes públicos organizar y tutelar la salud pública mediante medidas preventivas y las prestaciones y servicios necesarios. Este punto de partida es normativo y finalista; es decir, no describe por sí mismo una tecnología hospitalaria ni prescribe un único diseño organizativo.
+
+La legislación sanitaria básica concreta esa orientación con un doble movimiento: define estructuras, derechos y prestaciones, y al mismo tiempo, admite diversidad organizativa. La Ley 14/1986, General de Sanidad tiene por objeto la regulación de las acciones que permitan hacer efectivo el derecho reconocido en el artículo 43 CE y configura el hospital como un centro de atención especializada, en el que se integran funciones de internamiento clínico junto con actividades diagnósticas, terapéuticas y de apoyo a la atención sanitaria en su ámbito territorial. Por su parte, la Ley 16/2003, de Cohesión y Calidad del Sistema Nacional de Salud establece un catálogo de prestaciones del Sistema Nacional de Salud y concibe la atención especializada de forma amplia, no limitada al internamiento hospitalario. El resultado es una definición legal del producto hospitalario necesariamente multidimensional: no solo estancias o intervenciones, sino un conjunto de servicios preventivos, diagnósticos, terapéuticos, rehabilitadores y de continuidad asistencial, con componentes de calidad y seguridad que no se agotan en el volumen de actividad \citep{peman2005}.
+
+Esta multidimensionalidad tiene consecuencias analíticas inmediatas. En un entorno donde existen varias tareas y varios outputs relevantes, los mecanismos de incentivos y control enfrentan un problema estructural de medición y verificación. Por un lado, es posible medir con relativa facilidad ciertos \textit{proxies}  como actividad, tiempos de espera, listas, pero otras dimensiones ---calidad clínica, adecuación diagnóstica, coordinación asistencial, experiencia del paciente--- son costosas de observar y, sobre todo, de hacer contractualmente exigibles. En la teoría económica, esta tensión está en el centro de los modelos 
+de agencia multitarea \citep{holmstrom1991} conforme a los cuales, 
+cuando algunas tareas son más medibles que otras, los esquemas de 
+incentivos pueden generar reasignaciones de esfuerzo hacia lo medible 
+en detrimento de lo valioso pero difícil de verificar.\footnote{En la 
+literatura de gestión pública, este mecanismo recibe el nombre de 
+\textit{visión del túnel} (\textit{tunnel vision}): la concentración 
+de esfuerzo en los indicadores medibles desplaza la atención de 
+dimensiones del desempeño igualmente relevantes pero no verificables 
+\citep{smith1995}. En el contexto hospitalario, la visión del túnel 
+puede manifestarse cuando los esquemas de incentivos orientados al 
+volumen de actividad ---más fácilmente medible--- reducen el esfuerzo 
+dedicado a la intensidad diagnóstico-terapéutica, que es precisamente 
+la asimetría que esta tesis contrasta empíricamente.} Esto justifica que la tesis plantee la organización hospitalaria no como un mero problema de asignación eficiente de inputs, sino como un problema de diseño institucional bajo información asimétrica y contratos inevitablemente incompletos.
+
+Además, el hospital es una organización con múltiples agentes y niveles de decisión. El marco jurídico-institucional del sistema sanitario español se caracteriza por combinar un financiador público y una estructura administrativa compleja con arreglos de gestión que pueden asignar a distintas entidades ---públicas o con técnicas de derecho privado--- grados distintos de autonomía de dirección, contratación y gestión de personal \citep{dominguez2006}. En la cadena de provisión hospitalaria, el financiador público y la administración sanitaria fijan objetivos, reglas e instrumentos (presupuesto, cartera de servicios, indicadores), pero no observan perfectamente el esfuerzo clínico ni la calidad en todas sus dimensiones; la dirección del hospital traduce esos objetivos en organización interna y supervisión, condicionada por reglas de empleo y contratación; y los profesionales clínicos toman decisiones con alto contenido técnico bajo información local que no es plenamente transmisible. En términos económicos, esto configura una cadena de relaciones principal--agente donde la capacidad del principal para observar acciones y resultados es imperfecta, y donde cada eslabón opera condicionado por reglas de función pública, presupuestación, empleo estatutario o contratación pública.
+
+La clave para esta tesis es que el ordenamiento español ha permitido, al menos desde finales de los años noventa, una pluralidad de fórmulas organizativas y de gestión en el ámbito sanitario público. Ley 15/1997, de 25 de abril, de habilitación de nuevas formas de gestión del Sistema Nacional de Salud, habilita la gestión y administración de centros y servicios sanitarios de forma directa o indirecta a través de cualesquiera entidades de naturaleza o titularidad pública admitidas en Derecho; el Real Decreto 29/2000, de 14 de enero, sobre nuevas formas de gestión del Instituto Nacional de la Salud, desarrolla reglamentariamente esa habilitación, articulando órganos de gobierno y elementos de funcionamiento de las nuevas formas de gestión. En consecuencia, la forma de gestión no es un mero envoltorio legal si no que es un determinante potencial de la autonomía real del gestor, del reparto de riesgos, del régimen de control y de la capacidad contractual con terceros.
+
+A esta arquitectura se superpone el régimen del personal. La Ley 55/2003 define el Estatuto Marco del personal estatutario de los servicios de salud como base reguladora de una relación funcionarial especial, lo que sitúa el empleo estatutario en el núcleo de la gobernanza hospitalaria pública. La combinación de normas de personal, presupuestación y control administrativo condiciona de facto el conjunto de instrumentos disponibles para alinear incentivos: qué puede delegarse, qué puede retribuirse por desempeño, qué puede reorganizarse internamente y con qué márgenes temporales. Desde un punto de vista de teoría de contratos, esto refuerza la idea de incompletitud contractual. Incluso con voluntad de diseñar esquemas sofisticados, la capacidad de escribir y ejecutar contratos completos sobre todas las dimensiones relevantes del output hospitalario es limitada.
+
+Este conjunto de rasgos mencionados ---multitarea, multiagente, dificultades de verificación y diversidad organizativa--- fundamenta la pregunta de investigación que vertebra esta tesis. El modelo teórico que se desarrolla en el Capítulo~\ref{ch:modelo} formaliza esta estructura como un juego de tres agentes  (financiador, hospital y médico) que producen conjuntamente dos \textit{outputs} con tecnologías asimétricas (la cantidad de atención que depende del esfuerzo de hospital y médico y la intensidad diagnóstico-terapéutica por episodio que depende exclusivamente del esfuerzo del médico). La cuestión central es qué consecuencias tiene la arquitectura institucional y contractual sobre el desempeño diferencial en cada dimensión, en un contexto donde la medición del \textit{output} es imperfecta y donde diferentes objetivos coexisten y pueden entrar en conflicto.
+
+El Capítulo~\ref{ch:juridico} sistematiza el marco jurídico-institucional 
+en  el que opera esta pluralidad organizativa. Sobre esa base, el 
+modelo teórico trata de  hacer una traslación de  la diversidad institucional hacia  parámetros 
+económicos manejables, aunque indudablemente simplificadores,  y prepara el terreno para la evaluación 
+empírica mediante técnicas de frontera estocástica. Los resultados 
+de esa evaluación, desarrollados en los Capítulos~\ref{ch:estrategia} 
+a~\ref{ch:robustez}, permiten derivar implicaciones directas para el 
+diseño de contratos hospitalarios y la regulación de las formas 
+descentralizadas de gestión, que se abordan en el 
+Capítulo~\ref{ch:politica}.
+\section{Actualidad del debate y relevancia del caso español}
+
+La organización hospitalaria en España es un debate estructural, no una controversia coyuntural. La actualidad de 2026 lo ilustra al menos por dos vías complementarias: reformas normativas en tramitación y conflictividad profesional en torno al empleo y la gobernanza.%TODO IDEA: no estoy seguro de querer introducir fechas. Hay que revisar estas afirmaciones basadas en la actualidad porque cuando se deposite la tesis pueden haber cambiado.
+
+
+Con fecha 10 de febrero de 2026, el Consejo de Ministros aprobó para su tramitación el anteproyecto de Ley de Gestión Pública e Integridad del Sistema Nacional de Salud, cuya propia exposición institucional sitúa como objetivo  reforzar  la prioridad de la gestión pública directa, regular la gestión indirecta como excepcional y derogar expresamente la Ley 15/1997 \citep{ministerio2026gestion}. Sin anticipar el resultado legislativo, el solo hecho de que se plantee una reforma de este alcance confirma que la arquitectura de la gestión ---directa o indirecta, instrumentos de control, transparencia, reversión--- sigue siendo un objeto de decisión política y jurídica de primer orden. %TODO IDEA: creo que el texto abusa en exceso de guiones y paréntesis.  
+
+En paralelo, el Ministerio publicó en enero de 2026 el borrador del nuevo Estatuto Marco del personal estatutario \citep{ministerio2026estatuto}, en un contexto de negociación y contestación por parte de las organizaciones profesionales médicas. En la práctica, 2026 ha visto convocatorias de huelga y movilizaciones ligadas a la reforma del Estatuto Marco y a la demanda de un marco regulatorio específico para la profesión médica. Desde el punto de vista de esta tesis, el interés de estos hechos no es su dimensión mediática, sino su contenido institucional al poner el foco en el régimen del personal, la dirección efectiva del trabajo clínico, la asignación de tiempos y guardias, y, en general, en cómo se estructura la autoridad dentro de las organizaciones sanitarias. Esto conecta directamente con el núcleo del análisis económico de la tesis: incentivos y esfuerzo en un entorno multitarea donde el desempeño no se puede observar completamente.
+
+La relevancia del caso español para una tesis en economía aplicada se refuerza por su configuración institucional. El Sistema Nacional de Salud descansa sobre una estructura de 
+provisión profundamente descentralizada, resultado de un proceso de transferencias sanitarias desde el antiguo INSALUD a las comunidades autónomas que culminó en enero de 2002, fecha a partir de la cual todas  disponen de las competencias sanitarias previstas en el ordenamiento \citep{observatorioHIT2024}. El sistema se concibe como conjunto coordinado de los servicios de salud autonómicos, articulado mediante instrumentos de cohesión entre los que destaca el Consejo Interterritorial del SNS, órgano de coordinación integrado por la persona titular del Ministerio y los consejeros autonómicos de sanidad.
+
+Esta combinación, \emph{descentralización efectiva y coordinación institucionalizada}, crea un entorno particularmente útil para el análisis comparado interno pues permite observar variación organizativa bajo un paraguas constitucional y legal común, concentrando el análisis en diferencias institucionalmente pertinentes sin el \textit{ruido} de comparar sistemas sanitarios completamente distintos. El \textit{European Observatory on Health Systems and Policies} describe el sistema español como descentralizado, con cobertura virtualmente universal, financiación principalmente impositiva y provisión predominantemente pública \citep{observatorioHIT2024}. Esta caracterización  permite situar el caso español en una tipología internacional reconocible y justifica que la variación organizativa española pueda entenderse como una manifestación concreta de tensiones presentes en muchos sistemas sanitarios descentralizados.
+
+El propio marco legal asume la necesidad de evaluación comparada. La Ley 16/2003, de cohesión y calidad del SNS, prevé un Observatorio del Sistema Nacional de Salud con la función de proporcionar un análisis permanente de los servicios de salud autonómicos en ámbitos que incluyen organización, provisión, gestión y resultados. Esta previsión refuerza, creemos, la legitimidad de una tesis que se propone evaluar el desempeño hospitalario con enfoque empírico. En este sentido, la evaluación no es una imposición externa al sistema, sino una función prevista normativamente.
+
+\section{Objetivos y contribución}
+
+Los objetivos principales de este trabajo de tesis doctoral son cuatro:
+
+\begin{enumerate}[label=(\roman*)]
+  \item Sistematizar el marco jurídico e institucional que regula 
+la organización hospitalaria en España y traducir sus categorías 
+al lenguaje analítico de la teoría económica de la agencia, 
+con el propósito de enriquecer el diálogo entre ambas disciplinas 
+y proporcionar una base empírica rigurosa para la evaluación 
+y el diseño de reformas normativas del sistema sanitario.
+  
+  \item Desarrollar un modelo teórico de agencia multitarea que caracterice las relaciones contractuales entre financiador, hospital y médico bajo riesgo moral, y que genere predicciones contrastables sobre los efectos diferenciales de la estructura organizativa en las dos dimensiones del output hospitalario.
+
+  \item Diseñar y ejecutar una estrategia empírica que permita contrastar esas predicciones utilizando técnicas de frontera estocástica (SFA) con datos de panel del sistema hospitalario español para el período 2010--2023.
+
+  \item Derivar implicaciones de política sanitaria sobre el diseño de la estructura organizativa y los mecanismos de pago a hospitales, fundamentadas tanto en la teoría como en la evidencia empírica.
+\end{enumerate}
+
+En consonancia con la investigación llevada a cabo, la contribución de esta tesis es quíntuple.
+
+En primer lugar, en el plano jurídico-institucional, la tesis 
+sistematiza el marco normativo que regula la organización 
+hospitalaria en España y lo traduce al lenguaje analítico de 
+la teoría económica de la agencia. Esta traducción no es un 
+ejercicio meramente descriptivo sino una operación metodológica 
+que permite conectar categorías jurídicas como la forma de 
+gestión, el régimen del personal o el mecanismo de financiación 
+con parámetros económicos precisos cuyos efectos son 
+empíricamente contrastables. La contribución es relevante 
+tanto para la ciencia jurídica, que dispone así de evidencia 
+empírica rigurosa para evaluar reformas normativas, como para 
+la economía aplicada, que encuentra en el derecho sanitario 
+español un laboratorio institucional de variación organizativa 
+difícilmente disponible en otros sistemas.
+
+En segundo lugar, en el plano teórico, el modelo desarrollado extiende los resultados clásicos de la teoría de la agencia en presentica de multitareas \citep{holmstrom1991} al caso de tres agentes y dos outputs producidos asimétricamente, derivando predicciones sobre la interacción entre estructura organizativa, tipo de pago y complementariedad/sustitución entre tareas que, hasta donde conocemos, no están disponibles en la literatura previa. En particular, el resultado de que el efecto de  los incentivos en el hospital sea función de $\psi_{12}$, el parámetro de complementariedad o sustitución tecnológica entre tareas, en la estructura descentralizada pero no en la centralizada (\textit{potencia de incentivos secuencialmente inducida}) es una contribución analítica nueva.
+
+En tercer término, en el plano empírico, la estimación de un sistema de dos fronteras estocásticas, una para cada dimensión del output, constituye la primera contrastación empírica directa de un modelo de agencia multitarea en el sector hospitalario español. El diseño empírico permite identificar si los efectos de la descentralización son efectivamente de signo opuesto (o al menos asimétricos) entre la cantidad y la intensidad, algo que un modelo con un único término de ineficiencia no puede captar. %La confirmación de P4 en el Diseño B con $z_{dif}=-9.89$ ($p<0.001$) es el resultado empírico más sólido y directamente vinculado al mecanismo teórico.
+
+En cuarto lugar, en el plano metodológico, la tesis contribuye a la literatura de análisis de fronteras estocásticas (SFA) en el sector hospitalario al proporcionar cuatro diseños complementarios de estimación ---función de distancia output, sistema bivariado cantidad/intensidad, sistema bivariado quirúrgico/médico y panel hospital$\times$servicio--- que explotan distintas fuentes de variación y permiten una triangulación de los resultados. Esta estrategia de triangulación es replicable y extensible a otros sistemas sanitarios con datos de estructura similar.
+
+% En cuarto lugar, en el plano de datos, la construcción del panel armonizado del sistema hospitalario español para 2010--2023, integrando SIAE, CNH y CMBD parcial con imputación de case-mix mediante aprendizaje automático, constituye un activo de investigación disponible para análisis posteriores. El pipeline de datos documentado en el Anexo~\ref{app:pipeline} está diseñado para ser reproducible y actualizable con los datos de años futuros del SIAE.
+Finalmente, como quinta aportación y en el plano de política hospitalaria, la tesis 
+proporciona criterios empíricamente fundamentados para el diseño 
+de contratos entre financiadores públicos y proveedores 
+hospitalarios. Los resultados permiten identificar el nivel 
+óptimo de dependencia financiera del SNS en los contratos de 
+concierto, distinguir qué tipos de servicio se benefician más 
+de la autonomía descentralizada y justificar la incorporación 
+de indicadores de intensidad diagnóstica en los contratos-programa 
+autonómicos. Esta contribución adquiere especial relevancia en 
+el contexto de las reformas normativas actualmente en tramitación, 
+cuya evaluación de impacto puede apoyarse directamente en los 
+resultados de esta investigación.
+\section{El sistema hospitalario español: contexto institucional}
+\label{sec:contexto_sns}
+
+\subsection{Estructura del SNS tras las transferencias autonómicas}
+
+El Sistema Nacional de Salud español, configurado por la Ley General de Sanidad de 1986, descansa sobre tres principios: universalidad, equidad y financiación pública. Hasta el año 2002, varias comunidades autónomas gestionaban ya sus propias redes hospitalarias (Cataluña desde 1981, Andalucía desde 1984, País Vasco y la Comunidad Valenciana desde 1987, Navarra desde 1990 y Galicia y las Islas Canarias desde 1994). La reforma del sistema de financiación autonómica aprobada en 2001 y efectiva en 2002 completó el proceso de transferencias sanitarias al conjunto de las comunidades autónomas, poniendo fin al INSALUD como gestor directo de los servicios sanitarios en las comunidades que permanecían bajo gestión central.
+
+El resultado es un sistema descentralizado en el que diecisiete servicios autonómicos de salud ejercen la función de compradores de servicios hospitalarios dentro de sus respectivos territorios \citep{repullo2008}. Esta estructura descentralizada ha generado una creciente heterogeneidad tanto en los modelos organizativos de los hospitales como en los mecanismos de pago y contratación del personal sanitario, haciendo del sistema hospitalario español un objeto de análisis especialmente rico para la economía de la salud.\footnote{Repullo y Freire (2008) advierten que este 
+modelo de descentralización, aunque relativamente estable a corto plazo, 
+plantea problemas estructurales de sostenibilidad y gobernabilidad. En 
+particular, señalan la dificultad de aprovechar las economías de escala 
+del sistema y de garantizar la equidad interterritorial, y proponen 
+redefinir el papel del gobierno central como instancia de coordinación 
+con capacidad efectiva para hacer converger los distintos servicios 
+autonómicos de salud. Sin embargo, estas tensiones entre autonomía regional y cohesión 
+sistémica son precisamente las que generan la variación institucional que 
+esta tesis explota analíticamente.}
+
+
+\subsection{Tipología de hospitales del sistema español}
+
+La diversidad organizativa del sistema hospitalario español puede 
+clasificarse en cinco grandes categorías según la dependencia 
+funcional y el régimen de gestión \citep{menendez2008}.
+
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Hospitales públicos integrados del SNS:} Constituyen 
+  la columna vertebral del sistema. El personal es estatutario 
+  (funcionario o laboral especial) y las condiciones de contratación 
+  están sujetas a la Ley 55/2003, del Estatuto Marco del personal 
+  estatutario de los servicios de salud. La financiación proviene 
+  del presupuesto del servicio autonómico de salud, generalmente 
+  mediante contratos-programa anuales que establecen objetivos de 
+  actividad y calidad. El hospital no tiene autonomía para fijar 
+  libremente retribuciones ni para despedir personal.
+
+  \item \textbf{Fundaciones sanitarias públicas:} Surgieron en los 
+  años noventa como fórmula para introducir flexibilidad de gestión 
+  manteniendo la titularidad pública \citep{menendez2008}. Los 
+  trabajadores tienen contratos laborales ordinarios, lo que permite 
+  al hospital adaptar las plantillas y retribuciones con mayor 
+  agilidad. Galicia y Cataluña fueron las comunidades pioneras en 
+  este modelo, junto con experiencias posteriores en Baleares y 
+  La Rioja.\footnote{El régimen jurídico de las fundaciones 
+  sanitarias experimentó un giro relevante con la Ley 50/1998, de 
+  30 de diciembre, de medidas fiscales, administrativas y del orden 
+  social, cuyo artículo 111 intentó reconducir al derecho público 
+  una modalidad que hasta entonces se había articulado como entidad 
+  de derecho privado en mano pública al amparo de la Ley de 
+  Fundaciones de 1994 (Ley 30/1994,de 24 de noviembre,de Fundaciones y de incentivos
+fiscales a la participación privada en
+actividades de interés general). La nueva figura, denominada fundación pública 
+  sanitaria, se configuró como organismo público asimilado a las 
+  entidades públicas empresariales, manteniendo la posibilidad de 
+  actuar en régimen de derecho privado en sus relaciones con 
+  terceros. Esta dualidad público-privada es precisamente la que 
+  genera la ambigüedad clasificatoria que se aborda en la 
+  Sección~\ref{sec:categorias_cnh} al construir la variable 
+  $D^{desc}$.}
+
+  \item \textbf{Empresas públicas hospitalarias:} Entidades de titularidad íntegramente pública organizadas bajo formas de derecho privado o regímenes jurídico-organizativos híbridos, que presentan una mayor autonomía relativa de gestión respecto a los modelos administrativos tradicionales. Entre los ejemplos más relevantes se encuentran determinadas empresas públicas sanitarias y entes instrumentales como la Empresa Pública de Emergencias Sanitarias o las agencias públicas empresariales en el ámbito autonómico andaluz. En estos modelos, el personal suele estar sujeto a un régimen laboral de derecho privado, lo que permite una mayor flexibilidad en la gestión de recursos humanos y, potencialmente, en el diseño de incentivos.
+
+  \item \textbf{Concesiones administrativas (modelo Alzira):} La Comunidad Valenciana introdujo en 1999 la concesión administrativa del hospital de La Ribera (Alzira) a una empresa privada (inicialmente Adeslas-Ribera Salud), que asumía tanto la gestión hospitalaria como la atención primaria de su área de salud a cambio de una tarifa capitativa pactada por habitante y año. Este modelo, extendido posteriormente a otros hospitales valencianos (Torrevieja, Dénia, Manises, Vinalopó) y adaptado, con diferencias, en la Comunidad de Madrid, constituye uno de los ejemplos más avanzados de descentralización organizativa en el sistema sanitario español. En este esquema, el concesionario dispone de una amplia autonomía en la gestión de recursos humanos, incluyendo la contratación del personal bajo régimen laboral y el diseño de sistemas retributivos con componentes variables. Por ello, los hospitales gestionados bajo concesión administrativa representan un caso especialmente adecuado para el análisis empírico de estructuras descentralizadas en el marco del modelo teórico.
+
+  \item \textbf{Hospitales privados concertados:} Hospitales de titularidad privada (con o sin ánimo de lucro) que prestan servicios al Sistema Nacional de Salud mediante contratos de concierto. Estos centros reciben una financiación pactada según distintas modalidades (por acto, proceso, estancia o combinaciones de las anteriores) y disponen de una amplia autonomía en la gestión de recursos humanos, al operar bajo un régimen laboral de derecho privado. Entre los ejemplos más representativos se encuentran numerosos centros vinculados a congregaciones religiosas y, en el caso catalán, hospitales integrados en la red sanitaria de utilización pública (SISCAT, anteriormente XHUP), caracterizada por la coexistencia de entidades de diversa naturaleza jurídica.
+\end{enumerate}
+\subsection{Evolución reciente: expansión y reversión de concesiones}
+
+El período 2003--2012 puede considerarse la fase de mayor expansión 
+de los modelos de gestión privada en el sistema sanitario español. 
+En particular, la Comunidad de Madrid impulsó la construcción de 
+nuevos hospitales bajo fórmulas de colaboración público-privada, 
+en las que la empresa privada asumía la financiación, construcción 
+y gestión de los servicios no sanitarios, mientras que la prestación 
+clínica permanecía en manos de personal estatutario 
+\citep{villarrojas2009}. Este modelo, menos descentralizado que las 
+concesiones administrativas valencianas, contribuyó no obstante a 
+ampliar de forma significativa la participación del sector privado 
+en la provisión hospitalaria.
+
+A partir de 2012, la crisis económica y el cambio de ciclo político 
+dieron lugar a un proceso gradual y heterogéneo de revisión de estos 
+modelos. En la Comunidad Valenciana, el hospital de Alzira revirtió 
+a gestión pública en 2018, tras el vencimiento de la concesión y la 
+decisión de no renovarla, en un contexto de debate sobre sus efectos 
+en términos de costes y continuidad asistencial. Este proceso se 
+extendió posteriormente a otros hospitales, como Torrevieja en 2021, 
+dentro de una estrategia progresiva de reintegración en la red 
+pública. En la Comunidad de Madrid, el proceso de externalización 
+de hospitales fue abandonado en 2015 tras su suspensión cautelar 
+por el Tribunal Superior de Justicia de Madrid. Estas dinámicas han 
+alimentado un intenso debate académico sobre los efectos de la 
+estructura organizativa en la eficiencia del sistema sanitario 
+\citep{martin2019eficiencia}, al que esta tesis pretende contribuir 
+mediante evidencia empírica rigurosa.
+\subsection{Mecanismos de pago hospitalario en España}
+
+Los mecanismos de pago al hospital son un determinante central de los incentivos de eficiencia, tal como se enfatiza posteriormente en el modelo teórico. En el sistema hospitalario español coexisten tres grandes mecanismos a nivel general:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Presupuesto global retrospectivo:} Típico de los hospitales públicos integrados en la etapa anterior a los contratos-programa. El hospital recibe una asignación presupuestaria global, con escasa vinculación a la actividad realizada. Este esquema equivale al pago fijo del modelo teórico: los incentivos de volumen son débiles o inexistentes \citep{garcia2009financiacion}.
+
+  \item \textbf{Contratos-programa con pago por actividad (GRD):} 
+A partir de los años noventa, los servicios autonómicos de salud 
+empezaron a vincular parte de la financiación hospitalaria a la 
+actividad, utilizando los Grupos Relacionados por el Diagnóstico 
+(GRD) como unidad de medida de la complejidad del caso 
+\citep{cots2001}. El contrato-programa establece un volumen de 
+actividad objetivo y una tarifa por GRD; los hospitales que superan 
+el objetivo reciben una compensación adicional (a menudo a tarifa 
+marginal reducida). En algunas comunidades autónomas (Cataluña, 
+Comunidad Valenciana, País Vasco), este sistema de pago por actividad 
+está relativamente desarrollado y se extiende también a los hospitales 
+concertados.
+
+\item \textbf{Capitación ajustada:} Las concesiones administrativas 
+de tipo Alzira se financian mediante una tarifa capitativa anual 
+ajustada por el estado de salud de la población del área 
+\citep{acerete2011}. Este mecanismo crea incentivos radicalmente 
+distintos a los anteriores: el hospital tiene incentivos para reducir 
+la utilización por episodio (eficiencia en intensidad) y para mantener 
+a la población sana (prevención y atención primaria).
+\end{enumerate}
+
+Esta diversidad de mecanismos de pago se refleja en la variable 
+$pct^{SNS}$ del modelo empírico: los hospitales con alta dependencia 
+del SNS están sujetos predominantemente a financiación pública, aunque 
+el contenido económico de esa dependencia difiere según la forma de 
+gestión. En los hospitales integrados del SNS, $pct^{SNS}$ alto refleja 
+financiación mediante presupuesto global retrospectivo, con incentivos 
+de volumen débiles. En los hospitales descentralizados con alta 
+dependencia del SNS ---fundamentalmente hospitales concertados--- 
+$pct^{SNS}$ alto refleja actividad sujeta a contrato de actividad con 
+tarifa prospectiva por alta, lo que genera incentivos de volumen 
+moderados pero acotados por un techo contractual. En ambos casos, el 
+aumento de $pct^{SNS}$ reduce el margen de maniobra del gestor para 
+actuar bajo lógica de mercado, aproximando los incentivos del hospital 
+descentralizado a los del hospital integrado. Los hospitales privados 
+de mercado con baja dependencia del SNS representan el polo opuesto: 
+operan bajo esquemas de pago directo o de seguros privados, con plena 
+autonomía de precios y sin restricciones contractuales de volumen.
+
+\subsection{Datos básicos del sistema hospitalario español}
+El sistema hospitalario español comprende, en el período analizado 
+(2010--2023), aproximadamente 880 hospitales únicos con internamiento 
+que han declarado actividad en el SIAE en algún momento del período, 
+con una media anual de alrededor de 770 unidades informantes 
+\citep{ministerio_siae2023}. El SIAE clasifica los hospitales en 
+función de su dependencia funcional y su relación con el SNS. 
+La red de hospitales del SNS engloba los hospitales de dependencia 
+pública, la red de hospitales de utilización pública, los hospitales 
+con concierto sustitutorio ---que funcionan como hospital de área 
+con población asignada--- y los hospitales de las mutuas 
+colaboradoras con la Seguridad Social \citep{ministerio_siae2023}. 
+Los hospitales privados son aquellos con dependencia funcional 
+privada que carecen de concierto asistencial o lo tienen únicamente 
+de forma parcial con el SNS. Los hospitales privados con más del 
+80\,\% de su actividad financiada con fondos públicos se clasifican 
+como ``Privado~SNS'', categoría intermedia entre ambos extremos.
+
+En términos cuantitativos, el peso asistencial se concentra 
+netamente en el sector público: el SNS agrupa aproximadamente el 
+80\,\% de las camas hospitalarias en funcionamiento y una proporción 
+similar de las altas totales, lo que refleja el mayor tamaño medio 
+de los hospitales públicos. El número 
+total de camas hospitalarias en funcionamiento registró una ligera 
+tendencia descendente en la primera mitad del período, pasando de 
+aproximadamente 150.000 en 2010 a 139.000 en 2019, seguida de una 
+recuperación moderada hasta aproximadamente 141.000 en 2022. El 
+gasto total en asistencia hospitalaria ascendió en 2022 a 
+aproximadamente 60.500 millones de euros, de los cuales el SNS 
+representó en torno al 89\,\% \citep{ministerio_siae2023}. 
+El gasto sanitario público total representó en 2022 alrededor del 
+6,5\,\% del PIB, equivalente a unos 105.145 millones de euros, 
+lo que supone aproximadamente tres de cada cuatro euros de 
+gasto sanitario en España \citep{consalud2025}. 
+El gasto sanitario privado en 2022 ascendió a unos 37.628 millones 
+de euros, equivalente a aproximadamente el 28\,\% del gasto 
+sanitario total, y se concentra principalmente en pagos directos 
+de hogares, seguros privados e instituciones sin ánimo de lucro 
+\citep{fbbva2025}. 
+
+En el marco del Sistema de Cuentas de Salud, la atención hospitalaria 
+y especializada concentra una parte muy relevante del gasto público, 
+con unos 60.000 millones de euros asociados a servicios hospitalarios 
+y de atención especializada en 2023, según la Estadística de Gasto 
+Sanitario Público del Ministerio de Sanidad \citep{ministeriosanidad2023}. 
+En cambio, el gasto privado desglosado específicamente por atención 
+hospitalaria no está habitualmente disponible en términos de euros, 
+sino que se aborda en términos de actividad y financiación mixta 
+a través de estudios sectoriales sobre la sanidad privada y los conciertos 
+con el SNS \citep{fbbva2025,consalud2025}. 
+
+La Comunidad de Madrid y 
+Cataluña concentran el mayor número de hospitales privados 
+concertados, mientras que la distribución de concesiones 
+administrativas se concentraba en la Comunidad Valenciana hasta 
+las reversiones de 2018--2021.
+\section{Justificación metodológica: SFA versus DEA}
+\label{sec:justificacion_metodologica}
+
+\subsection{Por qué análisis de frontera estocástica}
+
+La medición de la eficiencia hospitalaria puede abordarse mediante dos grandes familias de técnicas: el análisis envolvente de datos (DEA), de naturaleza no paramétrica, y el análisis de frontera estocástica (SFA), de naturaleza paramétrica \citep{coelli2005}. La elección de SFA en esta tesis no es arbitraria; está justificada por cuatro razones metodológicas y una sustantiva.
+
+\textit{Primera}, el SFA distingue explícitamente entre ineficiencia técnica y ruido estadístico. Dado que los datos hospitalarios contienen errores de medición sustanciales ---en particular en las variables de output como las altas ponderadas por case-mix--- mezclar ruido e ineficiencia produciría estimaciones sesgadas. El DEA no tiene término de error aleatorio: toda desviación de la frontera se atribuye a ineficiencia. El SFA descompone la desviación en $v_{it}$ (ruido) y $u_{it}$ (ineficiencia), lo que es más apropiado cuando la variable de output es una medida imperfecta del output verdadero \citep{aigner1977,meeusen1977,kumbhakar2000}.
+
+\textit{Segunda}, la disponibilidad de datos de panel para el período 2010--2023 permite explotar la variación temporal dentro del hospital para identificar los efectos de los determinantes de la ineficiencia. El SFA de panel con efectos heterogéneos en la media de la distribución de ineficiencia \citep{battese1995,wang2002} es el marco natural para este análisis. Las extensiones de panel del DEA (DEA de Malmquist) no permiten incorporar covariables de la ineficiencia de forma tan directa.
+
+\textit{Tercera}, el SFA produce errores estándar para los coeficientes de la ecuación de ineficiencia, lo que permite contrastar formalmente las predicciones del modelo teórico (tests $t$, LR, Kodde-Palm). El DEA no tiene distribución muestral conocida para los índices de eficiencia, aunque \citet{simar2007} propone métodos de bootstrap; sin embargo, estos métodos no están disponibles para modelos con covariables en la ecuación de ineficiencia de panel. Para una presentación exhaustiva de las opciones de estimación SFA, véanse \citet{kumbhakar2000} y \citet{greene2008}.
+
+\textit{Cuarta}, la función de producción translog especificada en el Capítulo~\ref{ch:estrategia} tiene una justificación económica directa: permite testar restricciones de curvatura (simetría de las segundas derivadas, rendimientos de escala), estimar elasticidades de sustitución y verificar la consistencia con la teoría de la producción. El DEA no impone ninguna estructura paramétrica a la tecnología, lo que es una ventaja general pero en este contexto específico supone renunciar a las restricciones teóricas que el modelo justifica.
+
+\textit{La razón sustantiva} es que el objetivo del análisis no es simplemente clasificar hospitales por eficiencia, sino contrastar predicciones de un modelo teórico sobre los determinantes de la ineficiencia. Para ello se necesita un modelo paramétrico que vincule las variables institucionales (estructura organizativa, mecanismo de pago, interacción entre tareas) con la distribución de la ineficiencia a través de una ecuación de media heterogénea. Este tipo de análisis es genuinamente SFA.
+
+En el plano metodológico, \citet{jacobs2001} compara DEA y SFA sobre el mismo conjunto de datos hospitalarios del NHS y concluye que ambos métodos tienen fortalezas específicas y miden potencialmente aspectos distintos de la eficiencia, recomendando el uso de varias especificaciones como señales de ineficiencia en lugar de estimaciones puntuales. La presente tesis adopta exclusivamente SFA porque, a diferencia del DEA, permite descomponer la desviación respecto a la frontera en ineficiencia y ruido aleatorio, condición necesaria para la inferencia estadística sobre los determinantes institucionales de la ineficiencia que el modelo teórico requiere contrastar. En un trabajo reciente sobre hospitales públicos españoles, \citet{arbelo2025unravelling} refuerzan esta elección argumentando que la SFA es preferible en el contexto hospitalario porque permite desentrañar la heterogeneidad subyacente en las medidas de eficiencia, capturando factores estocásticos y errores de medición que el DEA atribuye mecánicamente a ineficiencia. En una dirección complementaria, \citet{prior2006} argumenta mediante un modelo dinámico de frontera que la medición de la eficiencia hospitalaria debe incorporar explícitamente variables de calidad junto con las de cantidad, mostrando que ignorar la dimensión cualitativa sesga las estimaciones de eficiencia técnica. La presente tesis extiende esa aproximación en dos dimensiones no cubiertas por la literatura existente: la estimación simultánea de dos fronteras diferenciadas para cantidad e intensidad, y la incorporación de la estructura organizativa como determinante de la ineficiencia con predicciones asimétricas entre dimensiones del \textit{output}.
+
+\subsection{Ventajas del panel sobre la sección cruzada}
+
+El uso de datos de panel (2010--2023) frente a una sección cruzada tiene ventajas sustanciales en el contexto de esta investigación. \textit{Primera}, permite separar la heterogeneidad no observada permanente del hospital de la ineficiencia transitoria \citep{greene2005a}. Un hospital que siempre opera por debajo de la frontera puede reflejar diferencias tecnológicas permanentes (calidad del equipamiento, localización, cartera de servicios) más que ineficiencia propiamente dicha. \textit{Segunda}, la variación temporal en la variable $D^{desc}$ ---derivada principalmente de los cambios en la dependencia funcional registrada en el CNH y de las entradas y salidas de hospitales de la muestra--- proporciona identificación adicional del efecto causal de la estructura organizativa sobre la ineficiencia. \textit{Tercera}, el panel permite estimar tendencias de progreso técnico ($t$ y $t^2$ en la frontera) y controlar cambios macro que afectan a todos los hospitales simultáneamente (reformas regulatorias, crisis económica, COVID).
+
+\subsection{Justificación de la forma funcional translog}
+
+La forma funcional translog \citep{zuckerman1994,linna1998} es la estándar en la literatura de eficiencia hospitalaria por tres razones. \textit{Primera}, es una aproximación de segundo orden a cualquier función de producción continua, sin imponer restricciones apriorísticas sobre la curvatura. Esto es importante en hospitales, donde las economías de escala y la complementariedad entre inputs son difícilmente conocidas \textit{ex ante}. \textit{Segunda}, a diferencia de la especificación Cobb-Douglas, permite que las elasticidades de los inputs varíen con el nivel de los inputs, lo que es empíricamente relevante cuando la muestra incluye hospitales muy heterogéneos en tamaño (de 50 a más de 2.000 camas). \textit{Tercera}, los tests de razón de verosimilitud reportados en la Tabla~\ref{tab:tests_spec} rechazan la Cobb-Douglas frente a la translog en los cuatro diseños de estimación con estadísticos entre 247 y 594.
+
+\section{Estructura de la tesis}
+
+La tesis se organiza del siguiente modo. El Capítulo~\ref{ch:juridico} sistematiza el marco jurídico-institucional de la organización hospitalaria en España: el fundamento constitucional, la tipología de formas de gestión, el régimen del personal, los mecanismos de financiación y la traducción de estas categorías al lenguaje económico de la agencia. El Capítulo~\ref{ch:modelo} presenta el modelo teórico de agencia multitarea: el planteamiento del juego, la solución de primer \textit{best}, los resultados bajo riesgo moral en estructuras centralizadas y descentralizadas, y las predicciones contrastables derivadas del equilibrio. Las simulaciones numéricas detalladas se presentan en el Anexo~\ref{app:simulaciones}, aunque las conclusiones principales se resumen en el cuerpo del capítulo.
+
+El Capítulo~\ref{ch:estrategia} desarrolla la estrategia empírica: el marco del análisis de frontera estocástica, la especificación de la frontera de producción y de la ecuación de ineficiencia, y los cuatro diseños de estimación con sus respectivos roles en el análisis.
+
+El Capítulo~\ref{ch:datos} describe los datos y las variables: las fuentes de información (SIAE, CNH, CMBD), la construcción de las variables principales y la muestra de estimación.
+
+El Capítulo~\ref{ch:resultados} presenta los resultados principales de los cuatro diseños de estimación y los tests formales de hipótesis.
+
+El Capítulo~\ref{ch:robustez} reporta los análisis de robustez, los tests de especificación y una discusión detallada de la interpretación económica de los resultados.
+
+El Capítulo~\ref{ch:politica} deriva implicaciones de política hospitalaria a partir de los resultados teóricos y empíricos.
+
+El Capítulo~\ref{ch:conclusiones} recoge las conclusiones generales, las limitaciones de la investigación y las líneas de extensión futura.

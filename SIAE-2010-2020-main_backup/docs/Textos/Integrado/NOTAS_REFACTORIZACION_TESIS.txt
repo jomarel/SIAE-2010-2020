@@ -1,0 +1,131 @@
+﻿NOTAS DE REFACTORIZACION DE LA TESIS
+===================================
+
+Fecha de trabajo: 2026-03-28
+Rama git creada: refactor/tesis-modular
+
+Objetivo
+--------
+Reorganizar la tesis desde un archivo monolitico hacia una estructura modular
+con un archivo maestro alternativo de compilacion, sin alterar el contenido
+intelectual sustantivo y manteniendo intacto el archivo original
+tesis_doctoral.tex.
+
+Archivos creados
+----------------
+docs/Textos/Integrado/tesis_matriz.tex
+docs/Textos/Integrado/preambulo_tesis.tex
+docs/Textos/Integrado/frontmatter/portada.tex
+docs/Textos/Integrado/frontmatter/preliminares.tex
+docs/Textos/Integrado/capitulos/cap_00_introduccion.tex
+docs/Textos/Integrado/capitulos/cap_01_modelo_teorico.tex
+docs/Textos/Integrado/capitulos/cap_02_estrategia_empirica.tex
+docs/Textos/Integrado/capitulos/cap_03_datos_y_variables.tex
+docs/Textos/Integrado/capitulos/cap_04_resultados.tex
+docs/Textos/Integrado/capitulos/cap_05_robustez_y_discusion.tex
+docs/Textos/Integrado/capitulos/cap_06_implicaciones_politica_hospitalaria.tex
+docs/Textos/Integrado/capitulos/cap_07_conclusiones.tex
+docs/Textos/Integrado/anexos/anexo_01_simulaciones_modelo_teorico.tex
+docs/Textos/Integrado/anexos/anexo_02_variables_y_pipeline.tex
+docs/Textos/Integrado/anexos/anexo_03_tablas_complementarias.tex
+docs/Textos/Integrado/referencias_maestras.bib
+docs/Textos/Integrado/referencias_pendientes.bib
+docs/Textos/Integrado/NOTAS_REFACTORIZACION_TESIS.txt
+
+Archivos modificados
+--------------------
+Ninguno del contenido monolitico.
+El archivo docs/Textos/Integrado/tesis_doctoral.tex se ha mantenido intacto.
+
+Estructura final propuesta
+--------------------------
+docs/Textos/Integrado/
+  tesis_doctoral.tex
+  tesis_matriz.tex
+  preambulo_tesis.tex
+  referencias.bib
+  referencias_maestras.bib
+  referencias_pendientes.bib
+  frontmatter/
+    portada.tex
+    preliminares.tex
+  capitulos/
+    cap_00_introduccion.tex
+    cap_01_modelo_teorico.tex
+    cap_02_estrategia_empirica.tex
+    cap_03_datos_y_variables.tex
+    cap_04_resultados.tex
+    cap_05_robustez_y_discusion.tex
+    cap_06_implicaciones_politica_hospitalaria.tex
+    cap_07_conclusiones.tex
+  anexos/
+    anexo_01_simulaciones_modelo_teorico.tex
+    anexo_02_variables_y_pipeline.tex
+    anexo_03_tablas_complementarias.tex
+
+Criterio de separacion
+----------------------
+1. El preambulo se extrajo a preambulo_tesis.tex.
+2. La portada se separo en frontmatter/portada.tex.
+3. Resumen, abstract, agradecimientos e indices se agruparon en
+   frontmatter/preliminares.tex.
+4. Cada bloque que comenzaba en un \chapter del documento original se extrajo
+   a un archivo independiente en capitulos/ o anexos/.
+5. El orden y el contenido de los bloques se preservaron segun el documento
+   monolitico original.
+
+Criterio bibliografico
+----------------------
+1. La tesis integrada actual compila con referencias.bib y estilo apalike.
+2. Para no introducir riesgos de claves rotas, referencias_maestras.bib se ha
+   creado como copia de la bibliografia actualmente usada por la tesis
+   integrada.
+3. Se inspeccionaron otros .bib en docs/Textos/Empirico y docs/Textos/Teorico.
+   Existen solapamientos de claves y convenciones distintas de nombrado.
+4. Esos .bib heredados se han dejado intactos para revision manual posterior,
+   evitando una fusion agresiva que pudiera romper citas existentes.
+5. referencias_pendientes.bib se deja preparado como contenedor futuro de
+   entradas por depurar, actualmente vacio salvo comentarios.
+
+Incidencias y puntos a revisar manualmente
+------------------------------------------
+1. Los .bib legacy de Teorico y Empirico contienen entradas solapadas con
+   referencias_maestras.bib y tambien claves similares pero no identicas.
+   Conviene revisar esa consolidacion manualmente si en una fase posterior se
+   quiere una fusion bibliografica total del proyecto.
+2. La tesis usa rutas graficas relativas ya existentes mediante \graphicspath.
+   No se movieron recursos graficos para no alterar la compilacion.
+3. El archivo maestro nuevo compila contra referencias_maestras.bib. El
+   monolito original sigue apuntando a referencias.bib, que se mantuvo intacto.
+
+Como compilar el nuevo maestro
+------------------------------
+1. Compilacion completa:
+   latexmk -pdf -interaction=nonstopmode -halt-on-error tesis_matriz.tex
+2. Compilacion selectiva:
+   abrir tesis_matriz.tex
+   descomentar la linea \includeonly{...}
+   dejar dentro solo los capitulos/anexos deseados
+   volver a compilar con latexmk o pdflatex + bibtex
+
+Ejemplo de compilacion selectiva
+--------------------------------
+\includeonly{capitulos/cap_00_introduccion,capitulos/cap_04_resultados}
+
+Sistema de compilacion detectado
+--------------------------------
+- Clase: book
+- Estructura: frontmatter, mainmatter, appendix, backmatter
+- Bibliografia: BibTeX con natbib
+- Estilo bibliografico: apalike
+- Herramienta disponible para validacion: latexmk 4.88
+
+Validacion realizada
+--------------------
+1. Se compilo tesis_matriz.tex con latexmk -pdf -interaction=nonstopmode -halt-on-error.
+2. Se genero correctamente el archivo tesis_matriz.pdf.
+3. Los avisos detectados en la compilacion modular ya existian en la compilacion
+   monolitica previa:
+   - Referencia no resuelta: tab:eficiencias_medias
+   - Aviso de destino hyperref: Hfootnote.6
+4. No se detectaron errores nuevos atribuibles a la modularizacion.

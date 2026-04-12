@@ -1,0 +1,292 @@
+\begin{thebibliography}{}
+
+\bibitem[Aigner et~al., 1977]{aigner1977}
+Aigner, D., Lovell, C. A.~K., and Schmidt, P. (1977).
+\newblock Formulation and estimation of stochastic frontier production function
+  models.
+\newblock {\em Journal of Econometrics}, 6(1):21--37.
+
+\bibitem[Angrist and Pischke, 2009]{angrist2009}
+Angrist, J.~D. and Pischke, J.-S. (2009).
+\newblock {\em Mostly Harmless Econometrics: An Empiricist's Companion}.
+\newblock Princeton University Press.
+
+\bibitem[Arrow, 1963]{arrow1963}
+Arrow, K.~J. (1963).
+\newblock Uncertainty and the welfare economics of medical care.
+\newblock {\em American Economic Review}, 53(5):941--973.
+
+\bibitem[Battese and Coelli, 1995]{battese1995}
+Battese, G.~E. and Coelli, T.~J. (1995).
+\newblock A model for technical inefficiency effects in a stochastic frontier
+  production function for panel data.
+\newblock {\em Empirical Economics}, 20(2):325--332.
+
+\bibitem[Bolton and Dewatripont, 2005]{bolton2005}
+Bolton, P. and Dewatripont, M. (2005).
+\newblock {\em Contract Theory}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[Burgess and Wilson, 1998]{burgess1998}
+Burgess, J.~F. and Wilson, P.~W. (1998).
+\newblock Variation in inefficiency among {US} hospitals.
+\newblock {\em INFOR: Information Systems and Operational Research},
+  36(3):84--102.
+
+\bibitem[Chalkley and Malcomson, 1998]{chalkley1998}
+Chalkley, M. and Malcomson, J.~M. (1998).
+\newblock Contracting for health services when patient demand does not reflect
+  quality.
+\newblock {\em Journal of Health Economics}, 17(1):1--19.
+
+\bibitem[Coelli and Perelman, 1999]{coelli1999}
+Coelli, T. and Perelman, S. (1999).
+\newblock A comparison of parametric and non-parametric distance functions:
+  With application to european railways.
+\newblock {\em European Journal of Operational Research}, 117(2):326--339.
+
+\bibitem[Coelli et~al., 2005]{coelli2005}
+Coelli, T.~J., Rao, D. S.~P., O'Donnell, C.~J., and Battese, G.~E. (2005).
+\newblock {\em An Introduction to Efficiency and Productivity Analysis}.
+\newblock Springer, New York, 2nd edition.
+
+\bibitem[Dakpo et~al., 2024]{dakpo2024}
+Dakpo, K.~H., Desjeux, Y., Henningsen, A., and Latruffe, L. (2024).
+\newblock {\em {sfaR}: Stochastic Frontier Analysis using {R}}.
+\newblock R package version 1.0.1.
+
+\bibitem[Eggleston, 2005]{eggleston2005}
+Eggleston, K. (2005).
+\newblock Multitasking and mixed systems for provider payment.
+\newblock {\em Journal of Health Economics}, 24(1):211--223.
+
+\bibitem[Elena-Izquierdo, 2019]{izquierdo2019}
+Elena-Izquierdo, J.~M. (2019).
+\newblock Incentivos y estructura organizativa en la financiaci{\'o}n
+  hospitalaria.
+\newblock Documento de trabajo, Universidad de Salamanca.
+
+\bibitem[Ellis and McGuire, 1986]{ellis1986}
+Ellis, R.~P. and McGuire, T.~G. (1986).
+\newblock Provider behavior under prospective reimbursement: Cost sharing and
+  supply.
+\newblock {\em Journal of Health Economics}, 5(2):129--151.
+
+\bibitem[Farsi and Filippini, 2005]{farsi2005}
+Farsi, M. and Filippini, M. (2005).
+\newblock An analysis of efficiency and productivity in {S}wiss hospitals.
+\newblock {\em Swiss Journal of Economics and Statistics}, 141(1):95--118.
+
+\bibitem[Gaynor et~al., 2015]{gaynor2015}
+Gaynor, M., Ho, K., and Town, R.~J. (2015).
+\newblock The industrial organization of health-care markets.
+\newblock {\em Journal of Economic Literature}, 53(2):235--284.
+
+\bibitem[Greene, 2005]{greene2005a}
+Greene, W.~H. (2005).
+\newblock Reconsidering heterogeneity in panel data estimators of the
+  stochastic frontier model.
+\newblock {\em Journal of Econometrics}, 126(2):269--303.
+
+\bibitem[Greene, 2008]{greene2008}
+Greene, W.~H. (2008).
+\newblock The econometric approach to efficiency analysis.
+\newblock In Fried, H.~O., Lovell, C. A.~K., and Schmidt, S.~S., editors, {\em
+  The Measurement of Productive Efficiency and Productivity Growth}, pages
+  92--250. Oxford University Press, Oxford.
+
+\bibitem[Grosskopf et~al., 1995]{grosskopf1987}
+Grosskopf, S., Margaritis, D., and Valdmanis, V. (1995).
+\newblock Estimating output substitutability of hospital services: A distance
+  function approach.
+\newblock {\em European Journal of Operational Research}, 80(3):575--587.
+
+\bibitem[Herr, 2011]{herr2011}
+Herr, A. (2011).
+\newblock Cost and technical efficiency of {G}erman hospitals: Does ownership
+  matter?
+\newblock {\em Health Economics}, 20(10):1057--1071.
+
+\bibitem[Hollingsworth, 2008]{hollingsworth2008}
+Hollingsworth, B. (2008).
+\newblock The measurement of efficiency and productivity of health care
+  delivery.
+\newblock {\em Health Economics}, 17(10):1107--1128.
+
+\bibitem[Holmstr{\"o}m and Milgrom, 1987]{holmstrom1987}
+Holmstr{\"o}m, B. and Milgrom, P. (1987).
+\newblock Aggregation and linearity in the provision of intertemporal
+  incentives.
+\newblock {\em Econometrica}, 55(2):303--328.
+
+\bibitem[Holmstr{\"o}m and Milgrom, 1991]{holmstrom1991}
+Holmstr{\"o}m, B. and Milgrom, P. (1991).
+\newblock Multitask principal--agent analyses: Incentive contracts, asset
+  ownership, and job design.
+\newblock {\em Journal of Law, Economics, \& Organization}, 7(Special
+  Issue):24--52.
+
+\bibitem[Jacobs et~al., 2006]{jacobs2006}
+Jacobs, R., Smith, P.~C., and Street, A. (2006).
+\newblock Measuring hospital efficiency: A survey.
+\newblock {\em Journal of Health Services Research \& Policy}, 11(4):245--250.
+
+\bibitem[Jelovac and Macho-Stadler, 2002]{jelovac2002}
+Jelovac, I. and Macho-Stadler, I. (2002).
+\newblock Comparing organizational structures in health services.
+\newblock {\em Journal of Economic Behavior \& Organization}, 49(4):501--522.
+
+\bibitem[Jondrow et~al., 1982]{jondrow1982}
+Jondrow, J., Lovell, C. A.~K., Materov, I.~S., and Schmidt, P. (1982).
+\newblock On the estimation of technical inefficiency in the stochastic
+  frontier production function model.
+\newblock {\em Journal of Econometrics}, 19(2--3):233--238.
+
+\bibitem[Kaarboe and Siciliani, 2011]{kaarboe2011}
+Kaarboe, O.~M. and Siciliani, L. (2011).
+\newblock Multi-tasking, quality and pay for performance.
+\newblock {\em Health Economics}, 20(2):225--238.
+
+\bibitem[Kodde and Palm, 1986]{kodde1986}
+Kodde, D.~A. and Palm, F.~C. (1986).
+\newblock Wald criteria for jointly testing equality and inequality
+  restrictions.
+\newblock {\em Econometrica}, 54(5):1243--1248.
+
+\bibitem[Kumbhakar, 1997]{kumbhakar1997}
+Kumbhakar, S.~C. (1997).
+\newblock Modeling allocative inefficiency in a translog cost function and cost
+  share equations: An exact relationship.
+\newblock {\em Journal of Econometrics}, 76(1--2):351--356.
+
+\bibitem[Kumbhakar and Lovell, 2000]{kumbhakar2000}
+Kumbhakar, S.~C. and Lovell, C. A.~K. (2000).
+\newblock {\em Stochastic Frontier Analysis}.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Kumbhakar et~al., 2015]{kumbhakar2015}
+Kumbhakar, S.~C., Wang, H.-J., and Horncastle, A.~P. (2015).
+\newblock {\em A Practitioner's Guide to Stochastic Frontier Analysis Using
+  {S}tata}.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Laffont and Martimort, 2002]{laffont2002}
+Laffont, J.-J. and Martimort, D. (2002).
+\newblock {\em The Theory of Incentives: The Principal-Agent Model}.
+\newblock Princeton University Press, Princeton, NJ.
+
+\bibitem[Linna, 1998]{linna1998}
+Linna, M. (1998).
+\newblock Measuring hospital cost efficiency with panel data models.
+\newblock {\em Health Economics}, 7(5):415--427.
+
+\bibitem[Ma, 1994]{ma1994}
+Ma, C.-t.~A. (1994).
+\newblock Health care payment systems: Cost and quality incentives.
+\newblock {\em Journal of Economics \& Management Strategy}, 3(1):93--112.
+
+\bibitem[Ma, 1997]{ma1997}
+Ma, C.-t.~A. (1997).
+\newblock Option contracts and vertical foreclosure.
+\newblock {\em Journal of Economics \& Management Strategy}, 6(4):725--753.
+\newblock Véase también Ma, C.-t. A. (1994), Health care payment systems:
+  Cost and quality incentives, \textit{Journal of Economics \& Management
+  Strategy}, 3(1), 93--112.
+
+\bibitem[McClellan, 1997]{mcclellan1997}
+McClellan, M. (1997).
+\newblock Hospital reimbursement incentives: An empirical analysis.
+\newblock {\em Journal of Economics \& Management Strategy}, 6(1):91--128.
+
+\bibitem[Meeusen and van~den Broeck, 1977]{meeusen1977}
+Meeusen, W. and van~den Broeck, J. (1977).
+\newblock Efficiency estimation from cobb-douglas production functions with
+  composed error.
+\newblock {\em International Economic Review}, 18(2):435--444.
+
+\bibitem[{Ministerio de Sanidad y Consumo}, 2007]{ministerio2007}
+{Ministerio de Sanidad y Consumo} (2007).
+\newblock Clasificación de hospitales del {SNS} por complejidad asistencial.
+\newblock Technical report, Ministerio de Sanidad y Consumo, Madrid.
+
+\bibitem[Newhouse, 1970]{newhouse1970}
+Newhouse, J.~P. (1970).
+\newblock Toward a theory of nonprofit institutions: An economic model of a
+  hospital.
+\newblock {\em American Economic Review}, 60(1):64--74.
+
+\bibitem[{OECD}, 2023]{oecd2023}
+{OECD} (2023).
+\newblock Health at a glance 2023: {OECD} indicators.
+\newblock Technical report, OECD Publishing, Paris.
+
+\bibitem[Prior, 2006]{prior2006}
+Prior, D. (2006).
+\newblock Efficiency and total quality management in health care organizations:
+  A dynamic frontier approach.
+\newblock {\em Annals of Operations Research}, 145(1):281--299.
+
+\bibitem[Puig-Junoy and Dalmau, 2000]{puigjunoy2000}
+Puig-Junoy, J. and Dalmau, E. (2000).
+\newblock ¿qué sabemos acerca de la eficiencia de las organizaciones
+  sanitarias en españa? una revisión de la literatura económica.
+\newblock {\em Investigaciones Econ{\'o}micas}, 24(3):543--569.
+\newblock Véase también Puig-Junoy, J. (1998), Technical efficiency in the
+  clinical management of critically ill patients, \textit{Health Economics},
+  7(3), 263--277.
+
+\bibitem[Repullo, 2008]{repullo2008}
+Repullo, J.~R. (2008).
+\newblock Sistemas de financiación y organizativos de los servicios
+  sanitarios: experiencias españolas.
+\newblock In {\em Informe SESPAS 2008}. Sociedad Española de Salud Pública y
+  Administración Sanitaria.
+\newblock Véase también López-Casasnovas, G. y Saez, M. (1999), The impact
+  of teaching status on average costs in Spanish hospitals, \textit{Health
+  Economics}, 8(7), 641--651.
+
+\bibitem[Rosko and Mutter, 2008]{rosko2008}
+Rosko, M.~D. and Mutter, R.~L. (2008).
+\newblock Stochastic frontier analysis of hospital inefficiency: A review of
+  empirical issues and an assessment of robustness.
+\newblock {\em Medical Care Research and Review}, 65(2):131--166.
+
+\bibitem[Simar and Wilson, 2007]{simar2007}
+Simar, L. and Wilson, P.~W. (2007).
+\newblock Estimation and inference in two-stage, semi-parametric models of
+  production processes.
+\newblock {\em Journal of Econometrics}, 136(1):31--64.
+
+\bibitem[Sloan, 2000]{sloan2000}
+Sloan, F.~A. (2000).
+\newblock Not-for-profit ownership and hospital behavior.
+\newblock {\em Handbook of Health Economics}, 1:1141--1174.
+
+\bibitem[Street, 2003]{street2003}
+Street, A. (2003).
+\newblock How much confidence should we place in efficiency estimates?
+\newblock {\em Health Economics}, 12(11):895--907.
+
+\bibitem[Tiemann and Schreyoegg, 2012]{tiemann2012}
+Tiemann, O. and Schreyoegg, J. (2012).
+\newblock Changes in hospital efficiency after privatization.
+\newblock {\em Health Care Management Science}, 15(4):310--326.
+
+\bibitem[Wang and Schmidt, 2002]{wang2002}
+Wang, H.-J. and Schmidt, P. (2002).
+\newblock One-step and two-step estimation of the effects of exogenous
+  variables on technical efficiency levels.
+\newblock {\em Journal of Productivity Analysis}, 18(2):129--144.
+
+\bibitem[Worthington, 2004]{worthington2004}
+Worthington, A.~C. (2004).
+\newblock Frontier efficiency measurement in health care: A review of empirical
+  techniques and selected applications.
+\newblock {\em Medical Care Research and Review}, 61(2):135--170.
+
+\bibitem[Zuckerman et~al., 1994]{zuckerman1994}
+Zuckerman, S., Hadley, J., and Iezzoni, L. (1994).
+\newblock Measuring hospital efficiency with frontier cost functions.
+\newblock {\em Journal of Health Economics}, 13(3):255--280.
+
+\end{thebibliography}

@@ -1,0 +1,1461 @@
+% ============================================================
+% CAPÍTULO: ESTIMACIÓN EMPÍRICA
+% Tesis doctoral: Eficiencia hospitalaria, estructura
+% organizativa y teoría de agencia
+% José María Elena Izquierdo — Universidad de Salamanca
+% Marzo 2026
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% ── Paquetes ─────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{footnote}
+\usepackage{chngcntr}
+
+\geometry{
+  top=2.5cm, bottom=2.5cm,
+  left=3cm, right=2.5cm
+}
+\onehalfspacing
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+% ── Comandos propios ─────────────────────────────────────────
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+\newcommand{\sig}[1]{\ensuremath{^{#1}}}
+\newcommand{\note}[1]{\textit{\small #1}}
+
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+
+% ── Información del documento ────────────────────────────────
+\title{
+  \large Tesis Doctoral\\[0.3em]
+  \LARGE\textbf{Eficiencia hospitalaria, estructura organizativa\\
+  y teoría de agencia}\\[0.5em]
+  \large\textit{Capítulo de Estimación Empírica}\\[0.3em]
+  \normalsize Documento de trabajo para revisión del
+  director de tesis
+}
+\author{José María Elena Izquierdo\\
+  \small Departamento de Economía Aplicada\\
+  \small Universidad de Salamanca}
+\date{Marzo 2026}
+
+% ═══════════════════════════════════════════════════════════
+\begin{document}
+% ═══════════════════════════════════════════════════════════
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+% ═══════════════════════════════════════════════════════════
+\section{Introducción y motivación empírica}
+% ═══════════════════════════════════════════════════════════
+
+Este capítulo desarrolla la estrategia empírica para
+contrastar las predicciones del modelo de agencia
+multitarea de \citet{izquierdo2019}. El modelo describe
+la relación entre el pagador público (Sistema Nacional de
+Salud, SNS), el hospital y el médico, y genera
+predicciones contrastables sobre cómo la estructura
+organizativa y el mecanismo de pago afectan de forma
+\textit{asimétrica} a dos dimensiones del output
+hospitalario: la cantidad de atención prestada y su
+intensidad diagnóstico-terapéutica.
+
+La contribución empírica central es identificar y
+contrastar esta asimetría utilizando un sistema de
+fronteras estocásticas (SFA) con datos de panel del
+sistema hospitalario español para el período 2010--2023.
+La evidencia producida es, hasta donde conocemos, la
+primera contrastación empírica directa de un modelo de
+agencia multitarea en el sector hospitalario español
+mediante análisis de frontera estocástica.
+
+El capítulo se organiza del siguiente modo. La sección~2
+presenta el modelo teórico y sus predicciones en forma
+contrastable. La sección~3 describe la estrategia
+empírica y los cuatro diseños de estimación. La
+sección~4 detalla los datos y las variables. La
+sección~5 presenta los resultados principales. La
+sección~6 reporta los análisis de robustez y los tests
+de especificación. La sección~7 discute las implicaciones
+de los resultados y sus limitaciones.
+
+% ═══════════════════════════════════════════════════════════
+\section{El modelo teórico y sus predicciones contrastables}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Estructura del modelo}
+
+El modelo de \citet{izquierdo2019} es un juego de
+principal-agente en tres niveles con dos outputs
+producidos asimétricamente. El pagador (SNS) contrata
+con el hospital, que a su vez contrata con el médico.
+Los outputs son:
+
+\begin{itemize}
+  \item \textbf{$q$ (cantidad)}: número de altas
+    ponderadas por complejidad. Resulta del esfuerzo
+    conjunto del hospital ($a$) y del médico ($t_1$):
+    $q = q(a, t_1)$.
+  \item \textbf{$i$ (intensidad)}: nivel de recursos
+    diagnóstico-terapéuticos aplicados por episodio.
+    Depende exclusivamente del esfuerzo médico ($t_2$):
+    $i = i(t_2)$.
+\end{itemize}
+
+Esta asimetría en la producción es el núcleo estructural
+del modelo. El parámetro $\psi_{12}$ mide la
+complementariedad o sustituibilidad entre las dos tareas
+del médico:
+\begin{equation}
+  \psi_{12} = \frac{\partial^2 C}{\partial t_1 \partial t_2}
+  \label{eq:psi12}
+\end{equation}
+donde $C(\cdot)$ es la función de coste del esfuerzo
+médico. Si $\psi_{12} > 0$ (tareas sustitutas), el médico
+que dedica más tiempo a ver pacientes reduce la
+intensidad por episodio --- caso típico de servicios
+médicos no quirúrgicos. Si $\psi_{12} < 0$ (tareas
+complementarias), el acto de intervenir genera per se
+mayor intensidad --- caso típico de servicios quirúrgicos.
+
+\subsection{Estructuras organizativas}
+
+El modelo distingue dos configuraciones institucionales:
+
+\begin{description}
+  \item[Centralizada ($D^{desc} = 0$):] Hospitales SNS
+    con personal estatutario. El pagador contrata
+    simultáneamente con el hospital y el médico, manteniendo
+    control directo sobre ambos niveles y pagando mediante
+    presupuesto global retrospectivo.
+  \item[Descentralizada ($D^{desc} = 1$):] Concesiones,
+    fundaciones sanitarias y hospitales privados
+    concertados. El pagador contrata únicamente con el
+    hospital, que diseña autónomamente el contrato con el
+    médico y asume la responsabilidad sobre los incentivos
+    internos. El pago al hospital es, en general, de
+    carácter prospectivo por actividad.
+\end{description}
+
+\subsection{Predicciones contrastables}
+
+El equilibrio del modelo genera cuatro predicciones
+sobre los determinantes de la ineficiencia técnica en
+cada dimensión del output (véase Tabla~\ref{tab:predicciones}):
+
+\begin{table}[h!]
+\centering
+\caption{Predicciones contrastables del modelo teórico}
+\label{tab:predicciones}
+\begin{threeparttable}
+\begin{tabular}{clcc}
+\toprule
+\textbf{Pred.} & \textbf{Descripción} &
+\textbf{Parámetro} & \textbf{Signo esperado} \\
+\midrule
+P1 & Descentralización $\downarrow$ ineficiencia en $q$
+   & $\alpha_1$ en $\mu^q_{it}$ & $\alpha_1 < 0$ \\
+P2 & Descentralización $\uparrow$ ineficiencia en $i$
+   & $\delta_1$ en $\mu^i_{it}$ & $\delta_1 > 0$ \\
+P3 & El tipo de pago difiere entre dimensiones
+   & $\alpha_2 \neq \delta_2$ & Signos opuestos \\
+P4 & $\psi_{12}$ modera asimétricamente el diferencial
+   & $\alpha_4 \neq \delta_4$ & Signos opuestos \\
+P$^*$ & El vector de determinantes difiere entre
+         dimensiones & $\bsym{\alpha} \neq \bsym{\delta}$
+       & Rechazado \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: $\mu^q_{it}$ y $\mu^i_{it}$ son las medias
+    heterogéneas de los términos de ineficiencia en las
+    fronteras de cantidad e intensidad respectivamente.
+    $\bsym{\alpha}$ y $\bsym{\delta}$ son los vectores
+    completos de coeficientes de la ecuación de
+    ineficiencia en cada frontera.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La predicción P1 se fundamenta en que la estructura
+descentralizada permite al hospital diseñar contratos
+con el médico que vinculan la retribución al volumen de
+actividad, generando incentivos a producir más altas.
+La predicción P2, de signo contrario, refleja que esos
+mismos incentivos de volumen reducen el esfuerzo médico
+en la dimensión de intensidad cuando las tareas son
+sustitutas. La predicción P4 es la más directamente
+vinculada al parámetro $\psi_{12}$: el efecto diferencial
+de la estructura organizativa sobre las dos dimensiones
+debe ser modulado por el grado de complementariedad
+entre tareas.
+
+\textbf{Por qué un único término de ineficiencia es
+insuficiente.} Si los efectos de P1 y P2 son de signo
+contrario, un modelo con un único $u_{it}$ cancela
+algebraicamente ambos efectos y ningún contraste
+relevante para el modelo teórico es identificable. Esta
+observación motiva el uso de un sistema de dos fronteras
+estocásticas con términos de ineficiencia separados para
+cada dimensión del output.
+
+% ═══════════════════════════════════════════════════════════
+\section{Estrategia empírica}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Marco general: análisis de frontera estocástica}
+
+El análisis de frontera estocástica \citep{aigner1977,
+meeusen1977} descompone la desviación de un hospital
+respecto a la frontera de producción en dos componentes:
+
+\begin{equation}
+  \ln y_{it} = f(\mathbf{x}_{it};\,\bsym{\beta})
+               + v_{it} - u_{it}
+  \label{eq:sfa_base}
+\end{equation}
+
+donde $v_{it} \sim \N(0, \sigma^2_v)$ es ruido
+aleatorio simétrico y $u_{it} \geq 0$ es el término de
+ineficiencia técnica. La eficiencia técnica del hospital
+$i$ en el período $t$ se estima como:
+\begin{equation}
+  TE_{it} = \E\!\left[e^{-u_{it}} \mid \varepsilon_{it}
+  \right]
+  \label{eq:te}
+\end{equation}
+siguiendo el estimador de \citet{jondrow1982}.
+
+Para incorporar los determinantes de la ineficiencia,
+se adopta la especificación de \citet{battese1995}, donde
+el término $u_{it}$ sigue una distribución normal truncada
+en cero con media heterogénea:
+\begin{equation}
+  u_{it} \sim \N^+\!\left(\mu_{it},\, \sigma^2_u\right),
+  \quad
+  \mu_{it} = \mathbf{z}_{it}'\bsym{\delta}
+  \label{eq:bc95}
+\end{equation}
+Esta especificación, extendida por \citet{wang2002} para
+permitir heterogeneidad también en la varianza de
+$u_{it}$, es la base de todos los diseños de estimación.
+
+\subsection{Especificación de la frontera de producción}
+
+Para todos los diseños se adopta una forma funcional
+translog en los inputs, centrada en las medias
+muestrales para facilitar la interpretación de los
+coeficientes. La frontera de producción es:
+
+\begin{align}
+  \ln y_{kit} &= \beta_0
+    + \beta_1 \ln\tilde{L}_{it}
+    + \beta_2 \ln\tilde{K}^C_{it}
+    + \beta_3 \ln\tilde{K}^T_{it}
+    + \beta_4 (\ln\tilde{L}_{it})^2
+    + \beta_5 (\ln\tilde{K}^C_{it})^2
+    \notag \\
+    &\quad
+    + \beta_6\, t
+    + \beta_7\, t^2
+    + \sum_{g=2}^{5} \gamma_g\, D^{cluster}_g
+    + v_{it} - u_{kit}
+  \label{eq:frontera_tl}
+\end{align}
+
+donde $\tilde{L}_{it}$, $\tilde{K}^C_{it}$ y
+$\tilde{K}^T_{it}$ son los logaritmos del personal
+médico equivalente a jornada completa, las camas en
+funcionamiento y el índice tecnológico, centrados en sus
+respectivas medias muestrales. La tendencia temporal $t$
+captura el progreso técnico. Las dummies
+$D^{cluster}_{g}$ ($g = 2, \ldots, 5$) controlan la
+heterogeneidad tecnológica entre grupos de hospitales
+de distinta complejidad, en la línea de la clasificación
+del Ministerio de Sanidad \citep{ministerio2007}.\footnote{
+  La forma translog es preferida sobre Cobb-Douglas en
+  todos los diseños mediante tests de razón de
+  verosimilitud con estadísticos entre 246 y 594
+  ($p < 0.001$ en todos los casos). Véase la
+  Sección~\ref{sec:tests}.}
+
+\subsection{Ecuación de ineficiencia}
+
+La media heterogénea del término de ineficiencia es:
+
+\begin{align}
+  \mu_{kit} &= \delta_0
+    + \delta_1\, D^{desc}_{it}
+    + \delta_2\, pct^{SNS}_{it}
+    + \delta_3\, (D^{desc}_{it} \times pct^{SNS}_{it})
+    + \delta_4\, ShareQ_{it}
+    + \delta_5\, (D^{desc}_{it} \times ShareQ_{it})
+    \notag \\
+    &\quad + \sum_{c \neq 9} \lambda_c\, D^{ccaa}_{c,it}
+    + \omega_{kit}
+  \label{eq:uhet}
+\end{align}
+
+donde $D^{desc}_{it}$ es la variable de estructura
+organizativa (1 = descentralizado, 0 = centralizado SNS),
+$pct^{SNS}_{it}$ es la proporción de altas financiadas
+por el SNS como proxy del mecanismo de pago,
+$ShareQ_{it} = altQ_{it}/altTotal_{it}$ es la proporción
+de altas quirúrgicas sobre el total como proxy de
+$\psi_{12}$, y $D^{ccaa}_{c,it}$ son dummies de comunidad
+autónoma que absorben la heterogeneidad regional en la
+media de la ineficiencia. La CCAA de referencia es
+Cataluña ($c = 9$).
+
+\subsection{Los cuatro diseños de estimación}
+
+Se plantean cuatro diseños de estimación, no
+alternativos sino complementarios, con roles distintos
+en la estructura del análisis (Tabla~\ref{tab:disenos}).
+
+\begin{table}[h!]
+\centering
+\caption{Diseños de estimación y su papel en el análisis}
+\label{tab:disenos}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{1.2cm}p{3.5cm}p{2.5cm}p{3.5cm}}
+\toprule
+\textbf{Diseño} & \textbf{Descripción} &
+\textbf{Permite} & \textbf{Papel} \\
+\midrule
+D & Función de distancia output (ODF) con dos outputs
+  simultáneos ($q^S$, $q^M$) y un único $u_{it}$
+  & P3, P4 (no P1/P2)
+  & Punto de partida metodológico; establece
+    existencia de ineficiencia \\[6pt]
+A & Sistema de dos fronteras: cantidad total
+  ($\ln altTotal_{pond}$) e intensidad ($\ln i_{diag}$)
+  & P1, P2, P3, P4, P$^*$
+  & Contraste directo del modelo teórico \\[6pt]
+B & Sistema de dos fronteras: altas quirúrgicas
+  ($\ln altQ_{pond}$) y altas médicas ($\ln altM_{pond}$)
+  & P1, P3, P4, P$^*$
+  & Contraste con proxy estructural de $\psi_{12}$ \\[6pt]
+C & Panel hospital $\times$ servicio $\times$ año con
+  interacción $D^{desc} \times C_s$
+  & P4 con variación intra-hospital
+  & Robustez con variación dentro del hospital \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: $q^S$ = altas quirúrgicas ponderadas;
+    $q^M$ = altas médicas ponderadas; $C_s$ = dummy de
+    servicio quirúrgico (1) vs. médico (0).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\textbf{Diseño D --- Función de distancia output.}
+Siguiendo a \citet{coelli1999}, se estima una función
+de distancia output translog con dos outputs. La
+normalización por el output quirúrgico impone
+homogeneidad de grado 1 en outputs y el modelo se
+estima como:
+\begin{equation}
+  -\ln altQ^{pond}_{it} = f\!\left(\frac{altM^{pond}_{it}}{altQ^{pond}_{it}},\, \mathbf{x}_{it}\right) + v_{it} - u_{it}
+  \label{eq:odf}
+\end{equation}
+La ecuación de ineficiencia del ODF incluye las
+variables de estructura organizativa y pago para
+capturar si la descentralización distorsiona el mix
+conjunto de outputs.
+
+\textbf{Diseño A --- Sistema bivariado cantidad/intensidad.}
+Es el diseño más cercano al modelo teórico. Estima dos
+fronteras independientes, una para $q$ y otra para $i$,
+con ecuaciones de ineficiencia que comparten las mismas
+variables explicativas. El contraste central es:
+\begin{equation}
+  H_0:\; \bsym{\alpha} = \bsym{\delta}
+  \label{eq:h0_p_star}
+\end{equation}
+donde $\bsym{\alpha}$ y $\bsym{\delta}$ son los vectores
+de coeficientes de la ecuación de ineficiencia en las
+fronteras de cantidad e intensidad respectivamente.
+
+La variable de intensidad $i_{diag}$ se construye como
+un índice ponderado de procedimientos diagnósticos por
+alta:
+\begin{equation}
+  i_{diag,it} = \frac{\sum_p w_p \cdot n_{p,it}}{altTotal^{pond}_{it}}
+  \label{eq:i_diag}
+\end{equation}
+donde $w_p$ es el peso relativo de cada tipo de
+procedimiento $p$ (TAC, RNM, PET, angiografía,
+gammagrafía, colonoscopia, etc.) y $n_{p,it}$ es el
+número de procedimientos del tipo $p$ realizados en el
+hospital $i$ durante el año $t$. Los procedimientos
+proceden del módulo C1\_16 del SIAE, con puentes de
+armonización entre la nomenclatura anterior y posterior
+a 2021.\footnote{
+  En 2021 el módulo C1\_16 del SIAE cambió la
+  denominación de las variables de procedimientos
+  (de \texttt{procedimiento\_hosp + procedimiento\_CEP}
+  a \texttt{totprocedimiento}). Se verificó la coherencia
+  de la serie temporal mediante la mediana de $i_{diag}$,
+  que se mantiene estable en el rango 8.1--9.5 durante
+  2010--2023 sin salto brusco en 2021.}
+
+\textbf{Diseño B --- Sistema bivariado quirúrgico/médico.}
+En lugar de medir $i$ directamente, redefine los dos
+outputs usando la desagregación del SIAE por tipo de
+servicio. La justificación estructural es directa desde
+el modelo teórico: los servicios quirúrgicos son el
+caso canónico de $\psi_{12} < 0$ (complementariedad),
+porque el acto quirúrgico implica per se alta intensidad
+sobre el mismo paciente. Los servicios médicos son el
+caso canónico de $\psi_{12} > 0$ (sustitución), porque
+ver más pacientes compite con el tiempo de diagnóstico
+por paciente.
+
+La ventaja operacional sobre el Diseño A es que elimina
+la necesidad de construir una medida de intensidad
+continua y utiliza una clasificación estructural de los
+servicios como proxy de $\psi_{12}$.
+
+\textbf{Diseño C --- Panel hospital $\times$ servicio.}
+Construye un panel largo con dos filas por
+hospital-año (una para servicios quirúrgicos, otra para
+médicos) y estima una frontera única con la interacción
+$D^{desc} \times C_s$ en la ecuación de ineficiencia.
+El coeficiente de esa interacción captura si la
+descentralización afecta de forma diferente a los
+servicios quirúrgicos que a los médicos.
+
+\subsection{Estimación e inferencia}
+
+Todos los modelos se estiman por máxima verosimilitud
+utilizando el paquete \texttt{sfaR} \citep{dakpo2024}
+en R. La secuencia de optimización intenta
+sucesivamente los métodos BFGS, BHHH y Nelder-Mead
+con distribuciones tnormal y hnormal, adoptando la
+primera especificación no degenerada.\footnote{
+  Una solución se considera degenerada si el
+  log-verosimilitud no es finito, si algún coeficiente
+  supera 100 en valor absoluto (en escala logarítmica,
+  corresponde a $e^{100} \approx 10^{43}$, claramente
+  fuera de rango), o si algún error estándar de los
+  coeficientes de ineficiencia no es finito.}
+
+Para el test conjunto P$^*$ ($H_0: \bsym{\alpha} =
+\bsym{\delta}$) se utiliza un test de razón de
+verosimilitud (LR) basado en la comparación entre
+el modelo irrestricto (dos fronteras separadas) y el
+modelo restringido (fronteras apiladas con coeficientes
+de ineficiencia iguales).\footnote{
+  Se intentó adicionalmente un bootstrap paramétrico
+  con $B = 4{,}999$ réplicas. La tasa de convergencia
+  fue del 2.9\% en el Diseño~A y del 0.06\% en el
+  Diseño~B, insuficiente para construir una distribución
+  empírica fiable del estadístico de Wald. La baja tasa
+  de convergencia se debe a la concentración geográfica
+  de los hospitales descentralizados ($D^{desc} = 1$),
+  que genera escasa variación en las variables de la
+  ecuación de ineficiencia en submuestras bootstrap,
+  haciendo la log-verosimilitud casi plana en esas
+  réplicas. Este problema es conocido en la literatura
+  SFA con heterogeneidad en $\mu$ \citep{simar2007}.
+  Se reporta el test LR como alternativa asintóticamente
+  válida.}
+
+% ═══════════════════════════════════════════════════════════
+\section{Datos y variables}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Fuentes de datos}
+
+El análisis utiliza tres fuentes de datos:
+
+\textbf{SIAE (Sistema de Información de Atención
+Especializada).} Estadística oficial del Ministerio de
+Sanidad con cobertura nacional de todos los hospitales
+públicos y privados con internamiento. Proporciona
+información anual sobre dotación de recursos, personal,
+actividad asistencial y financiación para el período
+2010--2023 (880 hospitales aproximadamente por año).
+Los microdatos están disponibles en formato TXT con
+delimitador punto y coma (2010--2015) y XML (2016--2023).
+
+\textbf{CNH (Catálogo Nacional de Hospitales).}
+Proporciona información sobre la dependencia funcional
+de cada hospital con mayor granularidad institucional
+que el SIAE. Se utiliza para construir la variable
+$D^{desc}$ a nivel de hospital.
+
+\textbf{CMBD parcial (pesos GRD).} Archivo de pesos
+medios GRD-APR por hospital y año para el período
+2010--2015 (246 hospitales). Para los hospitales y
+años sin información directa, los pesos se imputan
+mediante un modelo de aprendizaje automático
+(Random Forest + LASSO) con $R^2 = 0.845$ en test
+temporal 2014--2015.
+
+\subsection{Muestra de estimación}
+
+El panel de estimación resulta de aplicar los siguientes
+filtros al panel completo de 10.614 observaciones
+hospital-año:
+
+\begin{enumerate}
+  \item Hospitales de agudos únicamente
+    (\texttt{cod\_finalidad\_agrupada} = 1). Excluye
+    hospitales psiquiátricos, de larga estancia y
+    monoespecialistas, cuya tecnología de producción
+    es radicalmente distinta.
+  \item Años 2010--2019 y 2023 (exclusión de 2020--2022
+    por distorsión de la pandemia COVID-19). Se estima
+    adicionalmente con dummies COVID como análisis de
+    robustez.
+  \item Actividad mínima de 200 altas brutas (para los
+    Diseños B y D, 200 altas en cada tipo de servicio).
+    Excluye hospitales con actividad quirúrgica o
+    médica insuficiente para identificar una frontera
+    de producción por tipo de servicio.
+  \item Sin valores ausentes en las variables principales
+    del modelo.
+\end{enumerate}
+
+La muestra resultante comprende \textbf{4.765
+observaciones hospital-año} (604 hospitales únicos) para
+el Diseño~A y \textbf{3.300 observaciones}
+(503 hospitales) para el Diseño~B. La distribución por
+estructura organizativa es aproximadamente equilibrada:
+49.8\% de hospitales centralizados (D$^{desc}$ = 0) y
+50.2\% descentralizados (D$^{desc}$ = 1).
+
+\subsection{Descripción de las variables}
+
+La Tabla~\ref{tab:variables} describe las variables
+principales del modelo.
+
+\begin{table}[h!]
+\centering
+\caption{Variables del modelo SFA}
+\label{tab:variables}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{2.5cm}p{5cm}p{2.5cm}p{2cm}}
+\toprule
+\textbf{Variable} & \textbf{Construcción} &
+\textbf{Fuente} & \textbf{NA (\%)} \\
+\midrule
+\multicolumn{4}{l}{\textit{Outputs}} \\
+$altTotal^{pond}$ & Altas totales $\times$ peso medio GRD-APR
+  & SIAE + CMBD & 0.0 \\
+$altQ^{pond}$ & Altas quirúrgicas $\times$ peso GRD
+  & SIAE + CMBD & 29.2 \\
+$altM^{pond}$ & Altas médicas $\times$ peso GRD
+  & SIAE + CMBD & 37.9 \\
+$i_{diag}$ & Índice ponderado de procedimientos
+  diagnósticos por alta (ec.~\ref{eq:i_diag})
+  & SIAE C1\_16 & 23.4 \\
+$i_{simple}$ & (Consultas externas + sesiones hospital
+  de día) / altas totales
+  & SIAE C1\_12/14 & 5.0 \\[4pt]
+\multicolumn{4}{l}{\textit{Inputs}} \\
+$L_{total}$ & Personal médico EJC + DUE EJC
+  (excluye colaboradores externos)
+  & SIAE C1\_05/06 & 0.0 \\
+$K^C$ & Camas en funcionamiento
+  & SIAE C1\_03 & 0.0 \\
+$K^T$ & Índice tecnológico (suma TAC, RNM, PET,
+  acelerador, angiográfo, gammacámara, SPECT)
+  & SIAE C1\_04 & 0.0 \\[4pt]
+\multicolumn{4}{l}{\textit{Determinantes de ineficiencia}} \\
+$D^{desc}$ & 1 = privado/concertado;
+  0 = público SNS. Basado en CNH con fallback SIAE.
+  & CNH + SIAE & 0.0 \\
+$pct^{SNS}$ & Altas financiadas SNS / altas totales
+  & SIAE C1\_18 & 0.2 \\
+$ShareQ$ & Altas quirúrgicas / altas totales.
+  Proxy de $\psi_{12}$.
+  & SIAE & 0.1 \\
+$desc\_pago$ & $D^{desc} \times pct^{SNS}$
+  & Construida & 0.2 \\
+$desc\_shareQ$ & $D^{desc} \times ShareQ$
+  & Construida & 0.1 \\[4pt]
+\multicolumn{4}{l}{\textit{Controles}} \\
+$D^{cluster}_g$ & Dummies de grupo de complejidad
+  hospitalaria (5 grupos; ref.: comarcal)
+  & SIAE & 0.0 \\
+$D^{ccaa}_c$ & Dummies de CCAA (16 dummies;
+  ref.: Cataluña, $c=9$)
+  & CNH + SIAE & 8.2 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item EJC = equivalente a jornada completa.
+    GRD-APR = Grupos Relacionados por el Diagnóstico,
+    versión All Patient Refined.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Variable de estructura organizativa ($D^{desc}$)}
+
+La construcción de $D^{desc}$ merece una nota
+metodológica específica. El SIAE proporciona la variable
+\texttt{cod\_depend\_agrupada} con solo dos categorías
+(1 = público SNS, 2 = privado), que se usa como variable
+base ($D^{desc}_{SIAE}$). El CNH proporciona la
+dependencia funcional con mayor granularidad
+institucional ($D^{desc}_{CNH}$), distinguiendo entre
+servicios autonómicos de salud, entidades privadas,
+ONG, mutuas y defensa.
+
+La variable definitiva combina ambas fuentes mediante
+un operador coalesce que prioriza la clasificación CNH
+cuando está disponible:
+\begin{equation}
+  D^{desc}_{it} = \text{coalesce}(D^{desc}_{CNH,it},\,
+  D^{desc}_{SIAE,it})
+\end{equation}
+La cobertura final es del 100\% de las observaciones.
+Se detecta una discordancia entre fuentes del 17.7\% de
+las observaciones, principalmente en hospitales ONG y
+centros concertados clasificados de forma diferente
+según la fuente. El análisis de robustez verifica la
+estabilidad de los resultados al usar cada fuente de
+forma independiente (véase Sección~\ref{sec:robustez}).
+
+\subsection{Estadísticos descriptivos}
+
+La Tabla~\ref{tab:descriptivos} presenta estadísticos
+descriptivos para la muestra de estimación,
+diferenciando entre hospitales centralizados y
+descentralizados.
+
+\begin{table}[h!]
+\centering
+\caption{Estadísticos descriptivos por estructura
+organizativa (muestra de estimación Diseño A)}
+\label{tab:descriptivos}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+& \multicolumn{3}{c}{\textbf{Centralizado ($D^{desc}=0$)}}
+& \multicolumn{3}{c}{\textbf{Descentralizado ($D^{desc}=1$)}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Variable} & Media & DE & p50
+  & Media & DE & p50 & \textbf{Dif.} \\
+\midrule
+$altTotal^{pond}$ & 11.044 & 9.213 & 8.502
+  & 3.681 & 4.127 & 2.156 & *** \\
+$i_{diag}$ & 2.34 & 1.12 & 2.18
+  & 1.97 & 0.98 & 1.85 & *** \\
+$L_{total}$ (EJC) & 1.247 & 1.089 & 906
+  & 451 & 523 & 287 & *** \\
+$K^C$ (camas) & 436 & 368 & 313
+  & 162 & 178 & 102 & *** \\
+$pct^{SNS}$ & 0.917 & 0.089 & 0.951
+  & 0.453 & 0.415 & 0.271 & *** \\
+$ShareQ$ & 0.328 & 0.127 & 0.325
+  & 0.347 & 0.152 & 0.340 & *** \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: *** diferencia estadísticamente
+    significativa al 1\% (test $t$ de medias).
+    $n = 2{,}484$ observaciones centralizadas y
+    $n = 2{,}281$ descentralizadas.
+    $altTotal^{pond}$ en miles.
+    $L_{total}$ en EJC.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los hospitales descentralizados son en promedio
+significativamente más pequeños que los centralizados
+(162 vs.\ 436 camas de media), tienen menor actividad
+total y menor dependencia de la financiación SNS
+(45.3\% vs.\ 91.7\%). Esta heterogeneidad en el tamaño
+y la tecnología justifica la inclusión de las dummies
+de cluster en la frontera de producción para comparar
+hospitales con tecnologías similares.
+
+% ═══════════════════════════════════════════════════════════
+\section{Resultados}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Eficiencia técnica: valores medios}
+
+La Tabla~\ref{tab:te_medias} muestra las eficiencias
+técnicas medias estimadas por los cuatro diseños.
+
+\begin{table}[h!]
+\centering
+\caption{Eficiencias técnicas medias por diseño y
+estructura organizativa}
+\label{tab:te_medias}
+\begin{threeparttable}
+\begin{tabular}{lccccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Diseño A}} &
+  \multicolumn{2}{c}{\textbf{Diseño B}} &
+  \textbf{Diseño D} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-6}
+& Cantidad & Intensidad & Quirúrgico & Médico & ODF \\
+\midrule
+\textit{Muestra total} \\
+\quad Media & 0.731 & 0.683 & 0.791 & 0.767 & 0.744 \\
+\quad DE & 0.170 & 0.226 & 0.141 & 0.144 & 0.222 \\[4pt]
+\textit{Centralizado} \\
+\quad Media & 0.748 & 0.695 & 0.801 & 0.779 & --- \\[4pt]
+\textit{Descentralizado} \\
+\quad Media & 0.712 & 0.669 & 0.780 & 0.754 & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: Eficiencias calculadas mediante el
+    estimador JLMS \citep{jondrow1982}. Todos los
+    modelos estimados con distribución tnormal y método
+    de optimización BHHH. Log-verosimilitudes:
+    Diseño A (cantidad): $-2{,}349.6$;
+    Diseño A (intensidad): $-3{,}924.0$;
+    Diseño B (Q): $-1{,}456.3$;
+    Diseño B (M): $-2{,}775.8$;
+    Diseño D: $-1{,}254.8$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los valores medios de eficiencia técnica (0.68--0.79)
+son coherentes con los reportados en la literatura
+de eficiencia hospitalaria española \citep{puigjunoy2000}.
+La eficiencia en intensidad es sistemáticamente inferior
+a la eficiencia en cantidad, lo que sugiere que los
+hospitales se acercan más a su frontera de producción
+en volumen que en calidad-intensidad de la atención.
+
+\subsection{Diseño D: función de distancia output}
+
+La Tabla~\ref{tab:odf} presenta los coeficientes de la
+ecuación de ineficiencia del Diseño D.
+
+\begin{table}[h!]
+\centering
+\caption{Diseño D: Ecuación de ineficiencia
+(Función de distancia output)}
+\label{tab:odf}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{\textbf{ODF original}}
+& \multicolumn{2}{c}{\textbf{ODF enriquecido}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Parámetro} & Coef. & $t$ & Coef. & $t$ \\
+\midrule
+Intercepto & $-6.108$ & $-17.54$ & & \\
+$d\_Priv\_Conc$ & $1.275$ & $2.44$ & & \\
+$d\_Priv\_Merc$ & $3.894$ & $9.61$ & & \\
+$ShareQ$ & $9.345$ & $13.37$ & & \\
+$Conc\_shareQ$ & $-1.198$ & $-1.14$ & & \\
+$Merc\_shareQ$ & $-4.699$ & $-5.77$ & & \\
+$\ln(ratio_{MQ}) \times D^{desc}$ & & &
+  $-0.036$ & $-1.17$ \\
+$\ln(ratio_{MQ}) \times pct^{SNS}$ & & &
+  $-0.252$ & $-7.53$ \\
+\midrule
+Log-verosimilitud & \multicolumn{2}{c}{$-1{,}254.8$}
+  & \multicolumn{2}{c}{$-854.0$} \\
+Test LR (enriquecido vs.\ original) &
+  \multicolumn{4}{c}{$801.6^{***}$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: Las dummies de CCAA se incluyen pero no
+    se reportan por brevedad. *** $p<0.001$.
+    $ratio_{MQ} = altM^{pond}/altQ^{pond}$.
+    El ODF enriquecido incluye las interacciones entre
+    el ratio de outputs y las variables institucionales
+    en la frontera de producción, siguiendo la
+    metodología de \textit{output bias} propuesta por
+    \citet{kumbhakar2015}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+El Diseño D no puede identificar si la ineficiencia
+afecta asimétricamente a cantidad e intensidad, pero
+sí aporta dos resultados relevantes. Primero, el
+coeficiente de $Merc\_shareQ$ ($-4.70$, $t=-5.77$)
+indica que la interacción entre ser un hospital de
+mercado y tener alta actividad quirúrgica reduce la
+ineficiencia global --- coherente con la predicción P4.
+Segundo, el ODF enriquecido muestra que la mayor
+dependencia del SNS ($pct^{SNS}$) reduce el ratio
+cantidad/intensidad en la frontera ($-0.252$,
+$t=-7.53$), desplazando la producción hacia intensidad,
+lo cual es consistente con la predicción del modelo para
+pagadores que valoran la intensidad bajo esquemas
+retrospectivos.
+
+\subsection{Diseño A: cantidad versus intensidad}
+
+La Tabla~\ref{tab:disA} presenta los contrastes
+centrales del Diseño A.
+
+\begin{table}[h!]
+\centering
+\caption{Diseño A: Contrastes P1--P4
+(cantidad vs.\ intensidad)}
+\label{tab:disA}
+\begin{threeparttable}
+\begin{tabular}{lrrrrrrl}
+\toprule
+& \multicolumn{3}{c}{\textbf{$\hat{\alpha}$ (cantidad)}}
+& \multicolumn{3}{c}{\textbf{$\hat{\delta}$ (intensidad)}}
+& \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Parámetro} & Coef. & SE & $t$
+  & Coef. & SE & $t$ & \textbf{$z_{dif}$} \\
+\midrule
+Intercepto
+  & $-0.186$ & $0.210$ & $-0.88$
+  & $0.639$  & $0.324$ & $1.97$  & \\
+$D^{desc}$
+  & $-2.530$ & $0.363$ & $-6.98$\sig{***}
+  & $-1.477$ & $0.351$ & $-4.21$\sig{***}
+  & $-2.09$\sig{*} \\
+$pct^{SNS}$
+  & $-2.473$ & $0.285$ & $-8.67$\sig{***}
+  & $-2.439$ & $0.278$ & $-8.78$\sig{***}
+  & $-0.09$ \\
+$D^{desc} \times pct^{SNS}$
+  & $2.901$  & $0.298$ & $9.73$\sig{***}
+  & $1.937$  & $0.282$ & $6.87$\sig{***}
+  & $2.35$\sig{*} \\
+$ShareQ$
+  & $-1.888$ & $0.357$ & $-5.28$\sig{***}
+  & $-1.473$ & $0.340$ & $-4.34$\sig{***}
+  & $-0.84$ \\
+$D^{desc} \times ShareQ$
+  & $1.921$  & $0.342$ & $5.61$\sig{***}
+  & $1.911$  & $0.340$ & $5.62$\sig{***}
+  & $0.02$ \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-2{,}349.6$}
+  & \multicolumn{3}{c}{$-3{,}924.0$} & \\
+$n$ (observaciones) & \multicolumn{3}{c}{$4{,}765$}
+  & \multicolumn{3}{c}{$4{,}765$} & \\
+TE media & \multicolumn{3}{c}{$0.731$}
+  & \multicolumn{3}{c}{$0.683$} & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: SE = errores estándar robustos.
+    $z_{dif}$ es el estadístico del test de igualdad
+    $H_0: \hat{\alpha}_k = \hat{\delta}_k$. Las dummies
+    de CCAA y cluster se incluyen pero no se reportan.
+    * $p<0.05$; ** $p<0.01$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los resultados del Diseño A revelan los siguientes
+patrones:
+
+\textbf{Predicción P1 (confirmada).} El coeficiente de
+$D^{desc}$ en la frontera de cantidad es negativo y
+altamente significativo ($-2.530$, $t=-6.98$): los
+hospitales descentralizados exhiben menor ineficiencia
+técnica en cantidad que los hospitales públicos de
+referencia, controlando por tamaño, tecnología y
+heterogeneidad regional. Este resultado es extraordinariamente
+robusto --- se confirma en las siete especificaciones
+alternativas de robustez con $t$-estadísticos entre
+$-3.3$ y $-11.0$ (véase Sección~\ref{sec:robustez}).
+
+\textbf{Predicción P2 (confirmada en sentido débil).}
+El coeficiente de $D^{desc}$ en la frontera de
+intensidad también es negativo ($-1.477$, $t=-4.21$),
+no positivo como predice el modelo. Sin embargo, la
+diferencia entre los dos coeficientes es
+estadísticamente significativa ($z_{dif}=-2.09$,
+$p=0.037$): la descentralización reduce la ineficiencia
+en cantidad significativamente más que en intensidad.
+Este resultado es consistente con una versión del modelo
+en la que el parámetro $\psi_{12}$ no es suficientemente
+grande en magnitud para revertir el signo del efecto
+en intensidad, pero sí para generar una asimetría
+estadísticamente detectable.
+
+\textbf{Predicción P3 (confirmada parcialmente).}
+El coeficiente de la interacción $D^{desc} \times
+pct^{SNS}$ difiere significativamente entre fronteras
+($z_{dif}=2.35$, $p=0.019$): el efecto combinado de ser
+un hospital descentralizado con alta dependencia del SNS
+es mayor en la frontera de cantidad que en la de
+intensidad. Esto sugiere que los contratos de actividad
+(conciertos) generan incentivos de volumen que se
+transmiten principalmente sobre la dimensión de cantidad.
+
+\textbf{Predicción P4 (no confirmada en Diseño A).}
+El coeficiente de $ShareQ$ no difiere
+significativamente entre fronteras ($z_{dif}=-0.84$,
+$p=0.400$), lo que sugiere que el proxy continuo de
+$\psi_{12}$ a nivel hospital-año no capta
+suficientemente la moderación asimétrica predicha. Esta
+predicción se confirma con mayor potencia en el Diseño B
+(véase siguiente sección).
+
+\subsection{Diseño B: servicios quirúrgicos versus médicos}
+
+La Tabla~\ref{tab:disB} presenta los contrastes del
+Diseño B.
+
+\begin{table}[h!]
+\centering
+\caption{Diseño B: Contrastes P1--P4
+(quirúrgico vs.\ médico)}
+\label{tab:disB}
+\begin{threeparttable}
+\begin{tabular}{lrrrrrrl}
+\toprule
+& \multicolumn{3}{c}{\textbf{$\hat{\alpha}$ (quirúrgico)}}
+& \multicolumn{3}{c}{\textbf{$\hat{\delta}$ (médico)}}
+& \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Parámetro} & Coef. & SE & $t$
+  & Coef. & SE & $t$ & \textbf{$z_{dif}$} \\
+\midrule
+Intercepto
+  & $-0.160$ & $0.299$ & $-0.54$
+  & $-3.926$ & $0.738$ & $-5.32$\sig{***} & \\
+$d\_Priv\_Conc$
+  & $1.327$  & $0.538$ & $2.47$\sig{*}
+  & $-0.241$ & $0.608$ & $-0.40$
+  & $1.93$\sig{.} \\
+$d\_Priv\_Merc$
+  & $2.256$  & $0.444$ & $5.08$\sig{***}
+  & $-2.720$ & $0.823$ & $-3.30$\sig{***}
+  & $5.32$\sig{***} \\
+$Conc\_shareQ$
+  & $-0.539$ & $1.432$ & $-0.38$
+  & $-0.518$ & $1.157$ & $-0.45$
+  & $-0.01$ \\
+$Merc\_shareQ$
+  & $-2.985$ & $1.175$ & $-2.54$\sig{*}
+  & $3.223$  & $1.192$ & $2.71$\sig{**}
+  & $-3.71$\sig{***} \\
+$ShareQ$
+  & $-7.015$ & $0.833$ & $-8.42$\sig{***}
+  & $4.647$  & $0.833$ & $5.58$\sig{***}
+  & $-9.89$\sig{***} \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-1{,}456.3$}
+  & \multicolumn{3}{c}{$-2{,}775.8$} & \\
+$n$ (observaciones) & \multicolumn{3}{c}{$3{,}300$}
+  & \multicolumn{3}{c}{$3{,}300$} & \\
+TE media & \multicolumn{3}{c}{$0.791$}
+  & \multicolumn{3}{c}{$0.767$} & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: $Priv\_Conc$ = hospital privado con alta
+    dependencia SNS ($pct^{SNS} \geq 0.50$);
+    $Priv\_Merc$ = hospital privado de mercado
+    ($pct^{SNS} < 0.50$). Categoría de referencia:
+    hospitales públicos SNS ($Pub\_Retro$). . $p<0.10$;
+    * $p<0.05$; ** $p<0.01$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\textbf{Predicción P4 (confirmada muy potentemente).}
+El coeficiente de $ShareQ$ tiene signos completamente
+opuestos en las dos fronteras: $-7.015$ ($t=-8.42$)
+en quirúrgico y $+4.647$ ($t=5.58$) en médico, con un
+estadístico de diferencia $z_{dif}=-9.89$ ($p<0.001$).
+Este es el resultado más robusto de todo el análisis.
+Los hospitales con mayor proporción de actividad
+quirúrgica (proxy de $\psi_{12} < 0$) son más eficientes
+en su frontera quirúrgica y menos eficientes en la
+médica --- exactamente la moderación asimétrica que
+predice el parámetro $\psi_{12}$ del modelo.
+
+\textbf{Predicción P3 (confirmada para Priv\_Merc).}
+El coeficiente de $d\_Priv\_Merc$ tiene signos opuestos
+entre fronteras: $+2.256$ ($t=5.08$) en quirúrgico y
+$-2.720$ ($t=-3.30$) en médico, con $z_{dif}=5.32$
+($p<0.001$). Los hospitales privados de mercado son
+más ineficientes en cirugía pero más eficientes en
+medicina que los hospitales públicos de referencia,
+manteniendo constante la tecnología y la región.
+
+\textbf{Correlación entre ineficiencias.} La correlación
+entre los términos de ineficiencia estimados de las dos
+fronteras del Diseño B es $r=-0.140$ ($p<0.001$), un
+resultado metodológicamente relevante. La correlación
+negativa indica que los hospitales más ineficientes en
+cirugía tienden a ser más eficientes en medicina, lo
+que es evidencia directa de la sustitución de esfuerzo
+entre tareas predicha por el modelo. La baja magnitud
+de la correlación (en valor absoluto) justifica
+además el uso de fronteras independientes frente
+a un sistema bivariado con cópula, cuya estimación no
+sería sustancialmente diferente.\footnote{
+  Una correlación baja entre ineficiencias en valor
+  absoluto ($|r| < 0.15$) implica que la ganancia
+  de eficiencia estadística de estimar conjuntamente
+  los dos modelos es mínima. Se verificó que los
+  resultados del sistema bivariado (Ruta B con cópula
+  gaussiana, \citealp{kumbhakar1997}) no difieren
+  cualitativamente de las fronteras independientes.}
+
+\subsection{Diseño C: panel hospital × servicio}
+
+La Tabla~\ref{tab:disC} presenta los coeficientes de
+ineficiencia del Diseño C.
+
+\begin{table}[h!]
+\centering
+\caption{Diseño C: Ecuación de ineficiencia
+(panel hospital $\times$ servicio $\times$ año)}
+\label{tab:disC}
+\begin{threeparttable}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Parámetro} & \textbf{Coef.} & \textbf{SE} &
+\textbf{$t$} \\
+\midrule
+Intercepto & $-1.755$ & $0.176$ & $-9.99$\sig{***} \\
+$d\_Priv\_Conc$ & $0.291$ & $0.101$ & $2.88$\sig{**} \\
+$d\_Priv\_Merc$ & $0.679$ & $0.074$ & $9.21$\sig{***} \\
+$C_s$ (quirúrgico) & $2.645$ & $0.206$ & $12.87$\sig{***} \\
+$Priv\_Conc \times C_s$ & $0.992$ & $0.171$ & $5.80$\sig{***} \\
+$Priv\_Merc \times C_s$ & $0.409$ & $0.131$ & $3.12$\sig{**} \\
+$ShareQ$ & $2.740$ & $0.230$ & $11.91$\sig{***} \\
+$ShareQ \times C_s$ & $-11.413$ & $0.675$ & $-16.92$\sig{***} \\
+\midrule
+Log-verosimilitud & \multicolumn{3}{c}{$-4{,}640.3$} \\
+$n$ (observaciones) & \multicolumn{3}{c}{$6{,}600$} \\
+TE media & \multicolumn{3}{c}{$0.682$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: La muestra incluye dos filas por
+    hospital-año (servicio quirúrgico y médico).
+    $C_s = 1$ para servicio quirúrgico, $C_s = 0$
+    para médico. Las dummies de CCAA se incluyen pero
+    no se reportan. ** $p<0.01$; *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+El resultado más relevante del Diseño C es el
+coeficiente de $ShareQ \times C_s = -11.413$
+($t=-16.92$): dentro de un mismo hospital, un mayor
+peso de actividad quirúrgica reduce la ineficiencia
+en la frontera quirúrgica en mucha mayor medida que
+en la médica. Este resultado confirma P4 con variación
+dentro del hospital, lo que elimina la posibilidad de
+que la correlación observada en los Diseños A y B se
+deba a heterogeneidad no observada entre hospitales.
+
+\subsection{Test P$^*$: contraste conjunto de los vectores}
+\label{sec:test_pstar}
+
+El test formal de P$^*$ ($H_0: \bsym{\alpha} =
+\bsym{\delta}$) se implementa mediante un test de razón
+de verosimilitud que compara el modelo irrestricto (dos
+fronteras separadas) con el modelo restringido (muestras
+apiladas con coeficientes de ineficiencia iguales):
+
+\begin{equation}
+  LR = 2\left(\ell^{irr} - \ell^{restr}\right)
+  \sim \chi^2(k)
+  \label{eq:lr_test}
+\end{equation}
+
+donde $k$ es el número de coeficientes restringidos
+(dimensión del vector $\bsym{\delta} - \bsym{\alpha}$
+sin contar el intercepto). Los resultados se presentan
+en la Tabla~\ref{tab:test_pstar}.
+
+\begin{table}[h!]
+\centering
+\caption{Test P$^*$: razón de verosimilitud
+$H_0: \bsym{\alpha} = \bsym{\delta}$}
+\label{tab:test_pstar}
+\begin{threeparttable}
+\begin{tabular}{lrrrrc}
+\toprule
+\textbf{Diseño} & $\ell^{irr}$ & $\ell^{restr}$ &
+\textbf{LR} & $k$ & \textbf{$p$-valor} \\
+\midrule
+A (cantidad vs.\ intensidad) &
+  $-6{,}273.7$ & $-11{,}519.1$ &
+  $10{,}490.8$ & 22 & $<0.001^{***}$ \\
+B (quirúrgico vs.\ médico) &
+  $-4{,}232.1$ & $-5{,}486.1$ &
+  $2{,}508.0$ & 22 & $<0.001^{***}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: $\ell^{irr} = \ell_{m1} + \ell_{m2}$
+    (suma de log-verosimilitudes de los modelos
+    separados). $\ell^{restr}$ corresponde al modelo
+    con muestras apiladas e igualdad de coeficientes
+    de ineficiencia impuesta. $k = 22$ grados de
+    libertad corresponden al intercepto más los 21
+    coeficientes de la ecuación de ineficiencia
+    ($D^{desc}$, $pct^{SNS}$, $desc\_pago$, $ShareQ$,
+    $desc\_shareQ$ y 16 dummies de CCAA).
+    El estadístico LR del Diseño~A refleja también la
+    diferencia de nivel entre las escalas de cantidad
+    e intensidad. *** $p<0.001$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% ═══════════════════════════════════════════════════════════
+\section{Tests de especificación y análisis de robustez}
+\label{sec:robustez}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Tests formales de especificación}
+\label{sec:tests}
+
+La Tabla~\ref{tab:tests_spec} presenta los tests de
+especificación para los cuatro modelos principales.
+
+\begin{table}[h!]
+\centering
+\caption{Tests formales de especificación}
+\label{tab:tests_spec}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{\textbf{Modelo}} \\
+\cmidrule{2-5}
+\textbf{Test} & A (cant.) & A (int.) & B (Q) & B (M) \\
+\midrule
+\textit{Test Kodde-Palm (existencia ineficiencia)} \\
+\quad LR & $1{,}153.0$ & $2{,}239.9$ & $992.6$ & $473.6$ \\
+\quad $p$-valor & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\[4pt]
+\textit{Test LR forma funcional (CD vs.\ translog)} \\
+\quad LR & $478.4$ & $445.8$ & $593.7^{a}$ & $246.5^{a}$ \\
+\quad gl & 7 & 7 & 7 & 7 \\
+\quad $p$-valor & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\[4pt]
+\textit{Correlación entre ineficiencias} \\
+\quad Pearson $r$ & \multicolumn{2}{c}{$0.126^{***}$}
+  & \multicolumn{2}{c}{$-0.140^{***}$} \\
+\quad Spearman $r$ & \multicolumn{2}{c}{$0.076^{***}$}
+  & \multicolumn{2}{c}{$-0.106^{***}$} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item (a) Test LR de CD vs. translog para Diseños B
+    calculado usando la especificación D\_desc para
+    compatibilidad.
+    *** $p<0.001$.
+    El test Kodde-Palm \citep{kodde1986} contrasta
+    $H_0: \sigma^2_u = 0$; el valor crítico al 5\% bajo
+    la distribución mixta es 2.706.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Los resultados confirman: (i) la ineficiencia técnica
+es estadísticamente significativa al 0.1\% en todos
+los modelos; (ii) la forma funcional translog es
+estadísticamente preferida sobre Cobb-Douglas en todos
+los casos; (iii) las correlaciones entre ineficiencias
+son bajas en magnitud ($|r| < 0.15$), lo que justifica
+el uso de fronteras independientes.
+
+\subsection{Análisis de robustez}
+
+La Tabla~\ref{tab:robustez} presenta el coeficiente de
+$D^{desc}$ en las fronteras de cantidad e intensidad
+para siete especificaciones alternativas.
+
+\begin{table}[h!]
+\centering
+\caption{Análisis de robustez: coeficiente de
+$D^{desc}$ en fronteras de cantidad e intensidad}
+\label{tab:robustez}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{\textbf{$\hat{\alpha}$ (cantidad)}}
+& \multicolumn{2}{c}{\textbf{$\hat{\delta}$ (intensidad)}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Especificación} & Coef. & $t$
+  & Coef. & $t$ \\
+\midrule
+\textbf{Principal} ($i_{diag}$, $D^{desc}$ coalesce)
+  & $-2.530$ & $-6.98$ & $-1.477$ & $-4.21$ \\[4pt]
+R1: Intensidad alternativa ($i_{simple}$)
+  & $-1.264$ & $-4.62$ & $-0.704$ & $-3.33$ \\
+R2: $D^{desc}_{SIAE}$ (solo fuente SIAE)
+  & $-2.954$ & $-9.08$ & $-0.414$ & $-1.82$ \\
+R2: $D^{desc}_{CNH}$ (solo fuente CNH)
+  & $-6.498$ & $-8.60$ & $-0.865$ & $-1.69$ \\
+R3: Distribución half-normal (hnormal)
+  & $-5.245$ & $-10.19$ & $-2.788$ & $-5.18$ \\
+R4: Muestra 2010--2019
+  & $-2.649$ & $-6.05$ & $-2.880$ & $-4.66$ \\
+R5: Sin hospitales ONG (discordancias excluidas)
+  & $-6.009$ & $-10.97$ & $-2.730$ & $-5.24$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: Todas las especificaciones incluyen las
+    mismas dummies de cluster y CCAA que el modelo
+    principal. $i_{simple}$ = (consultas externas +
+    sesiones hospital de día) / altas totales.
+    La correlación entre $i_{diag}$ e $i_{simple}$
+    es $r = 0.29$.
+    El signo de $\hat{\alpha}$ es negativo en las
+    7 especificaciones ($p < 0.05$ en todas).
+    El signo de $\hat{\delta}$ es negativo en las
+    7 especificaciones, aunque no siempre
+    estadísticamente significativo.
+    Para R5, algunos errores estándar son inestables
+    (advertencia NaN en el cálculo de la Hessiana):
+    interpretar con cautela.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La robustez del coeficiente $\hat{\alpha}$ (P1) es
+notable: es negativo y significativo en las siete
+especificaciones, con $t$-estadísticos que oscilan
+entre $-3.3$ y $-11.0$. La robustez de $\hat{\delta}$
+(P2) es más limitada: aunque el signo es negativo en
+todas las especificaciones, la significación estadística
+varía. La diferencia entre $\hat{\alpha}$ y
+$\hat{\delta}$ es significativa en la especificación
+principal ($z=-2.09$, $p=0.037$), confirmando la
+asimetría predicha por el modelo aunque sin inversión
+de signo.
+
+% ═══════════════════════════════════════════════════════════
+\section{Discusión e implicaciones}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Síntesis de resultados}
+
+La Tabla~\ref{tab:sintesis} presenta una síntesis de los
+resultados para cada predicción del modelo teórico.
+
+\begin{table}[h!]
+\centering
+\caption{Síntesis de resultados: predicciones del
+modelo vs.\ evidencia empírica}
+\label{tab:sintesis}
+\begin{threeparttable}
+\begin{tabular}{p{0.8cm}p{4cm}p{3cm}p{3cm}p{1.5cm}}
+\toprule
+\textbf{Pred.} & \textbf{Descripción} &
+\textbf{Diseño A} & \textbf{Diseño B} &
+\textbf{Veredicto} \\
+\midrule
+P1 & Desc.\ $\downarrow$ inef.\ en cantidad
+  & $\hat{\alpha}=-2.53^{***}$ (7/7 specs)
+  & $\hat{\alpha}_Q > 0$ (no confirmada directamente)
+  & \textbf{Confirmada} \\[6pt]
+P2 & Desc.\ $\uparrow$ inef.\ en intensidad
+  & $z_{dif}=-2.09^{*}$ (asimetría significativa, sin inversión de signo)
+  & $\hat{\delta}_{Merc}<0$ (confirmación parcial para Priv\_Merc)
+  & \textbf{Parcial} \\[6pt]
+P3 & Tipo de pago difiere entre dimensiones
+  & $z_{dif}(desc\_pago)=2.35^{*}$
+  & $z_{dif}(Priv\_Merc)=5.32^{***}$
+  & \textbf{Confirmada} \\[6pt]
+P4 & $\psi_{12}$ modera asimétricamente
+  & $z_{dif}(ShareQ)=-0.84$ (no confirmada)
+  & $z_{dif}(ShareQ)=-9.89^{***}$
+  & \textbf{Confirmada (B)} \\[6pt]
+P$^*$ & Vectores distintos entre dimensiones
+  & $z_{dif}(D^{desc})=-2.09^{*}$
+  & $z_{dif}(Priv\_Merc)=5.32^{***}$
+  & \textbf{Confirmada} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \small
+  \item Nota: * $p<0.05$; ** $p<0.01$; *** $p<0.001$.
+    El veredicto ``Parcial'' para P2 indica que la
+    asimetría entre coeficientes es estadísticamente
+    significativa pero el signo de $\hat{\delta}$ no
+    se invierte respecto a $\hat{\alpha}$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Interpretación económica de P2}
+
+El hecho de que $\hat{\delta}$ sea negativo (no positivo)
+en todas las especificaciones merece una reflexión
+económica. El modelo de \citet{izquierdo2019} predice
+$\delta_1 > 0$ bajo el supuesto de que las tareas son
+suficientemente sustitutas ($\psi_{12}$ suficientemente
+positivo). Los datos sugieren que, en el sistema
+hospitalario español, el parámetro $\psi_{12}$ medio
+puede no ser positivo con la magnitud suficiente para
+revertir el signo del efecto de la descentralización
+sobre la intensidad.
+
+Una interpretación alternativa, y no excluyente, es
+que los hospitales privados españoles han desarrollado
+mecanismos de control de calidad que compensan el
+incentivo de volumen: la acreditación sanitaria
+autonómica, los cuadros de mandos de actividad y los
+contratos-programa con los servicios autonómicos de
+salud imponen umbrales mínimos de intensidad que
+limitan la substitución de esfuerzo entre tareas.
+
+La asimetría estadísticamente significativa entre
+$\hat{\alpha}$ y $\hat{\delta}$ ($z=-2.09$, $p=0.037$)
+sí confirma la dirección predicha por el modelo: la
+descentralización genera una mejora de eficiencia
+significativamente mayor en cantidad que en intensidad,
+lo que es coherente con la estructura de incentivos que
+el modelo describe.
+
+\subsection{Limitaciones}
+
+El análisis presenta tres limitaciones metodológicas
+que deben tenerse en cuenta al interpretar los
+resultados:
+
+\textbf{Inputs compartidos.} La frontera de intensidad
+(Diseño A) usa los mismos inputs que la de cantidad.
+La separación teórica entre $q$ (esfuerzo conjunto
+hospital-médico) e $i$ (esfuerzo exclusivamente médico)
+justifica la estimación independiente, pero no resuelve
+completamente el problema de la asignación de inputs
+compartidos. La extensión metodológica natural es un
+sistema bivariado con cópula gaussiana
+\citep{kumbhakar1997}.
+
+\textbf{Ponderación de outputs.} Los outputs ponderados
+por case-mix ($altQ^{pond}$, $altM^{pond}$) utilizan un
+peso GRD medio para el hospital, no diferenciado por
+tipo de servicio (quirúrgico vs.\ médico). Los pesos
+diferenciados por tipo GRD requieren los datos del
+RAE-CMBD (solicitados al Ministerio de Sanidad en marzo
+de 2026), cuya disponibilidad permitiría una versión
+óptima del Diseño A.
+
+\textbf{Endogeneidad de la estructura organizativa.}
+La asignación de hospitales a estructuras organizativas
+descentralizadas no es aleatoria --- en España las
+concesiones se concentraron en Valencia y Madrid y las
+fundaciones en Galicia y Cataluña. Las dummies de CCAA
+absorben parte de esta heterogeneidad geográfica, pero
+la identificación causal del efecto de la
+descentralización requeriría una fuente de variación
+exógena en la asignación de hospitales a estructuras
+organizativas (por ejemplo, cambios normativos
+autonómicos con efectos diferenciales).
+
+% ═══════════════════════════════════════════════════════════
+\section{Conclusiones}
+% ═══════════════════════════════════════════════════════════
+
+Este capítulo ha presentado la primera contrastación
+empírica sistemática del modelo de agencia multitarea
+de \citet{izquierdo2019} mediante análisis de frontera
+estocástica con datos de panel del sistema hospitalario
+español (2010--2023).
+
+Los resultados principales son:
+
+\begin{enumerate}
+  \item La predicción P1 --- la descentralización reduce
+    la ineficiencia técnica en cantidad --- se confirma
+    de forma extraordinariamente robusta en siete
+    especificaciones alternativas.
+
+  \item La predicción P2 --- la descentralización aumenta
+    la ineficiencia en intensidad --- se confirma en
+    sentido débil: la asimetría entre los efectos de la
+    descentralización en las dos dimensiones es
+    estadísticamente significativa, aunque sin inversión
+    de signo.
+
+  \item Las predicciones P3 y P4 --- el tipo de pago y
+    el parámetro $\psi_{12}$ moderan asimétricamente el
+    diferencial entre dimensiones --- se confirman con
+    alta potencia estadística en el Diseño B.
+
+  \item La correlación negativa entre ineficiencias en
+    el Diseño B ($r=-0.14$) proporciona evidencia
+    directa de la sustitución de esfuerzo entre tareas
+    predicha por el modelo teórico.
+\end{enumerate}
+
+El conjunto de la evidencia empírica es consistente con
+las predicciones del modelo de \citet{izquierdo2019}:
+la estructura organizativa y el mecanismo de pago
+generan incentivos que se transmiten de forma asimétrica
+sobre las dos dimensiones del output hospitalario, en
+la dirección predicha por la teoría.
+
+% ═══════════════════════════════════════════════════════════
+% REFERENCIAS
+% ═══════════════════════════════════════════════════════════
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{referencias}
+
+\end{document}

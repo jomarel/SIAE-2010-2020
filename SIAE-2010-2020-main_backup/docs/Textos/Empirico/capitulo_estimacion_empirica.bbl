@@ -1,0 +1,88 @@
+\begin{thebibliography}{}
+
+\bibitem[Aigner et~al., 1977]{aigner1977}
+Aigner, D.~J., Lovell, C. A.~K., and Schmidt, P. (1977).
+\newblock Formulation and estimation of stochastic frontier production function
+  models.
+\newblock {\em Journal of Econometrics}, 6(1):21--37.
+
+\bibitem[Battese and Coelli, 1995]{battese1995}
+Battese, G.~E. and Coelli, T.~J. (1995).
+\newblock A model for technical inefficiency effects in a stochastic frontier
+  production function for panel data.
+\newblock {\em Empirical Economics}, 20(2):325--332.
+
+\bibitem[Coelli and Perelman, 1999]{coelli1999}
+Coelli, T.~J. and Perelman, S. (1999).
+\newblock A comparison of parametric and non-parametric distance functions:
+  with application to {E}uropean railways.
+\newblock {\em European Journal of Operational Research}, 117(2):326--339.
+
+\bibitem[Dakpo et~al., 2024]{dakpo2024}
+Dakpo, K.~H., Desjeux, Y., Henningsen, A., and Latruffe, L. (2024).
+\newblock {\em {sfaR}: Stochastic Frontier Analysis Using {R}}.
+\newblock R package version 1.0.1.
+
+\bibitem[Elena~Izquierdo, 2019]{izquierdo2019}
+Elena~Izquierdo, J.~M. (2019).
+\newblock Incentives and organizational structure in hospital financing: a
+  multi-task principal-agent model.
+\newblock Documento de trabajo, Universidad de Salamanca.
+
+\bibitem[Jondrow et~al., 1982]{jondrow1982}
+Jondrow, J., Lovell, C. A.~K., Materov, I.~S., and Schmidt, P. (1982).
+\newblock On the estimation of technical inefficiency in the stochastic
+  frontier production function model.
+\newblock {\em Journal of Econometrics}, 19(2--3):233--238.
+
+\bibitem[Kodde and Palm, 1986]{kodde1986}
+Kodde, D.~A. and Palm, F.~C. (1986).
+\newblock Wald criteria for jointly testing equality and inequality
+  restrictions.
+\newblock {\em Econometrica}, 54(5):1243--1248.
+
+\bibitem[Kumbhakar, 1997]{kumbhakar1997}
+Kumbhakar, S.~C. (1997).
+\newblock Modeling allocative inefficiency in a translog cost system: an exact
+  relationship between the firm and input-specific technical and allocative
+  inefficiencies.
+\newblock {\em Journal of Econometrics}, 76(1--2):351--356.
+
+\bibitem[Kumbhakar et~al., 2015]{kumbhakar2015}
+Kumbhakar, S.~C., Wang, H.-J., and Horncastle, A.~P. (2015).
+\newblock {\em A Practitioner's Guide to Stochastic Frontier Analysis Using
+  {S}tata}.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Meeusen and van~den Broeck, 1977]{meeusen1977}
+Meeusen, W. and van~den Broeck, J. (1977).
+\newblock Efficiency estimation from {C}obb-{D}ouglas production functions with
+  composed error.
+\newblock {\em International Economic Review}, 18(2):435--444.
+
+\bibitem[{Ministerio de Sanidad y Consumo}, 2007]{ministerio2007}
+{Ministerio de Sanidad y Consumo} (2007).
+\newblock Clasificación de hospitales públicos españoles mediante análisis
+  cluster.
+\newblock Technical report, Instituto de Información Sanitaria, Ministerio de
+  Sanidad y Consumo, Madrid.
+
+\bibitem[Puig-Junoy and Dalmau-Matarrodona, 2000]{puigjunoy2000}
+Puig-Junoy, J. and Dalmau-Matarrodona, E. (2000).
+\newblock Eficiencia técnica de los hospitales del {INSALUD}: una función de
+  distancia de output.
+\newblock {\em Investigaciones Económicas}, 24(3):633--672.
+
+\bibitem[Simar and Wilson, 2007]{simar2007}
+Simar, L. and Wilson, P.~W. (2007).
+\newblock Estimation and inference in two-stage, semi-parametric models of
+  production processes.
+\newblock {\em Journal of Econometrics}, 136(1):31--64.
+
+\bibitem[Wang and Schmidt, 2002]{wang2002}
+Wang, H.-J. and Schmidt, P. (2002).
+\newblock One-step and two-step estimation of the effects of exogenous
+  variables on technical efficiency and scale.
+\newblock {\em Journal of Productivity Analysis}, 18(2):129--144.
+
+\end{thebibliography}

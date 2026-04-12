@@ -1,0 +1,33 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción y motivación empírica}{3}{section.1}%
+\contentsline {section}{\numberline {2}El modelo teórico y sus predicciones contrastables}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Estructura del modelo}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Estructuras organizativas}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Predicciones contrastables}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Estrategia empírica}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Marco general: análisis de frontera estocástica}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Especificación de la frontera de producción}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Ecuación de ineficiencia}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Los cuatro diseños de estimación}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Estimación e inferencia}{8}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Datos y variables}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Fuentes de datos}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Muestra de estimación}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Descripción de las variables}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Variable de estructura organizativa ($D^{desc}$)}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Estadísticos descriptivos}{11}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Resultados}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Eficiencia técnica: valores medios}{11}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Diseño D: función de distancia output}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Diseño A: cantidad versus intensidad}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Diseño B: servicios quirúrgicos versus médicos}{14}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Diseño C: panel hospital × servicio}{15}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Test P$^*$: contraste conjunto de los vectores}{16}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Tests de especificación y análisis de robustez}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Tests formales de especificación}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Análisis de robustez}{17}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Discusión e implicaciones}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Síntesis de resultados}{18}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Interpretación económica de P2}{18}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Limitaciones}{19}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Conclusiones}{19}{section.8}%

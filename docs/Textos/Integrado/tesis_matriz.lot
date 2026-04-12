@@ -6,28 +6,28 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces Predicciones contrastables del modelo teórico}}{54}{table.caption.16}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Diseños de estimación y su papel en el análisis}}{65}{table.caption.18}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Diseños de estimación y su papel en el análisis}}{65}{table.caption.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Variables del modelo SFA}}{75}{table.caption.20}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Estadísticos descriptivos por estructura organizativa (muestra Diseño A)}}{77}{table.caption.22}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Distribución de observaciones por categoría CNH y clasificación $D^{desc}$}}{79}{table.caption.24}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Evolución temporal de variables principales (medias anuales, muestra Diseño A)}}{82}{table.caption.26}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Variables del modelo SFA}}{75}{table.caption.9}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Estadísticos descriptivos por estructura organizativa (muestra Diseño A)}}{77}{table.caption.11}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Distribución de observaciones por categoría CNH y clasificación $D^{desc}$}}{79}{table.caption.13}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Evolución temporal de variables principales (medias anuales, muestra Diseño A)}}{82}{table.caption.15}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Eficiencias técnicas medias por diseño y estructura organizativa}}{87}{table.caption.28}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Diseño D: Ecuación de ineficiencia (ODF)}}{88}{table.caption.30}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Diseño A: Contrastes P1--P4 (cantidad vs.\ intensidad)}}{89}{table.caption.32}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Diseño B: Contrastes P1--P4 (quirúrgico vs.\ médico)}}{92}{table.caption.37}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Diseño C: Ecuación de ineficiencia (panel hospital $\times $ servicio)}}{94}{table.caption.39}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces Test P$^*$: razón de verosimilitud $H_0: \bm {\alpha } = \bm {\delta }$}}{95}{table.caption.41}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Eficiencias técnicas medias por diseño y estructura organizativa}}{87}{table.caption.17}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Diseño D: Ecuación de ineficiencia (ODF)}}{88}{table.caption.19}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Diseño A: Contrastes P1--P4 (cantidad vs.\ intensidad)}}{89}{table.caption.21}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Diseño B: Contrastes P1--P4 (quirúrgico vs.\ médico)}}{92}{table.caption.26}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Diseño C: Ecuación de ineficiencia (panel hospital $\times $ servicio)}}{94}{table.caption.28}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Test P$^*$: razón de verosimilitud $H_0: \bm {\alpha } = \bm {\delta }$}}{95}{table.caption.30}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Tests formales de especificación}}{99}{table.caption.43}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Robustez: coeficiente de $D^{desc}$ en fronteras de cantidad e intensidad}}{100}{table.caption.45}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Síntesis: predicciones del modelo vs.\ evidencia empírica}}{101}{table.caption.47}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Tests formales de especificación}}{99}{table.caption.32}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Robustez: coeficiente de $D^{desc}$ en fronteras de cantidad e intensidad}}{100}{table.caption.34}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Síntesis: predicciones del modelo vs.\ evidencia empírica}}{101}{table.caption.36}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Pipeline de scripts R}}{133}{table.caption.58}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Distribución de observaciones por comunidad autónoma y estructura organizativa}}{140}{table.caption.59}%
-\contentsline {table}{\numberline {C.2}{\ignorespaces Eficiencias técnicas por grupo de complejidad (Diseño A)}}{141}{table.caption.61}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Pipeline de scripts R}}{133}{table.caption.38}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Distribución de observaciones por comunidad autónoma y estructura organizativa}}{140}{table.caption.39}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Eficiencias técnicas por grupo de complejidad (Diseño A)}}{141}{table.caption.41}%

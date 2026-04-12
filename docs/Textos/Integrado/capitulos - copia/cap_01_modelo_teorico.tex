@@ -1,0 +1,520 @@
+﻿\chapter{Modelo teórico: incentivos y estructura organizativa en la financiación hospitalaria}
+\label{ch:modelo}
+
+\section{Introducción}
+
+El capítulo anterior ha descrito cómo el sistema hospitalario español combina pluralidad organizativa, diversidad en los mecanismos de pago y restricciones derivadas del régimen de personal que configuran un entorno de información asimétrica y contratos incompletos. Este capítulo formaliza esa estructura institucional mediante un modelo de agencia multitarea que traduce las variables jurídico-institucionales ---forma de gestión, tipo de pago, naturaleza del servicio--- en parámetros de un problema de incentivos con soluciones analíticas y predicciones empíricamente contrastables.
+
+La financiación hospitalaria eficiente depende de los arreglos organizativos establecidos entre los distintos agentes que interactúan en la provisión de servicios sanitarios. En este capítulo estudiamos cómo, bajo riesgo moral, diferentes estructuras organizativas moldean el papel de los mecanismos de pago por incentivos para los médicos y los directivos hospitalarios.
+
+La provisión de servicios hospitalarios es, en última instancia, el resultado de la interacción de múltiples agentes. Los financiadores ---públicos o privados--- compran servicios a los hospitales. Los gestores toman continuamente decisiones sobre la asignación de recursos humanos y materiales. Dentro de cada hospital, una multiplicidad de profesionales ---médicos, personal de enfermería, auxiliares, farmacéuticos--- realizan tareas distintas cuyas acciones combinadas determinan el conjunto de diagnósticos y procedimientos terapéuticos que intentan mejorar el estado de salud de los pacientes.
+
+La importancia de la multiplicidad de tareas y agentes implicados ha sido estudiada en numerosos trabajos académicos centrados en los efectos sobre la eficiencia de distintos esquemas de financiación. \citet{jelovac2002}, en un enfoque cercano al nuestro, estudian los contratos óptimos tanto para el médico como para el hospital bajo riesgo moral bilateral, analizando las condiciones bajo las cuales es óptimo utilizar contratación centralizada o una estructura descentralizada en la que el principal delega en el hospital el diseño del contrato del médico. \citet{ma1997} analiza el papel de la información asimétrica en la relación médico-hospital y sus implicaciones para la eficiencia. \citet{eggleston2005} examina las consecuencias de distintas formas de pago sobre la calidad cuando hay múltiples agentes. \citet{kaarboe2011} estudian los incentivos del médico hospitalario en un entorno multitarea con información asimétrica.
+
+Las regulaciones legales y administrativas del sistema sanitario influyen de manera fundamental en el funcionamiento de los incentivos. En el caso español, aunque la estructura hospitalaria pública es la forma predominante de provisión, ha aumentado la participación de organizaciones privadas y sin ánimo de lucro junto con las colaboraciones público-privadas \citep{repullo2008}. Más allá de las diferentes estructuras legales, hay una distinción esencial en la que se centra nuestro análisis: el grado de autonomía del que disfrutan los gestores hospitalarios al contratar sus insumos.
+
+En los hospitales públicos del SNS, la autoridad sanitaria regional contrata de forma centralizada y simultánea tanto los servicios hospitalarios como a los miembros del personal. En los hospitales privados y sin ánimo de lucro, los gestores disponen de mayor margen de maniobra a la hora de elegir a los médicos que trabajarán en sus centros y de diseñar los esquemas retributivos internos. Además, cuando los hospitales tienen una dependencia funcional privada o no lucrativa, se utilizan con mayor frecuencia esquemas de pago del tipo \textit{fee-for-service}, mientras que en los hospitales públicos el financiador recurre más a menudo a remuneraciones salariales fijas.
+
+Con este propósito, en las secciones siguientes desarrollamos un modelo teórico de riesgo moral con múltiples tareas bajo diferentes estructuras organizativas, derivando las restricciones de compatibilidad de incentivos y sus implicaciones sobre la potencia óptima de los incentivos y la eficiencia productiva. El objetivo último es obtener predicciones empíricamente contrastables que puedan aplicarse al sistema hospitalario español.
+
+
+\section{Planteamiento del modelo}
+\label{sec:planteamiento}
+
+En el modelo interactúan tres agentes. En primer lugar, el asegurador de servicios sanitarios (el principal), que puede ser público o privado. Después, el consejo de dirección del hospital (el hospital, en adelante) y, finalmente, el médico. Hospital y médico producen conjuntamente dos outputs.
+
+\subsection{Los dos outputs y su asimetría}
+
+La primera dimensión del output es la \textbf{cantidad} de servicios sanitarios. Esta dimensión cuantitativa es el resultado de las interacciones de esfuerzo de hospital y médico:
+\begin{equation}
+  q(a,t_1)=a+t_1+\epsilon_1
+  \label{eq:q}
+\end{equation}
+El escalar no negativo $a$ representa el esfuerzo del hospital para producir un cierto nivel de cantidad (por ejemplo, número de ingresos). El esfuerzo del médico dedicado a la cantidad viene dado por $t_1 \geq 0$. Los valores concretos de ambas variables, junto con un shock aleatorio $\epsilon_1$, determinan la cantidad.
+
+La segunda dimensión es la \textbf{intensidad} (utilizada como aproximación de la calidad),\footnote{El concepto de calidad es escurridizo cuando se consideran los servicios hospitalarios; por ello nos centramos en la intensidad de los servicios diagnóstico-terapéuticos por paciente.} dada por:
+\begin{equation}
+  i(t_2)=t_2+\epsilon_2
+  \label{eq:i}
+\end{equation}
+Esta variable es el resultado del esfuerzo del médico $t_2$ y de un shock aleatorio $\epsilon_2$. El hospital puede influir en la cantidad de altas hospitalarias pero no en la cantidad de servicios diagnósticos o terapéuticos por paciente, una decisión que recae exclusivamente en el médico.
+
+El vector de output es $\bm{x}=(q,i)$. Los componentes aleatorios $\bm{\epsilon}=(\epsilon_1, \epsilon_2)$ se distribuyen normalmente con media cero y matriz de varianzas y covarianzas:
+\begin{equation}
+  \Sigma=\begin{pmatrix}
+    \sigma^2_1 & \sigma^2_{12} \\
+    \sigma^2_{12} & \sigma^2_2
+  \end{pmatrix}
+  \label{eq:sigma}
+\end{equation}
+es decir, $\bm{\epsilon}\sim N(\mathbf{0},\Sigma)$.
+
+\begin{remark}
+Esta asimetría en la producción es el núcleo estructural del modelo. Si ambos outputs fueran producidos por los mismos agentes con los mismos incentivos, las predicciones serían simétricas y no habría hipótesis falsificable sobre el efecto diferencial de la estructura organizativa. La asimetría en la producción refleja una realidad institucional del hospital: el médico es el agente con conocimiento privado sobre la idoneidad y la intensidad del tratamiento, mientras que el hospital (la dirección) tiene mayor control sobre la capacidad instalada y el flujo de pacientes. Esta distinción es análoga a la distinción entre esfuerzo de \textit{throughput} (volumen de actividad) y esfuerzo de \textit{quality} (intensidad por episodio) en la literatura de economía de la salud \citep{eggleston2005,kaarboe2011}.
+\end{remark}
+
+\subsection{Preferencias de los agentes}
+
+La utilidad de los distintos agentes viene dada por:
+\begin{align}
+    u_f &= s(q,i)-\lambda[b(q,i)+w(q,i)] \label{eq:util_f}\\
+    u_h(b,a) &= u_h[b(q,i)-\tau(a)+z(a)] \label{eq:util_h}\\
+    u_m(w,t_1,t_2) &= u_m[w(q,i)-\psi(t_1,t_2)+\phi(t_1,t_2)] \label{eq:util_m}
+\end{align}
+donde $s(q,i)$ es la utilidad directa para el financiador de contratar $q$ e $i$, $b(q,i)$ es el pago al hospital y $w(q,i)$ la renta pagada al médico. Tanto el hospital como el médico asumen costes de ejercer sus respectivos niveles de esfuerzo ($\tau(a)$ y $\psi(t_1,t_2)$). Finalmente, se permiten preferencias altruistas o vocacionales, dependientes del esfuerzo, tanto en el hospital ($z(a)$) como en el médico ($\phi(t_1,t_2)$).
+
+\subsection{El parámetro clave: \texorpdfstring{$\psi_{12}$}{psi\_12}}
+
+La función de costes del médico $\psi(t_1,t_2)$ incorpora un parámetro de interacción entre tareas $\psi_{12}$ que mide el grado de complementariedad o sustituibilidad:
+\begin{itemize}[leftmargin=2cm]
+  \item Si $\psi_{12} > 0$ (tareas sustitutas): el médico que dedica más tiempo a ver pacientes reduce la intensidad que dedica a cada uno. Es el caso típico de servicios médicos no quirúrgicos.
+  \item Si $\psi_{12} < 0$ (tareas complementarias): el acto de intervenir genera per se mayor intensidad. Es el caso típico de servicios quirúrgicos.
+  \item Si $\psi_{12} = 0$: las tareas son independientes en la función de costes del médico.
+\end{itemize}
+
+Como se verá en la sección empírica, $\psi_{12}$ no es directamente observable. En la estimación se aproxima mediante la proporción de altas quirúrgicas sobre el total ($ShareQ$) a nivel de hospital-año, o bien se identifica de forma estructural separando los outputs quirúrgico y médico.
+
+
+\section{La solución de primer \texorpdfstring{\textit{best}}{best}}
+\label{sec:primer_best}
+
+Cuando el principal tiene información completa sobre los esfuerzos de ambos agentes y contrata bajo una estructura centralizada,\footnote{Bajo información completa y estructura descentralizada, el principal implementará los mismos niveles de esfuerzo de primer \textit{best}, de modo que no es necesario comparar entre estructuras.} el problema de optimización es:
+\begin{align*}
+    \max_{a,t_1,t_2}\ \E_{\bm{\epsilon}}[u_f] &= \E_{\bm{\epsilon}}\left[s(q,i)-\lambda[b(q)+w(q,i)]\right]\\
+    \text{s.a.}\quad \E_{\bm{\epsilon}}[u_h] &\geq u_h(\bar{b})\\
+    \E_{\bm{\epsilon}}[u_m] &\geq u_m(\bar{w})
+\end{align*}
+donde $u_h(\bar{b})$ y $u_m(\bar{w})$ son las utilidades de reserva del hospital y del médico.\footnote{Dada la información completa, el principal no condiciona el pago de cada agente al esfuerzo del otro.}
+
+El principal puede contratar el nivel óptimo de esfuerzos ($a^*,t^*_1,t^*_2$) y hacer vinculante la restricción de participación con pagos de suma fija:
+\begin{align}
+  b(q) = H &= \bar{b}+\tau(a^*)-z(a^*) \label{eq:pago_h_fb}\\
+  w(q,i) = M &= \bar{w}+\psi(t_1^*,t_2^*)-\phi(t_1^*,t_2^*) \label{eq:pago_m_fb}
+\end{align}
+
+Las condiciones necesarias de primer orden del problema reducido son:
+\begin{align}
+  s_q+\lambda z_a &= \lambda\tau_a \label{eq:cpo1}\\
+  s_q+\lambda\phi_{t_1} &= \lambda\psi_{t_1} \label{eq:cpo2}\\
+  s_i+\lambda\phi_{t_2} &= \lambda\psi_{t_2} \label{eq:cpo3}
+\end{align}
+
+Combinando las ecuaciones~\eqref{eq:cpo1} y~\eqref{eq:cpo2}:
+\begin{equation}
+    \tau_a-z_a=\psi_{t_1}-\phi_{t_1}
+    \label{eq:cpo_q}
+\end{equation}
+y las ecuaciones~\eqref{eq:cpo2} y~\eqref{eq:cpo3}:
+\begin{equation}
+  \frac{s_q}{s_i}=\frac{\psi_{t_1}-\phi_{t_1}}{\psi_{t_2}-\phi_{t_2}}=\frac{\tau_a-z_a}{\psi_{t_2}-\phi_{t_2}}
+  \label{eq:cpo_qi}
+\end{equation}
+
+\begin{result}[Primer \textit{best}]
+La ecuación~\eqref{eq:cpo_q} establece que los costes marginales netos de altruismo de ambos agentes al producir cantidad deben igualarse. La ecuación~\eqref{eq:cpo_qi} requiere que la tasa marginal de sustitución para el principal entre ambos outputs sea igual a la tasa marginal técnica de transformación entre cantidad e intensidad. Con estas condiciones se obtienen los niveles de esfuerzo de primer \textit{best} del médico en ambas tareas y, dado su esfuerzo óptimo en cantidad, el esfuerzo del hospital.
+\end{result}
+
+Una implicación relevante es que, si un hospital público o sin ánimo de lucro tiene un componente vocacional más alto ($z(a)$ mayor), entonces en el óptimo el principal debería exigirle un nivel de esfuerzo mayor: el principal explota el beneficio que el agente obtiene de su altruismo. Del mismo modo, si el único agente con preocupación directa por el bienestar del paciente es el médico ($z(a)=0$), entonces la ecuación~\eqref{eq:cpo_qi} implica que el principal contratará un mayor nivel de esfuerzo en intensidad respecto a la cantidad en comparación con el caso de un hospital con componente altruista.
+
+
+\section{Riesgo moral bajo estructura centralizada}
+\label{sec:centralizada}
+
+De forma más realista, el principal no es capaz de verificar los esfuerzos de los agentes y debe utilizar el nivel de output como señal ruidosa del esfuerzo realizado. Siguiendo a \citet{holmstrom1991}, especificamos funciones de utilidad exponenciales (CARA) para los agentes, neutralidad al riesgo del principal ($s(q,i)=q+i$) y esquemas lineales de reembolso.
+
+\subsection{Especificación funcional}
+
+Las funciones de utilidad son:
+\begin{align}
+  u_h(b,a) &= -\e^{-\rho[b(q,i)-\tau(a)+z(a)]} \label{eq:util_h_cara}\\
+  u_m(w,t_1,t_2) &= -\e^{-\eta[w(q,i)-\psi(t_1,t_2)+\phi(t_1,t_2)]} \label{eq:util_m_cara}
+\end{align}
+donde $\rho$ y $\eta$ son los coeficientes de aversión absoluta al riesgo del hospital y del médico \citep{holmstrom1987}.
+
+Las funciones de coste del esfuerzo son:
+\begin{align}
+  \tau(a) &= \frac{1}{2}\tau a^2, \quad \tau>0 \label{eq:coste_h}\\
+  \psi(t_1,t_2) &= \frac{1}{2}(\psi_1t_1^2+\psi_2t_2^2)+\psi_{12}t_1t_2, \quad \psi_1>0,\ \psi_2>0,\ \psi_{12}^2 \leq \psi_1\psi_2 \label{eq:coste_m}
+\end{align}
+El parámetro $\psi_{12}$ mide la interacción entre tareas.\footnote{Si $\psi_{12}^2=\psi_1\psi_2$, las tareas son sustitutivas perfectas. Si $\psi_{12}=0$, son independientes. Si $\psi_{12}<0$, son complementarias.}
+
+El componente altruista sigue una especificación lineal:
+\begin{align}
+  z(a) &= z_1 a, \quad z_1 \geq 0 \label{eq:altruismo_h}\\
+  \phi(t_1,t_2) &= \phi_1 t_1+\phi_2 t_2, \quad \phi_1, \phi_2 \geq 0 \label{eq:altruismo_m}
+\end{align}
+
+Los esquemas lineales de compensación son:
+\begin{align}
+  b(q) &= f+bq \label{eq:pago_h_lineal}\\
+  w(q,i) &= F+Bq+Di \label{eq:pago_m_lineal}
+\end{align}
+donde $f$ y $F$ son los componentes fijos, y $b$, $B$ y $D$ son los componentes variables (incentivos) por cantidad e intensidad respectivamente.
+
+La secuencia temporal de la contratación bajo estructura centralizada se representa en la Figura~\ref{fig:cronograma_c}. El principal ofrece contratos simultáneamente al hospital y al médico (etapa 1); ambos eligen sus niveles de esfuerzo (etapa 2); se realizan los outputs $q$ e $i$ (etapa 3); y se efectúan los pagos (etapa 4).
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[cronograma]
+
+  \coordinate (A) at (0,   0);
+  \coordinate (B) at (3.5, 0);      % bifurcación
+  \coordinate (T) at (7.0,  1.8);   % ruta hospital
+  \coordinate (L) at (7.0, -1.8);   % ruta médico
+  \coordinate (C) at (10.5, 0);     % convergencia
+  \coordinate (D) at (13.0, 0);     % fin
+
+  \draw[->] (A) -- (B);
+  \draw[->] (B) -- (T);
+  \draw[->] (B) -- (L);
+  \draw[->] (T) -- (C);
+  \draw[->] (L) -- (C);
+  \draw[->] (C) -- (D);
+
+  \node[cdot] at (B) {};
+  \node[cdot] at (T) {};
+  \node[cdot] at (L) {};
+  \node[cdot] at (C) {};
+
+  \node[clbl, above=5mm of B] {%
+    El principal ofrece contrato\\al hospital para $q$};
+
+  \node[clbl, below=5mm of B] {%
+    El principal ofrece contrato\\al médico para $q$ e $i$};
+
+  \node[clbl, above=5mm of T] {%
+    El hospital elige $a$\\dado $b^C$};
+
+  \node[clbl, below=5mm of L] {%
+    El médico elige $t_1$ y $t_2$\\dados $B^C$ y $D^C$};
+
+  \node[clbl, right=4mm of C] {%
+    La naturaleza determina $\Sigma$\\
+    y se realizan los \textit{outputs}};
+
+\end{tikzpicture}%
+}% fin resizebox
+\caption{Cronograma de la contratación bajo estructura centralizada.
+  El principal contrata simultáneamente con el hospital ($b(q)$)
+  y el médico ($w(q,i)$).}
+\label{fig:cronograma_c}
+\end{figure}
+\subsection{Solución de segundo \texorpdfstring{\textit{best}}{best} centralizado}
+
+Utilizando el enfoque de primer orden y la definición de equivalentes ciertos,\footnote{El equivalente cierto del médico es $\widehat{w}(t_1,t_2)=F+B(\bar{a}+t_1)+Dt_2+\phi_1t_1+\phi_2t_2-\frac{1}{2}(\psi_1t_1^2+\psi_2t_2^2)-\psi_{12}t_1t_2-\frac{\eta}{2}(B^2\sigma_1^2+D^2\sigma_2^2+2BD\sigma_{12}^2)$ para una realización dada de $a$. El equivalente cierto del hospital es $\widehat{b}(a)=f+b(a+\bar{t}_1)+z_1a-\frac{1}{2}\tau a^2-\frac{\rho}{2}b^2\sigma_1^2$ dados $t_1$ y $t_2$.} las restricciones de compatibilidad de incentivos producen los esfuerzos óptimos de segundo \textit{best}:
+\begin{align}
+  a^{C} &= \frac{b+z_1}{\tau} \label{eq:a_sb}\\
+  t_1^{C} &= \frac{(B+\phi_1)\psi_2-(D+\phi_2)\psi_{12}}{\psi_1\psi_2-\psi_{12}^2} \label{eq:t1_sb}\\
+  t_2^{C} &= \frac{(D+\phi_2)\psi_1-(B+\phi_1)\psi_{12}}{\psi_1\psi_2-\psi_{12}^2} \label{eq:t2_sb}
+\end{align}
+
+Suponiendo independencia entre los componentes aleatorios de los outputs ($\sigma_{12}=0$), los parámetros óptimos de incentivos son:
+\begin{align}
+  b^C &= \frac{1}{\lambda(1+\rho\sigma_1^2\tau)} \label{eq:b_sb}\\
+  B^C &= \frac{1+\eta\sigma_2^2(\psi_2-\psi_{12})}{\lambda[1+\sigma_1^2\sigma_2^2\eta^2(\psi_1\psi_2-\psi_{12}^2)+\eta(\sigma_1^2\psi_1+\sigma_2^2\psi_2)]} \label{eq:B_sb}\\
+  D^C &= \frac{1+\eta\sigma_1^2(\psi_1-\psi_{12})}{\lambda[1+\sigma_1^2\sigma_2^2\eta^2(\psi_1\psi_2-\psi_{12}^2)+\eta(\sigma_1^2\psi_1+\sigma_2^2\psi_2)]} \label{eq:D_sb}
+\end{align}
+
+\begin{result}[Propiedades de los incentivos centralizados]
+\label{res:incentivos_centralizados}
+Los incentivos óptimos bajo estructura centralizada presentan las siguientes propiedades:
+\begin{enumerate}[label=(\alph*)]
+  \item A diferencia de la solución de primer \textit{best}, el diseño del contrato no depende del grado de altruismo de los agentes. Bajo información asimétrica, el esquema óptimo de pagos es el mismo para hospitales públicos o privados.
+  \item Cuando las tareas del médico son sustitutas ($\psi_{12}>0$), la potencia óptima de los incentivos está directamente relacionada: un aumento del pago incentivador sobre la cantidad debería realinearse con un aumento del pago variable sobre la intensidad (\textit{complementariedad de incentivos}).
+  \item La potencia de los incentivos es independiente entre agentes: cambiar los incentivos del hospital no tiene efecto sobre los del médico.
+  \item Cuando la intensidad es difícil de medir (alto $\sigma_2$) y los esfuerzos son sustitutivos perfectos, la solución óptima implica ausencia de incentivos para el médico (salario fijo).
+\end{enumerate}
+\end{result}
+
+\subsection{Implicaciones para distintos mecanismos de financiación}
+
+Bajo una organización centralizada, podemos comparar los niveles de output bajo distintos esquemas de pago incentivador en relación con una línea base de pago puramente fijo:
+
+\begin{itemize}
+  \item \textbf{Pago fijo (sin incentivos):} Si no se utilizan incentivos ($b=B=D=0$), el nivel de esfuerzo del hospital será inferior al de segundo \textit{best}. El esfuerzo del médico depende de sus parámetros: dado que $\psi_1=\psi_2$ y $\sigma_2>\sigma_1$, el esfuerzo en intensidad será mayor y el esfuerzo en cantidad será menor que en el óptimo. Los pagos fijos generan una cantidad por debajo de la óptima y una intensidad por encima.
+
+  \item \textbf{Incentivos solo sobre cantidad:} Bajo un esquema que solo incentive la eficiencia en cantidad ($b=b^C$, $B=B^C$, $D=0$), tanto hospital como médico proporcionan mayor esfuerzo en cantidad, pero el médico infraofrece esfuerzo en intensidad.
+
+  \item \textbf{Esquema mixto:} Si el esquema incluye la potencia óptima para el hospital pero ninguna para el médico ($b=b^C$, $B=D=0$), dependiendo de los valores de los parámetros, podría observarse infraprovisión tanto de cantidad como de intensidad.
+\end{itemize}
+
+
+\section{Riesgo moral bajo estructura descentralizada}
+\label{sec:descentralizada}
+
+En una estructura descentralizada, el principal contrata solo con el hospital para determinados niveles de $q$ e $i$, y es el hospital quien contrata con el médico. El supuesto de información asimétrica se mantiene también para la relación hospital-médico. La secuencia temporal se recoge en la Figura~\ref{fig:cronograma_d}: el principal ofrece contrato al hospital (etapa 1); el hospital diseña el contrato con el médico (etapa 2); ambos eligen esfuerzos (etapa 3); se realizan outputs y pagos (etapa 4).
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[cronograma]
+
+  \coordinate (A) at (0,    0);
+  \coordinate (B) at (3.5,  0);   % principal → hospital
+  \coordinate (C) at (7.0,  0);   % hospital → médico
+  \coordinate (D) at (10.5, 0);   % médico elige
+  \coordinate (E) at (13.0, 0);   % naturaleza
+
+  \draw[->] (A) -- (B);
+  \draw[->] (B) -- (C);
+  \draw[->] (C) -- (D);
+  \draw[->] (D) -- (E);
+
+  \node[cdot] at (B) {};
+  \node[cdot] at (C) {};
+  \node[cdot] at (D) {};
+
+  \node[clbl, above=5mm of B] {%
+    El principal ofrece contrato\\al hospital para $q$ e $i$};
+
+  \node[clbl, below=5mm of C] {%
+    El hospital elige $a$ y ofrece\\contrato al médico para $q$ e $i$\\
+    dados $b^D$ y $d^D$};
+
+  \node[clbl, above=5mm of D] {%
+    El médico elige $t_1$ y $t_2$\\dados $B^D$ y $D^D$};
+
+  \node[clbl, right=4mm of E] {%
+    La naturaleza determina $\Sigma$\\
+    y se realizan los \textit{outputs}};
+
+\end{tikzpicture}%
+}% fin resizebox
+\caption{Cronograma de la contratación bajo estructura descentralizada.
+  El principal solo contrata con el hospital ($b(q) + d \cdot i$);
+  el hospital diseña autónomamente el contrato interno
+  con el médico ($B$, $D$).}
+\label{fig:cronograma_d}
+\end{figure}
+\subsection{El problema del hospital}
+
+El esquema de pago del principal al hospital incluye ahora un componente sobre intensidad:
+\begin{equation}
+  b(q,i) = f + bq + di
+  \label{eq:pago_h_desc}
+\end{equation}
+
+Resolviendo por inducción hacia atrás, el hospital maximiza su equivalente cierto ($\CE_h$) eligiendo $a$, $B$ y $D$:
+\begin{align*}
+  \max_{a,B,D}\ \CE_h &= f+(b-B)(a+t_1)+(d-D)t_2+z_1a-M\\
+  \text{s.a.}\quad t_1 &= t_1^{D}(B,D), \quad t_2 = t_2^{D}(B,D), \quad \widehat{w}=\bar{w}
+\end{align*}
+donde $M$ es el coste total del hospital (coste de esfuerzo + prima de riesgo + pago fijo al médico).
+
+Denotando $\theta=\rho+\eta$ y $\delta=\psi_1\psi_2-\psi_{12}^2$, los componentes óptimos de pago variable al médico son:
+\begin{align}
+  B^D &= \frac{b(1+\sigma_1^2\rho\psi_1+\sigma_2^2\theta(\rho\delta\sigma_1^2+\psi_2))-d\eta\sigma_2^2\psi_{12}}{1+\psi_1\theta\sigma_1^2+\theta\sigma_2^2(\theta\delta\sigma_1^2+\psi_2)} \label{eq:BD}\\
+  D^D &= \frac{d(1+\sigma_2^2\rho\psi_2+\sigma_1^2\theta(\rho\delta\sigma_2^2+\psi_1))-b\eta\sigma_2^2\psi_{12}}{1+\psi_2\theta\sigma_2^2+\theta\sigma_1^2(\theta\delta\sigma_2^2+\psi_1)} \label{eq:DD}\footnotemark
+\end{align}
+\footnotetext{La simetría del sistema sugiere que este término debería ser $\sigma_1^2$ en lugar de $\sigma_2^2$. El resultado no afecta a las simulaciones numéricas ni a la estimación empírica, que no utilizan estas expresiones analíticas.}
+
+\subsection{El problema del principal}
+
+El principal maximiza su utilidad anticipando el comportamiento óptimo del hospital y del médico:
+\begin{align*}
+  \max_{b,d}\ \E_{\bm{\epsilon}}[u_f] &= a+t_1+t_2-\lambda(f+b(a+t_1)+dt_2)\\
+  a^D &= \frac{b+z_1}{\tau}, \quad t_1^D = t_1(b,d), \quad t_2^D = t_2(b,d)
+\end{align*}
+
+\subsection{Caso especial: tareas independientes (\texorpdfstring{$\psi_{12}=0$}{psi\_12=0})}
+
+Para el caso de tareas independientes, las expresiones de pago variable se simplifican considerablemente. Sin altruismo ($z_1=\phi_1=\phi_2=0$), los esfuerzos óptimos son:
+\begin{align}
+  a^D &= \frac{\sigma_1^2\theta\psi_1^2+(\rho\tau\sigma_1^2+1)\psi_1+\tau}{\tau\lambda(\sigma_1^2(\eta\rho\tau\sigma_1^2+\eta+\rho)\psi_1^2+(\rho\tau\sigma_1^2+1)\psi_1+\tau)} \label{eq:aD_indep}\\
+  t_2^D &= \frac{(\rho\psi_2\sigma_2^2+1)^2}{\lambda\psi_2(1+(\eta\psi_2^2\sigma_2^4+\psi_2\sigma_2^2)\rho)(\eta\psi_2\sigma_2^2+\rho\psi_2\sigma_2^2+1)} \label{eq:t2D_indep}
+\end{align}
+
+Si comparamos con la estructura centralizada:
+\begin{align}
+  a^C &= \frac{1}{\lambda(\rho\tau\sigma_1^2+1)\tau} \label{eq:aC_indep}\\
+  t_1^C &= \frac{1}{(\eta\psi_1\sigma_1^2+1)\lambda\psi_1} \label{eq:t1C_indep}\\
+  t_2^C &= \frac{1}{\psi_2\lambda(\eta\psi_2\sigma_2^2+1)} \label{eq:t2C_indep}
+\end{align}
+
+\begin{result}[Comparación centralización vs.\ descentralización con tareas independientes]
+\label{res:comparacion_independientes}
+Cuando $\psi_{12}=0$:
+\begin{enumerate}[label=(\alph*)]
+  \item El esfuerzo del hospital es mayor en la estructura descentralizada: $a^D>a^C$.
+  \item El esfuerzo del médico en intensidad es menor en la descentralizada: $t_2^D<t_2^C$.
+  \item El esfuerzo del médico en cantidad es mayor bajo centralización si y solo si $\eta\tau\sigma_1^2 > 1+\sigma_1^2\theta\psi_1$, es decir, cuando el coste marginal de producir cantidad del hospital es suficientemente mayor que el del médico.
+\end{enumerate}
+\end{result}
+
+Este resultado tiene una implicación operativa directa: cuando las tareas son independientes y el coste marginal del hospital en cantidad es suficientemente alto, una estructura centralizada con esquemas compatibles con incentivos mostrará simultáneamente mayor intensidad en los tratamientos y mayor volumen de pacientes atendidos.
+
+
+\section{Comparación de estructuras organizativas: simulaciones}
+\label{sec:simulaciones_resumen}
+
+La forma compleja de la solución, especialmente en el caso descentralizado, no permite una comparación analítica limpia para el caso general de $\psi_{12}\neq 0$. Para derivar resultados generales trabajamos con simulaciones numéricas (las figuras y derivaciones detalladas se presentan en el Anexo~\ref{app:simulaciones}).
+
+\subsection{Efecto del parámetro de interacción entre tareas (\texorpdfstring{$\psi_{12}$}{psi\_12})}
+
+La comparación entre estructuras organizativas depende fundamentalmente del grado de interacción tecnológica entre el esfuerzo hospitalario en cantidad y la intensidad del médico, parámetro capturado por $\psi_{12}$. Las simulaciones para una rejilla de valores de $\psi_{12}$ que cubre desde la complementariedad perfecta hasta la sustitución perfecta (véase Figura~\ref{fig:app_incentivos_psi} del Anexo~\ref{app:simulaciones}) muestran que los incentivos al hospital son invariantes a $\psi_{12}$ en la estructura centralizada, pero decrecen con $\psi_{12}$ en la descentralizada: cuando las tareas se aproximan a la sustitución, el hospital recibe menos incentivos en cantidad porque el financiador anticipa el efecto de desplazamiento sobre la intensidad médica (\textit{potencia secuencialmente inducida}).
+
+Cuando las tareas son sustitutas ($\psi_{12}>0$), la estructura descentralizada provee mayores incentivos en cantidad al hospital pero menores incentivos en intensidad al médico. El caso límite de sustitución perfecta ($\psi_{12}\to\infty$) es singular: el contrato centralizado óptimo implica salario fijo para el médico (ausencia total de incentivos sobre intensidad), mientras que los incentivos permanecen positivos y simétricos en la descentralizada. Cuando las tareas son complementarias ($\psi_{12}<0$), la descentralización reduce incluso los incentivos por cantidad: el hospital ya no tiene ventaja en la contratación de volumen cuando ambas tareas se refuerzan mutuamente. El diferencial de esfuerzo entre ambas estructuras (Figura~\ref{fig:app_esfuerzos_psi} del Anexo~\ref{app:simulaciones}) confirma que la ventaja de la descentralización en cantidad es monotónicamente decreciente en $\psi_{12}$ y se invierte para valores suficientemente negativos del parámetro.
+
+\subsection{Casos especiales: medición perfecta de uno de los outputs}
+
+Dos casos límite permiten caracterizar con precisión el mecanismo en juego. Cuando la cantidad se mide sin ruido ($\sigma_1=0$), ambas estructuras alcanzan el nivel de primer \textit{best} en esfuerzo hospitalario. Sin embargo, la intensidad diagnóstica permanece mayor bajo centralización, porque el médico centralizado internaliza la complementariedad entre cantidad e intensidad sin las distorsiones propias de la jerarquía descentralizada. Véase la Figura~\ref{fig:app_sigma1cero} del Anexo~\ref{app:simulaciones}.
+
+Simétricamente, cuando la intensidad se mide sin ruido ($\sigma_2=0$), ambas estructuras alcanzan el primer \textit{best} en intensidad médica, pero la cantidad es mayor en la descentralizada: la jerarquía descentralizada conserva su ventaja en esfuerzo hospitalario incluso cuando la incertidumbre sobre intensidad se elimina. La Figura~\ref{fig:app_sigma2cero} del Anexo~\ref{app:simulaciones} ilustra este resultado. Ambos casos confirman que los efectos sobre cantidad e intensidad son asimétricos e irreducibles a una única medida de eficiencia global.
+
+\begin{result}[Efectos de $\psi_{12}$ sobre incentivos y esfuerzos]
+\label{res:psi12}
+\begin{enumerate}[label=(\alph*)]
+  \item Los incentivos al hospital no dependen de $\psi_{12}$ en la estructura centralizada, pero sí en la descentralizada (\textit{potencia secuencialmente inducida}).
+  \item Las estructuras descentralizadas crean un sesgo hacia la contratación de cantidad para $\psi_{12}$ no extremadamente negativo.
+  \item Bajo sustitución perfecta, la contratación centralizada óptima no implica incentivos para el médico (salarios fijos), mientras que los incentivos permanecen positivos y simétricos entre tareas en la descentralizada.
+  \item Cuando la cantidad se mide perfectamente ($\sigma_1=0$), ambas estructuras alcanzan niveles de primer \textit{best} en cantidad; la intensidad es mayor en la centralizada.
+  \item Cuando la intensidad se mide sin ruido ($\sigma_2=0$), ambas estructuras alcanzan primer \textit{best} en intensidad, pero la cantidad es mayor en la descentralizada.
+\end{enumerate}
+\end{result}
+
+\subsection{Efecto del ruido en la medición de la cantidad (\texorpdfstring{$\sigma_1$}{sigma\_1})}
+
+A medida que aumenta el ruido en la medición de la cantidad, los incentivos por cantidad se reducen en ambas estructuras, conforme al resultado estándar de contratos bajo riesgo moral: $b^*=1/(1+r\sigma^2 c)$. Los pagos variables por cantidad tienden a cero; los de intensidad se estabilizan en sus niveles de largo plazo. A pesar de la reducción simétrica de incentivos, el diferencial de esfuerzo en cantidad entre la estructura descentralizada y la centralizada se mantiene positivo y robusto a distintos niveles de ruido: la descentralización preserva su ventaja en cantidad incluso cuando la señal es imprecisa. El ruido afecta la potencia absoluta de los incentivos pero no invierte la ordenación relativa entre estructuras. Los resultados detallados se presentan en las Figuras~\ref{fig:app_incentivos_sigma1} y~\ref{fig:app_esfuerzos_sigma1} del Anexo~\ref{app:simulaciones}.
+
+\subsection{Efecto del ruido en la medición de la intensidad (\texorpdfstring{$\sigma_2$}{sigma\_2})}
+
+Cuando las tareas son sustitutas ($\psi_{12}=0.5$), el aumento del ruido en intensidad no afecta el esfuerzo hospitalario en cantidad: este permanece constante y mayor en la descentralizada para cualquier nivel de $\sigma_2$. Sin embargo, la intensidad diagnóstica del médico se deteriora en la descentralizada a medida que la señal se vuelve menos precisa, mientras que la centralizada amortigua mejor ese deterioro. El diferencial de intensidad entre centralizada y descentralizada es, pues, creciente en $\sigma_2$ cuando las tareas son sustitutas (Figuras~\ref{fig:app_incentivos_sigma2} y~\ref{fig:app_esfuerzos_sigma2_sust} del Anexo~\ref{app:simulaciones}).
+
+Cuando las tareas son complementarias ($\psi_{12}=-0.5$), los efectos se invierten parcialmente. Para niveles bajos de $\sigma_2$, la descentralización favorece incluso la intensidad diagnóstica, porque el hospital internaliza la complementariedad al diseñar el contrato interno con el médico. A medida que $\sigma_2$ aumenta, este mecanismo de internalización se debilita y la centralización recupera su ventaja en intensidad. El esfuerzo del médico sobre cantidad pasa a ser mayor en la centralizada cuando el ruido en intensidad supera cierto umbral. La Figura~\ref{fig:app_esfuerzos_sigma2_comp} del Anexo~\ref{app:simulaciones} documenta esta inversión de resultados.
+
+\begin{result}[Efectos del ruido en la medición]
+\label{res:ruido}
+\begin{enumerate}[label=(\alph*)]
+  \item Con ruido creciente en cantidad ($\sigma_1$): todos los incentivos disminuyen, pero el diferencial de esfuerzo en cantidad entre estructuras se mantiene. La intensidad permanece mayor bajo centralización; la cantidad mayor bajo descentralización.
+  \item Con ruido creciente en intensidad ($\sigma_2$) y tareas sustitutas: la cantidad total permanece constante e independiente del ruido y es mayor en la descentralizada. La intensidad se reduce en la descentralizada respecto de la centralizada.
+  \item Con ruido creciente en intensidad y tareas complementarias: niveles bajos de $\sigma_2$ favorecen a la descentralizada incluso en intensidad. A medida que aumenta la imprecisión, la centralización recupera su ventaja, compensando y eventualmente superando la ventaja descentralizada en esfuerzo hospitalario.
+\end{enumerate}
+\end{result}
+
+
+\section{Predicciones contrastables}
+\label{sec:predicciones}
+
+Los resultados del modelo teórico y de las simulaciones numéricas presentadas en el Anexo~\ref{app:simulaciones} permiten derivar hipótesis empíricamente contrastables sobre la eficiencia técnica hospitalaria. Los resultados de simulación establecen con claridad que la comparación entre estructuras no es unívoca: la descentralización mejora el desempeño en cantidad pero lo deteriora en intensidad, y el signo y magnitud de ambos efectos dependen de los parámetros $\psi_{12}$, $\sigma_1$ y $\sigma_2$. Esta asimetría es el fundamento empírico de las predicciones siguientes.
+
+La predicción P1 se fundamenta en el Resultado~\ref{res:comparacion_independientes}(a) y en las simulaciones de las Figuras~\ref{fig:app_incentivos_psi} y~\ref{fig:app_esfuerzos_psi} del Anexo~\ref{app:simulaciones}: la estructura descentralizada induce sistemáticamente mayor esfuerzo hospitalario en cantidad para todo el espacio de parámetros explorado, con la única excepción del caso límite de sustitución perfecta. En términos de ineficiencia técnica en la frontera de cantidad, esto se traduce en que los hospitales descentralizados exhibirán, en media, menor ineficiencia: $\mathrm{TE}_q(\text{desc})>\mathrm{TE}_q(\text{cent})$, o equivalentemente $\alpha_1<0$ en la ecuación de ineficiencia de la frontera de cantidad.
+
+La predicción P2 se deriva del Resultado~\ref{res:comparacion_independientes}(b) y de las simulaciones de los efectos de $\psi_{12}$ y $\sigma_2$ sobre el diferencial de intensidad. Cuando las tareas son sustitutas o independientes, el médico bajo descentralización tiene incentivos más débiles en intensidad, porque el hospital no puede transferir al principal el coste de diseñar el contrato interno. La descentralización eleva, pues, la ineficiencia en la frontera de intensidad: $\mathrm{TE}_i(\text{cent})>\mathrm{TE}_i(\text{desc})$, o equivalentemente $\delta_1>0$.
+
+Las predicciones P3 y P4 capturan dos moderadores de estos efectos principales. P3 establece que el tipo de mecanismo de pago ---capturado por la proporción de presupuesto financiado por el SNS ($pct^{SNS}$)--- tiene efectos asimétricos entre las dos dimensiones del output: un mayor componente de pago prospectivo o por actividad incrementa los incentivos en cantidad ($\alpha_2<0$) pero puede deteriorar la intensidad ($\delta_2>0$). P4 establece que el parámetro de interacción $\psi_{12}$ modera de forma asimétrica el diferencial entre estructuras: atenúa la ventaja descentralizada en cantidad cuando las tareas son complementarias ($\alpha_4>0$) e intensifica el deterioro de la intensidad cuando son sustitutas ($\delta_4>0$).
+
+La predicción P$^*$ es de naturaleza metodológica: si los vectores de determinantes de la ineficiencia son distintos en las dos fronteras ($\bsym{\alpha}\neq\bsym{\delta}$), la hipótesis nula de simetría entre dimensiones debe ser rechazada por un test de razón de verosimilitud. Esta predicción no es paramétrica sino estructural: su rechazo confirma que las dos fronteras no son intercambiables y que un modelo con un único término de ineficiencia perdería información. En el contexto del análisis de frontera estocástica, la ineficiencia técnica en cada dimensión del output se modeliza con media heterogénea que depende de la estructura organizativa, el mecanismo de pago y la interacción entre tareas.
+
+\begin{table}[htbp]
+\centering
+\caption{Predicciones contrastables del modelo teórico}
+\label{tab:predicciones}
+\begin{threeparttable}
+\begin{tabularx}{\linewidth}{cXp{3cm}p{2.5cm}}
+\toprule
+\textbf{Pred.} & \textbf{Descripción} &
+\textbf{Parámetro} & \textbf{Signo esperado} \\
+\midrule
+P1 & Descentralización $\downarrow$ ineficiencia en $q$
+   & $\alpha_1$ en $\mu^q_{it}$ & $\alpha_1 < 0$ \\[3pt]
+P2 & Descentralización $\uparrow$ ineficiencia en $i$
+   & $\delta_1$ en $\mu^i_{it}$ & $\delta_1 > 0$ \\[3pt]
+P3 & El tipo de pago difiere entre dimensiones
+   & $\alpha_2 \neq \delta_2$ & Signos opuestos \\[3pt]
+P4 & $\psi_{12}$ modera asimétricamente el diferencial
+   & $\alpha_4 \neq \delta_4$ & Signos opuestos \\[3pt]
+P$^*$ & El vector de determinantes difiere entre
+         dimensiones & $\bsym{\alpha} \neq \bsym{\delta}$
+       & Rechazado \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+  \small
+  \item Nota: $\mu^q_{it}$ y $\mu^i_{it}$ son las medias heterogéneas de los términos de ineficiencia en las fronteras de cantidad e intensidad. $\bsym{\alpha}$ y $\bsym{\delta}$ son los vectores completos de coeficientes de la ecuación de ineficiencia en cada frontera.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+La predicción P1 se fundamenta en el Resultado~\ref{res:comparacion_independientes}(a): la estructura descentralizada induce mayor esfuerzo hospitalario en cantidad. La predicción P2 se fundamenta en el Resultado~\ref{res:comparacion_independientes}(b): ese mismo mecanismo reduce el esfuerzo médico en intensidad cuando las tareas son sustitutas. Las predicciones P3 y P4 capturan, respectivamente, la interacción del mecanismo de pago y del parámetro $\psi_{12}$ con la estructura organizativa.
+
+\begin{remark}[Necesidad de dos términos de ineficiencia]
+Si los efectos de P1 y P2 son de signo contrario, un modelo con un único término de ineficiencia $u_{it}$ cancela algebraicamente ambos efectos: la descentralización mejoraría la eficiencia en una dimensión y la empeoraría en otra, pero la ineficiencia agregada podría no cambiar. Ningún contraste directamente relevante para el modelo teórico es identificable con un único $u_{it}$. Esta observación motiva el uso de un sistema de dos fronteras estocásticas.
+\end{remark}
+
+
+\section{Discusión y conexión con la literatura}
+\label{sec:discusion_literatura}
+
+Los resultados derivados en las secciones anteriores guardan una relación estrecha con varios cuerpos de literatura, pero también se apartan en aspectos importantes que conviene destacar.
+
+\subsection{Relación con Holmström-Milgrom (1991)}
+
+El modelo seminal de \citet{holmstrom1991} establece que, cuando un agente realiza múltiples tareas y el principal solo puede incentivar algunas de ellas, los incentivos sobre las tareas medibles pueden distorsionar el esfuerzo en detrimento de las tareas no medibles. En nuestro modelo, este mecanismo se activa en la relación hospital-médico: cuando el hospital incentiva al médico sobre la dimensión de cantidad (medible y verificable mediante altas), el médico puede desplazar esfuerzo desde la dimensión de intensidad (más difícil de verificar). El resultado de \citet{holmstrom1991} en nuestro contexto se aplica tanto en la estructura centralizada como en la descentralizada, pero con intensidades distintas: en la descentralizada, el hospital internaliza el efecto de sustitución al diseñar el contrato del médico, lo que modifica la potencia óptima de los incentivos respecto del caso centralizado.
+
+La diferencia fundamental respecto de \citet{holmstrom1991} es la presencia de tres agentes. En su modelo hay un único principal y un único agente con múltiples tareas. En nuestro modelo, el principal interactúa con el hospital, que a su vez interactúa con el médico. Esta estructura de jerarquía crea una cadena de incentivos en que el primer nivel condiciona el segundo. El resultado de que los incentivos del hospital dependan de $\psi_{12}$ en la estructura descentralizada ---pero no en la centralizada--- es una consecuencia directa de esta jerarquía que no tiene análogo en el modelo bilateral de \citet{holmstrom1991}.
+
+\subsection{Relación con Jelovac-Macho-Stadler (2002)}
+
+\citet{jelovac2002} estudian el diseño óptimo de contratos en un sistema de salud con un pagador, un hospital y un médico, analizando cuándo es óptima la contratación centralizada versus la descentralizada. Su modelo distingue, como el nuestro, entre un hospital que gestiona la cantidad de servicios y un médico que determina la calidad (o intensidad). El resultado central de \citet{jelovac2002} es que la estructura organizativa óptima depende de las características del médico (altruismo, aversión al riesgo) y del tipo de servicio (preventivo vs. curativo).
+
+Nuestro modelo se aparta de \citet{jelovac2002} en varios aspectos relevantes. \textit{Primero}, explicitamos la función de costes del médico con el parámetro de sustitución $\psi_{12}$, que \citet{jelovac2002} no incluyen. \textit{Segundo}, mientras que \citet{jelovac2002} resuelven el problema de elección del diseño organizativo óptimo (¿cuándo debe el financiador centralizar o descentralizar?), nuestro objetivo es caracterizar las diferencias en los resultados bajo ambas estructuras dadas (no la elección óptima entre ellas). \textit{Tercero}, nuestro modelo permite simulaciones numéricas que cubren el espacio de parámetros completo, más allá de las condiciones analíticas disponibles en forma cerrada.
+
+\subsection{Relación con Eggleston (2005)}
+
+\citet{eggleston2005} examina los efectos de distintos mecanismos de pago sobre la provisión de calidad en un modelo de multitarea hospitalaria. Su resultado central es que un aumento en el poder del pago por actividad (pago prospectivo) puede deteriorar la calidad si las tareas son sustitutas en la función de costes del médico. Este resultado es coherente con nuestras predicciones P1 y P2: la descentralización, que en nuestro modelo va acompañada de mayor uso de pago por actividad (menor $pct^{SNS}$), reduce la ineficiencia en cantidad pero puede no mejorar la intensidad de forma proporcional.
+
+La diferencia principal es que \citet{eggleston2005} trabaja con un modelo de un solo nivel (pagador-médico), sin la jerarquía hospital-médico. Nuestra aportación es mostrar que la transmisión de incentivos a través de la jerarquía hospital-médico modifica los resultados de forma no trivial: incluso bajo estructura descentralizada, el hospital tiene incentivos para internalizar la sustitución de esfuerzo del médico, lo que puede atenuar el deterioro de la intensidad respecto de lo predicho por un modelo de un solo nivel.
+
+\subsection{Relación con Kaarboe-Siciliani (2011)}
+
+\citet{kaarboe2011} estudian los incentivos del médico hospitalario en un modelo de multitarea (cantidad versus calidad) con información asimétrica. Su resultado de \textit{multitasking penalty} ---la pérdida de bienestar asociada a la imposibilidad de incentivar simultáneamente ambas dimensiones del output--- tiene un paralelo directo en nuestro modelo: la imposibilidad de medir la intensidad con precisión ($\sigma_2$ elevado) reduce la potencia óptima de los incentivos sobre esa dimensión.
+
+Nuestra extensión respecto de \citet{kaarboe2011} reside en la distinción entre estructuras organizativas: el \textit{multitasking penalty} tiene una magnitud distinta en la estructura centralizada y en la descentralizada, y depende crucialmente del signo de $\psi_{12}$. Esta interacción entre estructura organizativa, tipo de pago y complementariedad entre tareas es la contribución central de nuestro modelo a la literatura.
+
+\section{Conclusiones del modelo teórico}
+\label{sec:conclusiones_modelo}
+
+En las páginas anteriores hemos caracterizado los rasgos principales de un modelo de provisión sanitaria en una configuración de múltiples agentes y múltiples outputs. El propósito ha sido obtener resultados relevantes sobre la potencia óptima de los incentivos y los esfuerzos ejercidos por los agentes bajo riesgo moral.
+
+En un caso de referencia con información simétrica, el principal utiliza pagos de suma fija y mantiene a los agentes en sus utilidades de reserva. No se incluyen incentivos en el contrato óptimo. Hospital y médico igualan costes marginales en la producción de cantidad, y la tasa marginal de sustitución entre outputs iguala la tasa marginal de transformación entre tareas. Una implicación directa es la relación entre el altruismo del agente y el nivel de esfuerzo requerido: si el hospital tiene un componente vocacional mayor (propio de hospitales públicos o sin ánimo de lucro), el principal debería exigirle un nivel de esfuerzo mayor, pues puede explotar el beneficio que el agente obtiene de su componente altruista. Del mismo modo, si el único agente con preocupación directa por el bienestar del paciente es el médico, el principal contratará un mayor nivel de esfuerzo en intensidad relativa a la cantidad, comparado con el caso de un hospital con componente altruista.
+
+Bajo acciones ocultas, la principal conclusión es que la estructura organizativa interactúa de formas complejas con la potencia óptima de los incentivos. Los resultados principales pueden resumirse así:
+
+\begin{enumerate}[label=(\roman*)]
+  \item En la estructura centralizada, los incentivos son independientes entre agentes: cambiar los incentivos del hospital no afecta a los del médico. En la descentralizada, están conectados por construcción, porque el hospital internaliza el problema de sustitución de esfuerzo del médico al diseñar su propio contrato con el principal. A este fenómeno puede llamársele \textit{potencia secuencialmente inducida de los incentivos}.
+
+  \item Tanto en estructuras centralizadas como descentralizadas, la potencia óptima de los incentivos no depende del componente altruista o vocacional de los agentes. Bajo información asimétrica, el esquema óptimo de pagos es el mismo independientemente de si el hospital o el médico tienen motivación vocacional.
+
+  \item La \textit{complementariedad de incentivos} ---que los pagos variables sobre las dos tareas del médico deban moverse en la misma dirección, resultado general de la literatura \citep[p.\ 222]{bolton2005}--- se matiza en nuestro modelo: bajo estructura centralizada, solo se aplica al contrato del médico (los incentivos de hospital y médico son independientes), mientras que bajo estructura descentralizada la complementariedad de incentivos alcanza también al hospital porque el hospital ya ha internalizado el problema de sustitución de esfuerzo.
+
+  \item Bajo riesgo moral y pago fijo sin incentivos, el nivel de esfuerzo del hospital será inferior al de segundo \textit{best}. El esfuerzo del médico dependerá de sus parámetros: dado que $\psi_1=\psi_2$ y $\sigma_2>\sigma_1$, el esfuerzo en intensidad será mayor y el esfuerzo en cantidad menor que en el óptimo. Los pagos fijos generan una cantidad por debajo de la óptima y una intensidad por encima de la óptima: hay \textit{subprovisión de cantidad y sobreprovisión de intensidad}.
+
+  \item Bajo un esquema que solo proporcione incentivos sobre cantidad ($b=b^C$, $B=B^C$, $D=0$), tanto hospital como médico proporcionan mayor esfuerzo en cantidad, pero el médico \textit{infraofrece} esfuerzo en intensidad. Este es el mecanismo de sustitución de esfuerzo predicho por \citet{holmstrom1991} en el contexto hospitalario.
+
+  \item Bajo un esquema mixto en el que el hospital recibe incentivos óptimos pero el médico no ($b=b^C$, $B=D=0$), dependiendo de los valores de los parámetros, puede observarse \textit{infraprovisión tanto de cantidad como de intensidad}.
+
+  \item En general, la intensidad es mayor en las estructuras centralizadas y la cantidad total en las descentralizadas: $a^D>a^C$ y $t_2^D<t_2^C$. Este es el resultado clave de la comparación entre estructuras para tareas independientes. La condición para que el esfuerzo del médico en cantidad sea mayor bajo centralización es $\eta\tau\sigma_1^2>1+\sigma_1^2\theta\psi_1$: cuando el coste marginal de producir cantidad por parte del hospital es suficientemente mayor que el del médico, la centralización domina incluso en cantidad.
+
+  \item Bajo sustitución perfecta, la estructura centralizada óptima no implica incentivos para el médico (salarios fijos), mientras que la descentralizada mantiene incentivos positivos y simétricos entre tareas. Este resultado vincula estructura organizativa y tipo de contrato médico de forma directa y ayuda a comprender por qué los hospitales privados con mayor autonomía utilizan con mayor frecuencia esquemas de retribución variable para los médicos.
+
+  \item Las estructuras descentralizadas crean un sesgo hacia la contratación de cantidad (excepto bajo sustitución perfecta): la potencia de los incentivos sobre cantidad en la descentralizada es mayor que sobre intensidad para la mayor parte del espacio de parámetros.
+
+  \item La fuente de la asimetría de información tiene una recomendación distinta en términos de diseño organizativo dependiendo de si las tareas son sustitutas o complementarias. Cuando las tareas son complementarias, niveles bajos de ruido en intensidad favorecen incluso a la descentralización tanto en cantidad como en intensidad. A medida que aumenta la imprecisión en la medición de la intensidad, la centralización pasa a dominar también en intensidad.
+
+  \item Cuando la cantidad se mide sin ruido ($\sigma_1=0$), ambas estructuras alcanzan niveles de primer \textit{best} en cantidad, mientras que la intensidad permanece mayor bajo centralización. Cuando la intensidad se mide sin ruido ($\sigma_2=0$), ambas estructuras alcanzan primer \textit{best} en intensidad, pero la cantidad es mayor bajo descentralización. Estas asimetrías sugieren que el diseño organizativo óptimo depende de cuál es la dimensión del output con mayor incertidumbre de medición.
+\end{enumerate}
+
+\begin{remark}[Implicaciones de mecanismo]
+La cadena de causalidad del modelo puede describirse del siguiente modo. La descentralización amplía la autonomía del hospital para diseñar el contrato médico. El hospital, que recibe incentivos sobre la cantidad ($b$ en el pago del principal), tiene incentivos para maximizar el esfuerzo del médico en cantidad ($B$ elevado). Bajo sustitución de tareas ($\psi_{12}>0$), esto desplaza esfuerzo desde la intensidad. En la centralizada, el principal diseña directamente el contrato del médico sin pasar por la maximización del hospital, lo que permite equilibrar los incentivos sobre ambas tareas. Este mecanismo es el fundamento teórico de las predicciones P1 y P2.
+\end{remark}
+
+Estos resultados teóricos se traducen en las predicciones contrastables P1--P$^*$ de la Tabla~\ref{tab:predicciones}, que serán el objeto del análisis empírico en los capítulos siguientes.
+
+En suma, bajo riesgo moral y múltiples outputs, la estructura organizativa interactúa de formas complejas con la potencia óptima de los incentivos que debe utilizarse. El resultado general de que la intensidad es mayor en las estructuras centralizadas y la cantidad total en las descentralizadas debe matizarse dependiendo de la interacción tecnológica entre tareas ($\psi_{12}$) y del grado de incertidumbre en la medición de cada dimensión del output ($\sigma_1$ y $\sigma_2$). La aplicación empírica de estas predicciones mediante análisis de frontera estocástica con datos del sistema hospitalario español constituye el objeto de los capítulos siguientes.
+
+
+
+% ###########################################################
+% CAPÍTULO 3: ESTRATEGIA EMPÍRICA
+% ###########################################################

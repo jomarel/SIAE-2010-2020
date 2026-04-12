@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.22)  31 MAR 2026 10:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.22)  9 APR 2026 22:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,8 +951,8 @@ LaTeX Info: Redefining \% on input line 177.
 \tf@toc=\write5
 \openout5 = `tesis_matriz.toc'.
 
-LaTeX Info: Redefining \. on input line 211.
-LaTeX Info: Redefining \% on input line 211.
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
  [14] (tesis_matriz.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -963,8 +963,8 @@ LaTeX Info: Redefining \% on input line 1.
  [15
 
 ]
-LaTeX Info: Redefining \. on input line 212.
-LaTeX Info: Redefining \% on input line 212.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
  [16
 
 ] (tesis_matriz.lof
@@ -1164,738 +1164,17 @@ LaTeX Info: Redefining \% on input line 351.
 [37])
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
- [38]
-\openout2 = `capitulos/cap_01_modelo_teorico.aux'.
+ [38] (tesis_matriz.bbl [143
 
- (capitulos/cap_01_modelo_teorico.tex
-Cap\'{\i }tulo 3.
-[39
 
 
 
 
-]
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
- [40]
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
- [41{C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
- [42]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
- [43]
-LaTeX Info: Redefining \. on input line 145.
-LaTeX Info: Redefining \% on input line 145.
- [44]
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.5> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.94997> on input line 197.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.25> on input line 197.
-LaTeX Info: Redefining \. on input line 210.
-LaTeX Info: Redefining \% on input line 210.
- [45]
-LaTeX Info: Redefining \. on input line 236.
-LaTeX Info: Redefining \% on input line 236.
- [46]
-LaTeX Info: Redefining \. on input line 296.
-LaTeX Info: Redefining \% on input line 296.
- [47]
-LaTeX Info: Redefining \. on input line 326.
-LaTeX Info: Redefining \% on input line 326.
- [48]
-LaTeX Info: Redefining \. on input line 356.
-LaTeX Info: Redefining \% on input line 356.
- [49]
-LaTeX Info: Redefining \. on input line 364.
-LaTeX Info: Redefining \% on input line 364.
- [50]
-Overfull \hbox (7.23163pt too wide) in paragraph at lines 368--369
-[][]\T1/lmr/m/it/12 (-20) Los in-cen-ti-vos
- []
 
-LaTeX Info: Redefining \. on input line 385.
-LaTeX Info: Redefining \% on input line 385.
-[51]
-LaTeX Info: Redefining \. on input line 403.
-LaTeX Info: Redefining \% on input line 403.
- [52]
-Underfull \hbox (badness 1360) in paragraph at lines 431--431
-[]|\T1/lmr/bx/sc/12 (+20) Signo es-pe-
- []
 
-LaTeX Info: Redefining \. on input line 450.
-LaTeX Info: Redefining \% on input line 450.
-[53]
-LaTeX Info: Redefining \. on input line 456.
-LaTeX Info: Redefining \% on input line 456.
- [54]
-LaTeX Info: Redefining \. on input line 469.
-LaTeX Info: Redefining \% on input line 469.
- [55]
-LaTeX Info: Redefining \. on input line 486.
-LaTeX Info: Redefining \% on input line 486.
- [56]
-LaTeX Info: Redefining \. on input line 498.
-LaTeX Info: Redefining \% on input line 498.
- [57]
-LaTeX Info: Redefining \. on input line 513.
-LaTeX Info: Redefining \% on input line 513.
- [58])
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
- [59]
-\openout2 = `capitulos/cap_02_estrategia_empirica.aux'.
 
- (capitulos/cap_02_estrategia_empirica.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [60
 
 
-
-
-]
-Cap\'{\i }tulo 4.
-[61]
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
- [62]
-Overfull \hbox (55.08704pt too wide) detected at line 83
-[]
- []
-
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
-[63]
-Overfull \hbox (2.29866pt too wide) in paragraph at lines 120--120
-[]|\T1/lmr/bx/n/10.95 (-20) Dise�o| 
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 123--124
-\T1/lmr/m/n/10.95 (+20) out-put (ODF) con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
-[]|\T1/lmr/m/n/10.95 (+20) P3, P4 (no
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-[]|\T1/lmr/m/n/10.95 (+20) P4 con va-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-\T1/lmr/m/n/10.95 (+20) ria-ci�n intra-
- []
-
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
-[64]
-LaTeX Info: Redefining \. on input line 168.
-LaTeX Info: Redefining \% on input line 168.
- [65]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 177.
- (C:\Users\jomar\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \. on input line 191.
-LaTeX Info: Redefining \% on input line 191.
- [66]
-LaTeX Info: Redefining \. on input line 202.
-LaTeX Info: Redefining \% on input line 202.
- [67]
-LaTeX Info: Redefining \. on input line 212.
-LaTeX Info: Redefining \% on input line 212.
- [68])
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
- [69]
-\openout2 = `capitulos/cap_03_datos_y_variables.aux'.
-
- (capitulos/cap_03_datos_y_variables.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [70
-
-
-
-
-]
-Cap\'{\i }tulo 5.
-[71]
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
- [72]
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
- [73]
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-[]|\T1/lmr/bx/n/10.95 (+20) NA
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
-[]|\T1/lmr/m/n/10.95 (+20) SIAE +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--85
-[]|\T1/lmr/m/n/10.95 (+20) SIAE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
-[]|\T1/lmr/m/n/10.95 (+20) SIAE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-[]|\T1/lmr/m/n/10.95 (+20) �ndice tec-no-l�-gi-co (TAC,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-\T1/lmr/m/n/10.95 (+20) RNM, PET, ace-le-ra-dor,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
-\T1/lmr/m/n/10.95 (+20) an-gi�-gra-fo, gam-ma-c�-ma-ra,
- []
-
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
-[74]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 106.
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
- [75]
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
- [76]
-Overfull \hbox (26.66391pt too wide) in paragraph at lines 131--159
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
-[77]
-LaTeX Info: Redefining \. on input line 178.
-LaTeX Info: Redefining \% on input line 178.
- [78]
-Overfull \hbox (18.10501pt too wide) in paragraph at lines 191--212
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
-[79]
-LaTeX Info: Redefining \. on input line 232.
-LaTeX Info: Redefining \% on input line 232.
- [80]
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
- [81]
-LaTeX Info: Redefining \. on input line 293.
-LaTeX Info: Redefining \% on input line 293.
- [82]
-LaTeX Info: Redefining \. on input line 310.
-LaTeX Info: Redefining \% on input line 310.
- [83]
-LaTeX Info: Redefining \. on input line 329.
-LaTeX Info: Redefining \% on input line 329.
- [84])
-LaTeX Info: Redefining \. on input line 19.
-LaTeX Info: Redefining \% on input line 19.
- [85]
-\openout2 = `capitulos/cap_04_resultados.aux'.
-
- (capitulos/cap_04_resultados.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [86
-
-
-
-
-]
-Cap\'{\i }tulo 6.
-[87]
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
- [88]
-Overfull \hbox (20.73148pt too wide) in paragraph at lines 94--139
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
-[89]
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
- [90]
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
- [91]
-Overfull \hbox (29.2316pt too wide) in paragraph at lines 189--234
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 237.
-LaTeX Info: Redefining \% on input line 237.
-[92]
-Overfull \hbox (24.22209pt too wide) in paragraph at lines 238--239
-[]\T1/lmr/bx/sc/12 (-20) Predicci�n P3 (con-fir-ma-da pa-ra Priv_Merc). \T1/lmr/m/n/12 (-20) El co-efi-cien-te de $\OML/lmm/m/it/12 d[]Priv[]Merc$
- []
-
-LaTeX Info: Redefining \. on input line 277.
-LaTeX Info: Redefining \% on input line 277.
-[93]
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
- [94]
-Overfull \hbox (2.26973pt too wide) in paragraph at lines 291--309
- [] 
- []
-
-LaTeX Info: Redefining \. on input line 323.
-LaTeX Info: Redefining \% on input line 323.
-[95]
-LaTeX Info: Redefining \. on input line 334.
-LaTeX Info: Redefining \% on input line 334.
- [96]
-LaTeX Info: Redefining \. on input line 347.
-LaTeX Info: Redefining \% on input line 347.
- [97])
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
- [98]
-\openout2 = `capitulos/cap_05_robustez_y_discusion.aux'.
-
- (capitulos/cap_05_robustez_y_discusion.tex
-Cap\'{\i }tulo 7.
-
-Overfull \hbox (6.45392pt too wide) in paragraph at lines 11--35
- [] 
- []
-
-[99
-
-
-
-
-]
-Overfull \hbox (6.69586pt too wide) in paragraph at lines 92--92
-[]|\T1/lmr/bx/n/10.95 (-20) Pred.| 
- []
-
-
-Overfull \hbox (8.73364pt too wide) in paragraph at lines 94--95
-[]|\T1/lmr/bx/n/10.95 (-20) Veredicto| 
- []
-
-
-Underfull \hbox (badness 4713) in paragraph at lines 97--98
-[]|$[] \OT1/lmr/m/n/10.95 (+20) = \OMS/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 (+20) 2\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (+20) 53[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-[]|\T1/lmr/m/n/10.95 (+20) Confirmada v�a
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 99--99
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-
-Underfull \hbox (badness 1168) in paragraph at lines 101--102
-[]|$[] \OT1/lmr/m/n/10.95 (+20) = \OMS/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 (+20) 1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (+20) 477[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-\T1/lmr/m/n/10.95 (+20) (signo opues-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-\T1/lmr/m/n/10.95 (+20) to); asi-me-tr�a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+18) fir-ma-da
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) en
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) signo;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) asi-me-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) tr�a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-\T1/lmr/bx/n/10.95 (+20) con-fir-
- []
-
-
-Underfull \hbox (badness 5475) in paragraph at lines 104--105
-[]|\T1/lmr/m/n/10.95 (+20) Pago di-fie-re en-tre
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 107--107
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 108--109
-[]|$\OML/lmm/m/it/10.95  []$ \T1/lmr/m/n/10.95 (+20) mo-de-ra asi-m�-
- []
-
-
-Overfull \hbox (20.33539pt too wide) in paragraph at lines 111--111
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada
- []
-
-
-Overfull \hbox (20.57384pt too wide) in paragraph at lines 115--116
-[]|\T1/lmr/bx/n/10.95 (-20) Confirmada| 
- []
-
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
-[100]
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
- [101]
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
- [102]
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
- [103]
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
- [104])
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
- [105]
-\openout2 = `capitulos/cap_06_implicaciones_politica_hospitalaria.aux'.
-
- (capitulos/cap_06_implicaciones_politica_hospitalaria.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [106
-
-
-
-
-]
-Cap\'{\i }tulo 8.
-[107]
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
- [108]
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
- [109]
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
- [110]
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [111]
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
- [112]
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
- [113]
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
- [114])
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
- [115]
-\openout2 = `capitulos/cap_07_conclusiones.aux'.
-
- (capitulos/cap_07_conclusiones.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [116
-
-
-
-
-]
-Cap\'{\i }tulo 9.
-[117]
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
- [118]
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
- [119]
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
- [120]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
- [121]
-LaTeX Info: Redefining \. on input line 102.
-LaTeX Info: Redefining \% on input line 102.
- [122])
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
- [123]
-\openout2 = `anexos/anexo_01_simulaciones_modelo_teorico.aux'.
-
- (anexos/anexo_01_simulaciones_modelo_teorico.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [124
-
-
-
-
-]
-Ap\'{e}ndice A.
-<../Teórico/gr1-eps-converted-to.pdf, id=2288, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr1-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr1-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr1-eps-converted-to.pdf  used on input line 16.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-[125]
-<../Teórico/gr2-eps-converted-to.pdf, id=2294, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr2-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr2-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr2-eps-converted-to.pdf  used on input line 23.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
- [126 <../Teórico/gr1-eps-converted-to.pdf>]
-<../Teórico/gr3-eps-converted-to.pdf, id=2303, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr3-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr3-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr3-eps-converted-to.pdf  used on input line 40.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr4-eps-converted-to.pdf, id=2304, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr4-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr4-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr4-eps-converted-to.pdf  used on input line 47.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
- [127 <../Teórico/gr2-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
- [128 <../Teórico/gr3-eps-converted-to.pdf> <../Teórico/gr4-eps-converted-to.pdf>]
-<../Teórico/gr5-eps-converted-to.pdf, id=2321, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr5-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr5-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr5-eps-converted-to.pdf  used on input line 64.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr6-eps-converted-to.pdf, id=2322, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr6-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr6-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr6-eps-converted-to.pdf  used on input line 71.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-<../Teórico/gr7-eps-converted-to.pdf, id=2323, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr7-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr7-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr7-eps-converted-to.pdf  used on input line 80.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [129]
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [130 <../Teórico/gr5-eps-converted-to.pdf> <../Teórico/gr6-eps-converted-to.pdf>]
-<../Teórico/gr8-eps-converted-to.pdf, id=2336, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr8-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr8-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr8-eps-converted-to.pdf  used on input line 87.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-
-
-pdfTeX warning: pdflatex (file ../Teórico/gr9-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Teórico/gr9-eps-converted-to.pdf, id=2337, 557.08125pt x 557.08125pt>
-File: ../Teórico/gr9-eps-converted-to.pdf Graphic file (type pdf)
-<use ../Teórico/gr9-eps-converted-to.pdf>
-Package pdftex.def Info: ../Teórico/gr9-eps-converted-to.pdf  used on input line 94.
-(pdftex.def)             Requested size: 268.16472pt x 268.1695pt.
-)
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [131 <../Teórico/gr7-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [132 <../Teórico/gr8-eps-converted-to.pdf> <../Teórico/gr9-eps-converted-to.pdf>]
-\openout2 = `anexos/anexo_02_variables_y_pipeline.aux'.
-
- (anexos/anexo_02_variables_y_pipeline.tex
-Ap\'{e}ndice B.
-
-Overfull \hbox (18.40985pt too wide) in paragraph at lines 20--20
-[]|\T1/lmtt/m/n/10.95 01_exportar_mapeo_cnh.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 21--21
-[]|\T1/lmtt/m/n/10.95 02_estandarizar_nombres.R| 
- []
-
-
-Overfull \hbox (35.65605pt too wide) in paragraph at lines 22--22
-[]|\T1/lmtt/m/n/10.95 03_unir_modulos_por_anyo.R| 
- []
-
-
-Overfull \hbox (1.16365pt too wide) in paragraph at lines 23--23
-[]|\T1/lmtt/m/n/10.95 04_construir_panel.R| 
- []
-
-
-Overfull \hbox (12.66112pt too wide) in paragraph at lines 24--24
-[]|\T1/lmtt/m/n/10.95 05_construir_casemix.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 25--25
-[]|\T1/lmtt/m/n/10.95 06_construir_Ddesc_pago.R| 
- []
-
-
-Overfull \hbox (29.90732pt too wide) in paragraph at lines 26--26
-[]|\T1/lmtt/m/n/10.95 07_construir_intensidad.R| 
- []
-
-
-Overfull \hbox (24.15858pt too wide) in paragraph at lines 27--27
-[]|\T1/lmtt/m/n/10.95 08_auditoria_variables.R| 
- []
-
-
-Overfull \hbox (6.91238pt too wide) in paragraph at lines 29--29
-[]|\T1/lmtt/m/n/10.95 10_descriptivos_sfa.R| 
- []
-
-
-Overfull \hbox (18.40985pt too wide) in paragraph at lines 32--32
-[]|\T1/lmtt/m/n/10.95 13_tests_diagnosticos.R| 
- []
-
-[133
-
-
-
-
-]
-Overfull \hbox (17.75616pt too wide) in paragraph at lines 49--50
-[]\T1/lmr/m/n/12 (-20) El pro-ce-so de mat-ching se rea-li-za en tres pa-sos (script \T1/lmtt/m/n/12 01_exportar_mapeo_cnh.R\T1/lmr/m/n/12 (-20) ): 
- []
-
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
-[134]
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
- [135]
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
- [136])
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
- [137]
-\openout2 = `anexos/anexo_03_tablas_complementarias.aux'.
-
- (anexos/anexo_03_tablas_complementarias.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [138
-
-
-
-
-]
-Ap\'{e}ndice C.
-[139]
-<hist_TE_cantidad_global.pdf, id=2395, 361.35pt x 252.945pt>
-File: hist_TE_cantidad_global.pdf Graphic file (type pdf)
-<use hist_TE_cantidad_global.pdf>
-Package pdftex.def Info: hist_TE_cantidad_global.pdf  used on input line 100.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_intensidad_global.pdf, id=2396, 361.35pt x 252.945pt>
-File: hist_TE_intensidad_global.pdf Graphic file (type pdf)
-<use hist_TE_intensidad_global.pdf>
-Package pdftex.def Info: hist_TE_intensidad_global.pdf  used on input line 105.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_cantidad_desc.pdf, id=2397, 361.35pt x 252.945pt>
-File: hist_TE_cantidad_desc.pdf Graphic file (type pdf)
-<use hist_TE_cantidad_desc.pdf>
-Package pdftex.def Info: hist_TE_cantidad_desc.pdf  used on input line 115.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_intensidad_desc.pdf, id=2398, 361.35pt x 252.945pt>
-File: hist_TE_intensidad_desc.pdf Graphic file (type pdf)
-<use hist_TE_intensidad_desc.pdf>
-Package pdftex.def Info: hist_TE_intensidad_desc.pdf  used on input line 120.
-(pdftex.def)             Requested size: 198.02942pt x 138.62228pt.
-<hist_TE_anyo.pdf, id=2399, 433.62pt x 252.945pt>
-File: hist_TE_anyo.pdf Graphic file (type pdf)
-<use hist_TE_anyo.pdf>
-Package pdftex.def Info: hist_TE_anyo.pdf  used on input line 130.
-(pdftex.def)             Requested size: 309.42374pt x 180.50693pt.
-)
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [140]
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [141 <./hist_TE_cantidad_global.pdf> <./hist_TE_intensidad_global.pdf> <./hist_TE_cantidad_desc.pdf> <./hist_TE_intensidad_desc.pdf>]
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [142 <./hist_TE_anyo.pdf>] (tesis_matriz.bbl [143
 
 
 
@@ -1907,6 +1186,14 @@ LaTeX Info: Redefining \% on input line 134.
 LaTeX Info: Redefining \. on input line 215.
 LaTeX Info: Redefining \% on input line 215.
  [145]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 247.
+ (C:\Users\jomar\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Info: Redefining \. on input line 276.
 LaTeX Info: Redefining \% on input line 276.
  [146]
@@ -1928,20 +1215,524 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `tesis_matriz.out' has not changed.
-(rerunfilecheck)             Checksum: 3AE70F5A31EAF613F43EF33FF7A59365;53663.
+(rerunfilecheck)             Checksum: 057EBB361DDB93C5966E438504564723;15471.
  ) 
 Here is how much of TeX's memory you used:
- 32145 strings out of 467867
- 602718 string characters out of 5418334
- 1051056 words of memory out of 5000000
- 59160 multiletter control sequences out of 15000+600000
- 842525 words of font info for 463 fonts, out of 8000000 for 9000
+ 31053 strings out of 467867
+ 580149 string characters out of 5418334
+ 1048177 words of memory out of 5000000
+ 58577 multiletter control sequences out of 15000+600000
+ 775781 words of font info for 304 fonts, out of 8000000 for 9000
  1148 hyphenation exceptions out of 8191
- 89i,16n,97p,1861b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesis_matriz.pdf (168 pages, 1635258 bytes).
+ 89i,13n,97p,2244b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{figure.caption.45} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.44} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.43} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.57} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.56} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.55} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.54} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.53} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.52} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.51} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.50} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.49} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.15} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.14} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.41} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.39} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.38} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.36} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.34} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.32} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.30} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.28} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.26} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.21} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.19} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.17} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.15} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.11} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.16} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph3.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph3.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph3.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph3.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph3.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.Alph3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.Alph2.6.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.Alph2.6.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph2.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.Alph2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph1.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph1.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph1.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.Alph1.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.Alph1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.9.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.4.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.9.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.9.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.9.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.9.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.9} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.6.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.6.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.6.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.4.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.4.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.4.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.4.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.3.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.3.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.2.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.2.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.1.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.1.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.8.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.8} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.7.5.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.7.5.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.7.5.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.7.5.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.6.7.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.6.7.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.6.7.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.6.7.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.6.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.8.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.8.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.8.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.8} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.7.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.7.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.7.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.7.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.1.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.1.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.1.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.1.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.7.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.7.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.7.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.5.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.5.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.5.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.5.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.9} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.8.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.8.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.8.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.8.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.8} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.6.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.6.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.6.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.6.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.5.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.5.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.5.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.4.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.4.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.2.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.2.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.3.2.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.3.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter.3} has been referenced but does not exist, replaced by a fixed one
+
+<C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/jomar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on tesis_matriz.pdf (64 pages, 625618 bytes).
 PDF statistics:
- 2745 PDF objects out of 2984 (max. 8388607)
- 612 named destinations out of 1000 (max. 500000)
- 111187 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 1331 PDF objects out of 1440 (max. 8388607)
+ 374 named destinations out of 1000 (max. 500000)
+ 78781 words of extra memory for PDF output out of 89155 (max. 10000000)
 

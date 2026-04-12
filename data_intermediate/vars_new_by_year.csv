@@ -294,8 +294,6 @@ cardiologia_mujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|20
 cardiologia_pmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cardiologia_pMujeres,completa
 cardiologia_ptotal,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cardiologia_pTotal,completa
 cardiologia_total,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cardiologia_total,completa
-ccaa,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,ccaa,completa
-ccaa_codigo,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,ccaa_codigo,completa
 ccardio_cmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cCardio_cMujeres,completa
 ccardio_colabmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cCardio_colabMujeres,completa
 ccardio_colabtotal,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cCardio_colabTotal,completa
@@ -334,8 +332,6 @@ cma_particular,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|20
 cma_sns,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cma_sns,completa
 cocina_centro,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cocina_centro,completa
 cocina_fuera,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cocina_fuera,completa
-cod_depend_agrupada,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cod_depend_agrupada,completa
-cod_finalidad_agrupada,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,cod_finalidad agrupada,completa
 consulta_acctrafic,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,consulta_AccTrafic,completa
 consulta_asegpriv,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,consulta_AsegPriv,completa
 consulta_conveinter,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,consulta_conveInter,completa
@@ -458,7 +454,6 @@ farmaceuticos_pmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018
 farmaceuticos_ptotal,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,farmaceuticos_pTotal,completa
 farmacologia_mujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,farmacologia_mujeres,completa
 farmacologia_total,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,farmacologia_total,completa
-finalidad_agrupada,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,Finalidad_agrupada,completa
 fisioterapeutas_cmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,fisioterapeutas_cMujeres,completa
 fisioterapeutas_colabmujeres,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,fisioterapeutas_colabMujeres,completa
 fisioterapeutas_colabtotal,14,2010,2023,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023,fisioterapeutas_colabTotal,completa
@@ -886,6 +881,11 @@ oncolog_colabtotal,9,2015,2023,2015|2016|2017|2018|2019|2020|2021|2022|2023,onco
 oncolog_ctotal,9,2015,2023,2015|2016|2017|2018|2019|2020|2021|2022|2023,oncolog_cTotal,solo_anios_tardios
 oncolog_pmujeres,9,2015,2023,2015|2016|2017|2018|2019|2020|2021|2022|2023,oncolog_pMujeres,solo_anios_tardios
 oncolog_ptotal,9,2015,2023,2015|2016|2017|2018|2019|2020|2021|2022|2023,oncolog_pTotal,solo_anios_tardios
+cod_ccaa_todas,7,2016,2023,2016|2017|2018|2019|2020|2022|2023,Cód_CCAA_Todas,solo_anios_tardios
+cod_grupo_finalidad,6,2016,2021,2016|2017|2018|2019|2020|2021,Cód_Grupo_Finalidad,solo_anios_tardios
+cod_pertenencia_sns,8,2016,2023,2016|2017|2018|2019|2020|2021|2022|2023,Cód_Pertenencia_SNS,solo_anios_tardios
+desc_ccaa_todas,7,2016,2023,2016|2017|2018|2019|2020|2022|2023,Desc_CCAA_Todas,solo_anios_tardios
+finalidad_agrupada_para_anonimizacion,8,2016,2023,2016|2017|2018|2019|2020|2021|2022|2023,FINALIDAD_agrupada_para_Anonimización,solo_anios_tardios
 otros_asis_texto,6,2018,2023,2018|2019|2020|2021|2022|2023,otros_Asis_texto,solo_anios_tardios
 otros_noasis_texto,6,2018,2023,2018|2019|2020|2021|2022|2023,otros_NoAsis_texto,solo_anios_tardios
 cod_concierto,1,2020,2020,2020,Cód_Concierto,solo_anios_tardios
@@ -1070,13 +1070,13 @@ urolog_resto,3,2021,2023,2021|2022|2023,Urolog_resto,solo_anios_tardios
 urolog_total,3,2021,2023,2021|2022|2023,Urolog_total,solo_anios_tardios
 urpa_funcionamiento,3,2021,2023,2021|2022|2023,Urpa_funcionamiento,solo_anios_tardios
 cod_centro,2,2022,2023,2022|2023,cod_centro,solo_anios_tardios
+cod_grupo_finalidad_dejar_solo_1_y_2,2,2022,2023,2022|2023,Cód_Grupo_Finalidad_dejar_sólo_1_y_2,solo_anios_tardios
 totbraqui_paciente,2,2022,2023,2022|2023,totBraqui_Paciente,solo_anios_tardios
 totbraqui_sesion,2,2022,2023,2022|2023,totBraqui_Sesion,solo_anios_tardios
 totefscardio_paciente,2,2022,2023,2022|2023,totEfsCardio_Paciente,solo_anios_tardios
 totproton_paciente,2,2022,2023,2022|2023,totProton_Paciente,solo_anios_tardios
 totproton_sesion,2,2022,2023,2022|2023,totProton_Sesion,solo_anios_tardios
 modulo,1,2023,2023,2023,modulo,solo_anios_tardios
-a_f1_o,6,2010,2015,2010|2011|2012|2013|2014|2015,a<f1>o,solo_anios_tempranos
 acelerador_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,acelerador_CEP,solo_anios_tempranos
 acelerador_concertado,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,acelerador_concertado,solo_anios_tempranos
 acelerador_hospital,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,acelerador_hospital,solo_anios_tempranos
@@ -1091,6 +1091,10 @@ bombas_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,b
 bombas_concertado,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,bombas_concertado,solo_anios_tempranos
 bombas_hospital,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,bombas_hospital,solo_anios_tempranos
 broncoscopia,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,Broncoscopia,solo_anios_tempranos
+ccaa,7,2010,2021,2010|2011|2012|2013|2014|2015|2021,ccaa,solo_anios_tempranos
+ccaa_codigo,7,2010,2021,2010|2011|2012|2013|2014|2015|2021,ccaa_codigo,solo_anios_tempranos
+cod_depend_agrupada,6,2010,2015,2010|2011|2012|2013|2014|2015,cod_depend_agrupada,solo_anios_tempranos
+cod_finalidad_agrupada,6,2010,2015,2010|2011|2012|2013|2014|2015,cod_finalidad_agrupada,solo_anios_tempranos
 colonosopia,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,Colonosopia,solo_anios_tempranos
 densiometrias_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,densiometrias_CEP,solo_anios_tempranos
 densiometrias_hosp,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,densiometrias_hosp,solo_anios_tempranos
@@ -1098,6 +1102,7 @@ densiometros_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|
 densiometros_concertado,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,densiometros_concertado,solo_anios_tempranos
 densiometros_hospital,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,densiometros_hospital,solo_anios_tempranos
 ercp,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,ERCP,solo_anios_tempranos
+finalidad_agrupada,6,2010,2015,2010|2011|2012|2013|2014|2015,Finalidad_agrupada,solo_anios_tempranos
 gamma_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,gamma_CEP,solo_anios_tempranos
 gamma_hosp,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,gamma_hosp,solo_anios_tempranos
 gammacamara_cep,11,2010,2020,2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020,gammacamara_CEP,solo_anios_tempranos

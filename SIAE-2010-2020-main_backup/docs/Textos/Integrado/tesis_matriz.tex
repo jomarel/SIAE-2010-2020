@@ -1,0 +1,34 @@
+﻿\input{preambulo_tesis}
+
+% Compilacion selectiva por capitulos/anexos:
+% Descomenta la siguiente linea y deja solo los archivos que quieras compilar.
+ %\includeonly{capitulos/cap_00_introduccion}
+
+\begin{document}
+
+\input{frontmatter/portada}
+
+\frontmatter
+\input{frontmatter/preliminares}
+
+\mainmatter
+\include{capitulos/cap_00_introduccion}
+\include{capitulos/cap_01_marco_juridico}
+\include{capitulos/cap_01_modelo_teorico}
+\include{capitulos/cap_02_estrategia_empirica}
+\include{capitulos/cap_03_datos_y_variables}
+\include{capitulos/cap_04_resultados}
+\include{capitulos/cap_05_robustez_y_discusion}
+\include{capitulos/cap_06_implicaciones_politica_hospitalaria}
+\include{capitulos/cap_07_conclusiones}
+
+\appendix
+\include{anexos/anexo_01_simulaciones_modelo_teorico}
+\include{anexos/anexo_02_variables_y_pipeline}
+\include{anexos/anexo_03_tablas_complementarias}
+
+\backmatter
+\bibliographystyle{apalike-es}
+\bibliography{referencias_maestras}
+
+\end{document}

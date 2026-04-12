@@ -1,0 +1,74 @@
+=== ANÁLISIS SFA COMPLETADO ===
+Fecha: 2026-04-06
+Proyecto: Eficiencia hospitalaria, estructura organizativa
+          y teoría de agencia (José María Elena Izquierdo,
+          Universidad de Salamanca, 2026)
+
+ESTIMADOR PRINCIPAL:
+  Paquete: frontier::sfa() v1.1
+  Especificación: BC95 Efficiency Effects Frontier
+    (Battese & Coelli 1995)
+  Parámetro: ineffDecrease=TRUE, maxit=5000
+  Heterogeneidad: muhet (z-variables en media de u_it)
+
+DATOS:
+  Fuente: SIAE 2010-2023 (TXT 2010-2015, XML 2016-2023)
+  Panel completo: ~10,723 obs hospital-año
+  Variable D_desc: cod_depend_agrupada del módulo C1_01
+    (TXT 2010-2015: cod_depend_agrupada directamente)
+    (XML 2016-2023: esc_x0020_Pertenencia_x0020_SNS)
+    Codificación: 1=Público SNS → D_desc=0
+                  2=Privado     → D_desc=1
+
+MUESTRAS DE ESTIMACIÓN:
+  Diseño A: N=5,332 (agudos, sin COVID, altTotal≥200)
+  Diseño B: N=3,866 (+ altQ≥200 y altM≥200)
+  Diseño C: N=7,732 (panel long, 2 filas por hosp-año)
+  Diseño D: N=3,866 (igual que B)
+
+NOTA TÉCNICA — Winsorización intensidad:
+  ln_i_diag winsorizado a p1/p99 en la muestra de
+  estimación para evitar pathología gamma→1 causada
+  por hospitales con intensidad diagnóstica extrema.
+  Afecta únicamente a los modelos A_I y A3g_I.
+  La distribución de i_diag en la muestra no winsorizada
+  tiene skewness=-3.48, confirmando que SFA de producción
+  es apropiado (ineficiencia identificable).
+
+RESULTADOS PRINCIPALES:
+  Diseño A — Cantidad:  TE=0.719, D_desc=-7.51 (t=-11.4)
+  Diseño A — Intensidad: TE=0.666, D_desc=+25.88 (t=+5.6)
+  Diseño A-3g — Cantidad: Priv_Merc=-1.75 (t=-3.0)
+                           Priv_Conc=+3.93 (t=+3.5)
+  Diseño B — Q: ShareQ=-2.37 (t=-24.0)
+  Diseño B — M: ShareQ=+0.91 (t=+7.7)
+  Diseño C: ShareQ_Cs=-4.09 (t=-30.3)
+
+PREDICCIONES CONTRASTADAS:
+  P1 (desc ↓ inef. cantidad):      CONFIRMADA (4/5 specs)
+  P2 (desc ↑ inef. intensidad):    CONFIRMADA (4/5 specs)
+  P3 (pago difiere entre dims.):    CONFIRMADA
+  P4 (ψ₁₂ modera asimétricamente): CONFIRMADA
+  P* (vectores α≠δ):               CONFIRMADA
+    LR_A=11,125 (p<0.001)
+    LR_B=4,211  (p<0.001)
+
+ARCHIVOS PRINCIPALES (data_clean/):
+  df_sfa.RData               — dataset estimación
+  sfa_A_Total.rds            — Diseño A cantidad
+  sfa_A_I_winsorized.rds     — Diseño A intensidad
+  sfa_A3g_Total.rds          — Diseño A-3g cantidad
+  sfa_A3g_I.rds              — Diseño A-3g intensidad
+  sfa_B_Q_v2.rds             — Diseño B quirúrgico
+  sfa_B_M_v2.rds             — Diseño B médico
+  sfa_C_panel.rds            — Diseño C panel
+  sfa_D_odf.rds              — Diseño D ODF
+  resumen_final.txt          — resultados completos
+  tabla_contrastes_A.csv     — contrastes α vs δ
+  tabla_contrastes_A3g.csv   — contrastes 3 grupos
+  tabla_contrastes_B.csv     — contrastes Q vs M
+  tabla_robustez.csv         — análisis robustez
+  ANALISIS_COMPLETADO.txt    — este documento
+
+BACKUP en data_intermediate/:
+  Mismos archivos con sufijo _clean donde aplicable.

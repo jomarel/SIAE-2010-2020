@@ -1,0 +1,115 @@
+﻿\chapter{Conclusiones}
+\label{ch:conclusiones}
+
+\section{Síntesis general}
+
+Esta tesis ha abordado la relación entre estructura organizativa, mecanismos de pago y eficiencia hospitalaria desde una perspectiva integrada teórico-empírica. El modelo teórico de agencia multitarea desarrollado en el Capítulo~\ref{ch:modelo} genera predicciones falsificables sobre cómo la descentralización de la gestión hospitalaria afecta de forma asimétrica a las dos dimensiones del output ---cantidad e intensidad---, y la parte empírica (Capítulos~\ref{ch:resultados} y~\ref{ch:robustez}) contrasta esas predicciones con datos de panel del sistema hospitalario español para el período 2010--2023.
+
+Esta tesis ha integrado un enfoque jurídico-institucional con un modelo económico formal y una evaluación empírica rigurosa. El Capítulo~\ref{ch:juridico} ha mostrado que la diversidad organizativa del sistema hospitalario español no es accidental sino habilitada normativamente, y que esa diversidad altera de modo sustantivo las variables que determinan la estructura de incentivos: autonomía del gestor, régimen del personal, mecanismo de financiación y capacidad de supervisión. El modelo teórico ha formalizado esas variables como parámetros de un problema de agencia multitarea, y la estimación empírica ha contrastado las predicciones resultantes con datos de panel del sistema hospitalario español. La coherencia entre los tres niveles de análisis ---institucional, teórico y empírico--- constituye, en sí misma, una contribución de la tesis.
+
+Los resultados principales pueden sintetizarse en cinco puntos.
+
+\textit{Primero}, la predicción P1 ---la descentralización reduce la ineficiencia técnica en cantidad--- se confirma de forma extraordinariamente robusta en siete especificaciones alternativas, con $t$-estadísticos entre $-3.3$ y $-11.0$. Los hospitales con mayor autonomía en la gestión de contratos e incentivos producen más actividad por unidad de input.
+
+\textit{Segundo}, P2 no se confirma en su formulación estricta de signo ($\delta_1 > 0$): el coeficiente estimado es $\hat{\delta}_1 = -1.477$, con signo opuesto al predicho en todas las especificaciones. Sin embargo, la asimetría predicha entre dimensiones ---la descentralización mejora más la eficiencia en cantidad que en intensidad--- es estadísticamente significativa ($z = -2.09$, $p = 0.037$) y robusta. Este resultado es consistente con la estructura del modelo bajo sustitución moderada ($\psi_{12}$ positivo pero insuficiente para revertir el signo en intensidad), aunque no con la predicción derivada bajo sustitución fuerte.
+
+\textit{Tercero}, las predicciones P3 y P4 ---el tipo de pago y el parámetro $\psi_{12}$ moderan asimétricamente el diferencial entre dimensiones--- se confirman con alta potencia estadística, especialmente P4 en el Diseño B ($z=-9.89$, $p<0.001$), que es el resultado individual más robusto de todo el análisis.
+
+\textit{Cuarto}, la correlación negativa entre ineficiencias en el Diseño B ($r=-0.14$, $p<0.001$) proporciona evidencia directa de la sustitución de esfuerzo entre tareas predicha por el modelo teórico.
+
+\textit{Quinto}, el test P$^*$ rechaza abrumadoramente la igualdad de los vectores de determinantes de ineficiencia entre dimensiones (LR$_A=10{,}491$, LR$_B=2{,}508$, ambos $p<0.001$), confirmando que los determinantes institucionales operan de forma cualitativamente distinta sobre las dos dimensiones del output.
+
+\section{Contribuciones originales}
+
+La tesis realiza tres contribuciones originales a la literatura, en el plano teórico, empírico y metodológico.
+
+\textbf{Contribución teórica.} El modelo extiende los resultados clásicos de \citet{holmstrom1991} al caso de tres agentes y dos outputs producidos asimétricamente en un contexto hospitalario. A diferencia de \citet{holmstrom1991}, que trabaja con un único principal-agente, el modelo incorpora una jerarquía hospital-médico que genera predicciones sobre cómo la estructura organizativa del hospital modifica la transmisión de incentivos. A diferencia de \citet{jelovac2002}, que analizan la elección del diseño organizativo óptimo, el modelo caracteriza las diferencias en los resultados de eficiencia bajo dos estructuras dadas, generando predicciones empíricamente contrastables sobre los efectos diferenciales sobre cantidad e intensidad. El resultado de que los incentivos del hospital dependan de $\psi_{12}$ solo en la estructura descentralizada (potencia secuencialmente inducida) no tiene, hasta donde conocemos, precedente directo en la literatura.
+
+\textbf{Contribución empírica.} La estimación de un sistema de dos fronteras estocásticas ---una para la cantidad de actividad hospitalaria y otra para la intensidad diagnóstico-terapéutica--- constituye, hasta donde conocemos, la primera contrastación empírica directa de un modelo de agencia multitarea en el sector hospitalario español mediante análisis de frontera estocástica. El diseño empírico, basado en el panel SIAE 2010--2023 con 4.765 observaciones hospital-año, permite identificar asimetrías que un modelo con un único término de ineficiencia no puede captar. La confirmación de P4 con un $z$-estadístico de $-9.89$ en el Diseño B es, a nuestro juicio, la evidencia empírica más sólida producida por esta investigación: la moderación asimétrica del parámetro de sustitución sobre la ineficiencia en servicios quirúrgicos versus médicos es exactamente el mecanismo central predicho por el modelo teórico.
+
+\textbf{Contribución metodológica.} La tesis proporciona cuatro diseños complementarios de estimación (ODF, sistema bivariado A, sistema bivariado B y panel hospital$\times$servicio C) que explotan distintas fuentes de variación y permiten una triangulación robusta de los resultados. Esta estrategia de triangulación múltiple es menos común en la literatura de SFA hospitalario, donde la mayoría de los trabajos se limitan a un único diseño de estimación. La estrategia de datos ---integrando SIAE, CNH y CMBD parcial con imputación de case-mix mediante Random Forest--- también constituye una contribución metodológica que puede ser replicada y extendida para el análisis del sistema hospitalario español.
+
+\textbf{Contribución de datos.} El pipeline de datos construido para esta investigación (scripts 00--13 en R, Anexo~\ref{app:pipeline}) produce un panel armonizado del sistema hospitalario español para 2010--2023 que integra las tres fuentes de datos mencionadas. Este panel constituye un activo de investigación que puede ser utilizado para análisis complementarios del sistema hospitalario español, incluyendo estudios de eficiencia de costes, análisis de productividad total de factores o evaluaciones de políticas de salud autonómicas.
+
+\section{Limitaciones y líneas de extensión}
+
+Esta tesis presenta varias limitaciones que definen las líneas de extensión futura.
+
+\textbf{Endogeneidad de la estructura organizativa.} La asignación de hospitales a formas descentralizadas no es aleatoria. Aunque las dummies de CCAA controlan parte de la heterogeneidad geográfica, la identificación causal del efecto de la descentralización requeriría explotar variación exógena derivada de cambios normativos autonómicos (por ejemplo, las reversiones de concesiones en la Comunidad Valenciana y Madrid).
+
+\textbf{Datos de procedimientos del CMBD.} La solicitud del RAE-CMBD con contadores de procedimientos CIE y pesos GRD diferenciados por tipo de servicio, realizada en marzo de 2026 al Ministerio de Sanidad, permitiría una versión óptima del Diseño A, midiendo la intensidad directamente con datos administrativos en lugar del índice de procedimientos diagnósticos construido a partir del SIAE.
+
+\textbf{Sistema bivariado con cópula.} Las bajas correlaciones entre ineficiencias ($|r|<0.15$) sugieren que la ganancia de estimar conjuntamente con cópula gaussiana \citep{kumbhakar1997} es marginal, pero la implementación formal es una extensión natural que permitiría testar directamente la independencia de los términos de ineficiencia.
+
+\textbf{Heterogeneidad temporal.} Explorar si los efectos de la descentralización varían entre subperíodos (2010--2015, expansión de concesiones; 2016--2019, reversiones; 2023, post-COVID) podría arrojar luz sobre la dinámica de adaptación institucional.
+
+\textbf{Heterogeneidad persistente.} La especificación de \citet{greene2005a} con ``verdaderos'' efectos aleatorios permitiría separar la ineficiencia transitoria de la heterogeneidad no observada permanente, aunque a costa de supuestos distribucionales más fuertes.
+
+A pesar de estas limitaciones, el conjunto de la evidencia empírica es consistente con las predicciones del modelo de agencia multitarea: la estructura organizativa y el mecanismo de pago generan incentivos que se transmiten de forma asimétrica sobre las dos dimensiones del output hospitalario, en la dirección predicha por la teoría.
+
+\section{Agenda de investigación futura}
+\label{sec:agenda_futura}
+
+Los resultados de esta tesis abren líneas de investigación específicas que permitirían profundizar en la comprensión de la relación entre estructura organizativa y eficiencia hospitalaria.
+
+\subsection{Explotación de variación exógena para identificación causal}
+
+La mayor prioridad en la agenda futura es la identificación causal del efecto de la estructura organizativa. Las reversiones de concesiones administrativas ocurridas en España entre 2018 y 2021 ofrecen una oportunidad única para un análisis de diferencias en diferencias (\textit{differences-in-differences}):
+
+\begin{itemize}
+  \item \textbf{Reversión del Hospital de La Ribera (Alzira, Valencia, 2018):} El hospital de Alzira fue la primera concesión administrativa española (1999) y su reversión en 2018 al sistema público, al expirar el contrato de concesión, proporciona un evento normativo limpio. Los hospitales del área de salud vecina que permanecieron bajo gestión SNS durante todo el período pueden servir como grupo de control.
+  \item \textbf{Reversión de los hospitales de Torrevieja y Dénia (Valencia, 2021):} Estos dos hospitales revertieron al sistema público en 2021, proporcionando variación adicional. La variación escalonada (Alzira 2018, Torrevieja y Dénia 2021) permite implementar un estimador de diferencias en diferencias con fechas de tratamiento distintas (\textit{staggered DiD}).
+  \item \textbf{Suspensión cautelar en Madrid (2015):} El Tribunal Superior de Justicia de Madrid suspendió en 2015 el proceso de privatización de seis hospitales ya en marcha, creando una variación exógena en el tratamiento antes de que se implementara. Los hospitales que iban a privatizarse (grupo de tratamiento) pueden compararse con hospitales públicos comparables que no estaban en el proceso (control).
+\end{itemize}
+
+Un diseño causal de este tipo permitiría responder a la pregunta central que esta tesis no puede resolver: ¿qué parte de la correlación entre $D^{desc}$ y eficiencia refleja un efecto causal de la estructura organizativa y qué parte refleja heterogeneidad no observada en los hospitales que se descentralizaron?
+
+\subsection{Extensión temporal y datos post-COVID}
+
+La extensión del panel a los años 2021--2025 permitiría abordar dos preguntas:
+
+\textit{Primera}, ¿el sistema hospitalario español convergió a su senda de eficiencia pre-COVID en 2023, o los efectos de la pandemia persisten en la distribución de eficiencia? Los datos de 2023 incluidos en esta tesis sugieren una convergencia parcial, pero tres años post-COVID pueden ser insuficientes para la convergencia completa, especialmente en servicios quirúrgicos con listas de espera largas.
+
+\textit{Segunda}, ¿cómo afectaron las reversiones completadas en 2021 a la eficiencia de los hospitales revertidos en el período post-reversión? La respuesta a esta pregunta requiere datos de 2022--2025, que no están disponibles en el momento de la elaboración de esta tesis.
+
+\subsection{Vinculación con datos de procedimientos CMBD-RAE}
+
+La disponibilidad de los microdatos del RAE-CMBD con contadores de procedimientos por episodio permitiría construir medidas de intensidad diagnóstica más precisas que el índice $i_{diag}$ basado en el módulo C1\_16 del SIAE. En particular:
+
+\begin{itemize}
+  \item Pesos GRD-APR diferenciados por tipo de servicio (quirúrgico vs. médico), que permitirían comparar altas de igual complejidad entre hospitales con distinta composición de servicios.
+  \item Medidas de intensidad terapéutica (procedimientos CIE-PCS por episodio), que capturarían la dimensión de intensidad de tratamiento además de la intensidad diagnóstica.
+  \item Indicadores de calidad clínica (reingresos a 30 días, mortalidad intrahospitalaria ajustada por riesgo), que permitirían contrastar si los hospitales descentralizados que son más eficientes en cantidad tienen peores resultados de salud, lo que sería la manifestación más preocupante del mecanismo de sustitución predicho por el modelo.
+\end{itemize}
+
+\subsection{Modelos de frontera con heterogeneidad persistente (Greene 2005)}
+
+La especificación de efectos aleatorios \textit{verdaderos} (\textit{true random effects}) propuesta por \citet{greene2005a} descompone el término de error en tres componentes: $\alpha_i$ (heterogeneidad no observada permanente del hospital), $v_{it}$ (ruido aleatorio) y $u_{it}$ (ineficiencia transitoria). Esta descomposición tiene una justificación teórica directa en el contexto de esta tesis: la heterogeneidad $\alpha_i$ captura diferencias permanentes entre hospitales (calidad del equipo directivo, localización, dotación histórica de infraestructuras) que no son ineficiencia en sentido estricto, sino diferencias en la función de producción entre hospitales. La implementación computacional es más exigente que los modelos \textit{pooled} utilizados en esta tesis, pero el paquete \texttt{sfaR} en R ya implementa esta especificación.
+
+\subsection{Modelos de cópula para la dependencia entre dimensiones de eficiencia}
+
+Aunque las correlaciones entre ineficiencias observadas son bajas ($|r|<0.15$), un modelo formal de la dependencia entre los términos de ineficiencia de las dos fronteras, mediante cópulas gaussianas o de Clayton \citep{kumbhakar1997}, permitiría:
+
+\begin{enumerate}[label=(\roman*)]
+  \item Testar formalmente la hipótesis de independencia entre $u^q_{it}$ y $u^i_{it}$.
+  \item Estimar la correlación estructural entre las dos dimensiones de ineficiencia, separando la correlación debida a inputs compartidos de la correlación debida al mecanismo de sustitución.
+  \item Proporcionar estimadores más eficientes de los coeficientes de la ecuación de ineficiencia si la correlación es significativa.
+\end{enumerate}
+
+\subsection{Heterogeneidad sectorial y subespecialidades}
+
+El modelo teórico predice que el efecto de la estructura organizativa depende del signo de $\psi_{12}$, que varía entre servicios. El Diseño C explota esta heterogeneidad a nivel de tipo de servicio (quirúrgico vs. médico), pero una extensión natural sería desagregar a nivel de subespecialidad médica: cardiología, oncología, traumatología, cirugía general, etc. Para servicios muy especializados, la complementariedad entre actividad intervencionista (cateterismo, cirugía oncológica) e intensidad diagnóstica (ecocardiografía, PET-TAC) puede ser aún más fuerte que para el agregado quirúrgico. La disponibilidad de datos del SIAE desagregados por servicio (módulo C1\_12) permite este análisis, aunque requiere un panel mucho mayor por servicio para una estimación estable.
+
+\section{Reflexión final}
+
+Esta tesis ha tratado de mostrar que la relación entre estructura organizativa y eficiencia hospitalaria es más compleja de lo que sugieren tanto los argumentos a favor de la gestión privada (mayor eficiencia en todas las dimensiones) como los argumentos en contra (deterioro de la calidad bajo incentivos de mercado). El modelo teórico de agencia multitarea proporciona un marco preciso para descomponer esa complejidad y generar predicciones que los datos confirman parcialmente: la descentralización mejora la eficiencia en volumen pero no de forma simétrica en la dimensión de intensidad, y el efecto moderador del tipo de servicio (predicción P4) es el resultado más robusto del análisis.
+
+La implicación de fondo es que el debate sobre la gestión hospitalaria en España ---y en Europa en general--- necesita moverse más allá de las posiciones ideológicas sobre titularidad pública o privada y centrarse en los mecanismos institucionales que determinan los incentivos de los agentes. El modelo teórico y la evidencia empírica de esta tesis sugieren que esos mecanismos operan de forma diferente sobre distintas dimensiones del output hospitalario, y que el diseño institucional óptimo debe tomar en cuenta esa asimetría.
+
+Queda mucho trabajo por hacer para establecer relaciones causales robustas entre estructura organizativa y eficiencia multidimensional. Esta tesis es un primer paso en esa dirección: ha establecido que la asimetría predicha por la teoría es estadísticamente detectable en los datos del sistema hospitalario español, y ha construido el panel de datos y los instrumentos metodológicos necesarios para las extensiones futuras que la agenda de investigación describe.
+
+
+
+% ###########################################################
+% ANEXOS
+% ###########################################################

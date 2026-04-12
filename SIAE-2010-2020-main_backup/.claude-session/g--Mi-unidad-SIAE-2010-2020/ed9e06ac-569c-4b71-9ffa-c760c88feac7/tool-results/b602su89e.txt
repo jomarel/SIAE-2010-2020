@@ -1,0 +1,1171 @@
+Configuración cargada correctamente.
+NOTA: pesos.txt encontrado en INT_DIR (no en LEGACY_BASE_DIR). Usando: G:/Mi unidad/SIAE 2010-2020/data_intermediate/pesos.txt
+============================================================
+DIAGNÓSTICO CASE-MIX / PESOS GRD — SIAE 2010-2023
+Generado: 2026-03-20 11:52:04 
+============================================================
+
+------------------------------------------------------------
+PASO 1: Lectura de pesos.txt
+------------------------------------------------------------
+Ruta: G:/Mi unidad/SIAE 2010-2020/data_intermediate/pesos.txt 
+Filas: 1475 | Columnas: 3 
+
+-- Nombres de columnas:
+[1] "NCODI" "anyo"  "peso" 
+
+-- head(pesos):
+   NCODI anyo peso
+1   1090 2010 0.91
+2    764 2010 1.04
+3    657 2010 0.86
+4    989 2010 0.85
+5    990 2010 0.80
+6    680 2010 1.03
+7    558 2010 0.84
+8    591 2010 0.89
+9    586 2010 0.76
+10   511 2010 0.83
+
+-- str(pesos):
+'data.frame':	1475 obs. of  3 variables:
+ $ NCODI: chr  "1090" "764" "657" "989" ...
+ $ anyo : int  2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
+ $ peso : num  0.91 1.04 0.86 0.85 0.8 1.03 0.84 0.89 0.76 0.83 ...
+
+-- Rango de años en pesos:
+  min: 2010 | max: 2015 
+
+2010 2011 2012 2013 2014 2015 
+ 247  247  246  246  246  243 
+
+-- NCODI únicos: 246 
+
+-- Resumen estadístico de 'peso':
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.5600  0.8300  0.8900  0.9186  0.9900  1.5400 
+  sd: 0.1397 
+  % NA: 0 %
+
+------------------------------------------------------------
+PASO 2: Scripts legacy relacionados con mix/pesos/casemix/grd/lasso/imputa
+------------------------------------------------------------
+Archivos encontrados: 4 
+  - G:/Mi unidad/SIAE 2010-2020/scripts/_ARCHIVADO_6_seleccionar_variables_mix.R 
+  - G:/Mi unidad/SIAE 2010-2020/scripts/9_construccion de variable mix.R 
+  - G:/Mi unidad/SIAE 2010-2020/scripts/legacy/5_variable mix fases.R 
+  - G:/Mi unidad/SIAE 2010-2020/scripts/legacy/7_prediccion de variable mix.R 
+
+
+==============================
+CONTENIDO: _ARCHIVADO_6_seleccionar_variables_mix.R 
+==============================
+# Paso 1: Seleccionar Variables Numéricas Basadas en su Correlación con 'peso'
+# Ya tienes la matriz de correlación entre las variables numéricas independientes y la variable objetivo peso. Vamos a utilizar esta información para seleccionar las variables numéricas más relevantes.
+# 
+# 1.1. Establecer un Umbral de Correlación
+# Podemos establecer un umbral de correlación para seleccionar las variables que tienen una relación significativa con peso. Un umbral común es |correlación| ≥ 0.3, pero puedes ajustarlo según la cantidad de variables y la fuerza de las relaciones observadas.
+
+
+# NO VOY A INCLUIR VARIABLES CATEGORICAS... SOLO HAY ESTAS: "ccaa"               "Finalidad_agrupada" "Depend_agrupada"    "camas_instalada"    "otroRegimen"  Y NO MERECE LA PENA DADO QUE SON TODOS HOSPITALES PÚBLICOS, AGUDOS, Y CON POCOS DATOS POR CCCAA PARA QUE ESO SEA RELEVANTE
+
+
+
+
+
+# df_final <- read.delim("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/correlacion_con_peso.csv")
+
+
+# Definir el umbral de correlación
+threshold <- 0.5
+
+# Seleccionar variables con correlación absoluta mayor al umbral
+selected_numeric_vars <- cor_peso %>% 
+  filter(abs(correlation_with_peso) >= threshold) %>% 
+  arrange(desc(abs(correlation_with_peso))) %>% 
+  pull(variable)
+
+# Mostrar las variables seleccionadas y sus correlaciones
+selected_numeric_vars_df <- cor_peso %>% 
+  filter(variable %in% selected_numeric_vars)
+
+print(selected_numeric_vars_df)
+
+# Calcular valores p para las correlaciones
+p_values <- sapply(selected_numeric_vars, function(var) {
+  cor.test(data_peso_clean[[var]], data_peso_clean$peso)$p.value
+})
+
+# Crear un data frame con correlaciones y valores p
+selected_numeric_vars_df <- selected_numeric_vars_df %>%
+  mutate(p_value = p_values[variable])
+
+# Filtrar variables con p < 0.05
+selected_numeric_vars_df <- selected_numeric_vars_df %>% 
+  filter(p_value < 0.05)
+
+# Actualizar la lista de variables seleccionadas
+selected_numeric_vars <- selected_numeric_vars_df$variable
+
+print(selected_numeric_vars_df)
+
+# Crear un data frame con las variables seleccionadas
+data_model <- data_peso_clean[, c("peso", selected_numeric_vars)]
+
+# NO MANEJO VARIABLES CON VARIANZA CERO O CASI CERO PORQUE NO HAY NINGUNA
+
+
+# Calcular la matriz de correlación
+cor_matrix <- cor(data_model[, -1])  # Excluimos 'peso'
+
+# Encontrar pares de variables con correlación alta (por ejemplo, |correlación| > 0.9)
+high_cor_pairs <- findCorrelation(cor_matrix, cutoff = 0.9, names = TRUE, exact = TRUE)
+
+cat("Variables altamente correlacionadas (correlación > 0.9):\n")
+print(high_cor_pairs)
+
+# Eliminar variables altamente correlacionadas
+if (length(high_cor_pairs) > 0) {
+  data_model <- data_model[, !names(data_model) %in% high_cor_pairs]
+}
+
+#  ELIMINADAS LAS MUY CORRELACIONADAS PASAMOS A AJUSTAR MODELO DE REGRESION LINEAL (PASO 3)
+# Obtener los nombres de las variables predictoras (excluyendo 'peso')
+predictor_vars <- setdiff(names(data_model), "peso")
+
+# Crear la fórmula del modelo
+formula_model <- as.formula(paste("peso ~", paste(predictor_vars, collapse = " + ")))
+
+# Verificar la fórmula
+print(formula_model)
+
+
+# Ajustar el modelo de regresión lineal
+lm_model <- lm(formula_model, data = data_model)
+
+# Resumen del modelo
+summary(lm_model)
+
+
+
+
+
+
+# Paso 4: Verificar Multicolinealidad entre Variables Independientes
+# Dado que estamos incluyendo variables numéricas y categóricas (codificadas), es importante verificar la multicolinealidad.
+# data_model_encoded <- data_model
+
+
+# Calcular el VIF
+# Instalar y cargar el paquete car si no lo tienes
+if (!require(car)) install.packages("car")
+library(car)
+
+# Calcular el VIF
+vif_values <- vif(lm_model)
+
+# Mostrar los valores de VIF
+print(vif_values)
+
+
+# Mostrar variables con VIF alto
+vif_threshold <- 5
+high_vif_vars <- names(vif_values[vif_values > vif_threshold])
+cat("Variables con VIF mayor a", vif_threshold, ":\n")
+print(high_vif_vars)
+
+# Función para eliminar variables con VIF alto
+reduce_vif <- function(data, threshold = 5) {
+  repeat {
+    # Crear fórmula del modelo
+    predictor_vars <- setdiff(names(data), "peso")
+    formula_model <- as.formula(paste("peso ~", paste(predictor_vars, collapse = " + ")))
+    
+    # Ajustar el modelo
+    lm_model <- lm(formula_model, data = data)
+    
+    # Calcular VIF
+    vif_values <- vif(lm_model)
+    
+    # Obtener el máximo VIF
+    max_vif <- max(vif_values)
+    
+    if (max_vif > threshold) {
+      # Variable con mayor VIF
+      var_to_remove <- names(vif_values)[which.max(vif_values)]
+      cat("Eliminando variable por alto VIF:", var_to_remove, "\n")
+      
+      # Eliminar la variable del conjunto de datos
+      data <- data %>% select(-one_of(var_to_remove))
+    } else {
+      break
+    }
+  }
+  return(data)
+}
+
+# Aplicar la función
+data_model_vif <- reduce_vif(data_model, threshold = vif_threshold)
+
+# Crear fórmula con las variables restantes
+predictor_vars <- setdiff(names(data_model_vif), "peso")
+formula_model <- as.formula(paste("peso ~", paste(predictor_vars, collapse = " + ")))
+
+# Ajustar el modelo
+lm_model <- lm(formula_model, data = data_model_vif)
+
+# Resumen del modelo
+summary(lm_model)
+
+# Paso 6: Ajustar el Modelo con Regularización (LASSO)  (EL PASO 5 ERA ELIMINAR VARIABLES CON ALIASING QUE QUEDARAN, COMO NO QUEDABA NINGUNA NO LO APLICO)
+# Para manejar la multicolinealidad y realizar selección de variables, es recomendable utilizar métodos de regularización como LASSO.
+
+
+# Separar variables independientes y dependiente
+x <- as.matrix(data_model_vif[, predictor_vars])
+y <- data_model_vif$peso
+# Instalar y cargar glmnet si no está cargado
+if (!require(glmnet)) install.packages("glmnet")
+library(glmnet)
+
+# Ajustar modelo LASSO con validación cruzada
+set.seed(123)
+cv_lasso <- cv.glmnet(x, y, alpha = 1, nfolds = 10)
+
+# Obtener el lambda óptimo
+best_lambda <- cv_lasso$lambda.min
+cat("Mejor lambda:", best_lambda, "\n")
+
+# Ajustar el modelo final con el mejor lambda
+lasso_model <- glmnet(x, y, alpha = 1, lambda = best_lambda)
+
+# Coeficientes del modelo
+coeficientes <- coef(lasso_model)
+selected_vars_lasso <- rownames(coeficientes)[coeficientes[,1] != 0]
+selected_vars_lasso <- setdiff(selected_vars_lasso, "(Intercept)")
+cat("Variables seleccionadas por LASSO:\n")
+print(selected_vars_lasso)
+# Crear el conjunto de datos con las variables seleccionadas
+data_final <- data_model_vif[, c("peso", selected_vars_lasso)]
+
+# Paso 7: Ajustar el Modelo Final con Variables Seleccionadas
+
+# Crear fórmula con las variables seleccionadas
+formula_final <- as.formula(paste("peso ~", paste(selected_vars_lasso, collapse = " + ")))
+
+# Ajustar el modelo
+final_model <- lm(formula_final, data = data_final)
+
+# Resumen del modelo
+summary(final_model)
+
+
+saveRDS(data_final, 
+        file = "H:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/data_final.rds")
+
+# # write.csv(data_final, "H:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/data_final.csv",
+# row.names = FALSE) 
+
+
+==============================
+CONTENIDO: 9_construccion de variable mix.R 
+==============================
+# ============================================================
+# 9_construccion de variable mix.R
+# Construye la variable proxy de case-mix (mix) mediante
+# un modelo Random Forest entrenado en hospitales con peso
+# GRD real, y lo imputa al resto.
+#
+# Input:  df_final  (DF_FINAL_RDATA_PATH)
+#         pesos     (PESOS_TXT_PATH)
+# Output: df_completo (DF_COMPLETO_RDATA_PATH)
+#         + DF_FINAL_CON_MIX_TXT_PATH
+# ============================================================
+
+config_path <- if (file.exists("scripts/00_config.R")) "scripts/00_config.R" else "00_config.R"
+source(config_path)
+
+# ------------------------------------------------------------
+# Verificar paquetes
+# ------------------------------------------------------------
+required_pkgs <- c("dplyr", "caret", "glmnet", "randomForest", "ggplot2")
+missing_pkgs  <- required_pkgs[!vapply(required_pkgs, requireNamespace,
+                                       logical(1), quietly = TRUE)]
+if (length(missing_pkgs) > 0) {
+  stop(
+    "Faltan paquetes: ", paste(missing_pkgs, collapse = ", "),
+    "\nInstálalos con install.packages().",
+    call. = FALSE
+  )
+}
+
+library(dplyr)
+library(caret)
+library(glmnet)
+library(randomForest)
+
+# ------------------------------------------------------------
+# 1. Cargar df_final
+# ------------------------------------------------------------
+if (!file.exists(DF_FINAL_RDATA_PATH)) {
+  stop("No se encontró df_final en: ", DF_FINAL_RDATA_PATH,
+       "\nEjecuta el script 3 antes.", call. = FALSE)
+}
+
+load(DF_FINAL_RDATA_PATH)
+
+if (!exists("df_final")) {
+  stop("El objeto df_final no existe en ", DF_FINAL_RDATA_PATH, call. = FALSE)
+}
+
+message("df_final cargado: ", nrow(df_final), " filas × ", ncol(df_final), " columnas.")
+
+# ------------------------------------------------------------
+# 2. Cargar tabla de pesos GRD y unir
+# ------------------------------------------------------------
+if (!file.exists(PESOS_TXT_PATH)) {
+  stop("No se encontró el archivo de pesos en: ", PESOS_TXT_PATH, call. = FALSE)
+}
+
+pesos <- read.table(PESOS_TXT_PATH, sep = ";", dec = ",", header = TRUE,
+                    stringsAsFactors = FALSE)
+pesos$NCODI <- trimws(as.character(pesos$NCODI))
+
+message("Pesos GRD cargados: ", nrow(pesos), " filas.")
+message("  Hospitales con peso real: ", n_distinct(pesos$NCODI))
+
+df <- left_join(df_final, pesos, by = c("NCODI", "anyo"))
+
+n_con_peso <- sum(!is.na(df$peso))
+n_sin_peso <- sum(is.na(df$peso))
+message(sprintf("  Obs. con peso real: %d | Sin peso (a imputar): %d",
+                n_con_peso, n_sin_peso))
+
+# ------------------------------------------------------------
+# 3. Preparar variables predictoras
+# Variables protegidas: identificadores + categóricas + target
+# ------------------------------------------------------------
+PROTECTED_VARS <- c(paste0("u", 1:104), "u900", "NCODI", "anyo",
+                    "ccaa_codigo", "ccaa", "nombre_hospital",
+                    "cod_centro", "CODCNH", "ccaa_cnh", "provincia_cnh",
+                    "finalidad_cnh", "dependencia_cnh",
+                    "cod_finalidad_agrupada", "Finalidad_agrupada",
+                    "cod_depend_agrupada", "Depend_agrupada",
+                    "peso", "mix")
+
+variables_excluir <- intersect(PROTECTED_VARS, names(df))
+
+variables_numericas <- names(df)[!(names(df) %in% variables_excluir)]
+
+# Convertir a numérico
+df[variables_numericas] <- lapply(df[variables_numericas], function(x) {
+  suppressWarnings(as.numeric(as.character(x)))
+})
+
+# Excluir variables con más de 50% de NA
+pct_na <- vapply(df[variables_numericas], function(x) mean(is.na(x)), numeric(1))
+variables_numericas <- variables_numericas[pct_na <= 0.50]
+
+message("Variables predictoras disponibles: ", length(variables_numericas))
+
+# Imputar NA con la mediana (solo en predictores, no en target)
+for (var in variables_numericas) {
+  med <- median(df[[var]], na.rm = TRUE)
+  if (!is.na(med)) df[[var]][is.na(df[[var]])] <- med
+}
+
+# ------------------------------------------------------------
+# 4. Separar entrenamiento / predicción
+# ------------------------------------------------------------
+df_entrenamiento <- df %>% filter(!is.na(peso))
+df_prediccion    <- df %>% filter(is.na(peso))
+
+message(sprintf("Conjunto entrenamiento: %d obs. | Predicción: %d obs.",
+                nrow(df_entrenamiento), nrow(df_prediccion)))
+
+if (nrow(df_entrenamiento) < 30) {
+  stop("Muy pocas observaciones con peso real para entrenar el modelo: ",
+       nrow(df_entrenamiento), call. = FALSE)
+}
+
+X_entrenamiento <- as.matrix(df_entrenamiento[, variables_numericas, drop = FALSE])
+y_entrenamiento <- df_entrenamiento$peso
+
+# ------------------------------------------------------------
+# 5. Selección de variables con LASSO
+# ------------------------------------------------------------
+message("\nEjecutando LASSO para selección de variables...")
+
+# Eliminar predictores con varianza cero
+nzv               <- caret::nearZeroVar(X_entrenamiento, saveMetrics = TRUE)
+vars_nzv          <- rownames(nzv)[nzv$zeroVar]
+X_entrenamiento   <- X_entrenamiento[, !(colnames(X_entrenamiento) %in% vars_nzv), drop = FALSE]
+
+message("Variables tras eliminar varianza cero: ", ncol(X_entrenamiento))
+
+# Estandarizar
+preproc_lasso       <- caret::preProcess(X_entrenamiento, method = c("center", "scale"))
+X_ent_std           <- predict(preproc_lasso, X_entrenamiento)
+
+set.seed(123)
+cv_lasso      <- glmnet::cv.glmnet(X_ent_std, y_entrenamiento, alpha = 1, nfolds = 10)
+lambda_opt    <- cv_lasso$lambda.min
+
+coefs         <- coef(cv_lasso, s = lambda_opt)
+vars_lasso    <- rownames(coefs)[which(coefs != 0)]
+vars_lasso    <- setdiff(vars_lasso, "(Intercept)")
+
+message("Variables seleccionadas por LASSO: ", length(vars_lasso))
+
+if (length(vars_lasso) == 0) {
+  warning("LASSO no seleccionó ninguna variable. Usando todas las disponibles.", call. = FALSE)
+  vars_lasso <- colnames(X_ent_std)
+}
+
+X_ent_sel <- X_ent_std[, vars_lasso, drop = FALSE]
+
+# Estandarizar de nuevo sobre el subconjunto seleccionado
+preproc_rf    <- caret::preProcess(X_ent_sel, method = c("center", "scale"))
+X_ent_sel     <- predict(preproc_rf, X_ent_sel)
+
+# ------------------------------------------------------------
+# 6. Preparar conjunto de predicción
+# ------------------------------------------------------------
+X_pred_raw <- as.matrix(df_prediccion[, colnames(X_entrenamiento), drop = FALSE])
+
+# Aplicar preprocesamiento del LASSO (center/scale del paso anterior)
+X_pred_std <- predict(preproc_lasso, X_pred_raw)
+
+# Seleccionar variables LASSO
+faltantes <- setdiff(vars_lasso, colnames(X_pred_std))
+if (length(faltantes) > 0) {
+  for (v in faltantes) X_pred_std <- cbind(X_pred_std, 0)
+  colnames(X_pred_std)[
+    (ncol(X_pred_std) - length(faltantes) + 1):ncol(X_pred_std)
+  ] <- faltantes
+}
+X_pred_sel <- X_pred_std[, vars_lasso, drop = FALSE]
+
+# Aplicar preprocesamiento RF
+X_pred_sel <- predict(preproc_rf, X_pred_sel)
+
+# ------------------------------------------------------------
+# 7. Entrenar Random Forest
+# ------------------------------------------------------------
+message("\nEntrenando Random Forest...")
+
+# mtry: heurístico p/3 para regresión, acotado al número de variables
+mtry_opt <- max(1L, min(floor(ncol(X_ent_sel) / 3), ncol(X_ent_sel)))
+
+set.seed(123)
+modelo_rf <- randomForest::randomForest(
+  x          = X_ent_sel,
+  y          = y_entrenamiento,
+  mtry       = mtry_opt,
+  ntree      = 500,
+  importance = TRUE
+)
+
+message(sprintf("  R² (OOB): %.3f | RMSE (OOB): %.3f",
+                1 - modelo_rf$mse[500] / var(y_entrenamiento),
+                sqrt(modelo_rf$mse[500])))
+
+# ------------------------------------------------------------
+# 8. Predicciones y ensamblado
+# ------------------------------------------------------------
+df_entrenamiento$mix <- predict(modelo_rf, X_ent_sel)
+
+if (nrow(df_prediccion) > 0) {
+  df_prediccion$mix <- predict(modelo_rf, X_pred_sel)
+} else {
+  message("No hay observaciones sin peso: mix = peso para todos.")
+}
+
+df_completo <- dplyr::bind_rows(df_entrenamiento, df_prediccion) %>%
+  arrange(NCODI, anyo)
+
+# ------------------------------------------------------------
+# 9. Evaluar el modelo en el conjunto de entrenamiento
+# ------------------------------------------------------------
+df_eval     <- df_completo %>% filter(!is.na(peso))
+peso_real   <- df_eval$peso
+peso_pred   <- df_eval$mix
+
+MAE   <- mean(abs(peso_real - peso_pred))
+RMSE  <- sqrt(mean((peso_real - peso_pred)^2))
+MAPE  <- mean(abs((peso_real - peso_pred) / peso_real)) * 100
+R2    <- caret::R2(peso_pred, peso_real)
+
+message("\n--- Métricas del modelo (in-sample) ---")
+message(sprintf("  MAE:  %.4f", MAE))
+message(sprintf("  RMSE: %.4f", RMSE))
+message(sprintf("  MAPE: %.2f%%", MAPE))
+message(sprintf("  R²:   %.4f", R2))
+
+# ------------------------------------------------------------
+# 10. Guardar diagnósticos gráficos (en INT_DIR, no interactivos)
+# ------------------------------------------------------------
+if (requireNamespace("ggplot2", quietly = TRUE)) {
+  library(ggplot2)
+
+  df_eval <- df_eval %>%
+    mutate(residuos = peso_real - peso_pred,
+           media_vals = (peso_real + peso_pred) / 2)
+
+  plots_dir <- file.path(INT_DIR, "mix_model_plots")
+  dir.create(plots_dir, showWarnings = FALSE, recursive = TRUE)
+
+  # Dispersión real vs predicho
+  p1 <- ggplot(df_eval, aes(x = peso_real, y = peso_pred)) +
+    geom_point(alpha = 0.5, color = "steelblue") +
+    geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
+    labs(title = "Peso real vs predicho (mix)",
+         x = "Peso real (GRD)", y = "Mix predicho") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "dispersion_real_vs_predicho.png"), p1,
+         width = 7, height = 5)
+
+  # Residuos
+  p2 <- ggplot(df_eval, aes(x = peso_pred, y = residuos)) +
+    geom_point(alpha = 0.5, color = "darkgreen") +
+    geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+    labs(title = "Residuos vs mix predicho", x = "Mix predicho", y = "Residuo") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "residuos.png"), p2, width = 7, height = 5)
+
+  # Bland-Altman
+  p3 <- ggplot(df_eval, aes(x = media_vals, y = residuos)) +
+    geom_point(alpha = 0.5, color = "purple") +
+    geom_hline(yintercept = mean(df_eval$residuos), color = "blue",
+               linetype = "dashed") +
+    labs(title = "Bland-Altman (mix)", x = "Media", y = "Diferencia") +
+    theme_minimal()
+  ggsave(file.path(plots_dir, "bland_altman.png"), p3, width = 7, height = 5)
+
+  message("Gráficos guardados en: ", plots_dir)
+}
+
+# ------------------------------------------------------------
+# 11. Guardar outputs
+# ------------------------------------------------------------
+save(df_completo, file = DF_COMPLETO_RDATA_PATH)
+message("\ndf_completo guardado en: ", DF_COMPLETO_RDATA_PATH)
+message("  Filas: ", nrow(df_completo), " | Columnas: ", ncol(df_completo))
+message("  Obs. con mix: ", sum(!is.na(df_completo$mix)))
+
+write.table(df_completo, DF_FINAL_CON_MIX_TXT_PATH,
+            sep = ";", dec = ",", row.names = FALSE, na = "")
+message("TXT con mix guardado en: ", DF_FINAL_CON_MIX_TXT_PATH)
+
+message("\n=== Script 9 completado ===") 
+
+
+==============================
+CONTENIDO: 5_variable mix fases.R 
+==============================
+# Manipula y limpieza de datos
+library(dplyr)
+library(tidyr)
+
+# Visualización
+library(ggplot2)
+#install.packages("corrplot")
+library(corrplot)
+
+# Modelado
+library(glmnet)      # Para LASSO y Ridge
+library(randomForest)
+library(caret)
+library(e1071)       # Para SVR si decides usarlo
+library(gbm)         # Para Gradient Boosting
+library(haven)
+library(caret)
+#Con esto, hemos completado la Fase 1 de exploración y preprocesamiento de datos. Hemos:
+# Cargado los datos.
+# Dividido el conjunto de datos en dos subconjuntos: con peso y sin peso.
+# Eliminado variables con demasiados valores faltantes.
+# Imputado valores faltantes en variables numéricas y categóricas.
+# Estandarizado las variables numéricas.
+# Aplicado los mismos pasos al conjunto de datos sin peso.
+# ¿Hay algún paso hasta aquí que quieras revisar o alguna pregunta que desees hacer antes de continuar con la siguiente fase?
+
+df_final <- read.table("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\df_final.txt", sep = ";", dec = ",", header=TRUE)
+
+pesos <- read.table("h:\\Mi unidad\\Tesis\\Datos con R\\SIAE 2010-2020\\pesos.txt",sep = ";", dec = ",", header = TRUE)
+# Unir las bases de datos por NCODI y anyo
+df <- merge(df_final, pesos, by = c("NCODI", "anyo"), all = TRUE)
+
+
+
+# Suponiendo que la variable peso está en la última posición
+df <- df %>% select(NCODI, anyo, peso, everything())
+write.table(df, "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df.txt", row.names = FALSE, sep = ";", dec = ",")
+
+
+
+# df <- read.table("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df.txt", 
+#                    header = TRUE, 
+#                    sep = ";",        # Cambia a sep="," si el separador es coma
+)
+
+
+# Leer el archivo df_lab.dta  esta en dta porque así incoropra ya las etiquetas.
+data <- read_dta("h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/df_lab.dta")
+
+
+
+# Conjunto de datos con "peso" disponible
+data_peso <- data %>% filter(!is.na(peso))
+
+# Conjunto de datos sin "peso"
+data_sin_peso <- data %>% filter(is.na(peso))
+# Resumen estadístico de las variables numéricas
+summary(data_peso)
+
+# Visualizar las primeras filas del conjunto de datos
+head(data_peso)
+
+# Calcular el porcentaje de valores faltantes por variable
+missing_pct <- sapply(data_peso, function(x) sum(is.na(x)) / length(x)) * 100
+
+# Convertir a data frame para facilitar la visualización
+missing_df <- data.frame(variable = names(missing_pct), missing_pct = missing_pct)
+
+# Ordenar de mayor a menor porcentaje de valores faltantes
+missing_df <- missing_df %>% arrange(desc(missing_pct))
+
+# Visualizar las variables con mayor porcentaje de valores faltantes
+print(missing_df)
+# Identificar variables con más del 50% de valores faltantes
+vars_to_remove <- missing_df %>% filter(missing_pct > 50) %>% pull(variable)
+
+# Eliminar estas variables del conjunto de datos
+data_peso_clean <- data_peso %>% select(-one_of(vars_to_remove))
+# Obtener nombres de variables numéricas
+numeric_vars <- names(data_peso_clean)[sapply(data_peso_clean, is.numeric)]
+
+# Suponiendo que 'numeric_vars' es un vector con los nombres de las variables numéricas
+# Excluir 'NCODI' de 'numeric_vars'
+numeric_vars <- setdiff(numeric_vars, "NCODI")
+
+
+
+# Imputar valores faltantes con la media
+for (var in numeric_vars) {
+  data_peso_clean[[var]][is.na(data_peso_clean[[var]])] <- mean(data_peso_clean[[var]], na.rm = TRUE)
+}
+# Obtener nombres de variables categóricas
+categorical_vars <- names(data_peso_clean)[sapply(data_peso_clean, is.character)]
+
+# Función para calcular la moda
+get_mode <- function(v) {
+  uniqv <- unique(v[!is.na(v)])
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+# Imputar valores faltantes con la moda
+for (var in categorical_vars) {
+  mode_value <- get_mode(data_peso_clean[[var]])
+  data_peso_clean[[var]][is.na(data_peso_clean[[var]])] <- mode_value
+}
+# Estandarizar variables numéricas
+data_peso_clean[numeric_vars] <- scale(data_peso_clean[numeric_vars])
+
+
+# Eliminar las mismas variables
+data_sin_peso_clean <- data_sin_peso %>% select(-one_of(vars_to_remove))
+# Imputar valores faltantes con la media calculada en data_peso_clean
+for (var in numeric_vars) {
+  mean_value <- mean(data_peso_clean[[var]], na.rm = TRUE)
+  data_sin_peso_clean[[var]][is.na(data_sin_peso_clean[[var]])] <- mean_value
+}
+# Imputar valores faltantes con la moda calculada en data_peso_clean
+for (var in categorical_vars) {
+  mode_value <- get_mode(data_peso_clean[[var]])
+  data_sin_peso_clean[[var]][is.na(data_sin_peso_clean[[var]])] <- mode_value
+}
+# Obtener la media y desviación estándar de cada variable numérica en data_peso_clean
+mean_vars <- sapply(data_peso_clean[numeric_vars], mean)
+sd_vars <- sapply(data_peso_clean[numeric_vars], sd)
+
+# Estandarizar data_sin_peso_clean utilizando los parámetros de data_peso_clean
+for (var in numeric_vars) {
+  data_sin_peso_clean[[var]] <- (data_sin_peso_clean[[var]] - mean_vars[var]) / sd_vars[var]
+}
+
+
+
+
+# Fase 2: Análisis Exploratorio de Datos (EDA)
+# 
+# En esta fase, exploraremos las relaciones entre la variable objetivo peso y las demás variables del conjunto de datos. El objetivo es identificar variables que puedan tener una relación significativa con peso y que podrían ser útiles en la predicción del "mix" hospitalario.
+
+
+numeric_vars <- setdiff(numeric_vars, "peso")  # Excluir 'peso' de las variables independientes
+
+# Crear un data frame solo con variables numéricas
+numeric_data <- data_peso_clean[, c("peso", numeric_vars)]
+
+# Verificar el número total de valores faltantes
+total_na <- sum(is.na(numeric_data))
+cat("Total de valores faltantes en numeric_data:", total_na, "\n")
+
+# Verificar el número de filas y columnas
+cat("Dimensiones de numeric_data:", dim(numeric_data), "\n")
+
+# Verificar el número de casos completos
+n_complete_cases <- sum(complete.cases(numeric_data))
+cat("Número de casos completos:", n_complete_cases, "\n")
+# Calcular el número de valores faltantes por variable
+na_per_variable <- colSums(is.na(numeric_data))
+
+# Identificar variables con todos los valores como NA
+variables_all_na <- names(na_per_variable[na_per_variable == nrow(numeric_data)])
+
+# Mostrar las variables con todos los valores como NA
+cat("Variables con todos sus valores como NA:\n")
+print(variables_all_na)
+# Eliminar variables con todos sus valores como NA
+numeric_data <- numeric_data[, !(names(numeric_data) %in% variables_all_na)]
+# Número de casos completos después de eliminar variables con todos sus valores NA
+n_complete_cases <- sum(complete.cases(numeric_data))
+cat("Número de casos completos después de limpiar variables:", n_complete_cases, "\n")
+# Actualizar numeric_data
+numeric_data <- data_peso_clean[, c("peso", numeric_vars)]
+
+# Verificar nuevamente valores faltantes
+total_na <- sum(is.na(numeric_data))
+cat("Total de valores faltantes después de la imputación:", total_na, "\n")
+
+# Calcular la matriz de correlación
+cor_matrix <- cor(numeric_data)
+
+
+# Convertir la matriz de correlación en un data frame
+cor_peso <- as.data.frame(cor_matrix[,"peso"])
+
+# Renombrar la columna para mayor claridad
+colnames(cor_peso) <- "correlation_with_peso"
+
+# Ordenar las variables por valor absoluto de la correlación
+cor_peso$variable <- rownames(cor_peso)
+cor_peso <- cor_peso %>% 
+  filter(variable != "peso") %>%  # Excluir la variable 'peso' en sí misma
+  arrange(desc(abs(correlation_with_peso)))
+
+# Mostrar las variables con mayor correlación con 'peso'
+head(cor_peso, 20)  # Mostrar las 20 variables más correlacionadas
+
+# Guardar la tabla de correlaciones con 'peso' en un archivo CSV
+write.csv(cor_peso, "h:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/correlacion_con_peso.csv", row.names = FALSE)
+
+
+
+
+
+ 
+
+
+==============================
+CONTENIDO: 7_prediccion de variable mix.R 
+==============================
+# Fase 3: Construcción del Modelo Predictivo para Predecir "peso"
+# 
+# Ahora que hemos seleccionado las variables numéricas más relevantes y hemos manejado los problemas de multicolinealidad y variables problemáticas, estamos listos para construir el modelo predictivo que nos permitirá estimar el peso (case mix) en los hospitales donde esta variable no está disponible.
+# 
+# En esta fase, te guiaré paso a paso para:
+#   
+#   Preparar el conjunto de datos para el modelado.
+# Dividir los datos en conjuntos de entrenamiento y validación.
+# Construir el modelo predictivo utilizando regresión lineal y LASSO.
+# Evaluar el rendimiento del modelo.
+# Aplicar el modelo a los datos sin peso para predecir el "mix".
+
+data_final <- readRDS("H:/Mi unidad/Tesis/Datos con R/SIAE 2010-2020/data_final.rds")
+
+
+
+# Verificar el conjunto de datos final
+str(data_final)
+# Número de observaciones y variables
+cat("Número de observaciones:", nrow(data_final), "\n")
+cat("Número de variables (incluyendo 'peso'):", ncol(data_final), "\n")
+
+# Establecer una semilla para reproducibilidad
+set.seed(123)
+
+# Crear índices de entrenamiento
+train_indices <- sample(seq_len(nrow(data_final)), size = 0.7 * nrow(data_final))
+
+# Dividir los datos
+train_data <- data_final[train_indices, ]
+test_data <- data_final[-train_indices, ]
+
+# Obtener los nombres de las variables predictoras
+predictor_vars <- setdiff(names(train_data), "peso")
+
+# Crear la fórmula del modelo
+formula_model <- as.formula(paste("peso ~", paste(predictor_vars, collapse = " + ")))
+
+# Ajustar el modelo en el conjunto de entrenamiento
+lm_model <- lm(formula_model, data = train_data)
+
+# Resumen del modelo
+summary(lm_model)
+# Gráfico de residuos vs. valores ajustados
+plot(lm_model$fitted.values, lm_model$residuals,
+     xlab = "Valores Ajustados", ylab = "Residuos",
+     main = "Residuos vs. Valores Ajustados")
+abline(h = 0, col = "red")
+
+# Histograma de los residuos
+hist(lm_model$residuals, breaks = 20, main = "Histograma de los Residuos",
+     xlab = "Residuos", col = "lightblue")
+
+# Prueba de normalidad de Shapiro-Wilk
+shapiro.test(lm_model$residuals)
+# Calcular el VIF
+library(car)
+vif_values <- vif(lm_model)
+print(vif_values)
+
+
+# Excluir 'NCODI' y otras variables no predictoras de 'predictor_vars'
+predictor_vars <- setdiff(predictor_vars, c("NCODI", "peso"))
+
+
+# Verificar las variables predictoras
+print(predictor_vars)
+
+
+# Matriz de variables predictoras y vector de respuesta
+x_train <- as.matrix(train_data[, predictor_vars])
+y_train <- train_data$peso
+
+
+# Verificar valores faltantes en x_train
+if (any(is.na(x_train))) {
+  cat("Hay valores faltantes en x_train.\n")
+}
+
+# Verificar valores faltantes en y_train
+if (any(is.na(y_train))) {
+  cat("Hay valores faltantes en y_train.\n")
+}
+
+
+
+if (!require(glmnet)) install.packages("glmnet")
+library(glmnet)
+
+# Ajustar el modelo LASSO
+set.seed(123)
+cv_lasso <- cv.glmnet(x_train, y_train, alpha = 1, nfolds = 10)
+
+# Obtener el lambda óptimo
+best_lambda <- cv_lasso$lambda.min
+cat("Mejor lambda:", best_lambda, "\n")
+
+# Ajustar el modelo final
+lasso_model <- glmnet(x_train, y_train, alpha = 1, lambda = best_lambda)
+
+# Matriz de variables predictoras para los nuevos datos
+x_new <- as.matrix(data_sin_peso_clean[, predictor_vars])
+# Verificar valores faltantes en x_new
+if (any(is.na(x_new))) {
+  cat("Hay valores faltantes en x_new. Imputar o eliminar valores faltantes antes de predecir.\n")
+}
+
+# Reordenar x_new si es necesario
+x_new <- x_new[, colnames(x_train)]
+
+# Realizar las predicciones
+data_sin_peso_clean$predicted_peso <- predict(lasso_model, s = best_lambda, newx = x_new)
+
+# Resumen de las predicciones
+summary(data_sin_peso_clean$predicted_peso)
+
+# Verificar si hay valores NA o NaN en las predicciones
+if (any(is.na(data_sin_peso_clean$predicted_peso))) {
+  cat("Hay valores NA en las predicciones.\n")
+}
+if (any(is.nan(data_sin_peso_clean$predicted_peso))) {
+  cat("Hay valores NaN en las predicciones.\n")
+}
+
+
+# Coeficientes del modelo
+coeficientes <- coef(lasso_model)
+selected_vars_lasso <- rownames(coeficientes)[coeficientes[,1] != 0]
+selected_vars_lasso <- setdiff(selected_vars_lasso, "(Intercept)")
+
+cat("Variables seleccionadas por LASSO:\n")
+print(selected_vars_lasso)
+# Crear la fórmula del modelo
+formula_lasso <- as.formula(paste("peso ~", paste(selected_vars_lasso, collapse = " + ")))
+
+# Ajustar el modelo
+lm_model_lasso <- lm(formula_lasso, data = train_data)
+
+# Resumen del modelo
+summary(lm_model_lasso)
+
+# Predicciones
+predictions_lm <- predict(lm_model, newdata = test_data)
+# Predicciones
+predictions_lasso <- predict(lasso_model, s = best_lambda, newx = x_test)
+# Función para calcular métricas
+calcular_metricas <- function(actual, predicho) {
+  mse <- mean((actual - predicho)^2)
+  rmse <- sqrt(mse)
+  ss_res <- sum((actual - predicho)^2)
+  ss_tot <- sum((actual - mean(actual))^2)
+  r_squared <- 1 - (ss_res / ss_tot)
+  return(list(MSE = mse, RMSE = rmse, R_squared = r_squared))
+}
+metricas_lm <- calcular_metricas(y_test, predictions_lm)
+cat("Modelo de Regresión Lineal:\n")
+print(metricas_lm)
+metricas_lasso <- calcular_metricas(y_test, predictions_lasso)
+cat("Modelo LASSO:\n")
+print(metricas_lasso)
+
+# Paso 6: Aplicar el Modelo a los Datos sin peso para Predecir el "mix" 
+
+# Supongamos que ya has cargado el conjunto de datos sin 'peso' en 'data_sin_peso'
+
+# Verificar las primeras filas del conjunto de datos
+head(data_sin_peso)
+# Lista de variables numéricas seleccionadas por LASSO
+numeric_vars <- selected_vars_lasso
+
+
+
+# Realizar las predicciones
+data_sin_peso_clean$predicted_peso <- predict(lasso_model, s = best_lambda, newx = x_new)
+hist(data_sin_peso_clean$predicted_peso, breaks = 20, main = "Distribución de las Predicciones de 'peso'", xlab = "Predicciones de 'peso'", col = "lightblue")
+
+# # Paso 8: Integrar las Predicciones al Conjunto de Datos
+# 8.1. Unificar los Conjuntos de Datos
+# Ahora tienes dos conjuntos de datos:
+#   data_peso_clean: Conjunto de datos original donde peso estaba disponible.
+# data_sin_peso_clean: Conjunto de datos donde has predicho peso utilizando el modelo LASSO.
+
+# Asegurar que las columnas coincidan
+# Si hay columnas en data_sin_peso_clean que no están en data_peso_clean, debes agregarlas o eliminarlas según corresponda.
+# Paso 1: Renombrar 'predicted_peso' a 'peso' y eliminar 'predicted_peso' de data_sin_peso_clean
+data_sin_peso_clean$peso <- data_sin_peso_clean$predicted_peso
+data_sin_peso_clean$predicted_peso <- NULL  # Eliminar la columna 'predicted_peso'
+
+# Paso 2: Agregar 'tipo_peso' en ambos data frames
+data_peso_clean$tipo_peso <- "original"
+data_sin_peso_clean$tipo_peso <- "predicho"
+
+# Paso 3: Obtener nombres de columnas
+colnames_peso <- colnames(data_peso_clean)
+colnames_sin_peso <- colnames(data_sin_peso_clean)
+
+# Paso 4: Verificar que 'predicted_peso' no está en colnames_sin_peso
+if ("predicted_peso" %in% colnames_sin_peso) {
+  stop("La columna 'predicted_peso' aún está presente en data_sin_peso_clean. Por favor, elimínala antes de continuar.")
+}
+
+# Paso 5: Identificar columnas faltantes y agregarlas
+cols_only_in_peso <- setdiff(colnames_peso, colnames_sin_peso)
+cols_only_in_sin_peso <- setdiff(colnames_sin_peso, colnames_peso)
+
+for (col in cols_only_in_peso) {
+  data_sin_peso_clean[[col]] <- NA
+}
+
+for (col in cols_only_in_sin_peso) {
+  data_peso_clean[[col]] <- NA
+}
+
+# Paso 6: Recalcular 'all_columns' y reordenar las columnas
+all_columns <- union(colnames_peso, colnames_sin_peso)
+data_peso_clean <- data_peso_clean[, all_columns]
+data_sin_peso_clean <- data_sin_peso_clean[, all_columns]
+
+# Paso 7: Convertir factores a caracteres
+data_peso_clean[] <- lapply(data_peso_clean, function(x) if(is.factor(x)) as.character(x) else x)
+data_sin_peso_clean[] <- lapply(data_sin_peso_clean, function(x) if(is.factor(x)) as.character(x) else x)
+
+# Paso 8: Unir los data frames
+data_completo <- rbind(data_peso_clean, data_sin_peso_clean) 
+
+------------------------------------------------------------
+PASO 3: Cruce pesos.txt con df_final
+------------------------------------------------------------
+df_final cargado: 10696 filas x 1484 columnas
+Rango anyo: 2010 - 2023 
+Hospitales únicos (NCODI): 884 
+
+-- Cobertura de peso por año:
+   anyo n_total n_con_peso n_sin_peso pct_cobertura
+1  2010     766        237        529          30.9
+2  2011     764        239        525          31.3
+3  2012     759        239        520          31.5
+4  2013     764        238        526          31.2
+5  2014     763        237        526          31.1
+6  2015     765        235        530          30.7
+7  2016     764          0        764           0.0
+8  2017     779          0        779           0.0
+9  2018     752          0        752           0.0
+10 2019     777          0        777           0.0
+11 2020     770          0        770           0.0
+12 2021     771          0        771           0.0
+13 2022     751          0        751           0.0
+14 2023     753          0        753           0.0
+
+-- Hospitales SIN peso en 2010-2015: ¿tienen datos en variables clave?
+  Variables disponibles para el check: altFinal_total, camas_funcionamiento, subMedicas_cTotal 
+  Observaciones sin peso (2010-2015): 3156 
+
+  altFinal_total                 n_nonNA=3156  %NA=0.0%  mean=3213.12  median=1264.50
+  camas_funcionamiento           n_nonNA=3156  %NA=0.0%  mean=109.26  median=80.00
+  subMedicas_cTotal              n_nonNA=3156  %NA=0.0%  mean=10.03  median=3.00
+
+  Distribución de NAs simultáneos en variables clave:
+n_vars_NA
+   0 
+3156 
+
+  Hospitales sin peso Y sin todas las variables clave (registros vacíos?): 0 
+  Hospitales sin peso PERO con altFinal_total conocida: 3156 
+
+------------------------------------------------------------
+PASO 4: Correlaciones de peso con variables auxiliares (2010-2015)
+------------------------------------------------------------
+Observaciones con peso conocido (2010-2015): 1425 
+
+-- Columnas encontradas para variables ratio:
+  propCirugia           num=altFinal_cirugia                den=altFinal_total
+  propIntensiva         num=altFinal_med                    den=altFinal_total
+  propUCI               num=altFinal_uci                    den=altFinal_total
+  estancia_media        num=estancias_total                 den=altFinal_total
+  propUrgencias         num=ingreUrge                       den=altFinal_total
+-- Variables directas: camas_funcionamiento, altFinal_total 
+
+-- Correlaciones con 'peso' (ordenadas por |r|):
+
+             variable                            fuente cor_con_peso n_obs
+       altFinal_total                    altFinal_total       0.7309  1425
+ camas_funcionamiento              camas_funcionamiento       0.7221  1425
+       estancia_media  estancias_total / altFinal_total       0.3523  1425
+          propCirugia altFinal_cirugia / altFinal_total       0.2404  1425
+        propUrgencias        ingreUrge / altFinal_total      -0.1970  1425
+              propUCI     altFinal_uci / altFinal_total       0.1890  1425
+        propIntensiva     altFinal_med / altFinal_total       0.0738  1425
+
+-- Top-20 variables numéricas con mayor |correlación| con peso (búsqueda amplia):
+Hubo 18 avisos (use warnings() para verlos)
+                variable cor_con_peso
+          totalMir_total       0.8025
+    altExitus_mIntensiva       0.8005
+       estancias_cirugia       0.7947
+        totalMir_mujeres       0.7924
+       X601_materialSani       0.7908
+  radiodiagnostico_total       0.7884
+           G_totalCompra       0.7844
+           altExitus_uci       0.7839
+       cardiologia_total       0.7808
+      cardiologia_cTotal       0.7801
+             G_totGastos       0.7766
+        601_materialSani       0.7741
+        altFinal_cirugia       0.7699
+       hematologia_total       0.7694
+        neurologia_total       0.7685
+       subMedicas_cTotal       0.7674
+ aparato_digestivo_total       0.7661
+     altCuracion_cirugia       0.7652
+  Cirug_Ortopedica_total       0.7650
+        anestesia_cTotal       0.7632
+
+------------------------------------------------------------
+VALORACIÓN DE ESTRATEGIAS LEGACY Y RECOMENDACIÓN
+------------------------------------------------------------
+
+# ── ESTRATEGIAS ENCONTRADAS EN LOS SCRIPTS LEGACY ──────────────
+
+# 1. Script legacy/5_variable mix fases.R
+#    Enfoque: LASSO sobre datos estandarizados (con imputación por
+#    media en entrenamiento, misma media aplicada a sin_peso).
+#    Limitaciones:
+#      - Imputa NAs con la MEDIA antes de LASSO → contamina la
+#        detección de variables relevantes y puede inflar R².
+#      - La estandarización escala ambos conjuntos con las medias
+#        del conjunto de entrenamiento, lo cual ES correcto; pero
+#        la imputación previa lo hace redundante y sesgado.
+#      - Lee de rutas absolutas 'h:/' → no portable.
+#      - No valida fuera de muestra de forma limpia (usa test_data
+#        que también ha sido imputado con medias del conjunto completo).
+#    Uso en pipeline actual: ninguno (archivado).
+
+# 2. Script legacy/7_prediccion de variable mix.R
+#    Enfoque: LASSO + Random Forest en secuencia.
+#    Positivo:
+#      - La idea de usar LASSO para selección de variables y luego
+#        RF para predicción es metodológicamente sólida.
+#      - Separa train/test correctamente.
+#      - Aplica preProcess() con center/scale en el conjunto de
+#        entrenamiento y lo reutiliza en predicción.
+#    Limitaciones:
+#      - Lee de data_final.rds (objeto no definido en el pipeline).
+#      - Tiene errores de código (x_test, y_test no definidos al
+#        calcular métricas; llama predict(lasso_model) y luego
+#        predict(lm_model_lasso) de forma inconsistente).
+#      - No guarda el modelo → no reproducible.
+
+# 3. Script 9_construccion de variable mix.R (ACTUAL)
+#    Enfoque: LASSO (selección) + Random Forest (predicción).
+#    Positivo:
+#      - Integrado en el pipeline con rutas desde config.
+#      - Usa mediana (más robusta que media) para imputación de NAs.
+#      - Calcula mtry = p/3 (heurístico estándar para RF en regresión).
+#      - Guarda gráficos de diagnóstico.
+#      - Evalúa con MAE, RMSE, MAPE, R² in-sample.
+#    Limitación principal:
+#      - Entrenamiento solo con años 2010-2015 (los que tienen peso).
+#        Para 2016-2023 extrapola fuera del dominio de entrenamiento.
+#        Si las variables auxiliares cambian de nombre o cobertura
+#        en 2016-2023, la predicción puede ser muy imprecisa.
+
+# ── RECOMENDACIÓN PARA EXTENDER A 2016-2023 ─────────────────────
+
+# Dado lo observado en el Paso 4, las variables con mayor
+# correlación con peso son habitualmente:
+#   - Estancia media (estancias_total / altFinal_total)
+#   - Proporción de cirugía (altFinal_cirugia / altFinal_total)
+#   - Proporción de UCI/intensiva
+#   - Volumen absoluto (altFinal_total, camas_funcionamiento)
+#
+# Estas variables están disponibles (o son reconstruibles) en todo
+# el panel 2010-2023. Por tanto, la estrategia del script 9 es
+# la más adecuada SI se corrigen dos puntos:
+#
+# A) VALIDACIÓN TEMPORAL: en lugar de validación aleatoria,
+#    usar 2010-2013 como entrenamiento y 2014-2015 como test
+#    temporal. Esto mide mejor la capacidad de extrapolación
+#    a años futuros (2016-2023).
+#
+# B) CONSISTENCIA DE VARIABLES: antes de entrenar, verificar
+#    que las variables seleccionadas por LASSO existen en 2016-2023
+#    con cobertura suficiente (revisar panel_zero_variance.csv y
+#    var_suspects_review.csv generados por scripts 2-3).
+#    Si una variable desaparece en 2016, el modelo RF fallará
+#    silenciosamente (se imputa 0 o mediana → sesgo).
+#
+# C) ALTERNATIVA más robusta: usar solo las 3-5 variables con
+#    mayor correlación con peso (identificadas en el Paso 4)
+#    en una regresión lineal simple (interpretable, sin caja negra).
+#    Esto sacrifica algo de R² pero da mucha más garantía de
+#    extrapolación estable fuera del rango de entrenamiento.
+
+============================================================
+FIN DEL DIAGNÓSTICO
+Guardado en: G:/Mi unidad/SIAE 2010-2020/data_intermediate/diagnostico_casemix_recursos.txt 
+============================================================
+
+Diagnóstico completado. Resultado en:
+  G:/Mi unidad/SIAE 2010-2020/data_intermediate/diagnostico_casemix_recursos.txt
