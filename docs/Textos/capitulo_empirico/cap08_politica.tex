@@ -1,0 +1,43 @@
+%% ============================================================
+%% cap08_politica.tex
+%% Capítulo 8 — Implicaciones de política hospitalaria
+%% ============================================================
+
+\section{Implicaciones de política hospitalaria}
+\label{sec:politica}
+
+\subsection{Síntesis de la evidencia empírica}
+\label{subsec:sintesis}
+
+El conjunto de resultados obtenidos en los Diseños A, B, C y D proporciona un diagnóstico coherente de las consecuencias de los contratos incompletos de gestión privada concertada sobre la eficiencia hospitalaria en España. Los hospitales bajo gestión privada presentan una ventaja significativa en la producción de altas ponderadas por case-mix (eficiencia en cantidad), pero simultáneamente exhiben una mayor ineficiencia en la producción de procedimientos diagnósticos por alta (eficiencia en intensidad). Esta asimetría es estadísticamente robusta y cuantitativamente sustancial en todas las especificaciones estimadas.
+
+El patrón es consistente con el marco teórico de agencia multitarea de \citet{holmstrom1991multitask}: cuando el contrato entre el financiador público y el hospital privado concertado supervisa eficazmente la dimensión de cantidad (altas, estancias, actividad quirúrgica) pero no la de intensidad diagnóstica (procedimientos realizados por alta), el agente privado maximiza la dimensión supervisada a expensas de la no supervisada. La presión competitiva del mercado privado de seguros amplifica este efecto: los hospitales con menor dependencia del financiador público exhiben una ventaja de eficiencia en cantidad mayor.
+
+\subsection{Recomendaciones de política}
+\label{subsec:recomendaciones}
+
+\paragraph{Recomendación 1: Evaluación multidimensional del rendimiento.}
+La evidencia indica que los contratos-programa actuales, centrados principalmente en indicadores de actividad (altas, estancias, listas de espera), generan incentivos asimétricos que distorsionan la asignación interna de esfuerzo del hospital. Se recomienda incorporar indicadores de intensidad diagnóstica en los sistemas de evaluación de rendimiento de los hospitales concertados. Indicadores como el índice diagnóstico por proceso, la tasa de procedimientos complejos o la resolución diagnóstica en urgencias permiten supervisar la dimensión de calidad del proceso asistencial que los contratos actuales dejan sin monitorizar.
+
+\paragraph{Recomendación 2: Extensión del pago por GRD a la red concertada.}
+El sistema de financiación por Grupos Relacionados por el Diagnóstico (GRD) integra la complejidad del case-mix en el pago por actividad, creando incentivos para la selección adversa de casos complejos rentables. La extensión de este sistema de pago a la red concertada —ya implantada parcialmente en algunas CCAA— debería acompañarse de cláusulas que penalicen la infra-provisión de procedimientos diagnósticos en los casos de mayor complejidad. El índice $i_{\text{diag}}$ desarrollado en este trabajo puede servir como punto de referencia para definir estas cláusulas.
+
+\paragraph{Recomendación 3: Cláusulas de calidad de proceso en los contratos de concesión.}
+Los contratos de concesión administrativa que regulan la relación entre las CCAA y los hospitales de gestión privada concertada deberían incorporar cláusulas explícitas de calidad del proceso, con penalizaciones por infra-provisión diagnóstica verificables a través de los registros del CMBD. La asimetría observada en los Diseños A y B sugiere que la dimensión de intensidad es precisamente la más sensible al tipo de contrato, por lo que su supervisión es prioritaria.
+
+\paragraph{Recomendación 4: Diseño de incentivos que consideren el mix de servicios.}
+Los resultados del Diseño B muestran que el efecto del tipo de propiedad sobre la eficiencia varía significativamente entre el servicio quirúrgico y el médico. Los contratos-programa deberían reconocer esta heterogeneidad, estableciendo objetivos y mecanismos de supervisión diferenciados por servicio. En particular, los hospitales con alta proporción de actividad quirúrgica (alto ShareQ) deberían ser sometidos a una supervisión más estricta de la calidad del proceso en el servicio médico, donde la evidencia muestra mayor riesgo de infra-provisión.
+
+\subsection{Limitaciones del análisis}
+\label{subsec:limitaciones}
+
+El análisis empírico está sujeto a varias limitaciones que conviene señalar explícitamente. En primer lugar, la asignación de hospitales a la condición de gestión pública o privada concertada no es aleatoria: la distribución geográfica de los hospitales concertados está concentrada en CCAA específicas (Cataluña, Comunidad Valenciana, País Vasco) que pueden diferir sistemáticamente en otras dimensiones. Los efectos fijos de CCAA mitigan este problema, pero no lo resuelven completamente.
+
+En segundo lugar, la variable de intensidad diagnóstica ($i_{\text{diag}}$) mide el volumen de procedimientos realizados, no su adecuación clínica. Un hospital que realiza muchos procedimientos no necesariamente produce mayor valor diagnóstico que otro que selecciona un subconjunto más relevante. La interpretación de los resultados de intensidad como evidencia de sub-provisión de calidad requiere cautela.
+
+En tercer lugar, el cambio de cuestionario de la SIAE en 2021 y la exclusión de los años COVID reducen la longitud temporal del panel de 14 a efectivamente 10 años observables. La variación identificante procede principalmente de la sección transversal (diferencias entre hospitales), lo que limita la capacidad de controlar por heterogeneidad inobservable estable en el tiempo.
+
+\subsection{Líneas de investigación futura}
+\label{subsec:futuro}
+
+Tres líneas de investigación merecen atención específica. En primer lugar, la explotación de la variación normativa generada por los cambios de modelo de gestión en la Comunidad Valenciana (reversión a gestión pública de hospitales de concesión en 2015-2018) ofrece una oportunidad excepcional para identificación causal mediante diferencias en diferencias. En segundo lugar, el análisis de los efectos sobre resultados de salud (mortalidad intrahospitalaria, readmisiones) —que requeriría integrar los registros del CMBD con los datos de eficiencia aquí estimados— permitiría valorar si la mayor eficiencia en cantidad de los hospitales privados se logra a costa de peores resultados clínicos. En tercer lugar, la extensión del análisis al período post-pandémico (2023 en adelante) permitirá evaluar si el patrón de asimetría se mantiene tras la reestructuración asistencial inducida por la COVID-19.

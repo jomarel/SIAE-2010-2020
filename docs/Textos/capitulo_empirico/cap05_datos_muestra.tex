@@ -1,0 +1,125 @@
+%% ============================================================
+%% cap05_datos_muestra.tex
+%% Capítulo 5 — Datos, variables y muestra de estimación
+%% SIAE 2010-2023 — José María Elena Izquierdo, 2026
+%% ============================================================
+
+\section{Datos, variables y muestra de estimación}
+\label{sec:datos_muestra}
+
+\subsection{Fuentes de datos}
+\label{subsec:fuentes}
+
+El análisis empírico combina tres fuentes de información de cobertura nacional.
+La fuente principal es la \textbf{Estadística de Establecimientos Sanitarios con Régimen de Internado} (SIAE), elaborada anualmente por el Ministerio de Sanidad. La SIAE proporciona información estructural y funcional de todos los hospitales españoles del período 2010–2023, con una cobertura cercana a los 750 centros en cada año. Los archivos del período 2010–2015 se distribuyeron en formato \texttt{TXT} (delimitado por punto y coma), mientras que los del período 2016–2023 adoptaron formato \texttt{XML}. El pipeline de armonización desarrollado para este trabajo (scripts 01–09) estandariza nombres de variables, elimina artefactos de codificación y construye un panel equilibrado identificado por el código NCODI asignado por el Ministerio.
+
+La segunda fuente es el \textbf{Catálogo Nacional de Hospitales} (CNH), que proporciona el mapeo entre el identificador NCODI y variables descriptivas de los centros: nombre, provincia, CCAA, finalidad asistencial y dependencia funcional. La dependencia funcional del CNH permite construir una medida alternativa de la variable institucional \(D_{\text{desc}}\) utilizada en el análisis de robustez (Especificación R5).
+
+La tercera fuente es el sistema de \textbf{Grupos Relacionados por el Diagnóstico} (GRD), que proporciona el peso medio de case-mix por hospital y año para el período 2010–2015. Para los años 2016–2023, en los que no se dispone de pesos GRD publicados a nivel de establecimiento, el pipeline estima el peso mediante un modelo de Random Forest entrenado sobre el período 2010–2013 y validado sobre 2014–2015 (script 05).
+
+\subsection{Variables de output}
+\label{subsec:outputs}
+
+Se construyen dos medidas de output hospitalario que capturan dimensiones complementarias de la actividad asistencial.
+
+\subsubsection{Cantidad: altas ponderadas por case-mix}
+
+La primera medida es la \textbf{actividad ponderada por case-mix} (\texttt{altTotal\_pond}), definida como el producto del número de altas hospitalarias y el peso medio GRD:
+%
+\begin{equation}
+  \textit{altTotal\_pond}_{it} = \textit{altTotal\_bruto}_{it} \times \textit{peso\_grd\_final}_{it}
+  \label{eq:alt_pond}
+\end{equation}
+%
+Las altas se descomponen en quirúrgicas (\texttt{altQ\_bruto} = altas de cirugía + traumatología) y médicas (\texttt{altM\_bruto}), distinción central para los Diseños B y C. La proporción quirúrgica se recoge en la variable \(\textit{ShareQ} = \textit{altQ\_bruto} / \textit{altTotal\_bruto}\), que refleja la mezcla de servicios de cada hospital.
+
+\subsubsection{Intensidad diagnóstica: índice $i_{\text{diag}}$}
+
+La segunda medida es el \textbf{índice de intensidad diagnóstica} (\texttt{i\_diag}), definido como el número de procedimientos diagnósticos realizados por alta:
+%
+\begin{equation}
+  i_{\text{diag},it} = \frac{\sum_p \text{Procedimientos}_{p,it}}{\textit{altTotal\_bruto}_{it}}
+  \label{eq:i_diag}
+\end{equation}
+%
+donde la suma recorre los tipos de procedimiento recogidos en el módulo C1\_16 de la SIAE (biopsias, TAC, RMN, ecografías, endoscopias, etc.). Dado el cambio de cuestionario entre 2020 y 2021, se aplica un \emph{bridge} temporal: para \(\leq 2020\) se utiliza la suma de procedimientos hospitalarios y de CEP; para \(\geq 2021\) se utiliza directamente el total reportado en el módulo restructurado (script 08).
+
+\paragraph{Winsorización de $\ln(i_{\text{diag}})$.}
+La distribución de $\ln(i_{\text{diag}})$ presenta asimetría negativa elevada (\(\text{skewness} = -3.48\) en la muestra de estimación), lo que indica la presencia de hospitales con actividad diagnóstica extremadamente baja. Para evitar que estos centros impulsen el parámetro de varianza de la ineficiencia hacia el límite \(\gamma \to 1\) —síntoma conocido de mala especificación en modelos SFA \citep{kumbhakar2000stochastic}—, se construye una versión winsorizada de la variable en los percentiles 1 y 99 de la muestra de estimación (\texttt{ln\_i\_diag\_w}). La winsorización afecta únicamente a los modelos de intensidad (Diseño A intensidad); los modelos de cantidad utilizan \texttt{ln\_altTotal\_pond} sin transformación adicional.
+
+\subsection{Variable institucional: $D_{\text{desc}}$}
+\label{subsec:Ddesc}
+
+La variable institucional central es el indicador binario de gestión privada bajo concertación (\(D_{\text{desc}}\)), construida a partir del código de dependencia funcional (\texttt{cod\_depend\_agrupada}) del módulo C1\_01 de la SIAE:
+%
+\[
+  D_{\text{desc},it} =
+  \begin{cases}
+    0 & \text{si } \texttt{cod\_depend\_agrupada}_{it} = 1 \text{ (público SNS)} \\
+    1 & \text{si } \texttt{cod\_depend\_agrupada}_{it} = 2 \text{ (privado/concertado)} \\
+    \text{NA} & \text{en otro caso}
+  \end{cases}
+\]
+%
+Los hospitales clasificados como privados incluyen tanto los que operan bajo concierto con el SNS (concesiones administrativas, conciertos singulares) como los que actúan en el mercado privado de seguros. La distinción entre estas categorías se captura, en los Diseños B y C, a través de las variables \texttt{d\_Priv\_Conc} (concertado) y \texttt{d\_Priv\_Merc} (mercado).
+
+La Tabla~\ref{tab:evolucion_anual} muestra la evolución del porcentaje de hospitales privados en la muestra de estimación a lo largo del período muestral.
+
+\begin{table}[htbp]
+\centering
+\caption{Evolución anual de la muestra de estimación (Diseño A)}
+\label{tab:evolucion_anual}
+\small
+\input{tabla_evolucion_anual_tex.tex}
+\end{table}
+
+\subsection{Inputs productivos}
+\label{subsec:inputs}
+
+El vector de inputs incluye trabajo y capital en sus principales dimensiones:
+
+\begin{itemize}
+  \item \textbf{Trabajo} (\(L_{\text{total}}\)): suma de médicos (jornada completa equivalente, columna \texttt{total\_cMedicos}) y personal de enfermería (\texttt{due\_cTotal}), completada cuando es necesario con los registros de plantilla en términos de plazas (\texttt{total\_pMedicos}, \texttt{due\_pTotal}).
+  \item \textbf{Capital camas} (\(K_{\text{camas}}\)): camas en funcionamiento (\texttt{camas\_funcionamiento}).
+  \item \textbf{Capital tecnológico general} (\(K_{\text{tech\_index}}\)): índice ponderado que agrega la dotación de equipamiento de alta tecnología disponible en el módulo C1\_03 (escáneres, resonancias magnéticas, gammacámaras, aceleradores lineales, salas de hemodinámica y salas de radiodiagnóstico).
+  \item \textbf{Capital tecnológico diagnóstico} (\(K_{\text{tech\_diag}}\)): subíndice del anterior orientado exclusivamente al equipamiento diagnóstico, utilizado como input en el modelo de intensidad.
+  \item \textbf{Quirófanos} (\(K_{\text{quirofanos}}\)): número de quirófanos en funcionamiento (\texttt{quirofanos\_funcionamiento}), utilizado como input específico del servicio quirúrgico en los Diseños B y C.
+\end{itemize}
+
+En todos los modelos, los inputs se expresan en logaritmos centrados en la media muestral de estimación (\texttt{ln\_L\_total\_c}, \texttt{ln\_K\_camas\_c}, \texttt{ln\_K\_tech\_c}), lo que hace que el punto de expansión del Translog coincida con el hospital medio y facilita la interpretación de los coeficientes de primer orden como elasticidades en el margen.
+
+\subsection{Muestra de estimación}
+\label{subsec:muestra}
+
+La muestra base para el Diseño A se construye aplicando los siguientes filtros secuenciales sobre el panel completo (aproximadamente 10.723 observaciones hospital-año):
+
+\begin{enumerate}
+  \item \textbf{Finalidad aguda} (\texttt{es\_agudo == 1}): se excluyen hospitales psiquiátricos, de larga estancia, de día y de media-larga estancia, cuya función de producción difiere sustancialmente de la de los hospitales de agudos.
+  \item \textbf{Exclusión período COVID} (\texttt{anyo} $\notin \{2020, 2021, 2022\}$): los años de la pandemia presentan una contracción masiva de la actividad electiva y una reorganización de los recursos que sesgaría los estimadores de eficiencia. La especificación R1 del análisis de robustez verifica que los resultados son cualitativamente idénticos al incluir estos años con una variable dummy de control.
+  \item \textbf{Tamaño mínimo} (\texttt{altTotal\_bruto} $\geq 200$): se excluyen los centros de muy pequeño tamaño, cuyo caso-mix es atípico y para los que el indicador GRD no resulta informativo. Las especificaciones R4a y R4b del análisis de robustez utilizan umbrales alternativos (100 y 300 altas, respectivamente).
+  \item \textbf{Disponibilidad de variables institucionales}: \texttt{D\_desc} y \texttt{pct\_sns} no nulas.
+  \item \textbf{Finitud del output}: \texttt{ln\_altTotal\_pond} finito (excluye hospitales con cero altas ponderadas).
+  \item \textbf{Código CCAA válido}: \texttt{ccaa\_cod} no nulo (necesario para los efectos fijos de comunidad autónoma).
+\end{enumerate}
+
+La muestra resultante comprende \textbf{N = 5.990} observaciones hospital-año, correspondientes a aproximadamente 480 hospitales de agudos observados en al menos un año del período 2010–2019 y 2023.
+
+La Tabla~\ref{tab:descriptivos_A} presenta los estadísticos descriptivos de las principales variables en esta muestra.
+
+\begin{table}[htbp]
+\centering
+\caption{Estadísticos descriptivos — Muestra Diseño A (N = 5.990)}
+\label{tab:descriptivos_A}
+\small
+\input{tabla_descriptivos_A_tex.tex}
+\end{table}
+
+La Tabla~\ref{tab:descriptivos_grupos} desagrega los principales estadísticos por tipo de gestión (\(D_{\text{desc}} = 0\): público; \(D_{\text{desc}} = 1\): privado/concertado).
+
+\begin{table}[htbp]
+\centering
+\caption{Estadísticos descriptivos por grupo de gestión}
+\label{tab:descriptivos_grupos}
+\small
+\input{tabla_descriptivos_grupos_tex.tex}
+\end{table}

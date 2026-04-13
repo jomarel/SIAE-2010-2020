@@ -1,0 +1,76 @@
+%% ============================================================
+%% cap06b_resultados_diseniosBCD.tex
+%% Capítulo 6b — Resultados: Diseños B, C y D
+%% ============================================================
+
+\section{Resultados: Diseños B, C y D}
+\label{sec:resultados_BCD}
+
+\subsection{Diseño B: fronteras quirúrgica y médica}
+\label{subsec:B}
+
+El Diseño B desagrega la actividad hospitalaria en dos servicios con intensidad de capital e incentivos diferenciados: el servicio quirúrgico y el servicio médico. Se estiman dos fronteras de producción separadas, utilizando como output las altas ponderadas de cirugía (\texttt{altQ\_pond}) y de medicina interna (\texttt{altM\_pond}), respectivamente, con inputs específicos por servicio.
+
+La Tabla~\ref{tab:B_contrastes} presenta los coeficientes de la ecuación de ineficiencia para ambas fronteras, junto con los estadísticos de contraste de diferencia entre especificaciones.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño B: coeficientes de ineficiencia — contrastes Q vs M}
+\label{tab:B_contrastes}
+\small
+\input{tabla_B_contrastes_tex.tex}
+\end{table}
+
+\subsubsection{Hipótesis H\_B1: los efectos organizativos difieren entre servicios}
+
+El estadístico de contraste de la diferencia en el coeficiente de \textit{ShareQ} entre la frontera quirúrgica y la médica es $z_{\text{diff}} = -8.14$ ($p < 0.001$), confirmando la \textbf{Hipótesis H\_B1}: el mix de actividad del hospital tiene efectos cualitativamente distintos sobre la eficiencia en cada servicio. Este resultado es coherente con la predicción de que la complementariedad o sustitución entre servicios depende de la estructura de incentivos vigente en cada uno.
+
+\subsubsection{Hipótesis H\_B2: ShareQ y la eficiencia por servicio}
+
+El coeficiente de \textit{ShareQ} en la frontera quirúrgica es $-17.013$ ($t = -7.22$), indicando que a mayor proporción de actividad quirúrgica en el hospital, mayor la ineficiencia en el servicio quirúrgico. Este resultado, aparentemente contraintuitivo, refleja un efecto de dilución: los hospitales con una cartera muy quirúrgica distribuyen sus recursos de capital compartido (quirófanos, personal especializado) entre más servicios, reduciendo su utilización eficiente por servicio. La \textbf{Hipótesis H\_B2Q} queda confirmada.
+
+En la frontera médica, el coeficiente de \textit{ShareQ} es $+2.348$ ($t = +7.18$): los hospitales con mayor actividad quirúrgica son \emph{más} eficientes en el servicio médico. Este hallazgo es consistente con un efecto de especialización inversa: los hospitales que dedican más recursos al servicio quirúrgico tienen una cartera médica más seleccionada (casos complejos derivados al hospital de referencia), lo que eleva su eficiencia relativa en la frontera médica. La \textbf{Hipótesis H\_B2M} queda igualmente confirmada.
+
+\subsubsection{Hipótesis H\_B3: modulación del efecto de mercado por servicio}
+
+La Hipótesis H\_B3 predecía que la moderación del efecto de la propiedad privada por el tipo de pago sería más intensa en el servicio médico (más dependiente de la aseguradora privada) que en el quirúrgico. Los coeficientes de \textit{Merc\_shareQ} son $12.190$ en B\_Q y $0.689$ en B\_M, en dirección opuesta a la predicha: el efecto de moderación es mayor en el servicio quirúrgico. La \textbf{Hipótesis H\_B3 no es confirmada}. Una interpretación alternativa es que el mix quirúrgico amplifica el efecto de la competencia en mercado en la dimensión de cantidad porque el servicio quirúrgico es la dimensión más directamente observable por el paciente-asegurado.
+
+\subsubsection{Eficiencia técnica media por tipo de hospital}
+
+La eficiencia técnica media en la frontera quirúrgica es $\widehat{TE}_{BQ} = 0.804$, considerablemente más elevada que en la frontera médica ($\widehat{TE}_{BM} = 0.592$). La mayor dispersión en el servicio médico sugiere que los mecanismos de supervisión son menos efectivos en esa dimensión, resultado coherente con la dificultad de codificar el output médico en estándares de calidad verificables.
+
+\subsection{Diseño C: panel hospital $\times$ servicio}
+\label{subsec:C}
+
+El Diseño C construye un panel apilado con dos observaciones por hospital-año (una para el servicio quirúrgico y una para el médico), lo que permite identificar el mecanismo de asignación intra-hospitalaria de recursos mediante la interacción \(\textit{ShareQ\_Cs}\) entre el mix del hospital y una dummy de servicio quirúrgico ($C_s = 1$ para el servicio Q).
+
+La Tabla~\ref{tab:C_coef} presenta los coeficientes estimados de la ecuación de ineficiencia.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño C: coeficientes de ineficiencia — panel hospital $\times$ servicio}
+\label{tab:C_coef}
+\small
+\input{tabla_C_coeficientes_tex.tex}
+\end{table}
+
+El coeficiente de \(\textit{ShareQ\_Cs}\) es $-8.323$ ($t = -13.54$): dentro de un mismo hospital, a mayor fracción de actividad quirúrgica, menor la ineficiencia en el servicio quirúrgico (efecto intra-hospitalario de especialización). Este resultado confirma el \textbf{mecanismo de asignación interna}: los hospitales que se especializan en actividad quirúrgica logran mayor eficiencia en ese servicio no sólo por la escala sino por la concentración de inputs específicos.
+
+Los coeficientes de \textit{Priv\_Conc\_Cs} ($+2.271$, $t = +8.68$) y \textit{Priv\_Merc\_Cs} ($+2.498$, $t = +10.12$) indican que los hospitales privados son relativamente más ineficientes en el servicio quirúrgico que en el médico respecto a los hospitales públicos. Este patrón de complementariedad —los privados son más eficientes en cantidad global pero internamente concentran su esfuerzo relativo en el servicio médico de menor visibilidad— enriquece el diagnóstico del Diseño A.
+
+\subsection{Diseño D: benchmark multioutput}
+\label{subsec:D}
+
+El Diseño D adopta una función de distancia output para modelizar simultáneamente la producción de cantidad e intensidad. La especificación D\_v5 (tabla de comparación en Tabla~\ref{tab:D_comp}) utiliza \(\ln(\textit{altTotal\_pond})\) como output principal e incorpora \(\ln(i_{\text{diag,w}})\) como control de intensidad dentro de la función de producción, en lugar de modelizar la intensidad como output separado.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño D: comparación especificaciones v4 vs v5}
+\label{tab:D_comp}
+\small
+\input{tabla_D_comparacion_tex.tex}
+\end{table}
+
+La especificación D\_v5 se selecciona como preferida porque la asimetría de los residuos OLS es negativa, condición necesaria para la identificación del término de ineficiencia en modelos SFA \citep{kumbhakar2000stochastic}. El coeficiente de \(\ln(i_{\text{diag,w}})\) en la frontera es $-0.385$ ($t = -35.87$), indicando un \emph{trade-off} entre cantidad e intensidad en la función de producción: los hospitales que realizan más procedimientos diagnósticos por alta producen relativamente menos altas ponderadas, manteniendo constante el nivel de inputs.
+
+El coeficiente de \(D_{\text{desc}}\) en la ecuación de ineficiencia del Diseño D es $-2.072$ ($t = -5.43$), cuantitativamente similar al encontrado en el Diseño A ($-2.604$) y estadísticamente significativo. Este resultado confirma que la ventaja de eficiencia en cantidad de los hospitales privados es \textbf{robusta al control por la intensidad diagnóstica} simultánea en la función de producción.

@@ -1,0 +1,73 @@
+%% ============================================================
+%% cap06_resultados_disenioA.tex
+%% Capítulo 6 — Resultados: Diseño A
+%% ============================================================
+
+\section{Resultados: Diseño A — cantidad e intensidad}
+\label{sec:resultados_A}
+
+\subsection{Frontera de cantidad}
+\label{subsec:frontera_cantidad}
+
+La Tabla~\ref{tab:A_frontier} presenta los coeficientes de la frontera Translog estimada para el output de cantidad (\(\ln\,\textit{altTotal\_pond}\)) y, en paralelo, los correspondientes al modelo de intensidad (\(\ln\,i_{\text{diag,w}}\)), para facilitar la comparación directa entre especificaciones.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño A: coeficientes de la frontera de producción (Translog)}
+\label{tab:A_frontier}
+\small
+\input{tabla_A_frontera_tex.tex}
+\end{table}
+
+Los coeficientes de primer orden del Translog de cantidad son consistentes con una función de producción bien comportada: la elasticidad del trabajo es la más elevada (coeficiente positivo y estadísticamente significativo), seguida del capital camas y del capital tecnológico. La tendencia temporal es significativamente positiva, indicando progreso técnico en la frontera a lo largo del período muestral.
+
+\subsection{Predicción P1: D\_desc reduce la ineficiencia en cantidad}
+\label{subsec:P1}
+
+La Tabla~\ref{tab:A_inef} presenta los coeficientes de la ecuación de ineficiencia para ambos modelos, junto con el estadístico de contraste de simetría.
+
+\begin{table}[htbp]
+\centering
+\caption{Diseño A: ecuación de ineficiencia — coeficientes y contrastes de asimetría}
+\label{tab:A_inef}
+\small
+\input{tabla_A_ineficiencia_tex.tex}
+\end{table}
+
+En el modelo de cantidad, el coeficiente de \(D_{\text{desc}}\) es \(-2.604\) con $t = -7.14$, altamente significativo. Dado que \texttt{ineffDecrease = TRUE}, un coeficiente negativo indica que los hospitales privados concertados presentan una \emph{menor} ineficiencia en la producción de altas ponderadas por case-mix, en comparación con los hospitales públicos del SNS. Este resultado confirma la \textbf{Predicción P1}: bajo contratos incompletos con supervisión del output de cantidad, los agentes privados exhiben mayor disciplina productiva que los agentes públicos en la dimensión de cantidad.
+
+La magnitud del efecto es sustancial: un cambio de $D_{\text{desc}}$ de 0 a 1 reduce la ineficiencia media esperada en un importe equivalente a 2.6 unidades del índice de ineficiencia media. Para contextualizar este resultado en términos de eficiencia técnica, la diferencia media en $\widehat{TE}$ entre hospitales públicos y privados en la muestra es de aproximadamente 8 puntos porcentuales (ppp), favorable a los privados.
+
+\subsection{Predicción P2: D\_desc aumenta la ineficiencia en intensidad}
+\label{subsec:P2}
+
+En el modelo de intensidad (columna derecha de la Tabla~\ref{tab:A_inef}), el coeficiente de \(D_{\text{desc}}\) es \(+0.895\) con $t = +5.58$. El signo es opuesto al observado en el modelo de cantidad: los hospitales privados concertados presentan una \emph{mayor} ineficiencia en la producción de procedimientos diagnósticos por alta, en comparación con los hospitales públicos. Esto confirma la \textbf{Predicción P2}: cuando el output de cantidad es supervisado pero el output de intensidad (calidad diagnóstica) no lo es directamente, los agentes privados reducen el esfuerzo en la dimensión no supervisada, consistente con la sustitución de tareas predicha por \citet{holmstrom1991multitask}.
+
+La \textbf{asimetría entre P1 y P2} es estadísticamente robusta: el estadístico de contraste de diferencia de coeficientes entre los dos modelos es $z_{\text{asim}} = -8.8$ ($p < 0.001$), lo que confirma que el efecto del tipo de propiedad es significativamente diferente (en signo y magnitud) sobre las dos dimensiones del output.
+
+\subsection{Predicción P3: mecanismo de pago asimétrico}
+\label{subsec:P3}
+
+El coeficiente de la interacción \(\textit{desc\_pago} = D_{\text{desc}} \times \textit{pct\_sns}\) es positivo y significativo en el modelo de cantidad ($+5.227$, $t = +7.12$), indicando que a mayor fracción de altas financiadas por el SNS, el efecto favorecedor de la eficiencia de \(D_{\text{desc}}\) se atenúa. Esto es consistente con la Predicción P3: la presión competitiva del mercado privado de seguros —que actúa sobre los hospitales con baja \(\textit{pct\_sns}\)— es el mecanismo que impulsa la eficiencia en cantidad; cuando el hospital depende casi íntegramente del financiador público, el incentivo desaparece.
+
+El contraste de simetría del efecto de \(\textit{desc\_pago}\) entre el modelo de cantidad y el de intensidad arroja $z_{\text{asim}} = +5.6$ ($p < 0.001$), confirmando la \textbf{Predicción P3}: el mecanismo de pago opera de forma asimétrica sobre las dos dimensiones del output.
+
+\subsection{Distribución de la eficiencia técnica}
+\label{subsec:TE_dist_A}
+
+La Tabla~\ref{tab:TE_dist} presenta la distribución de la eficiencia técnica estimada para los principales modelos. En el Diseño A de cantidad, la eficiencia media es $\widehat{TE} = 0.707$ (mediana = 0.72), con un rango intercuartílico de aproximadamente 0.14 puntos. La dispersión es ligeramente mayor en el modelo de intensidad ($\widehat{TE} = 0.740$). Estos valores son coherentes con los reportados en la literatura de eficiencia hospitalaria española \citep{puigjunoy2000} y con estudios comparativos europeos \citep{mchale2013}.
+
+\begin{table}[htbp]
+\centering
+\caption{Distribución de la eficiencia técnica estimada}
+\label{tab:TE_dist}
+\small
+\input{tabla_TE_dist_tex.tex}
+\end{table}
+
+\subsection{Interpretación en términos del modelo teórico}
+\label{subsec:interpretacion_A}
+
+Los resultados del Diseño A proporcionan respaldo empírico robusto a la predicción central del modelo de agencia multitarea aplicado a hospitales concertados. Los hospitales bajo gestión privada concertada exhiben mayor eficiencia técnica en la dimensión de cantidad (las altas ponderadas, observable y sujeta a contrato), pero menor intensidad diagnóstica por alta (la calidad del proceso asistencial, difícil de observar y raramente incluida explícitamente en los contratos-programa). Este patrón es exactamente el que predice el modelo de \citet{holmstrom1991multitask}: cuando el contrato principal-agente sólo puede supervisar eficazmente una dimensión del output, el agente desplaza el esfuerzo hacia esa dimensión a expensas de las no supervisadas.
+
+El efecto del mecanismo de pago (\textit{desc\_pago}) refuerza esta interpretación: la presión disciplinadora sobre la dimensión de cantidad es mayor cuando el hospital compite en el mercado privado de seguros (baja \(\textit{pct\_sns}\)) y se atenúa cuando la financiación proviene casi íntegramente del sistema público.

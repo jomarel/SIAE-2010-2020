@@ -79,7 +79,10 @@
       "Bash(cp \"data_clean/df_sfa.RData\" \"data_intermediate/df_sfa_clean.RData\")",
       "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/_verify_models.R)",
       "Bash(grep -v \"^$\\\\|package\\\\|If you have\\\\|forge\\\\|frontier::\\\\|Coelli\\\\|Cargando\\\\|masked\\\\|filter\\\\|intersect\\\\|as.Date\\\\|^The follow\\\\|Adjuntando\\\\|Aviso\\\\|^[0-9]\\\\|built under\")",
-      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/_session_info.R)"
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" scripts/_session_info.R)",
+      "Bash(Rscript scripts/build_tables_phase3.R)",
+      "Bash(Rscript scripts/13_robustez_v2.R)",
+      "WebSearch"
     ],
     "additionalDirectories": [
       "\\tmp"

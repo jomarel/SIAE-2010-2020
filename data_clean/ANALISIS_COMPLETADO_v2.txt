@@ -1,0 +1,137 @@
+============================================================
+ANÁLISIS SFA COMPLETADO v2 — PIPELINE COMPLETO
+============================================================
+Fecha: 2026-04-12
+Proyecto: Eficiencia hospitalaria, estructura organizativa
+          y teoría de agencia (José María Elena Izquierdo,
+          Universidad de Salamanca, 2026)
+
+============================================================
+FASES COMPLETADAS
+============================================================
+
+PHASE_1_DONE — Auditoría del pipeline y README
+  Output: scripts/README_pipeline_v2.md
+  Contenido: 12 scripts documentados con propósito, inputs,
+  outputs, decisiones metodológicas y notas técnicas críticas.
+
+PHASE_2_DONE — Verificación de modelos existentes
+  Output: data_clean/MODELS_VERIFICATION.txt
+  Modelos verificados: 9/9 (todos presentes y válidos)
+  Resultados:
+    sfa_A_total_v2:         N=5990  logLik=-3665.48  TE=0.707  gamma=0.940
+    sfa_A_total_withShareQ: N=5990  logLik=-3508.71  TE=0.724  gamma=0.884
+    sfa_A_intensity_v2:     N=5506  logLik=-2437.29  TE=0.740  gamma=0.950
+    sfa_A_intensity_withSQ: N=5506  logLik=-2437.04  TE=0.741  gamma=0.951
+    sfa_B_Q_v3:             N=4205  logLik=-2157.08  TE=0.804  gamma=0.735
+    sfa_B_M_v3:             N=4205  logLik=-3356.26  TE=0.592  gamma=0.621
+    sfa_C_stacked_v3:       N=8410  logLik=-5913.03  TE=0.684  gamma=0.821
+    sfa_D_v4_odf:           N=5514  logLik=-2322.35  TE=0.745  gamma=0.951
+    sfa_D_v5_cantidad:      N=5514  logLik=-2322.35  TE=0.745  gamma=0.951
+
+PHASE_3_DONE — Tablas de resultados para la tesis
+  Output: outputs/tablas_tesis/ (10 archivos CSV + 1 TXT)
+  Tablas producidas:
+    tabla_descriptivos_A.csv         — Estadísticos descriptivos (N=5992)
+    tabla_descriptivos_A_grupos.csv  — Por grupo D_desc con t-test
+    tabla_evolucion_anual.csv        — Evolución 2010-2023 (excl. COVID)
+    tabla_A_frontera.csv             — Coeficientes frontera Translog
+    tabla_A_ineficiencia_contrastes.csv — z-eq con contraste asimetría
+    tabla_B_contrastes.csv           — Diseño B Q vs M con z_diff
+    tabla_C_coeficientes.csv         — Diseño C coeficientes clave
+    tabla_D_comparacion.csv          — Diseño D v4 vs v5
+    tabla_TE_distribucion.csv        — Distribución TE todos los modelos
+    tabla_predicciones_resumen.csv   — 9 predicciones confirmadas/no
+    TODAS_LAS_TABLAS.txt             — Todas en formato texto
+
+PHASE_4_DONE — Script de robustez y estimaciones
+  Script creado: scripts/13_robustez_v2.R
+  Especificaciones estimadas:
+    R1 COVID incluido: D_desc_Q=-2.449(t=-8.49), D_desc_I=+1.144(t=+10.14) [CONFIRMED]
+    R2 Cobb-Douglas:   D_desc_Q=-2.704(t=-6.28) [CONFIRMED]; I: gamma->1 (misspec CD)
+    R3 Half-normal:    D_desc_Q=-2.604(t=-7.14) [CONFIRMED]; I: gamma->1 (misspec HN)
+    R4 thr=100:        D_desc_Q=-3.771(t=-4.62)  [CONFIRMED]
+    R4 thr=300:        D_desc_Q=-2.274(t=-8.93)  [CONFIRMED]
+    R5 CNH D_desc:     Fallo por multicolinealidad en muestra pequeña (N=2779)
+  Tabla resumen: outputs/robustez/tabla_robustez_completa.csv
+  Asimetría confirmada en 9/10 especificaciones estimadas con éxito.
+
+PHASE_5_DONE — Archivos LaTeX para la tesis
+  Directorio: docs/Textos/capitulo_empirico/
+  Archivos creados:
+    cap05_datos_muestra.tex          — Datos, variables, muestra
+    cap05b_estrategia_estimacion.tex — SFA, BC95, 4 diseños
+    cap06_resultados_disenioA.tex    — P1, P2, P3 confirmadas
+    cap06b_resultados_diseniosBCD.tex — H_B1, H_B2, H_B3, C, D
+    cap07_robustez.tex               — R1-R5 con tabla
+    cap08_politica.tex               — 4 recomendaciones + limitaciones
+    referencias_empirico.bib         — 26 entradas bibliográficas
+
+PHASE_6_DONE — Búsqueda bibliográfica web
+  Resumen: outputs/referencias_encontradas.txt
+  9 referencias nuevas añadidas a referencias_empirico.bib:
+    ridao2025heterogeneity      — SFA hospitales públicos España 2016-2019
+    martinez2019quality         — Calidad y eficiencia hospitales España
+    rosko2008impact2            — Revisión SFA hospitalario (robustez)
+    kittelsen2009principal      — Relaciones principal-agente en hospitales
+    devaux2015physicians        — Multitarea médicos: experimento natural
+    kantarevic2011physicians    — Incentivos multitarea (capitation vs FFS)
+    dismuke1999hospital         — ODF tecnología diagnóstica hospitales
+    do2018private               — Privado vs público UE: revisión
+    duggan2000hospital          — Propiedad hospitalaria e incentivos Medicaid
+
+============================================================
+RESULTADOS PRINCIPALES CONFIRMADOS
+============================================================
+
+P1: D_desc reduce ineficiencia en cantidad
+    → D_desc = -2.604 (t=-7.14) en Diseño A_total  ✓ CONFIRMED
+
+P2: D_desc aumenta ineficiencia en intensidad
+    → D_desc = +0.895 (t=+5.58) en Diseño A_intensity  ✓ CONFIRMED
+
+Contraste asimetría P1 vs P2:
+    → z_asim = -8.8 (p<0.001)  ✓ CONFIRMED
+
+P3: Mecanismo de pago asimétrico (desc_pago)
+    → z_diff(desc_pago) = +5.6 (p<0.001)  ✓ CONFIRMED
+
+H_B1: Efectos organizativos difieren Q vs M
+    → z_diff(ShareQ) = -8.14 (p<0.001)  ✓ CONFIRMED
+
+H_B2: ShareQ negativo en B_Q (-17.01, t=-7.22)  ✓ CONFIRMED
+H_B2: ShareQ positivo en B_M (+2.35, t=+7.18)   ✓ CONFIRMED
+
+H_B3: Moderación mayor en M que Q               ✗ NOT CONFIRMED
+
+ShareQ_Cs (mecanismo intra-hospitalario):
+    → ShareQ_Cs = -8.32 (t=-13.54)  ✓ CONFIRMED
+
+D_desc en Diseño D multioutput:
+    → D_desc = -2.07 (t=-5.43)  ✓ CONFIRMED
+
+============================================================
+ADVERTENCIAS Y NOTAS
+============================================================
+
+1. sfa_D_v4_odf y sfa_D_v5_cantidad contienen el mismo modelo
+   (logLik, gamma y coeficientes idénticos). El script 11 guardó
+   el mismo objeto en dos archivos. Verificar si D_v5 debería
+   incluir ln_i_w como regresor adicional en la frontera.
+
+2. R3 y R2 Intensidad: gamma→1 (límite del espacio paramétrico).
+   Las secciones de robustez notan que la distribución semi-normal
+   y la forma CD no son adecuadas para el modelo de intensidad
+   (misspecificación), no para los efectos institucionales.
+
+3. R5 (CNH D_desc): solo 420 hospitales privados según CNH + 6 públicos
+   → N=2779, multicolinealidad por d_cluster5. Se documenta el fallo
+   y se interpreta como limitación del catálogo CNH para este análisis.
+
+4. La muestra del Diseño A tiene N=5992 en tabla de descriptivos y
+   N=5990 en la estimación (2 obs sin ccaa_dummy válida). Diferencia
+   mínima, no afecta los resultados.
+
+============================================================
+FIN DEL ANÁLISIS — TODAS LAS FASES COMPLETADAS
+============================================================

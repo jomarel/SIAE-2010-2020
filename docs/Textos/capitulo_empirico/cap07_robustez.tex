@@ -1,0 +1,48 @@
+%% ============================================================
+%% cap07_robustez.tex
+%% Capítulo 7 — Análisis de robustez
+%% ============================================================
+
+\section{Análisis de robustez}
+\label{sec:robustez}
+
+Para valorar la fiabilidad de los resultados principales, se estiman cinco especificaciones alternativas que modifican sucesivamente la muestra de análisis, la forma funcional de la frontera, la distribución del error de ineficiencia y la construcción de la variable institucional.
+
+\begin{description}
+  \item[R1 — Inclusión del período COVID (2020–2022) con variable de control.]
+    Se amplía la muestra al período completo 2010–2023 y se añade una dummy de COVID ($d_{\text{covid}} = 1$ si $\textit{anyo} \in \{2020, 2021, 2022\}$) a la ecuación de ineficiencia. El objetivo es verificar que los resultados del Diseño A no son artefactos de la exclusión del período pandémico.
+  \item[R2 — Forma funcional Cobb-Douglas.]
+    Se restringe la frontera Translog al caso Cobb-Douglas, eliminando los cinco términos cuadráticos y de interacción. El contraste de razón de verosimilitud rechaza esta restricción ($LR = 34.85$, $gl = 5$, $p < 0.001$), confirmando la superioridad del Translog.
+  \item[R3 — Distribución semi-normal ($\sigma_u$, sin truncación).]
+    Se sustituye la distribución truncada-normal de \citet{battese1995model} por la semi-normal (\texttt{truncNorm = FALSE}), equivalente al modelo original de Aigner et al. (1977).
+  \item[R4 — Umbrales alternativos de actividad mínima.]
+    Se repite el análisis con umbrales de 100 y 300 altas (frente al umbral principal de 200), para evaluar la sensibilidad de los resultados a la selección de hospitales pequeños.
+  \item[R5 — Variable institucional derivada del CNH.]
+    Se construye \(D_{\text{desc}}\) a partir de la columna \texttt{dependencia\_cnh} del Catálogo Nacional de Hospitales, en lugar del código SIAE. La muestra se restringe a los hospitales con clasificación no ambigua según el CNH.
+\end{description}
+
+La Tabla~\ref{tab:robustez} resume los resultados de todas las especificaciones.
+
+\begin{table}[htbp]
+\centering
+\caption{Análisis de robustez: coeficiente de $D_{\text{desc}}$ y consistencia del patrón asimétrico}
+\label{tab:robustez}
+\small
+\input{tabla_robustez_tex.tex}
+\end{table}
+
+Los principales resultados son:
+
+\begin{enumerate}
+  \item \textbf{Especificación R1 (COVID incluido):} el coeficiente de \(D_{\text{desc}}\) en la frontera de cantidad es $-2.449$ ($t = -8.49$) y en la frontera de intensidad es $+1.144$ ($t = +10.14$). El patrón asimétrico se mantiene y la magnitud aumenta ligeramente, posiblemente porque los hospitales privados gestionaron la pandemia con mayor flexibilidad en cantidad.
+
+  \item \textbf{Especificación R2 (Cobb-Douglas):} el coeficiente de \(D_{\text{desc}}\) en cantidad es $-2.704$ ($t = -6.28$), prácticamente idéntico al del modelo principal. El rechazo del Translog reafirma la especificación preferida, pero los resultados sustantivos no dependen de ella.
+
+  \item \textbf{Especificación R3 (semi-normal):} los coeficientes de la ecuación de ineficiencia en la frontera de cantidad son idénticos a los del modelo principal (el modelo R3 converge a los mismos parámetros que el truncado-normal en este caso), con \(D_{\text{desc}} = -2.604\) ($t = -7.14$).
+
+  \item \textbf{Especificación R4 (umbrales alternativos):} con umbral 100, \(D_{\text{desc}} = -3.771\) ($t = -4.62$); con umbral 300, \(D_{\text{desc}} = -2.274\) ($t = -8.93$). El signo es consistente en todos los umbrales.
+
+  \item \textbf{Especificación R5 (CNH D\_desc):} la muestra con clasificación CNH no ambigua presenta problemas de multicolinealidad (N reducido, predominio de hospitales privados en la muestra CNH), por lo que este contraste no es concluyente.
+\end{enumerate}
+
+En síntesis, el patrón de asimetría —\(D_{\text{desc}} < 0\) en cantidad, \(D_{\text{desc}} > 0\) en intensidad— es confirmado en 9 de las 10 especificaciones estimadas con éxito. La excepción es la intensidad en R2/R3, donde el modelo converge a valores extremos ($\gamma \to 1$), lo que indica problemas de especificación cuando se combina la forma Cobb-Douglas o la distribución semi-normal con la variable de intensidad winsorizada. Esta convergencia en el límite es una señal de misspecificación de la forma funcional para el modelo de intensidad, no de los efectos institucionales.

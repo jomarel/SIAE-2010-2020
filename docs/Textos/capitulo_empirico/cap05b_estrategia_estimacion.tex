@@ -1,0 +1,84 @@
+%% ============================================================
+%% cap05b_estrategia_estimacion.tex
+%% Capítulo 5b — Estrategia de estimación
+%% ============================================================
+
+\section{Estrategia de estimación}
+\label{sec:estrategia}
+
+\subsection{El modelo de frontera estocástica}
+\label{subsec:sfa_framework}
+
+El análisis empírico se basa en el estimador de \textbf{Frontera Estocástica de Producción} (SFA) \citep{kumbhakar2000stochastic}, que permite separar la ineficiencia técnica de la perturbación aleatoria en la función de producción. Para un panel de hospitales $i = 1, \ldots, N$ observados en períodos $t = 1, \ldots, T_i$, la función de producción estocástica se escribe:
+%
+\begin{equation}
+  \ln y_{it} = \mathbf{x}_{it}'\boldsymbol{\beta} + v_{it} - u_{it}
+  \label{eq:sfa_base}
+\end{equation}
+%
+donde $y_{it}$ es el output del hospital $i$ en el período $t$, $\mathbf{x}_{it}$ es el vector de inputs (en logaritmos), $v_{it} \sim \mathcal{N}(0, \sigma_v^2)$ es el término de error simétrico (ruido estadístico) y $u_{it} \geq 0$ es el término de ineficiencia técnica. La eficiencia técnica del hospital se define como $TE_{it} = \exp(-u_{it}) \in (0,1]$.
+
+\subsection{Especificación BC95: heterogeneidad en la media}
+\label{subsec:bc95}
+
+La especificación adoptada sigue el modelo de \citet{battese1995model}, en el que el término de ineficiencia sigue una distribución normal truncada con media variable:
+%
+\begin{equation}
+  u_{it} \sim \mathcal{N}^+(\mu_{it},\, \sigma_u^2), \qquad \mu_{it} = \mathbf{z}_{it}'\boldsymbol{\delta}
+  \label{eq:muhet}
+\end{equation}
+%
+donde $\mathbf{z}_{it}$ es el vector de variables institucionales y de entorno que explican la heterogeneidad en la ineficiencia media (especificación \emph{muhet}), y $\boldsymbol{\delta}$ es el vector de parámetros asociados. Un coeficiente $\delta_k > 0$ indica que la variable $z_k$ incrementa la ineficiencia esperada; dado que en este trabajo se utiliza el parámetro \texttt{ineffDecrease = TRUE} del paquete \texttt{frontier} \citep{coelli1999comparison}, el efecto marginal sobre la eficiencia técnica es $\partial E[TE_{it}] / \partial z_k < 0$ cuando $\delta_k > 0$.
+
+La estimación simultánea de $\boldsymbol{\beta}$ y $\boldsymbol{\delta}$ en un único paso (\emph{one-step}) evita el sesgo de selección inherente a los enfoques de dos etapas \citep{wang2002}. El estimador de eficiencia técnica utilizado es el de \citet{jondrow1982estimation}:
+%
+\begin{equation}
+  \widehat{TE}_{it} = E\!\left[\exp(-u_{it}) \mid \varepsilon_{it}\right]
+  \label{eq:jlms}
+\end{equation}
+
+\subsection{Forma funcional: Translog}
+\label{subsec:translog}
+
+La frontera de producción adopta la forma funcional Translog, que anida la Cobb-Douglas como caso particular y permite elasticidades de sustitución variables:
+%
+\begin{equation}
+  \ln y_{it} = \beta_0 + \sum_k \beta_k \tilde{x}_{k,it} + \frac{1}{2}\sum_k \beta_{kk} \tilde{x}_{k,it}^2
+    + \sum_{k<l} \beta_{kl} \tilde{x}_{k,it}\tilde{x}_{l,it}
+    + \beta_t \cdot \textit{trend} + \beta_{tt} \cdot \textit{trend}^2
+    + \sum_c \gamma_c D_{c,it} + v_{it} - u_{it}
+  \label{eq:translog}
+\end{equation}
+%
+donde $\tilde{x}_{k,it} = \ln x_{k,it} - \overline{\ln x_k}$ son los inputs centrados en la media muestral (L, K\_camas, K\_tech), \textit{trend} es una tendencia temporal normalizada, y $D_{c,it}$ son dummies de quintil de tamaño (clusters 1--5) que controlan por economías de escala asociadas al tamaño hospitalario. La especificación de robustez R2 restringe la frontera a Cobb-Douglas (elimina los términos cuadráticos y de interacción); el contraste de razón de verosimilitud rechaza esta restricción con $LR = 34.85$, $p < 0.001$.
+
+\subsection{Los cuatro diseños y su papel en la estrategia}
+\label{subsec:disenios}
+
+La identificación de las predicciones teóricas del modelo de agencia multitarea requiere cuatro diseños de estimación complementarios:
+
+\begin{description}
+  \item[Diseño A (cantidad e intensidad por separado).] Estima dos fronteras independientes sobre el hospital como unidad de análisis: una frontera de \emph{cantidad} con output $\ln(\textit{altTotal\_pond})$, y una frontera de \emph{intensidad} con output $\ln(i_{\text{diag}})$ (winsorizado). Las z-variables identifican las Predicciones P1 (D\_desc reduce ineficiencia en cantidad), P2 (D\_desc aumenta ineficiencia en intensidad) y P3 (asimetría en el mecanismo de pago). El Diseño A es el núcleo de la estrategia empírica.
+
+  \item[Diseño B (fronteras quirúrgica y médica).] Estima dos fronteras separadas para el servicio quirúrgico (output $\ln(\textit{altQ\_pond})$) y el médico (output $\ln(\textit{altM\_pond})$), con inputs específicos por servicio. Las z-variables incorporan indicadores de mezcla de servicios dentro del hospital (ShareQ, interacciones con tipo de propiedad) para contrastar las Hipótesis H\_B1–H\_B3.
+
+  \item[Diseño C (panel hospital $\times$ servicio).] Construye un panel apilado con dos filas por hospital-año (servicio quirúrgico y médico). Permite estimar el mecanismo intra-hospitalario de asignación de esfuerzo entre servicios, identificado por la interacción $\textit{ShareQ\_Cs}$ entre el mix de actividad del hospital y el tipo de servicio.
+
+  \item[Diseño D (benchmark multioutput).] Utiliza la función de distancia output (ODF) con cantidad e intensidad como outputs simultáneos. Sirve como contraste de robustez sobre la coherencia de los efectos encontrados en el Diseño A cuando se elimina la separabilidad entre outputs impuesta en ese diseño.
+\end{description}
+
+\subsection{Especificación de la ecuación de ineficiencia}
+\label{subsec:z_equation}
+
+La ecuación de ineficiencia (Diseño A, especificación principal) incluye:
+%
+\begin{equation}
+  \mu_{it} = \delta_0 + \delta_1 D_{\text{desc},it} + \delta_2 \,\textit{pct\_sns}_{it}
+           + \delta_3 (D_{\text{desc},it} \times \textit{pct\_sns}_{it})
+           + \sum_r \phi_r d_{\text{ccaa},r,it}
+  \label{eq:z_eq_A}
+\end{equation}
+%
+donde \(\textit{pct\_sns}_{it}\) es la fracción de altas financiadas por el SNS (proxy del grado de dependencia del hospital respecto al financiador público), y el término de interacción \(D_{\text{desc}} \times \textit{pct\_sns}\) (denotado \texttt{desc\_pago}) captura la asimetría del mecanismo de pago predicha por la Proposición P3. Las dummies de CCAA controlan por efectos fijos de comunidad autónoma que pueden reflejar diferencias en precios regulados, mezcla de pacientes y calidad de los datos.
+
+La especificación de robustez \emph{withShareQ} añade ShareQ y su interacción con D\_desc a la ecuación~\eqref{eq:z_eq_A} para verificar que los efectos institucionales no son espurios por omisión de la composición del mix de servicios.
